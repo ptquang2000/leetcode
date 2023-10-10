@@ -1,6 +1,6 @@
 #include "stdio.h"
 #include "unity.h"
-#include "array_string.h"
+#include "array_string/array_string.h"
 
 int main()
 {
