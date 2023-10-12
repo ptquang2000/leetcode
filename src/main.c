@@ -2,15 +2,19 @@
 #include "unity.h"
 #include "array_string/array_string.h"
 
-int main()
+void setUp(void) 
+{
+}
+
+void tearDown(void)
+{
+}
+
+int main(int argc, char** agrv)
 {
 	UNITY_BEGIN();
 
-	RUN_TEST(test1_merge_sorted_array);
-	RUN_TEST(test2_merge_sorted_array);
-	RUN_TEST(test3_merge_sorted_array);
-	RUN_TEST(test4_merge_sorted_array);
-	RUN_TEST(test5_merge_sorted_array);
+	run_array_string_tests();
 
 	return UNITY_END();
 }
