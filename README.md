@@ -17,3 +17,11 @@
 |-|-|
 |0ms|6.82MB|
 |100%|14.30%|
+
+##### 26. Remove Duplicates from Sorted Array
+ - 1 try.
+
+|Runtime|Memory|
+|-|-|
+|14ms|8.29MB|
+|40.95%|20.24%|

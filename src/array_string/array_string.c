@@ -2,6 +2,7 @@
 
 #include "merge_sorted_array.h"
 #include "remove_element.h"
+#include "remove_duplicates.h"
 #include "unity_internals.h"
 
 void run_array_string_tests(void)
@@ -14,4 +15,7 @@ void run_array_string_tests(void)
 
 	RUN_TEST(test0_remove_element);
 	RUN_TEST(test1_remove_element);
+
+	RUN_TEST(test0_remove_duplicates);
+	RUN_TEST(test1_remove_duplicates);
 }
