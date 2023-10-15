@@ -7,5 +7,6 @@ add_library(    ${PROJECT_NAME}
                 merge_sorted_array.c
                 remove_element.c
                 remove_duplicates.c
+                max_profit.c
 )
 target_link_libraries(${PROJECT_NAME} PUBLIC unity)

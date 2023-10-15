@@ -25,3 +25,12 @@
 |-|-|
 |14ms|8.29MB|
 |40.95%|20.24%|
+
+##### 121. Best Time to Buy and Sell Stock
+- 1 try.
+
+|Runtime|Memory|
+|-|-|
+|102ms|13.53MB|
+|27.56%|32.46%|
+
