@@ -42,3 +42,10 @@
 |11ms|6.76MB|
 |16.60%|15.67%|
 
+##### 58. Length of Last Word
+- 1 try.
+
+|Runtime|Memory|
+|-|-|
+|0ms|6.45MB|
+|100%|35.65%|

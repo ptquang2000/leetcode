@@ -1,5 +1,6 @@
 #include "array_string.h"
 
+#include "length_of_last_word.h"
 #include "max_profit.h"
 #include "merge_sorted_array.h"
 #include "remove_element.h"
@@ -27,4 +28,8 @@ void run_array_string_tests(void)
 	RUN_TEST(test0_roman_to_int);
 	RUN_TEST(test1_roman_to_int);
 	RUN_TEST(test2_roman_to_int);
+
+	RUN_TEST(test0_length_of_last_word);
+	RUN_TEST(test1_length_of_last_word);
+	RUN_TEST(test2_length_of_last_word);
 }

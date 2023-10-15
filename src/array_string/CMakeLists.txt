@@ -9,5 +9,6 @@ add_library(    ${PROJECT_NAME}
                 remove_duplicates.c
                 max_profit.c
                 roman_to_int.c
+                length_of_last_word.c
 )
 target_link_libraries(${PROJECT_NAME} PUBLIC unity)
