@@ -4,6 +4,7 @@
 #include "merge_sorted_array.h"
 #include "remove_element.h"
 #include "remove_duplicates.h"
+#include "roman_to_int.h"
 #include "unity_internals.h"
 
 void run_array_string_tests(void)
@@ -22,4 +23,8 @@ void run_array_string_tests(void)
 
 	RUN_TEST(test0_max_profit);
 	RUN_TEST(test1_max_profit);
+
+	RUN_TEST(test0_roman_to_int);
+	RUN_TEST(test1_roman_to_int);
+	RUN_TEST(test2_roman_to_int);
 }
