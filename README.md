@@ -49,3 +49,11 @@
 |-|-|
 |0ms|6.45MB|
 |100%|35.65%|
+
+##### 14. Longest Common Prefix
+- 2 try.
+
+|Runtime|Memory|
+|-|-|
+|4ms|6.68MB|
+|42.93%|22.08%|

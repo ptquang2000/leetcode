@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.27.7)
 project(leetcode)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(TARGET leetcode PROPERTY C_STANDARD 99)
 
 add_subdirectory(libs/Unity)
 add_subdirectory(src/array_string)

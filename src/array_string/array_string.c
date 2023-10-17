@@ -1,6 +1,7 @@
 #include "array_string.h"
 
 #include "length_of_last_word.h"
+#include "longest_common_prefix.h"
 #include "max_profit.h"
 #include "merge_sorted_array.h"
 #include "remove_element.h"
@@ -32,4 +33,8 @@ void run_array_string_tests(void)
 	RUN_TEST(test0_length_of_last_word);
 	RUN_TEST(test1_length_of_last_word);
 	RUN_TEST(test2_length_of_last_word);
+
+	RUN_TEST(test0_longest_common_prefix);
+	RUN_TEST(test1_longest_common_prefix);
+	RUN_TEST(test2_longest_common_prefix);
 }

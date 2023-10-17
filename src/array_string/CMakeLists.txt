@@ -10,5 +10,6 @@ add_library(    ${PROJECT_NAME}
                 max_profit.c
                 roman_to_int.c
                 length_of_last_word.c
+                longest_common_prefix.c
 )
 target_link_libraries(${PROJECT_NAME} PUBLIC unity)
