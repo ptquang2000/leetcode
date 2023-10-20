@@ -51,9 +51,17 @@
 |100%|35.65%|
 
 ##### 14. Longest Common Prefix
-- 2 try.
+- 2 tries.
 
 |Runtime|Memory|
 |-|-|
 |4ms|6.68MB|
 |42.93%|22.08%|
+
+##### 28. Find the Index of the First Occurrence in a String
+- 1 try.
+
+|Runtime|Memory|
+|-|-|
+|0ms|6.55MB|
+|100%|19.20%|

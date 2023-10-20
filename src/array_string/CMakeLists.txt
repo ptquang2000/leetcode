@@ -11,5 +11,6 @@ add_library(    ${PROJECT_NAME}
                 roman_to_int.c
                 length_of_last_word.c
                 longest_common_prefix.c
+                str_str.c
 )
 target_link_libraries(${PROJECT_NAME} PUBLIC unity)

@@ -7,6 +7,7 @@
 #include "remove_element.h"
 #include "remove_duplicates.h"
 #include "roman_to_int.h"
+#include "str_str.h"
 #include "unity_internals.h"
 
 void run_array_string_tests(void)
@@ -37,4 +38,7 @@ void run_array_string_tests(void)
 	RUN_TEST(test0_longest_common_prefix);
 	RUN_TEST(test1_longest_common_prefix);
 	RUN_TEST(test2_longest_common_prefix);
+
+	RUN_TEST(test0_str_str);
+	RUN_TEST(test1_str_str);
 }
