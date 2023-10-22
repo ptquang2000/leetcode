@@ -12,6 +12,5 @@ add_library(    ${PROJECT_NAME}
                 length_of_last_word.c
                 longest_common_prefix.c
                 str_str.c
-                is_palindrome.c
 )
 target_link_libraries(${PROJECT_NAME} PUBLIC unity)

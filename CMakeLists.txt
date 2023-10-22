@@ -9,6 +9,8 @@ add_link_options(-fsanitize=address)
 
 add_subdirectory(libs/Unity)
 add_subdirectory(src/array_string)
+add_subdirectory(src/two_pointers)
 add_executable(${PROJECT_NAME} src/main.c)
 target_link_libraries(${PROJECT_NAME} PUBLIC unity)
 target_link_libraries(${PROJECT_NAME} PUBLIC array_string)
+target_link_libraries(${PROJECT_NAME} PUBLIC two_pointers)

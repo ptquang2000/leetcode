@@ -1,6 +1,5 @@
 #include "array_string.h"
 
-#include "is_palindrome.h"
 #include "length_of_last_word.h"
 #include "longest_common_prefix.h"
 #include "max_profit.h"
@@ -42,14 +41,4 @@ void run_array_string_tests(void)
 
 	RUN_TEST(test0_str_str);
 	RUN_TEST(test1_str_str);
-
-	RUN_TEST(test0_is_palindrome);
-	RUN_TEST(test1_is_palindrome);
-	RUN_TEST(test2_is_palindrome);
-	RUN_TEST(test3_is_palindrome);
-	RUN_TEST(test4_is_palindrome);
-	RUN_TEST(test5_is_palindrome);
-	RUN_TEST(test6_is_palindrome);
-	RUN_TEST(test7_is_palindrome);
-	RUN_TEST(test8_is_palindrome);
 }
