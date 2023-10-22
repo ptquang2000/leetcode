@@ -65,3 +65,13 @@
 |-|-|
 |0ms|6.55MB|
 |100%|19.20%|
+
+##### 125. Valid Palindrome
+- 8 tries.
+
+|Runtime|Memory|
+|-|-|
+|0ms|7.3MB|
+|100%|13.81%|
+
+

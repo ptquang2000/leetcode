@@ -4,6 +4,8 @@ project(leetcode)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(TARGET leetcode PROPERTY C_STANDARD 99)
+add_compile_options(-fsanitize=address)
+add_link_options(-fsanitize=address)
 
 add_subdirectory(libs/Unity)
 add_subdirectory(src/array_string)
