@@ -1,7 +1,7 @@
 #include "two_pointers.h"
 
 #include "is_palindrome.h"
-#include "is_sequence.h"
+#include "is_subsequence.h"
 #include "unity_internals.h"
 
 void run_two_pointers_tests(void)

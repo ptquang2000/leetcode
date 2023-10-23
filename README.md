@@ -82,3 +82,19 @@
 |2ms|6.49MB|
 |62.11%|37.20%|
 
+##### 20. Valid Parentheses
+- 1 try.
+
+|Runtime|Memory|
+|-|-|
+|0ms|6.57MB|
+|100%|20.71%|
+
+##### 141. Linked List Cycle
+- 1 try.
+
+|Runtime|Memory|
+|-|-|
+|ms|MB|
+|%|%|
+
