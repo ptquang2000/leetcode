@@ -74,4 +74,11 @@
 |0ms|7.3MB|
 |100%|13.81%|
 
+##### 392. Is Subsequence
+- 1 try.
+
+|Runtime|Memory|
+|-|-|
+|2ms|6.49MB|
+|62.11%|37.20%|
 
