@@ -91,6 +91,14 @@
 |100%|20.71%|
 
 ##### 141. Linked List Cycle
+- 4 tries.
+
+|Runtime|Memory|
+|-|-|
+|10ms|8.8MB|
+|45.91%|10.94%|
+
+##### 21. Merge Two Sorted Lists
 - 1 try.
 
 |Runtime|Memory|
