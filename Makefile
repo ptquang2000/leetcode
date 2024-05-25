@@ -17,17 +17,16 @@ INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 # Avoiding make to restart
 .PHONY: Makefile
 
-.PHONY: clear_all
-clear_all:
+.PHONY: clean
+clean:
+	# Clearing
+	@rm -rf $(BUILD_DIR) $(SRC_DIRS)/defs.c
 	@echo Clearing all problems
 
 .PHONY: gen_all
 gen_all:
 	@echo Generating all problems
 
-.PHONY: clean
-clean:
-	@rm -rf $(BUILD_DIR)
 
 # Including .d makefiles generated from compiler
 DEPS := $(OBJS:.o=.d)
@@ -35,7 +34,17 @@ DEPS := $(OBJS:.o=.d)
 
 test_prob = $(patsubst %, test_%, $(basename $(notdir $(1))))
 test_topic = $(notdir $(realpath $(dir $(1))))
+format_func = $(patsubst %, %();, $(subst edit_defs_, , $(1)))
 
+edit_defs_%: func = $(call format_func, $@)
+edit_defs_%:
+	@sed -i '6i $(func)' $(SRC_DIRS)/defs.h
+
+.PHONY: setup
+setup:
+	@rm -rf $(BUILD_DIR) $(SRC_DIRS)/defs.c
+	@cp $(SRC_DIRS)/defs.h.template $(SRC_DIRS)/defs.h
+	
 # Building C source
 $(BUILD_DIR)/%.c.o: %.c
 	@mkdir -p $(dir $@)
@@ -56,8 +65,7 @@ $(final): $$(objs)
 %: probs = $(shell find $(SRC_DIRS) -mindepth 2 -maxdepth 2 -iname '*'$@'*.c')
 %: srcs = $(main) $(probs) $(tests) $(unity)
 %: objs = $(patsubst %, $(BUILD_DIR)/%.o, $(srcs))
-%: clean $$(objs) $(final)
-	@echo test_prob: $(call test_prob, $(probs))
-	@echo test_topic: $(call test_topic, $(probs))
+%: edit_defs = $(patsubst %, edit_defs_%, $(call test_prob, $(probs)))
+%: setup $$(edit_defs) $$(objs) $(final)
 	# Executing problems matching '$@'
 	@$(final)

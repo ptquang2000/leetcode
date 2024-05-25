@@ -1,3 +1,5 @@
+#include "stdio.h"
+
 void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n);
 
 void tc1_merge()
@@ -17,6 +19,7 @@ void tc3_merge()
 
 void test_merge()
 {
+	printf("hello from test_merge\n");
 	tc1_merge();
 	tc2_merge();
 	tc3_merge();
