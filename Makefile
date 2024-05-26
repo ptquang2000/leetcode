@@ -6,10 +6,6 @@ UNITY_DIRS := ./Unity/src
 TEST_DIRS := ./test
 SCRIPT_DIRS := ./scripts/
 
-# Find all the C and C++ files we want to compile
-# Note the single quotes around the * expressions. The shell will incorrectly expand these otherwise, but we want to send the * directly to the find command.
-SUBDIRS := $(shell find $(SRC_DIRS) -mindepth 1 -maxdepth 1 -type d)
-
 # Every folder in ./src will need to be passed to GCC so that it can find header files
 INC_DIRS := $(shell find $(SRC_DIRS) $(TEST_DIRS) -type d)
 # Add a prefix to INC_DIRS. So moduleA would become -ImoduleA. GCC understands this -I flag
@@ -23,6 +19,10 @@ topic_pattern = $(patsubst %, "*%*", $(1))
 find_c_srcs = $(shell find $(1) -name '*.c')
 find_topics = $(shell find $(1) -mindepth 2 -maxdepth 2 -type d -iname $(call topic_pattern, $(2)))
 find_srcs = $(shell find $(1) -mindepth $(2) -maxdepth $(2) -iname $(call src_pattern, $(3)))
+
+ifeq (${test},)
+test := *
+endif
 
 pattern := $(strip $(test))
 
@@ -69,8 +69,8 @@ $(BUILD_DIR)/%.c.o: %.c
 
 .PHONY: clean
 clean:
-	# Clearing
-	@echo Clearing all problems
+	rm -rf $(BUILD_DIR)
+	@sed -i '$(last_line)d' $(main_srcs)
 
 .PHONY: gen_all
 gen_all:

@@ -1,4 +1,4 @@
-#include "stdio.h"
+#include "defs.h"
 
 int removeElement(int* nums, int numsSize, int val);
 

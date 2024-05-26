@@ -1,5 +1,4 @@
-#include "stdbool.h"
-#include "stdio.h"
+#include "defs.h"
 
 bool isPalindrome(char* s);
 

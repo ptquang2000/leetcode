@@ -3,4 +3,3 @@
 
 void setUp() {}
 void tearDown() {}
-int main() {  test_merge(); }
