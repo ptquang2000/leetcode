@@ -4,6 +4,7 @@ BUILD_DIR := ./build
 SRC_DIRS := ./src
 UNITY_DIRS := ./Unity/src
 TEST_DIRS := ./test
+SCRIPT_DIRS := ./scripts/
 
 # Find all the C and C++ files we want to compile
 # Note the single quotes around the * expressions. The shell will incorrectly expand these otherwise, but we want to send the * directly to the find command.
@@ -13,14 +14,62 @@ SUBDIRS := $(shell find $(SRC_DIRS) -mindepth 1 -maxdepth 1 -type d)
 INC_DIRS := $(shell find $(SRC_DIRS) $(TEST_DIRS) -type d)
 # Add a prefix to INC_DIRS. So moduleA would become -ImoduleA. GCC understands this -I flag
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
+# The -MMD and -MP flags together generate Makefiles for us!
+# These files will have .d instead of .o as the output.
+CPPFLAGS := $(INC_FLAGS) -MMD -MP
 
-# Avoiding make to restart
-.PHONY: Makefile
+src_pattern = $(patsubst %, "*%*.c", $(1))
+topic_pattern = $(patsubst %, "*%*", $(1))
+find_c_srcs = $(shell find $(1) -name '*.c')
+find_topics = $(shell find $(1) -mindepth 2 -maxdepth 2 -type d -iname $(call topic_pattern, $(2)))
+find_srcs = $(shell find $(1) -mindepth $(2) -maxdepth $(2) -iname $(call src_pattern, $(3)))
+
+pattern := $(strip $(test))
+
+main_srcs := $(TEST_DIRS)/main.c 
+unity_srcs := $(call find_c_srcs, $(UNITY_DIRS))
+
+topic_dirs := $(call find_topics, $(SRC_DIRS), $(pattern))
+ifeq ($(topic_dirs),)
+prob_srcs := $(call find_srcs, $(SRC_DIRS), 3, $(pattern))
+test_srcs := $(call find_srcs, $(TEST_DIRS), 2, $(pattern))
+else
+prob_srcs := $(call find_c_srcs, $(topic_dirs))
+test_srcs := $(call find_c_srcs, $(addprefix $(TEST_DIRS)/, $(notdir $(topic_dirs))))
+endif
+
+SRCS := $(main_srcs) $(unity_srcs) $(prob_srcs) $(test_srcs)
+OBJS := $(patsubst %, $(BUILD_DIR)/%.o, $(SRCS))
+
+.PHONY: main
+main: setup $(BUILD_DIR)/$(TARGET_EXEC)
+	@$(BUILD_DIR)/$(TARGET_EXEC)
+
+prob_names := $(foreach problem, $(prob_srcs), $(notdir $(basename $(problem))))
+test_funcs := $(foreach prob_name, $(prob_names), $(addsuffix \(\)\;, $(addprefix test_, $(prob_name))))
+deleted_line := $(shell grep -m 1 -n 'int main()' $(main_srcs) | cut -d : -f 1)
+last_line := $(shell wc -l $(main_srcs) | cut -d ' ' -f 1)
+.PHONY: setup
+setup:
+ifeq ($(deleted_line),)
+	@sed -i '$(last_line)a int main() { $(test_funcs) }' $(main_srcs)
+else
+	@sed -i '$(last_line)a int main() { $(test_funcs) }' $(main_srcs)
+	@sed -i '$(deleted_line),$(deleted_line)d' $(main_srcs)
+endif	
+
+# The final build step.
+$(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
+	$(CXX) $(OBJS) -o $@ $(LDFLAGS)
+
+# Build step for C source
+$(BUILD_DIR)/%.c.o: %.c
+	mkdir -p $(dir $@)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
 .PHONY: clean
 clean:
 	# Clearing
-	@rm -rf $(BUILD_DIR) $(SRC_DIRS)/defs.c
 	@echo Clearing all problems
 
 .PHONY: gen_all
@@ -31,41 +80,3 @@ gen_all:
 # Including .d makefiles generated from compiler
 DEPS := $(OBJS:.o=.d)
 -include $(DEPS)
-
-test_prob = $(patsubst %, test_%, $(basename $(notdir $(1))))
-test_topic = $(notdir $(realpath $(dir $(1))))
-format_func = $(patsubst %, %();, $(subst edit_defs_, , $(1)))
-
-edit_defs_%: func = $(call format_func, $@)
-edit_defs_%:
-	@sed -i '6i $(func)' $(SRC_DIRS)/defs.h
-
-.PHONY: setup
-setup:
-	@rm -rf $(BUILD_DIR) $(SRC_DIRS)/defs.c
-	@cp $(SRC_DIRS)/defs.h.template $(SRC_DIRS)/defs.h
-	
-# Building C source
-$(BUILD_DIR)/%.c.o: %.c
-	@mkdir -p $(dir $@)
-	@$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
-
-.SECONDEXPANSION:
-
-# Linking objects
-final := $(BUILD_DIR)/$(TARGET_EXEC)
-$(final): objs = $(shell find $(BUILD_DIR) -name '*.o')
-$(final): $$(objs)
-	@$(CXX) $^ -o $@ $(LDFLAGS)
-
-# Find only sources mathing the pattern
-%: main = $(shell find $(SRC_DIRS) -mindepth 1 -maxdepth 1 -name 'main.c')
-%: unity = $(shell find $(UNITY_DIRS) -name '*.c')
-%: tests = $(shell find $(TEST_DIRS) -mindepth 2 -maxdepth 2 -iname '*'$@'*.c')
-%: probs = $(shell find $(SRC_DIRS) -mindepth 2 -maxdepth 2 -iname '*'$@'*.c')
-%: srcs = $(main) $(probs) $(tests) $(unity)
-%: objs = $(patsubst %, $(BUILD_DIR)/%.o, $(srcs))
-%: edit_defs = $(patsubst %, edit_defs_%, $(call test_prob, $(probs)))
-%: setup $$(edit_defs) $$(objs) $(final)
-	# Executing problems matching '$@'
-	@$(final)
