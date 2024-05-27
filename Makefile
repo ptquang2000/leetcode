@@ -42,8 +42,13 @@ SRCS := $(main_srcs) $(unity_srcs) $(prob_srcs) $(test_srcs)
 OBJS := $(patsubst %, $(BUILD_DIR)/%.o, $(SRCS))
 
 .PHONY: main
+ifneq ($(prob_srcs),)
 main: setup $(BUILD_DIR)/$(TARGET_EXEC)
 	@$(BUILD_DIR)/$(TARGET_EXEC)
+else
+main:
+	@echo You need to run 'make generate' first
+endif
 
 prob_names := $(foreach problem, $(prob_srcs), $(notdir $(basename $(problem))))
 test_funcs := $(foreach prob_name, $(prob_names), $(addsuffix \(\)\;, $(addprefix test_, $(prob_name))))
@@ -60,23 +65,23 @@ endif
 
 # The final build step.
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
-	$(CXX) $(OBJS) -o $@ $(LDFLAGS)
+	@$(CXX) $(OBJS) -o $@ $(LDFLAGS)
 
 # Build step for C source
 $(BUILD_DIR)/%.c.o: %.c
-	mkdir -p $(dir $@)
-	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+	@mkdir -p $(dir $@)
+	@$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
 .PHONY: clean
 clean:
 	rm -rf $(BUILD_DIR)
-	@sed -i '$(last_line)d' $(main_srcs)
-
-.PHONY: gen_all
-gen_all:
-	@echo Generating all problems
-
+	rm -rf $(SRC_DIRS)/*
+ifneq ($(deleted_line),)
+	@sed -i '$(deleted_line),$(deleted_line)d' $(main_srcs)
+endif
 
 # Including .d makefiles generated from compiler
 DEPS := $(OBJS:.o=.d)
 -include $(DEPS)
+
+include $(SCRIPT_DIRS)/gen_src.mk
