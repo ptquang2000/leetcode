@@ -14,17 +14,17 @@ INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 # These files will have .d instead of .o as the output.
 CPPFLAGS := $(INC_FLAGS) -MMD -MP
 
+pattern := $(strip $(test))
+
 src_pattern = $(patsubst %, "*%*.c", $(1))
 topic_pattern = $(patsubst %, "*%*", $(1))
 find_c_srcs = $(shell find $(1) -name '*.c')
+ifeq (${pattern},)
+find_topics = $(shell find $(1) -mindepth 2 -maxdepth 2 -type d)
+else
 find_topics = $(shell find $(1) -mindepth 2 -maxdepth 2 -type d -iname $(call topic_pattern, $(2)))
 find_srcs = $(shell find $(1) -mindepth $(2) -maxdepth $(2) -iname $(call src_pattern, $(3)))
-
-ifeq (${test},)
-test := *
 endif
-
-pattern := $(strip $(test))
 
 main_srcs := $(TEST_DIRS)/main.c 
 unity_srcs := $(call find_c_srcs, $(UNITY_DIRS))
@@ -52,8 +52,8 @@ endif
 
 prob_names := $(foreach problem, $(prob_srcs), $(notdir $(basename $(problem))))
 test_funcs := $(foreach prob_name, $(prob_names), $(addsuffix \(\)\;, $(addprefix test_, $(prob_name))))
-deleted_line := $(shell grep -m 1 -n 'int main()' $(main_srcs) | cut -d : -f 1)
-last_line := $(shell wc -l $(main_srcs) | cut -d ' ' -f 1)
+deleted_line := $(shell grep -m 1 -n 'int main()' $(main_srcs) | awk -F: '{print $$1}')
+last_line := $(shell wc -l $(main_srcs) | awk -F' ' '{print $$1}')
 .PHONY: setup
 setup:
 ifeq ($(deleted_line),)
