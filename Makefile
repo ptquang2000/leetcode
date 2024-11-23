@@ -2,46 +2,44 @@ TARGET_EXEC := $(notdir $(shell pwd))
 
 BUILD_DIR := ./build
 SRC_DIRS := ./src
-UNITY_DIRS := ./Unity/src
-TEST_DIRS := ./test
-SCRIPT_DIRS := ./scripts/
 
-# Every folder in ./src will need to be passed to GCC so that it can find header files
-INC_DIRS := $(shell find $(SRC_DIRS) $(TEST_DIRS) -type d)
-# Add a prefix to INC_DIRS. So moduleA would become -ImoduleA. GCC understands this -I flag
+INC_DIRS := $(shell find $(SRC_DIRS) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
-# The -MMD and -MP flags together generate Makefiles for us!
-# These files will have .d instead of .o as the output.
 CPPFLAGS := $(INC_FLAGS) -MMD -MP
 
-pattern := $(strip $(test))
-
-src_pattern = $(patsubst %, "*%*.c", $(1))
-topic_pattern = $(patsubst %, "*%*", $(1))
-find_c_srcs = $(shell find $(1) -name '*.c')
-ifeq (${pattern},)
-find_topics = $(shell find $(1) -mindepth 2 -maxdepth 2 -type d)
-else
-find_topics = $(shell find $(1) -mindepth 2 -maxdepth 2 -type d -iname $(call topic_pattern, $(2)))
-find_srcs = $(shell find $(1) -mindepth $(2) -maxdepth $(2) -iname $(call src_pattern, $(3)))
-endif
-
-main_srcs := $(TEST_DIRS)/main.c 
-unity_srcs := $(call find_c_srcs, $(UNITY_DIRS))
-
-topic_dirs := $(call find_topics, $(SRC_DIRS), $(pattern))
-ifeq ($(topic_dirs),)
-prob_srcs := $(call find_srcs, $(SRC_DIRS), 3, $(pattern))
-test_srcs := $(call find_srcs, $(TEST_DIRS), 2, $(pattern))
-else
-prob_srcs := $(call find_c_srcs, $(topic_dirs))
-test_srcs := $(call find_c_srcs, $(addprefix $(TEST_DIRS)/, $(notdir $(topic_dirs))))
-endif
-
-SRCS := $(main_srcs) $(unity_srcs) $(prob_srcs) $(test_srcs)
-OBJS := $(patsubst %, $(BUILD_DIR)/%.o, $(SRCS))
 
 .PHONY: main
+# To test a specific problem: 
+#	make test={PROBLEM NAMES}
+pattern := $(strip $(test))
+
+src_pattern = $(patsubst %, "*%*.c", $(pattern))
+topic_pattern = $(patsubst %, "*%*", $(pattern))
+find_c_srcs = $(shell find $(1) -name '*.c')
+ifeq (${pattern},)
+find_topics = $(shell find $(1) -mindepth 1 -maxdepth 1 -type d)
+else
+find_topics = $(shell find $(1) -mindepth 1 -maxdepth 1 -type d -iname $(call topic_pattern))
+find_srcs = $(shell find $(1) -mindepth 2 -maxdepth 2 -iname $(call src_pattern))
+endif
+
+day_num := $(words $(shell find ./ -mindepth 1 -maxdepth 1 -type d -name 'day*'))
+ifneq ($(day_num),0)
+DAY_DIR := ./$(addprefix day, $(shell expr $(day_num)))
+topic_dirs := $(call find_topics, $(DAY_DIR))
+endif
+
+ifeq ($(topic_dirs),)
+prob_srcs := $(call find_srcs, $(DAY_DIR))
+prj_srcs := $(call find_srcs, $(SRC_DIRS))
+else
+prob_srcs := $(call find_c_srcs, $(topic_dirs))
+prj_srcs := $(call find_c_srcs, $(addprefix $(SRC_DIRS)/, $(notdir $(topic_dirs))))
+endif
+
+SRCS := $(prob_srcs) $(prj_srcs)
+OBJS := $(patsubst %, $(BUILD_DIR)/%.o, $(SRCS))
+
 ifneq ($(prob_srcs),)
 main: setup $(BUILD_DIR)/$(TARGET_EXEC)
 	@$(BUILD_DIR)/$(TARGET_EXEC)
@@ -50,17 +48,19 @@ main:
 	@echo You need to run 'make generate' first
 endif
 
+
+.PHONY: setup
+main_file := $(SRC_DIRS)/main.c 
 prob_names := $(foreach problem, $(prob_srcs), $(notdir $(basename $(problem))))
 test_funcs := $(foreach prob_name, $(prob_names), $(addsuffix \(\)\;, $(addprefix test_, $(prob_name))))
-deleted_line := $(shell grep -m 1 -n 'int main()' $(main_srcs) | awk -F: '{print $$1}')
-last_line := $(shell wc -l $(main_srcs) | awk -F' ' '{print $$1}')
-.PHONY: setup
+deleted_line := $(shell grep -m 1 -n 'int main()' $(main_file) | awk -F: '{print $$1}')
+last_line := $(shell wc -l $(main_file) | awk -F' ' '{print $$1}')
 setup:
 ifeq ($(deleted_line),)
-	@sed -i '$(last_line)a int main() { $(test_funcs) }' $(main_srcs)
+	@sed -i '1a int main() { $(test_funcs) }' $(main_file)
 else
-	@sed -i '$(last_line)a int main() { $(test_funcs) }' $(main_srcs)
-	@sed -i '$(deleted_line),$(deleted_line)d' $(main_srcs)
+	@sed -i '$(last_line)a int main() { $(test_funcs) }' $(main_file)
+	@sed -i '$(deleted_line),$(deleted_line)d' $(main_file)
 endif	
 
 # The final build step.
@@ -72,16 +72,34 @@ $(BUILD_DIR)/%.c.o: %.c
 	@mkdir -p $(dir $@)
 	@$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
+
 .PHONY: clean
 clean:
 	rm -rf $(BUILD_DIR)
-	rm -rf $(SRC_DIRS)/*
+	rm -rf ./day*
 ifneq ($(deleted_line),)
-	@sed -i '$(deleted_line),$(deleted_line)d' $(main_srcs)
+	@sed -i '$(deleted_line),$(deleted_line)d' $(main_file)
 endif
 
 # Including .d makefiles generated from compiler
 DEPS := $(OBJS:.o=.d)
 -include $(DEPS)
 
-include $(SCRIPT_DIRS)/gen_src.mk
+
+.PHONY: generate
+include data.mk
+get_srcs = $(patsubst %, $(1)/%.c, $(value $(notdir $(1))))
+NEW_DAY := ./$(addprefix day, $(shell expr $(day_num) + 1))
+NEW_SRCS := $(foreach topic, $(DSA_TOPICS), $(call get_srcs, $(NEW_DAY)/$(topic)))
+
+$(NEW_SRCS): def_func = $(notdir $(basename $@))
+$(NEW_SRCS):
+	# Generating $@
+	@mkdir -p $(dir $@)
+	@touch $@
+	@echo '#include "defs.h"' >> $@
+	@echo '' >> $@
+	@echo '$(value $(def_func))' >> $@
+	@echo '}' >> $@
+
+generate: $(NEW_SRCS)
