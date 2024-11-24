@@ -29,6 +29,8 @@ DAY_DIR := ./$(addprefix day, $(shell expr $(day_num)))
 topic_dirs := $(call find_topics, $(DAY_DIR))
 endif
 
+main_file := $(SRC_DIRS)/main.c 
+
 ifeq ($(topic_dirs),)
 prob_srcs := $(call find_srcs, $(DAY_DIR))
 prj_srcs := $(call find_srcs, $(SRC_DIRS))
@@ -37,7 +39,9 @@ prob_srcs := $(call find_c_srcs, $(topic_dirs))
 prj_srcs := $(call find_c_srcs, $(addprefix $(SRC_DIRS)/, $(notdir $(topic_dirs))))
 endif
 
-SRCS := $(prob_srcs) $(prj_srcs)
+PCH:= $(SRC_DIRS)/pch.h
+GCH := $(patsubst %, $(BUILD_DIR)/%.gch, $(PCH))
+SRCS := $(prob_srcs) $(prj_srcs) $(main_file)
 OBJS := $(patsubst %, $(BUILD_DIR)/%.o, $(SRCS))
 
 ifneq ($(prob_srcs),)
@@ -50,36 +54,31 @@ endif
 
 
 .PHONY: setup
-main_file := $(SRC_DIRS)/main.c 
 prob_names := $(foreach problem, $(prob_srcs), $(notdir $(basename $(problem))))
-test_funcs := $(foreach prob_name, $(prob_names), $(addsuffix \(\)\;, $(addprefix test_, $(prob_name))))
-deleted_line := $(shell grep -m 1 -n 'int main()' $(main_file) | awk -F: '{print $$1}')
-last_line := $(shell wc -l $(main_file) | awk -F' ' '{print $$1}')
+test_funcs := $(foreach prob_name, $(prob_names), $(addsuffix \(\)\;\n, $(addprefix test_, $(prob_name))))
 setup:
-ifeq ($(deleted_line),)
-	@sed -i '1a int main() { $(test_funcs) }' $(main_file)
-else
-	@sed -i '$(last_line)a int main() { $(test_funcs) }' $(main_file)
-	@sed -i '$(deleted_line),$(deleted_line)d' $(main_file)
-endif	
+	@echo 'int main() {' > $(main_file)
+	@sed -i '/main/a }' $(main_file)
+	@sed -i '/}/i $(test_funcs)' $(main_file)
 
-# The final build step.
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 	@$(CXX) $(OBJS) -o $@ $(LDFLAGS)
 
-# Build step for C source
-$(BUILD_DIR)/%.c.o: %.c
+$(GCH): $(PCH)
 	@mkdir -p $(dir $@)
 	@$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/%.c.o: %.c $(GCH) 
+	# $@
+	@mkdir -p $(dir $@)
+	@$(CC) $(CPPFLAGS) $(CFLAGS) -include $(PCH)  -c $< -o $@
 
 
 .PHONY: clean
 clean:
 	rm -rf $(BUILD_DIR)
 	rm -rf ./day*
-ifneq ($(deleted_line),)
-	@sed -i '$(deleted_line),$(deleted_line)d' $(main_file)
-endif
+	> $(main_file)
 
 # Including .d makefiles generated from compiler
 DEPS := $(OBJS:.o=.d)
@@ -97,7 +96,6 @@ $(NEW_SRCS):
 	# Generating $@
 	@mkdir -p $(dir $@)
 	@touch $@
-	@echo '#include "defs.h"' >> $@
 	@echo '' >> $@
 	@echo '$(value $(def_func))' >> $@
 	@echo '}' >> $@
