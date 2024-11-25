@@ -59,7 +59,8 @@ $(BUILD_DIR)/%.c.o: %.c $(GCH)
 
 
 .PHONY: setup
-prob_names := $(foreach problem, $(prob_srcs), $(notdir $(basename $(problem))))
+get_prob_name = $(notdir $(realpath $(dir $(1))))_$(notdir $(basename $(1)))
+prob_names := $(foreach problem, $(prob_srcs), $(call get_prob_name, $(problem)))
 format_funcs = $(patsubst %, test_%\(\)\;\n, $(1))
 test_funcs := $(foreach prob_name, $(prob_names), $(call format_funcs, $(prob_name)))
 setup:
@@ -74,7 +75,7 @@ endif
 clean:
 	rm -rf $(BUILD_DIR)
 	rm -rf ./day*
-	rm $(MAIN_FILE)
+	rm -f $(MAIN_FILE)
 
 # Including .d makefiles generated from compiler
 DEPS := $(OBJS:.o=.d)

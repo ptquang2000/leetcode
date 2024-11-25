@@ -1,25 +1,25 @@
 // Declaration:
-bool isPalindrome(char* s);
+bool TwoPointers_isPalindrome(char* s, int sSzie);
 
-void tc1_isPalindrome()
+static void tc1()
 {
-	isPalindrome(0);
+	TwoPointers_isPalindrome(0, 0);
 }
 
-void tc2_isPalindrome()
+static void tc2()
 {
-	isPalindrome(0);
+	TwoPointers_isPalindrome(0, 0);
 }
 
-void tc3_isPalindrome()
+static void tc3()
 {
-	isPalindrome(0);
+	TwoPointers_isPalindrome(0, 0);
 }
 
-void test_isPalindrome()
+void test_TwoPointers_isPalindrome()
 {
 	printf("hello from test_isPalindrome\n");
-	tc1_isPalindrome();
-	tc2_isPalindrome();
-	tc3_isPalindrome();
+	tc1();
+	tc2();
+	tc3();
 }

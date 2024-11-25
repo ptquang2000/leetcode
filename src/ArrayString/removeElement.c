@@ -1,19 +1,19 @@
 // Declaration:
-int removeElement(int* nums, int numsSize, int val);
+int ArrayString_removeElement(int* nums, int numsSize, int val);
 
-void tc1_removeElement()
+static void tc1()
 {
-	removeElement(0, 0, 0);
+	ArrayString_removeElement(0, 0, 0);
 }
 
-void tc2_removeElement()
+static void tc2()
 {
-	removeElement(0, 0, 0);
+	ArrayString_removeElement(0, 0, 0);
 }
 
-void test_removeElement() 
+void test_ArrayString_removeElement() 
 {
 	printf("hello from test_removeElement\n");
-	tc1_removeElement();
-	tc2_removeElement();
+	tc1();
+	tc2();
 }

@@ -1,25 +1,25 @@
 // Declaration:
-void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n);
+void ArrayString_merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n);
 
-void tc1_merge()
+static void tc1()
 {
-	merge(0, 0, 0, 0, 0, 0);
+	ArrayString_merge(0, 0, 0, 0, 0, 0);
 }
 
-void tc2_merge()
+static void tc2()
 {
-	merge(0, 0, 0, 0, 0, 0);
+	ArrayString_merge(0, 0, 0, 0, 0, 0);
 }
 
-void tc3_merge()
+static void tc3()
 {
-	merge(0, 0, 0, 0, 0, 0);
+	ArrayString_merge(0, 0, 0, 0, 0, 0);
 }
 
-void test_merge()
+void test_ArrayString_merge()
 {
 	printf("hello from test_merge\n");
-	tc1_merge();
-	tc2_merge();
-	tc3_merge();
+	tc1();
+	tc2();
+	tc3();
 }
