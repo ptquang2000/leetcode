@@ -1,3 +1,4 @@
 .cache
 build
 day*
+src/main.c
