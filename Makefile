@@ -3,7 +3,7 @@ TARGET_EXEC := $(notdir $(shell pwd))
 BUILD_DIR := ./build
 SRC_DIRS := ./src
 PROJ_SRCS := $(shell find $(SRC_DIRS) -maxdepth 1 -name '*.c')
-MAIN_FILE := $(filter %main.c, $(PROJ_SRCS))
+MAIN_FILE := $(SRC_DIRS)/main.c
 
 INC_DIRS := $(shell find $(SRC_DIRS) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
@@ -35,7 +35,7 @@ endif
 
 PCH := $(SRC_DIRS)/pch.h
 GCH := $(patsubst %, $(BUILD_DIR)/%.gch, $(PCH))
-SRCS := $(prob_srcs) $(proj_srcs)
+SRCS := $(MAIN_FILE) $(prob_srcs) $(proj_srcs)
 OBJS := $(patsubst %, $(BUILD_DIR)/%.o, $(SRCS))
 
 ifneq ($(day_dir),)
@@ -74,7 +74,7 @@ endif
 clean:
 	rm -rf $(BUILD_DIR)
 	rm -rf ./day*
-	> $(MAIN_FILE)
+	rm $(MAIN_FILE)
 
 # Including .d makefiles generated from compiler
 DEPS := $(OBJS:.o=.d)
