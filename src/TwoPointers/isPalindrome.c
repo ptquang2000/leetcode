@@ -1,4 +1,4 @@
-
+// Declaration:
 bool isPalindrome(char* s);
 
 void tc1_isPalindrome()

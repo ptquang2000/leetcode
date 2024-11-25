@@ -1,4 +1,4 @@
-
+// Declaration:
 int removeElement(int* nums, int numsSize, int val);
 
 void tc1_removeElement()

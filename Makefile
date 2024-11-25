@@ -2,8 +2,8 @@ TARGET_EXEC := $(notdir $(shell pwd))
 
 BUILD_DIR := ./build
 SRC_DIRS := ./src
-BASED_SRCS := $(shell find $(SRC_DIRS) -maxdepth 1 -name '*.c')
-MAIN_FILE := $(filter %main.c, $(BASED_SRCS))
+PROJ_SRCS := $(shell find $(SRC_DIRS) -maxdepth 1 -name '*.c')
+MAIN_FILE := $(filter %main.c, $(PROJ_SRCS))
 
 INC_DIRS := $(shell find $(SRC_DIRS) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
@@ -11,54 +11,39 @@ CPPFLAGS := $(INC_FLAGS) -MMD -MP
 
 day_num := $(words $(shell find ./ -maxdepth 1 -type d -name 'day*'))
 ifneq ($(day_num),0)
-DAY_DIR := ./$(addprefix day, $(shell expr $(day_num)))
+day_dir := ./$(addprefix day, $(shell expr $(day_num)))
 endif
 
 .PHONY: main
 pattern := $(strip $(test))
 ifeq (${pattern},)
 find_srcs = $(shell find $(1) -name '*.c')
-prob_srcs := $(call find_srcs, $(DAY_DIR))
-prj_srcs := $(call find_srcs, $(SRC_DIRS))
+prob_srcs := $(call find_srcs, $(day_dir))
+proj_srcs := $(call find_srcs, $(SRC_DIRS))
 else
 find_topics = $(shell find $(1) -maxdepth 1 -type d -iname '*$(pattern)*')
 topic_dirs := $(call find_topics, $(SRC_DIRS))
-
-ifneq ($(topic_dirs),)
-find_srcs = $(shell find $(addprefix $(1)/, $(notdir $(topic_dirs))) -name '*.c')
-prob_srcs := $(call find_srcs, $(DAY_DIR))
-prj_srcs := $(call find_srcs, $(SRC_DIRS))
-else
+ifeq ($(topic_dirs),)
 find_srcs = $(shell find $(1) -mindepth 2 -iname '*$(pattern)*.c')
-prob_srcs := $(call find_srcs, $(DAY_DIR))
-prj_srcs := $(call find_srcs, $(SRC_DIRS))
+else
+find_srcs = $(shell find $(addprefix $(1)/, $(notdir $(topic_dirs))) -name '*.c')
+endif
+prob_srcs := $(call find_srcs, $(day_dir))
+proj_srcs := $(call find_srcs, $(SRC_DIRS))
+proj_srcs += $(PROJ_SRCS)
 endif
 
-prj_srcs += $(BASED_SRCS)
-endif
-
-PCH:= $(SRC_DIRS)/pch.h
+PCH := $(SRC_DIRS)/pch.h
 GCH := $(patsubst %, $(BUILD_DIR)/%.gch, $(PCH))
-SRCS := $(prob_srcs) $(prj_srcs)
+SRCS := $(prob_srcs) $(proj_srcs)
 OBJS := $(patsubst %, $(BUILD_DIR)/%.o, $(SRCS))
 
-ifneq ($(DAY_DIR),)
+ifneq ($(day_dir),)
 main: setup $(BUILD_DIR)/$(TARGET_EXEC)
 	@$(BUILD_DIR)/$(TARGET_EXEC)
 else
 main:
 	@echo You need to run 'make generate' first
-endif
-
-
-.PHONY: setup
-prob_names := $(foreach problem, $(prob_srcs), $(notdir $(basename $(problem))))
-test_funcs := $(foreach prob_name, $(prob_names), $(addsuffix \(\)\;\n, $(addprefix test_, $(prob_name))))
-setup:
-	@echo 'int main() {' > $(MAIN_FILE)
-	@sed -i '/main/a }' $(MAIN_FILE)
-ifneq ($(test_funcs),)
-	@sed -i '/}/i $(test_funcs)' $(MAIN_FILE)
 endif
 
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
@@ -73,6 +58,18 @@ $(BUILD_DIR)/%.c.o: %.c $(GCH)
 	@$(CC) $(CPPFLAGS) $(CFLAGS) -include $(PCH)  -c $< -o $@
 
 
+.PHONY: setup
+prob_names := $(foreach problem, $(prob_srcs), $(notdir $(basename $(problem))))
+format_funcs = $(patsubst %, test_%\(\)\;\n, $(1))
+test_funcs := $(foreach prob_name, $(prob_names), $(call format_funcs, $(prob_name)))
+setup:
+	@echo 'int main() {' > $(MAIN_FILE)
+	@sed -i '/main/a }' $(MAIN_FILE)
+ifneq ($(test_funcs),)
+	@sed -i '/}/i\ $(test_funcs)' $(MAIN_FILE)
+endif
+
+
 .PHONY: clean
 clean:
 	rm -rf $(BUILD_DIR)
@@ -85,18 +82,20 @@ DEPS := $(OBJS:.o=.d)
 
 
 .PHONY: generate
-include data.mk
-get_srcs = $(patsubst %, $(1)/%.c, $(value $(notdir $(1))))
+ALL_TOPIC_DIRS := $(shell find $(SRC_DIRS) -mindepth 1 -maxdepth 1 -type d)
+ALL_PROB_SRCS := $(foreach topic_dir, $(ALL_TOPIC_DIRS), $(shell find $(topic_dir) -name '*.c'))
 NEW_DAY := ./$(addprefix day, $(shell expr $(day_num) + 1))
-NEW_SRCS := $(foreach topic, $(DSA_TOPICS), $(call get_srcs, $(NEW_DAY)/$(topic)))
+NEW_PROB_SRCS := $(patsubst $(SRC_DIRS)%, $(NEW_DAY)%, $(ALL_PROB_SRCS))
 
-$(NEW_SRCS): def_func = $(notdir $(basename $@))
-$(NEW_SRCS):
+$(NEW_PROB_SRCS): prob_src = $(patsubst $(NEW_DAY)%, $(SRC_DIRS)%, ./$@)
+$(NEW_PROB_SRCS): func_dec = $(shell awk '/Declaration/{getline; print}' $(prob_src))
+$(NEW_PROB_SRCS): func_def = $(patsubst %;, % {, $(func_dec))
+$(NEW_PROB_SRCS):
 	# Generating $@
 	@mkdir -p $(dir $@)
 	@touch $@
 	@echo '' >> $@
-	@echo '$(value $(def_func))' >> $@
+	@echo '$(func_def)' >> $@
 	@echo '}' >> $@
 
-generate: $(NEW_SRCS)
+generate: $(NEW_PROB_SRCS)

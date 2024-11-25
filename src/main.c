@@ -1,6 +1,6 @@
 int main() {
-test_isPalindrome();
-  test_removeElement();
-  test_merge();
+   test_isPalindrome();
+   test_removeElement();
+   test_merge();
 
 }
