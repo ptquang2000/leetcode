@@ -1,5 +1,4 @@
-#include "ArrayString/array_string.h"
-#include "TwoPointers/two_pointers.h"
+#include "utils.h"
 
 #include <stdio.h>
 #include <string.h>

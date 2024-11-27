@@ -1,3 +1,5 @@
+#include "pch.h"
+
 // Declaration:
 bool TwoPointers_isPalindrome(char* s, int sSzie);
 

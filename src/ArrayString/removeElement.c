@@ -1,3 +1,5 @@
+#include "pch.h"
+
 // Declaration:
 int ArrayString_removeElement(int* nums, int numsSize, int val);
 

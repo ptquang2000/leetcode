@@ -2,6 +2,7 @@ TARGET_EXEC := $(notdir $(shell pwd))
 
 BUILD_DIR := ./build
 SRC_DIRS := ./src
+ALL_TOPIC_DIRS := $(shell find $(SRC_DIRS) -mindepth 1 -maxdepth 1 -type d)
 PROJ_SRCS := $(shell find $(SRC_DIRS) -maxdepth 1 -name '*.c')
 MAIN_FILE := $(SRC_DIRS)/main.c
 
@@ -35,7 +36,7 @@ endif
 
 PCH := $(SRC_DIRS)/pch.h
 GCH := $(patsubst %, $(BUILD_DIR)/%.gch, $(PCH))
-SRCS := $(MAIN_FILE) $(prob_srcs) $(proj_srcs)
+SRCS := $(prob_srcs) $(proj_srcs)
 OBJS := $(patsubst %, $(BUILD_DIR)/%.o, $(SRCS))
 
 ifneq ($(day_dir),)
@@ -53,19 +54,34 @@ $(GCH): $(PCH)
 	@mkdir -p $(dir $@)
 	@$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
-$(BUILD_DIR)/%.c.o: %.c $(GCH) 
+$(BUILD_DIR)/$(SRC_DIRS)/%.c.o: $(SRC_DIRS)/%.c $(GCH) 
+	# Compiling $<
 	@mkdir -p $(dir $@)
-	@$(CC) $(CPPFLAGS) $(CFLAGS) -include $(PCH)  -c $< -o $@
+	@$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/$(day_dir)/%.c.o: $(day_dir)/%.c $(GCH) 
+	# Compiling $<
+	@mkdir -p $(dir $@)
+	@$(CC) $(CPPFLAGS) $(CFLAGS) -include $(PCH) -c $< -o $@
 
 
 .PHONY: setup
+
+all_topics := $(foreach topic, $(ALL_TOPIC_DIRS), $(notdir $(topic))/$(notdir $(topic)))
+format_header = $(patsubst %,#include "%.h"\n, $(1))
+include_headers := $(foreach header, $(all_topics), $(call format_header, $(header)))
+
 get_prob_name = $(notdir $(realpath $(dir $(1))))_$(notdir $(basename $(1)))
 prob_names := $(foreach problem, $(prob_srcs), $(call get_prob_name, $(problem)))
 format_funcs = $(patsubst %, test_%\(\)\;\n, $(1))
 test_funcs := $(foreach prob_name, $(prob_names), $(call format_funcs, $(prob_name)))
+
 setup:
-	@echo 'int main() {' > $(MAIN_FILE)
-	@sed -i '/main/a }' $(MAIN_FILE)
+ifneq ($(include_headers),)
+	@echo -e '$(include_headers)' > $(MAIN_FILE)
+endif
+	@echo -e 'int main() \n{' >> $(MAIN_FILE)
+	@sed -i '/{/a }' $(MAIN_FILE)
 ifneq ($(test_funcs),)
 	@sed -i '/}/i\ $(test_funcs)' $(MAIN_FILE)
 endif
@@ -83,20 +99,18 @@ DEPS := $(OBJS:.o=.d)
 
 
 .PHONY: generate
-ALL_TOPIC_DIRS := $(shell find $(SRC_DIRS) -mindepth 1 -maxdepth 1 -type d)
 ALL_PROB_SRCS := $(foreach topic_dir, $(ALL_TOPIC_DIRS), $(shell find $(topic_dir) -name '*.c'))
 NEW_DAY := ./$(addprefix day, $(shell expr $(day_num) + 1))
 NEW_PROB_SRCS := $(patsubst $(SRC_DIRS)%, $(NEW_DAY)%, $(ALL_PROB_SRCS))
 
 $(NEW_PROB_SRCS): prob_src = $(patsubst $(NEW_DAY)%, $(SRC_DIRS)%, ./$@)
 $(NEW_PROB_SRCS): func_dec = $(shell awk '/Declaration/{getline; print}' $(prob_src))
-$(NEW_PROB_SRCS): func_def = $(patsubst %;, % {, $(func_dec))
+$(NEW_PROB_SRCS): func_def = $(patsubst %;, %\n{, $(func_dec))
 $(NEW_PROB_SRCS):
 	# Generating $@
 	@mkdir -p $(dir $@)
 	@touch $@
-	@echo '' >> $@
-	@echo '$(func_def)' >> $@
-	@echo '}' >> $@
+	@echo -e '$(func_def)' >> $@
+	@echo -e '}' >> $@
 
 generate: $(NEW_PROB_SRCS)
