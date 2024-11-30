@@ -3,70 +3,113 @@
 #include <assert.h>
 #include <stdarg.h>
 #include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 
-typedef enum UtilsType_enum
-{
-    UTYPE_BOOL,
-    UTYPE_INT,
-    UTYPE_INT_PTR,
-    UTYPE_CHAR,
-    UTYPE_STRING,
-    UTYPE_COUNT,
-} UtilsType;
+void utils_print(const char* i_format, ...);
 
-#define UTYPE(value)                                                                                                   \
-    _Generic((value),                                                                                                  \
-        int: UTYPE_INT,                                                                                                \
-        int*: UTYPE_INT_PTR,                                                                                           \
-        char: UTYPE_CHAR,                                                                                              \
-        char*: UTYPE_STRING,                                                                                           \
-        const char*: UTYPE_STRING),                                                                                    \
-        &value
+#define ASSERT_EQUAL(file, func, line, actual, expect)                                                                 \
+    while (actual != expect)                                                                                           \
+    {                                                                                                                  \
+        utils_print("\n-----------------------------------------------------");                                        \
+        utils_print("FAILED: {}", UTYPE(func));                                                                        \
+        utils_print("File {} at line {}:", UTYPE(file), UTYPE(line));                                                  \
+        utils_print("Expected {} got {}.", UTYPE(expect), UTYPE(actual));                                              \
+        utils_print("-----------------------------------------------------\n");                                        \
+        __builtin_trap();                                                                                              \
+    }
 
-void utils_print_format(UtilsType i_type, void* i_value)
+#define ASSERT_ARRAY_EQUAL(file, func, line, size, actual, expect)                                                     \
+    int i = 0;                                                                                                         \
+    do                                                                                                                 \
+    {                                                                                                                  \
+        *actual != *expect;                                                                                            \
+        if (*actual != *expect)                                                                                        \
+        {                                                                                                              \
+            utils_print("\n-----------------------------------------------------");                                    \
+            utils_print("FAILED: {}", UTYPE(func));                                                                    \
+            utils_print("File {} at line {}:", UTYPE(file), UTYPE(line));                                              \
+            utils_print("Expected {} got {} at index {}.", UTYPE(expect), UTYPE(actual), UTYPE(i));                    \
+            utils_print("-----------------------------------------------------\n");                                    \
+            __builtin_trap();                                                                                          \
+        }                                                                                                              \
+        i++;                                                                                                           \
+        expect++;                                                                                                      \
+        actual++;                                                                                                      \
+    } while (i < size);
+
+////////////////////////////////////////////////////////////////////////////////
+
+void utils_format_bool(void* i_value)
 {
-    char buffer[128];
-    switch (i_type)
-    {
-    case UTYPE_BOOL: {
-        bool value = *((bool*)(i_value));
-        if (value)
-        {
-            printf("true");
-        }
-        else
-        {
-            printf("false");
-        }
-    }
-    break;
-    case UTYPE_INT: {
-        int value = *((int*)(i_value));
-        printf("%d", value);
-    }
-    break;
-    case UTYPE_INT_PTR: {
-        int* value = *((int**)(i_value));
-        printf("%d", *value);
-    }
-    break;
-    case UTYPE_CHAR: {
-        char value = *((char*)(i_value));
-        printf("%c", value);
-    }
-    break;
-    case UTYPE_STRING: {
-        char* value = *((char**)(i_value));
-        printf("%s", value);
-    }
-    break;
-    default:
-        printf("Unsupported printing format");
-        assert(false);
-    }
+    bool value = *((bool*)(i_value));
+    if (value)
+        printf("true");
+    else
+        printf("false");
 }
+
+////////////////////////////////////////////////////////////////////////////////
+
+void utils_format_bool_ptr(void* i_value)
+{
+    bool* value = *((bool**)(i_value));
+    if (*value)
+        printf("true");
+    else
+        printf("false");
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void utils_format_int(void* i_value)
+{
+    int value = *((int*)(i_value));
+    printf("%d", value);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void utils_format_int_ptr(void* i_value)
+{
+    int* value = *((int**)(i_value));
+    printf("%d", *value);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void utils_format_char(void* i_value)
+{
+    char value = *((char*)(i_value));
+    printf("\"%c\"", value);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void utils_format_char_ptr(void* i_value)
+{
+    char* value = *((char**)(i_value));
+    printf("\"%c\"", *value);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void utils_format_string(void* i_value)
+{
+    char* value = *((char**)(i_value));
+    printf("\"%s\"", value);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+static void (*s_utils_print_format[UTYPE_COUNT])(void*) = {
+    utils_format_bool, utils_format_bool_ptr, utils_format_int,    utils_format_int_ptr,
+    utils_format_char, utils_format_char_ptr, utils_format_string,
+};
+
+////////////////////////////////////////////////////////////////////////////////
 
 void utils_print(const char* i_format, ...)
 {
@@ -85,46 +128,88 @@ void utils_print(const char* i_format, ...)
 
         UtilsType type = va_arg(args, UtilsType);
         void* value = va_arg(args, void*);
-        utils_print_format(type, value);
+        s_utils_print_format[type](value);
 
         next++;
         last = next;
     }
     va_end(args);
 
+    if (last == i_format)
+    {
+        printf("%s", i_format);
+    }
+
     printf("\n");
 }
 
-void utils_assert_equal_int(char* i_file, const char* i_func, int i_line, int i_actual, int i_expect)
-{
-    while (i_actual != i_expect)
-    {
-        utils_print("FAILED: {}", UTYPE(i_func));
-        utils_print("File \"{}\" at line {}:", UTYPE(i_file), UTYPE(i_line));
-        utils_print("Expected {} got {}.", UTYPE(i_expect), UTYPE(i_actual));
+////////////////////////////////////////////////////////////////////////////////
 
-        __builtin_trap();
+void utils_assert_equal(const char* i_file, const char* i_func, int i_line, UtilsType i_type, ...)
+{
+    va_list args;
+    va_start(args, i_type);
+
+    switch (i_type)
+    {
+    case UTYPE_BOOL: {
+        bool actual = va_arg(args, int);
+        bool expect = va_arg(args, int);
+        ASSERT_EQUAL(i_file, i_func, i_line, actual, expect);
     }
+    break;
+    case UTYPE_CHAR: {
+        char actual = va_arg(args, int);
+        char expect = va_arg(args, int);
+        ASSERT_EQUAL(i_file, i_func, i_line, actual, expect);
+    }
+    break;
+    case UTYPE_INT: {
+        int actual = va_arg(args, int);
+        int expect = va_arg(args, int);
+        ASSERT_EQUAL(i_file, i_func, i_line, actual, expect);
+    }
+    break;
+    default:
+        assert(false);
+    }
+    va_end(args);
 }
 
-void utils_assert_equal_int_array(char* i_file, const char* i_func, int i_line, int* i_actual, int* i_expect,
-                                  int i_size)
+////////////////////////////////////////////////////////////////////////////////
+
+void utils_assert_equal_array(const char* i_file, const char* i_func, int i_line, UtilsType i_type, ...)
 {
-    int i = 0;
-    char buffer[128];
-    while (i < i_size)
+    va_list args;
+    va_start(args, i_type);
+    switch (i_type)
     {
-        if (*i_actual != *i_expect)
-        {
-            utils_print("FAILED: {}", UTYPE(i_func));
-            utils_print("File \"{}\" at line {}:", UTYPE(i_file), UTYPE(i_line));
-            utils_print("Expected {} got {} at index {}.", UTYPE(i_expect), UTYPE(i_actual), UTYPE(i));
-
-            __builtin_trap();
-        }
-
-        i++;
-        i_expect++;
-        i_actual++;
+    case UTYPE_BOOL: {
+        bool* actual = va_arg(args, bool*);
+        bool* expect = va_arg(args, bool*);
+        int size = va_arg(args, int);
+        ASSERT_ARRAY_EQUAL(i_file, i_func, i_line, size, actual, expect);
     }
+    break;
+    case UTYPE_CHAR: {
+        char* actual = va_arg(args, char*);
+        char* expect = va_arg(args, char*);
+        int size = va_arg(args, int);
+        ASSERT_ARRAY_EQUAL(i_file, i_func, i_line, size, actual, expect);
+    }
+    break;
+    case UTYPE_INT: {
+        int* actual = va_arg(args, int*);
+        int* expect = va_arg(args, int*);
+        int size = va_arg(args, int);
+        ASSERT_ARRAY_EQUAL(i_file, i_func, i_line, size, actual, expect);
+    }
+    break;
+    default:
+        printf("Unsupported Type %d\n", i_type);
+        assert(false);
+    }
+    va_end(args);
 }
+
+////////////////////////////////////////////////////////////////////////////////

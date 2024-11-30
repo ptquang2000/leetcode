@@ -7,12 +7,12 @@
       "-I./src/ArrayString",
       "-c",
       "-o",
-      "build/./src/pch.h.gch",
-      "src/pch.h"
+      "build/./src/ArrayString/multiply.c.o",
+      "src/ArrayString/multiply.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/pch.h",
-    "output": "/home/quang/leetcode/build/src/pch.h.gch"
+    "file": "/home/quang/leetcode/src/ArrayString/multiply.c",
+    "output": "/home/quang/leetcode/build/src/ArrayString/multiply.c.o"
   },
   {
     "arguments": [
@@ -20,8 +20,36 @@
       "-I./src",
       "-I./src/TwoPointers",
       "-I./src/ArrayString",
-      "-include",
-      "./src/pch.h",
+      "-c",
+      "-o",
+      "build/./src/ArrayString/plusOne.c.o",
+      "src/ArrayString/plusOne.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/ArrayString/plusOne.c",
+    "output": "/home/quang/leetcode/build/src/ArrayString/plusOne.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/TwoPointers",
+      "-I./src/ArrayString",
+      "-c",
+      "-o",
+      "build/./src/ArrayString/nextPermutation.c.o",
+      "src/ArrayString/nextPermutation.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/ArrayString/nextPermutation.c",
+    "output": "/home/quang/leetcode/build/src/ArrayString/nextPermutation.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/TwoPointers",
+      "-I./src/ArrayString",
       "-c",
       "-o",
       "build/./src/main.c.o",
@@ -30,141 +58,5 @@
     "directory": "/home/quang/leetcode",
     "file": "/home/quang/leetcode/src/main.c",
     "output": "/home/quang/leetcode/build/src/main.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/TwoPointers",
-      "-I./src/ArrayString",
-      "-include",
-      "./src/pch.h",
-      "-c",
-      "-o",
-      "build/./day1/TwoPointers/isPalindrome.c.o",
-      "day1/TwoPointers/isPalindrome.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/TwoPointers/isPalindrome.c",
-    "output": "/home/quang/leetcode/build/day1/TwoPointers/isPalindrome.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/TwoPointers",
-      "-I./src/ArrayString",
-      "-include",
-      "./src/pch.h",
-      "-c",
-      "-o",
-      "build/./day1/ArrayString/removeElement.c.o",
-      "day1/ArrayString/removeElement.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/removeElement.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/removeElement.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/TwoPointers",
-      "-I./src/ArrayString",
-      "-include",
-      "./src/pch.h",
-      "-c",
-      "-o",
-      "build/./day1/ArrayString/applyPermutation.c.o",
-      "day1/ArrayString/applyPermutation.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/applyPermutation.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/applyPermutation.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/TwoPointers",
-      "-I./src/ArrayString",
-      "-include",
-      "./src/pch.h",
-      "-c",
-      "-o",
-      "build/./day1/ArrayString/merge.c.o",
-      "day1/ArrayString/merge.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/merge.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/merge.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/TwoPointers",
-      "-I./src/ArrayString",
-      "-include",
-      "./src/pch.h",
-      "-c",
-      "-o",
-      "build/./src/TwoPointers/isPalindrome.c.o",
-      "src/TwoPointers/isPalindrome.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/TwoPointers/isPalindrome.c",
-    "output": "/home/quang/leetcode/build/src/TwoPointers/isPalindrome.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/TwoPointers",
-      "-I./src/ArrayString",
-      "-include",
-      "./src/pch.h",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/removeElement.c.o",
-      "src/ArrayString/removeElement.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/removeElement.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/removeElement.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/TwoPointers",
-      "-I./src/ArrayString",
-      "-include",
-      "./src/pch.h",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/applyPermutation.c.o",
-      "src/ArrayString/applyPermutation.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/applyPermutation.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/applyPermutation.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/TwoPointers",
-      "-I./src/ArrayString",
-      "-include",
-      "./src/pch.h",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/merge.c.o",
-      "src/ArrayString/merge.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/merge.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/merge.c.o"
   }
 ]
