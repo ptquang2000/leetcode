@@ -4,12 +4,12 @@
 #include <stdlib.h>
 
 // Declaration:
-int ArrayString_generatePrimes(int n, int* out);
+int* ArrayString_generatePrimes(int n, int* actualSize);
 
 void test_ArrayString_generatePrimes()
 {
-    int* actual;
-    int actualSize = ArrayString_generatePrimes(18, actual);
+    int actualSize;
+    int* actual= ArrayString_generatePrimes(18, &actualSize);
 
     int expect[] = {2, 3, 5, 7, 11, 13, 17};
     UTILS_ASSERT_EQUAL(actualSize, 7);

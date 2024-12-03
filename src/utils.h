@@ -15,6 +15,10 @@ typedef enum UtilsType_enum
     UTYPE_COUNT,
 } UtilsType;
 
+void utils_print(const char* i_format, ...);
+
+#define UTILS_LOG(...) utils_print(__VA_ARGS__);
+
 void utils_assert_equal(const char*, const char*, int, UtilsType, ...);
 void utils_assert_equal_array(const char*, const char*, int, UtilsType, ...);
 

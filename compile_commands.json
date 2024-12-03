@@ -5,58 +5,15 @@
       "-I./src",
       "-I./src/TwoPointers",
       "-I./src/ArrayString",
+      "-include",
+      "./src/pch.h",
       "-c",
       "-o",
-      "build/./src/ArrayString/multiply.c.o",
-      "src/ArrayString/multiply.c"
+      "build/./day1/ArrayString/buyAndSellStockOnce.c.o",
+      "day1/ArrayString/buyAndSellStockOnce.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/multiply.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/multiply.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/TwoPointers",
-      "-I./src/ArrayString",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/plusOne.c.o",
-      "src/ArrayString/plusOne.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/plusOne.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/plusOne.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/TwoPointers",
-      "-I./src/ArrayString",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/nextPermutation.c.o",
-      "src/ArrayString/nextPermutation.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/nextPermutation.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/nextPermutation.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/TwoPointers",
-      "-I./src/ArrayString",
-      "-c",
-      "-o",
-      "build/./src/main.c.o",
-      "src/main.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/main.c",
-    "output": "/home/quang/leetcode/build/src/main.c.o"
+    "file": "/home/quang/leetcode/day1/ArrayString/buyAndSellStockOnce.c",
+    "output": "/home/quang/leetcode/build/day1/ArrayString/buyAndSellStockOnce.c.o"
   }
 ]

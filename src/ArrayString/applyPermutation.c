@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "utils.h"
 
 // Declaration:
@@ -6,16 +5,20 @@ void ArrayString_applyPermutation(int* perm, int permSize, char* A, int ASize);
 
 void test_ArrayString_applyPermutation()
 {
-	printf("hello from applyPermutation\n");
+    {
+        char A[] = {'a', 'b', 'c', 'd'};
+        int perm[] = {3, 2, 1, 0};
+        ArrayString_applyPermutation(perm, 4, A, 4);
 
-	char* A;
-	const char expected1[] = {'d', 'c', 'b', 'a'};
-	const char expected2[] = {'b', 'c', 'a', 'd' };
+        const char expected[] = {'d', 'c', 'b', 'a'};
+        UTILS_ASSERT_EQUAL(A, expected, 4);
+    }
+    {
+        char A[] = {'a', 'b', 'c', 'd'};
+        int perm[] = {2, 0, 1, 3};
+        ArrayString_applyPermutation(perm, 4, A, 4);
 
-	A = malloc(4 * sizeof(*A));
-
-	UTILS_ASSERT_EQUAL(A, expected1, 4);
-	UTILS_ASSERT_EQUAL(A, expected2, 4);
-
-	free(A);
+        const char expected[] = {'b', 'c', 'a', 'd'};
+        UTILS_ASSERT_EQUAL(A, expected, 4);
+    }
 }
