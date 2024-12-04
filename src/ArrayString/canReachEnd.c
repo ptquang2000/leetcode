@@ -18,6 +18,6 @@ void test_ArrayString_canReachEnd()
     }
     {
         int A[] = {3, 2, 0, 0, 2, 0, 7};
-        UTILS_ASSERT_TRUE(ArrayString_canReachEnd(A, 7));
+        UTILS_ASSERT_FALSE(ArrayString_canReachEnd(A, 7));
     }
 }
