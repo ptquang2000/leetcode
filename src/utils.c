@@ -25,8 +25,7 @@ void utils_print(const char* i_format, ...);
     int i = 0;                                                                                                         \
     do                                                                                                                 \
     {                                                                                                                  \
-        *actual != *expect;                                                                                            \
-        if (*actual != *expect)                                                                                        \
+        if (!(actual == expect && expect == NULL) && *actual != *expect)                                               \
         {                                                                                                              \
             utils_print("\n-----------------------------------------------------");                                    \
             utils_print("FAILED: {}", UTYPE(func));                                                                    \
