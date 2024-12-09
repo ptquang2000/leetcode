@@ -8,12 +8,12 @@ int* ArrayString_generatePrimes(int n, int* actualSize);
 
 void test_ArrayString_generatePrimes()
 {
-    int actualSize;
-    int* actual= ArrayString_generatePrimes(18, &actualSize);
+        int actualSize;
+        int* actual = ArrayString_generatePrimes(18, &actualSize);
 
-    int expect[] = {2, 3, 5, 7, 11, 13, 17};
-    UTILS_ASSERT_EQUAL(actualSize, 7);
-    UTILS_ASSERT_EQUAL(actual, expect, 7);
+        int expect[] = {2, 3, 5, 7, 11, 13, 17};
+        UTILS_ASSERT_EQUAL(actualSize, 7);
+        UTILS_ASSERT_EQUAL(actual, expect, 7);
 
-    free(actual);
+        free(actual);
 }
