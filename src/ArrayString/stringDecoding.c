@@ -4,7 +4,7 @@
 #include <string.h>
 
 // Declaration:
-char* ArrayString_stringDecoding(const char*);
+char* ArrayString_stringDecoding(const char* s);
 
 void test_ArrayString_stringDecoding()
 {

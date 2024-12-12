@@ -40,7 +40,7 @@ void utils_assert_equal_array(const char*, const char*, int, UtilsType, ...);
                 int: utils_assert_equal(__FILE__, __func__, __LINE__, UTYPE_INT, actual, __VA_ARGS__),                 \
                 int*: utils_assert_equal_array(__FILE__, __func__, __LINE__, UTYPE_INT, actual, __VA_ARGS__),          \
                 char: utils_assert_equal(__FILE__, __func__, __LINE__, UTYPE_CHAR, actual, __VA_ARGS__),               \
-                char*: utils_assert_equal(__FILE__, __func__, __LINE__, UTYPE_CHAR, actual, __VA_ARGS__),              \
+                char*: utils_assert_equal_array(__FILE__, __func__, __LINE__, UTYPE_CHAR, actual, __VA_ARGS__),        \
                 const char*: utils_assert_equal_array(__FILE__, __func__, __LINE__, UTYPE_STRING, actual,              \
                                                       __VA_ARGS__))
 
