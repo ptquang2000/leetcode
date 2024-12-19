@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 // Declaration:
-int* ArrayString_generatePrimes(int n, int* actualSize);
+int* ArrayString_generatePrimes(int n, int* size);
 
 void test_ArrayString_generatePrimes()
 {

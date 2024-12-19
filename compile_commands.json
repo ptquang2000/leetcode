@@ -4,159 +4,8 @@
       "/usr/bin/cc",
       "-I./src",
       "-I./src/ArrayString",
-      "-I./src/TwoPointers",
-      "-include",
-      "./src/pch.h",
-      "-c",
-      "-o",
-      "build/./day1/ArrayString/intToString.c.o",
-      "day1/ArrayString/intToString.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/intToString.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/intToString.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/ArrayString",
-      "-I./src/TwoPointers",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/plusOne.c.o",
-      "src/ArrayString/plusOne.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/plusOne.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/plusOne.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/ArrayString",
-      "-I./src/TwoPointers",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/dutchFlagPartition.c.o",
-      "src/ArrayString/dutchFlagPartition.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/dutchFlagPartition.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/dutchFlagPartition.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/ArrayString",
-      "-I./src/TwoPointers",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/generatePrimes.c.o",
-      "src/ArrayString/generatePrimes.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/generatePrimes.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/generatePrimes.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/ArrayString",
-      "-I./src/TwoPointers",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/buyAndSellStockOnce.c.o",
-      "src/ArrayString/buyAndSellStockOnce.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/buyAndSellStockOnce.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/buyAndSellStockOnce.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/ArrayString",
-      "-I./src/TwoPointers",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/multiply.c.o",
-      "src/ArrayString/multiply.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/multiply.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/multiply.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/ArrayString",
-      "-I./src/TwoPointers",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/nextPermutation.c.o",
-      "src/ArrayString/nextPermutation.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/nextPermutation.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/nextPermutation.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/ArrayString",
-      "-I./src/TwoPointers",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/buyAndSellStockTwice.c.o",
-      "src/ArrayString/buyAndSellStockTwice.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/buyAndSellStockTwice.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/buyAndSellStockTwice.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/ArrayString",
-      "-I./src/TwoPointers",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/deleteDuplicates.c.o",
-      "src/ArrayString/deleteDuplicates.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/deleteDuplicates.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/deleteDuplicates.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/ArrayString",
-      "-I./src/TwoPointers",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/canReachEnd.c.o",
-      "src/ArrayString/canReachEnd.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/canReachEnd.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/canReachEnd.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/ArrayString",
-      "-I./src/TwoPointers",
+      "-I./src/LinkedList",
+      "-std=c2x",
       "-c",
       "-o",
       "build/./src/main.c.o",
@@ -165,5 +14,21 @@
     "directory": "/home/quang/leetcode",
     "file": "/home/quang/leetcode/src/main.c",
     "output": "/home/quang/leetcode/build/src/main.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/ArrayString",
+      "-I./src/LinkedList",
+      "-std=c2x",
+      "-c",
+      "-o",
+      "build/./src/LinkedList/addTwoNumbers.c.o",
+      "src/LinkedList/addTwoNumbers.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/LinkedList/addTwoNumbers.c",
+    "output": "/home/quang/leetcode/build/src/LinkedList/addTwoNumbers.c.o"
   }
 ]

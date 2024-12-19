@@ -1,7 +1,7 @@
 #include "utils.h"
 
 // Declaration:
-void ArrayString_rotateMatrix(int* squareMatrix[], int size);
+void ArrayString_rotateMatrix(int size, int* squareMatrix[size]);
 
 void test_ArrayString_rotateMatrix()
 {
@@ -17,7 +17,7 @@ void test_ArrayString_rotateMatrix()
                 {15, 11, 7, 3},
                 {16, 12, 8, 4},
         };
-        ArrayString_rotateMatrix(matrix, 4);
+        ArrayString_rotateMatrix(4, matrix);
         UTILS_ASSERT_EQUAL(matrix[0], expected[0], 4);
         UTILS_ASSERT_EQUAL(matrix[1], expected[1], 4);
         UTILS_ASSERT_EQUAL(matrix[2], expected[2], 4);

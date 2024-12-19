@@ -6,45 +6,100 @@
 typedef enum UtilsType_enum
 {
         UTYPE_BOOL,
-        UTYPE_BOOL_PTR,
-        UTYPE_INT,
-        UTYPE_INT_PTR,
         UTYPE_CHAR,
-        UTYPE_CHAR_PTR,
+        UTYPE_INT,
+        UTYPE_PTR,
         UTYPE_STRING,
         UTYPE_COUNT,
 } UtilsType;
 
-void utils_print(const char* i_format, ...);
-
-#define UTILS_LOG(...) utils_print(__VA_ARGS__);
-
-void utils_assert_equal(const char*, const char*, int, UtilsType, ...);
-void utils_assert_equal_array(const char*, const char*, int, UtilsType, ...);
-
 #define UTYPE(value)                                                                                                   \
         _Generic((value),                                                                                              \
                 bool: UTYPE_BOOL,                                                                                      \
-                bool*: UTYPE_BOOL_PTR,                                                                                 \
-                int: UTYPE_INT,                                                                                        \
-                int*: UTYPE_INT_PTR,                                                                                   \
                 char: UTYPE_CHAR,                                                                                      \
-                char*: UTYPE_CHAR_PTR,                                                                                 \
-                const char*: UTYPE_STRING),                                                                            \
+                int: UTYPE_INT,                                                                                        \
+                const char*: UTYPE_STRING,                                                                             \
+                void*: UTYPE_PTR),                                                                                     \
                 &value
+#define UARRAY(value, size)                                                                                            \
+        _Generic((value),                                                                                              \
+                bool*: UTYPE_BOOL ^ 0x40,                                                                              \
+                char*: UTYPE_CHAR ^ 0x40,                                                                              \
+                int*: UTYPE_INT ^ 0x40,                                                                                \
+                const char**: UTYPE_STRING ^ 0x40,                                                                     \
+                void**: UTYPE_PTR ^ 0x40),                                                                             \
+                &value, size
+
+void utils_print(const char* i_format, ...);
+#define UTILS_LOG(...) utils_print(__VA_ARGS__);
+
+typedef enum UtilsOp_enum
+{
+        UOP_EQUAL,
+        UOP_LESS,
+        UOP_LESS_EQUAL,
+        UOP_GREATER,
+        UOP_GREATER_EQUAL,
+        UOP_IN,
+        UOP_COUNT,
+} UtilsOp;
+
+void utils_assert(const char*, const char*, int, UtilsOp, ...);
 
 #define UTILS_ASSERT_EQUAL(actual, ...)                                                                                \
-        _Generic((actual),                                                                                             \
-                bool: utils_assert_equal(__FILE__, __func__, __LINE__, UTYPE_BOOL, actual, __VA_ARGS__),               \
-                bool*: utils_assert_equal_array(__FILE__, __func__, __LINE__, UTYPE_BOOL, actual, __VA_ARGS__),        \
-                int: utils_assert_equal(__FILE__, __func__, __LINE__, UTYPE_INT, actual, __VA_ARGS__),                 \
-                int*: utils_assert_equal_array(__FILE__, __func__, __LINE__, UTYPE_INT, actual, __VA_ARGS__),          \
-                char: utils_assert_equal(__FILE__, __func__, __LINE__, UTYPE_CHAR, actual, __VA_ARGS__),               \
-                char*: utils_assert_equal_array(__FILE__, __func__, __LINE__, UTYPE_CHAR, actual, __VA_ARGS__),        \
-                const char*: utils_assert_equal_array(__FILE__, __func__, __LINE__, UTYPE_STRING, actual,              \
-                                                      __VA_ARGS__))
-
-#define UTILS_ASSERT_TRUE(actual) utils_assert_equal(__FILE__, __func__, __LINE__, UTYPE_BOOL, actual, true)
-#define UTILS_ASSERT_FALSE(actual) utils_assert_equal(__FILE__, __func__, __LINE__, UTYPE_BOOL, actual, false)
+        utils_assert(__FILE__, __func__, __LINE__, UOP_EQUAL,                                                          \
+                     _Generic((actual),                                                                                \
+                             bool: UTYPE_BOOL,                                                                         \
+                             int: UTYPE_INT,                                                                           \
+                             char: UTYPE_CHAR,                                                                         \
+                             void*: UTYPE_PTR,                                                                         \
+                             const char*: UTYPE_STRING,                                                                \
+                             bool*: UTYPE_BOOL ^ 0x40,                                                                 \
+                             int*: UTYPE_INT ^ 0x40,                                                                   \
+                             char*: UTYPE_CHAR ^ 0x40,                                                                 \
+                             const char**: UTYPE_STRING ^ 0x40,                                                        \
+                             void**: UTYPE_PTR ^ 0x40),                                                                \
+                     actual, __VA_ARGS__)
+#define UTILS_ASSERT_LESS(actual, ...)                                                                                 \
+        utils_assert(__FILE__, __func__, __LINE__, UOP_LESS,                                                           \
+                     _Generic((actual),                                                                                \
+                             bool: UTYPE_BOOL,                                                                         \
+                             int: UTYPE_INT,                                                                           \
+                             char: UTYPE_CHAR,                                                                         \
+                             void*: UTYPE_PTR,                                                                         \
+                             const char*: UTYPE_STRING,                                                                \
+                             bool*: UTYPE_BOOL ^ 0x40,                                                                 \
+                             int*: UTYPE_INT ^ 0x40,                                                                   \
+                             char*: UTYPE_CHAR ^ 0x40,                                                                 \
+                             const char**: UTYPE_STRING ^ 0x40,                                                        \
+                             void**: UTYPE_PTR ^ 0x40),                                                                \
+                     actual, __VA_ARGS__)
+#define UTILS_ASSERT_GREATER(actual, ...)                                                                              \
+        utils_assert(__FILE__, __func__, __LINE__, UOP_GREATER,                                                        \
+                     _Generic((actual),                                                                                \
+                             bool: UTYPE_BOOL,                                                                         \
+                             int: UTYPE_INT,                                                                           \
+                             char: UTYPE_CHAR,                                                                         \
+                             void*: UTYPE_PTR,                                                                         \
+                             const char*: UTYPE_STRING,                                                                \
+                             bool*: UTYPE_BOOL ^ 0x40,                                                                 \
+                             int*: UTYPE_INT ^ 0x40,                                                                   \
+                             char*: UTYPE_CHAR ^ 0x40,                                                                 \
+                             const char**: UTYPE_STRING ^ 0x40,                                                        \
+                             void**: UTYPE_PTR ^ 0x40),                                                                \
+                     actual, __VA_ARGS__)
+#define UTILS_ASSERT_TRUE(actual) UTILS_ASSERT_EQUAL((bool)actual, true)
+#define UTILS_ASSERT_FALSE(actual) UTILS_ASSERT_EQUAL((bool)actual, true)
+#define UTILS_ASSERT_IS(actual, expected) UTILS_ASSERT_EQUAL((void*)actual, (void*)expected);
+#define UTILS_ASSERT_IS_NONE(actual) UTILS_ASSERT_EQUAL((void*)actual, 0);
+#define UTILS_ASSERT_IN(actual, ...)                                                                                   \
+        utils_assert(__FILE__, __func__, __LINE__, UOP_IN,                                                             \
+                     _Generic((actual),                                                                                \
+                             bool: UTYPE_BOOL,                                                                         \
+                             int: UTYPE_INT,                                                                           \
+                             char: UTYPE_CHAR,                                                                         \
+                             void*: UTYPE_PTR,                                                                         \
+                             const char*: UTYPE_STRING),                                                               \
+                     actual, __VA_ARGS__)
 
 #endif

@@ -33,4 +33,5 @@ void test_ArrayString_generatePascalTriangle()
         free(actual[4]);
 
         free(actual);
+        free(colSize);
 }
