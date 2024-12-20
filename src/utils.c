@@ -8,11 +8,17 @@
 #include <stdio.h>
 #include <string.h>
 
+#ifndef TEST_UTILS
+#define UTILS_TRAP __builtin_trap()
+#else
+#define UTILS_TRAP break
+#endif
+
 ////////////////////////////////////////////////////////////////////////////////
 
-static void utils_FormatBool(void* i_value)
+static void utils_FormatBool(uint64_t i_value)
 {
-        bool value = *((bool*)(i_value));
+        bool value = i_value;
         if (value)
                 printf("true");
         else
@@ -21,9 +27,9 @@ static void utils_FormatBool(void* i_value)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static void utils_FormatBoolPointer(void* i_value)
+static void utils_FormatBoolPointer(uint64_t i_value)
 {
-        bool* value = *((bool**)(i_value));
+        bool* value = (bool*)i_value;
         if (*value)
                 printf("true");
         else
@@ -32,61 +38,63 @@ static void utils_FormatBoolPointer(void* i_value)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static void utils_FormatInt(void* i_value)
+static void utils_FormatInt(uint64_t i_value)
 {
-        int value = *((int*)(i_value));
+        int value = i_value;
         printf("%d", value);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static void utils_FormatIntPointer(void* i_value)
+static void utils_FormatIntPointer(uint64_t i_value)
 {
-        int* value = *((int**)(i_value));
+        int* value = (int*)i_value;
         printf("%d", *value);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static void utils_FormatChar(void* i_value)
+static void utils_FormatChar(uint64_t i_value)
 {
-        char value = *((char*)(i_value));
-        printf("\"%c\"", value);
+        char value = i_value;
+        printf("'%c'", value);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static void utils_FormatCharPointer(void* i_value)
+static void utils_FormatCharPointer(uint64_t i_value)
 {
-        char* value = *((char**)(i_value));
+        char* value = (char*)i_value;
         printf("\"%c\"", *value);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static void utils_FormatString(void* i_value)
+static void utils_FormatString(uint64_t i_value)
 {
-        char* value = *((char**)(i_value));
+        typedef const char* string;
+        string value = (string)i_value;
         printf("\"%s\"", value);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static void utils_FormatPointer(void* i_value)
+static void utils_FormatPointer(uint64_t i_value)
 {
-        void* value = *((void**)(i_value));
+        typedef void* pointer;
+        pointer value = (pointer)i_value;
         printf("\"%p\"", value);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static void utils_FormatBoolArray(void* i_value, int i_size)
+static void utils_FormatBoolArray(uint64_t i_value, int i_size)
 {
-        bool* arr = *(bool**)(i_value);
+        bool* arr = (bool*)(i_value);
         printf("[");
         for (int i = 0; i < i_size; i++)
         {
-                printf("\"%s\"", arr[i] ? "true" : "false");
+                printf("%s", arr[i] ? "true" : "false");
                 if (i != i_size - 1)
                 {
                         printf(", ");
@@ -96,13 +104,13 @@ static void utils_FormatBoolArray(void* i_value, int i_size)
 }
 ////////////////////////////////////////////////////////////////////////////////
 
-static void utils_FormatCharArray(void* i_value, int i_size)
+static void utils_FormatCharArray(uint64_t i_value, int i_size)
 {
-        char* arr = *(char**)(i_value);
+        char* arr = (char*)(i_value);
         printf("[");
         for (int i = 0; i < i_size; i++)
         {
-                printf("\"%c\"", arr[i]);
+                printf("'%c'", arr[i]);
                 if (i != i_size - 1)
                 {
                         printf(", ");
@@ -112,13 +120,13 @@ static void utils_FormatCharArray(void* i_value, int i_size)
 }
 ////////////////////////////////////////////////////////////////////////////////
 
-static void utils_FormatIntArray(void* i_value, int i_size)
+static void utils_FormatIntArray(uint64_t i_value, int i_size)
 {
-        int* arr = *(int**)(i_value);
+        int* arr = (int*)(i_value);
         printf("[");
         for (int i = 0; i < i_size; i++)
         {
-                printf("\"%d\"", arr[i]);
+                printf("%d", arr[i]);
                 if (i != i_size - 1)
                 {
                         printf(", ");
@@ -128,10 +136,10 @@ static void utils_FormatIntArray(void* i_value, int i_size)
 }
 ////////////////////////////////////////////////////////////////////////////////
 
-static void utils_FormatStringArray(void* i_value, int i_size)
+static void utils_FormatStringArray(uint64_t i_value, int i_size)
 {
         typedef const char* string;
-        string* arr = *((string**)(i_value));
+        string* arr = (string*)(i_value);
         printf("[");
         for (int i = 0; i < i_size; i++)
         {
@@ -146,10 +154,10 @@ static void utils_FormatStringArray(void* i_value, int i_size)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static void utils_FormatPointerArray(void* i_value, int i_size)
+static void utils_FormatPointerArray(uint64_t i_value, int i_size)
 {
         typedef void* ptr;
-        ptr* arr = *(ptr**)(i_value);
+        ptr* arr = (ptr*)i_value;
         printf("[");
         for (int i = 0; i < i_size; i++)
         {
@@ -177,11 +185,11 @@ typedef union FormatType_struct {
 
 void utils_print(const char* i_format, ...)
 {
-        static void (*printFormatFunctions[UTYPE_COUNT])(void*) = {
+        static void (*printFormatFunctions[UTYPE_COUNT])(uint64_t) = {
                 utils_FormatBool, utils_FormatChar, utils_FormatInt, utils_FormatPointer, utils_FormatString,
         };
-        static void (*printArrarFormatFunctions[UTYPE_COUNT])(void*, int) = {
-                utils_FormatBoolArray,  utils_FormatCharArray,   utils_FormatIntArray,
+        static void (*printArrarFormatFunctions[UTYPE_COUNT])(uint64_t, int) = {
+                utils_FormatBoolArray,    utils_FormatCharArray,   utils_FormatIntArray,
                 utils_FormatPointerArray, utils_FormatStringArray,
         };
 
@@ -196,10 +204,20 @@ void utils_print(const char* i_format, ...)
                 printf("%.*s", (int)(next - last), last);
 
                 next++;
-                assert(*next == '}');
+                if (*next != '}')
+                {
+                        printf("{");
+                        last = next;
+                        continue;
+                }
+                else
+                {
+                        next++;
+                        last = next;
+                }
 
                 FormatType type = va_arg(args, FormatType);
-                void* value = va_arg(args, void*);
+                uint64_t value = va_arg(args, uint64_t);
                 if (type.isArray)
                 {
                         int size = va_arg(args, int);
@@ -209,9 +227,6 @@ void utils_print(const char* i_format, ...)
                 {
                         printFormatFunctions[type.basicType](value);
                 }
-
-                next++;
-                last = next;
         }
         va_end(args);
 
@@ -271,6 +286,86 @@ static bool CompareString(UtilsOp op, UtilsType type, uint64_t lhs, uint64_t rhs
 
 ////////////////////////////////////////////////////////////////////////////////
 
+static bool CompareBoolArray(UtilsOp op, UtilsType type, uint64_t lhs, uint64_t rhs, int size, int* index)
+{
+        assert(size > 0);
+        if (lhs == rhs && rhs == 0 && size == 0)
+        {
+                return true;
+        }
+
+        bool* a = (bool*)lhs;
+        bool* b = (bool*)rhs;
+        for (int i = 0; i < size; i++)
+        {
+                *index = i;
+                switch (op)
+                {
+                case UOP_EQUAL:
+                        if (a[i] != b[i])
+                                return false;
+                        else
+                                break;
+                default:
+                        UTILS_LOG("Unsupported operation {} for type {}", op, type);
+                        assert(false);
+                }
+        }
+        return true;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+static bool CompareCharArray(UtilsOp op, UtilsType type, uint64_t lhs, uint64_t rhs, int size, int* index)
+{
+        assert(size > 0);
+        if (lhs == rhs && rhs == 0 && size == 0)
+        {
+                return true;
+        }
+
+        char* a = (char*)lhs;
+        char* b = (char*)rhs;
+        for (int i = 0; i < size; i++)
+        {
+                *index = i;
+                switch (op)
+                {
+                case UOP_EQUAL:
+                        if (a[i] != b[i])
+                                return false;
+                        else
+                                break;
+                case UOP_LESS:
+                        if (a[i] >= b[i])
+                                return false;
+                        else
+                                break;
+                case UOP_LESS_EQUAL:
+                        if (a[i] > b[i])
+                                return false;
+                        else
+                                break;
+                case UOP_GREATER:
+                        if (a[i] <= b[i])
+                                return false;
+                        else
+                                break;
+                case UOP_GREATER_EQUAL:
+                        if (a[i] < b[i])
+                                return false;
+                        else
+                                break;
+                default:
+                        UTILS_LOG("Unsupported operation {} for type {}", op, type);
+                        assert(false);
+                }
+        }
+        return true;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 static bool CompareIntArray(UtilsOp op, UtilsType type, uint64_t lhs, uint64_t rhs, int size, int* index)
 {
         assert(size > 0);
@@ -287,15 +382,30 @@ static bool CompareIntArray(UtilsOp op, UtilsType type, uint64_t lhs, uint64_t r
                 switch (op)
                 {
                 case UOP_EQUAL:
-                        return a[i] != b[i];
+                        if (a[i] != b[i])
+                                return false;
+                        else
+                                break;
                 case UOP_LESS:
-                        return a[i] >= b[i];
+                        if (a[i] >= b[i])
+                                return false;
+                        else
+                                break;
                 case UOP_LESS_EQUAL:
-                        return a[i] > b[i];
+                        if (a[i] > b[i])
+                                return false;
+                        else
+                                break;
                 case UOP_GREATER:
-                        return a[i] <= b[i];
+                        if (a[i] <= b[i])
+                                return false;
+                        else
+                                break;
                 case UOP_GREATER_EQUAL:
-                        return a[i] < b[i];
+                        if (a[i] < b[i])
+                                return false;
+                        else
+                                break;
                 default:
                         UTILS_LOG("Unsupported operation {} for type {}", op, type);
                         assert(false);
@@ -325,11 +435,20 @@ static bool CompareStringArray(UtilsOp op, UtilsType type, uint64_t lhs, uint64_
                 switch (op)
                 {
                 case UOP_EQUAL:
-                        return result != 0;
+                        if (result != 0)
+                                return false;
+                        else
+                                break;
                 case UOP_LESS:
-                        return result >= 0;
+                        if (result >= 0)
+                                return false;
+                        else
+                                break;
                 case UOP_GREATER:
-                        return result <= 0;
+                        if (result <= 0)
+                                return false;
+                        else
+                                break;
                 default:
                         UTILS_LOG("Unsupported operation {} for type {}", op, type);
                         assert(false);
@@ -340,12 +459,67 @@ static bool CompareStringArray(UtilsOp op, UtilsType type, uint64_t lhs, uint64_
 
 ////////////////////////////////////////////////////////////////////////////////
 
+static bool CompareBoolInArray(UtilsType type, uint64_t lhs, uint64_t rhs, int size)
+{
+        assert(size > 0 && rhs != 0);
+
+        bool a = lhs;
+        bool* b = (bool*)rhs;
+        for (int i = 0; i < size; i++)
+        {
+                if (a == b[i])
+                {
+                        return true;
+                }
+        }
+        return false;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+static bool CompareCharInArray(UtilsType type, uint64_t lhs, uint64_t rhs, int size)
+{
+        assert(size > 0 && rhs != 0);
+
+        char a = lhs;
+        char* b = (char*)rhs;
+        for (int i = 0; i < size; i++)
+        {
+                if (a == b[i])
+                {
+                        return true;
+                }
+        }
+        return false;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 static bool CompareIntInArray(UtilsType type, uint64_t lhs, uint64_t rhs, int size)
 {
         assert(size > 0 && rhs != 0);
 
         int a = lhs;
         int* b = (int*)rhs;
+        for (int i = 0; i < size; i++)
+        {
+                if (a == b[i])
+                {
+                        return true;
+                }
+        }
+        return false;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+static bool ComparePointerInArray(UtilsType type, uint64_t lhs, uint64_t rhs, int size)
+{
+        assert(size > 0 && rhs != 0);
+
+        typedef void* pointer;
+        pointer a = (pointer)lhs;
+        pointer* b = (pointer*)rhs;
         for (int i = 0; i < size; i++)
         {
                 if (a == b[i])
@@ -424,49 +598,49 @@ static void PrintAssertExpectedMessagePointer(const char* format, uint64_t actua
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static void PrintAssertExpectedMessageBoolArray(const char* format, uint64_t actual, uint64_t expected, int size)
+static void PrintAssertExpectedMessageBoolArray(const char* format, uint64_t actual, uint64_t expected, int index)
 {
-        bool a = actual;
-        bool e = expected;
-        UTILS_LOG(format, UTYPE(e), UTYPE(a), UTYPE(size));
+        bool* a = (bool*)actual;
+        bool* e = (bool*)expected;
+        UTILS_LOG(format, UTYPE(e[index]), UTYPE(a[index]), UTYPE(index));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static void PrintAssertExpectedMessageCharArray(const char* format, uint64_t actual, uint64_t expected, int size)
+static void PrintAssertExpectedMessageCharArray(const char* format, uint64_t actual, uint64_t expected, int index)
 {
-        char a = actual;
-        char e = expected;
-        UTILS_LOG(format, UTYPE(e), UTYPE(a), UTYPE(size));
+        char* a = (char*)actual;
+        char* e = (char*)expected;
+        UTILS_LOG(format, UTYPE(e[index]), UTYPE(a[index]), UTYPE(index));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static void PrintAssertExpectedMessageIntArray(const char* format, uint64_t actual, uint64_t expected, int size)
+static void PrintAssertExpectedMessageIntArray(const char* format, uint64_t actual, uint64_t expected, int index)
 {
-        int a = actual;
-        int e = expected;
-        UTILS_LOG(format, UTYPE(e), UTYPE(a), UTYPE(size));
+        int* a = (int*)actual;
+        int* e = (int*)expected;
+        UTILS_LOG(format, UTYPE(e[index]), UTYPE(a[index]), UTYPE(index));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static void PrintAssertExpectedMessageStringArray(const char* format, uint64_t actual, uint64_t expected, int size)
+static void PrintAssertExpectedMessageStringArray(const char* format, uint64_t actual, uint64_t expected, int index)
 {
         typedef const char* string;
-        string a = (string)actual;
-        string e = (string)expected;
-        UTILS_LOG(format, UTYPE(e), UTYPE(a), UTYPE(size));
+        string* a = (string*)actual;
+        string* e = (string*)expected;
+        UTILS_LOG(format, UTYPE(e[index]), UTYPE(a[index]), UTYPE(index));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static void PrintAssertExpectedMessagePointerArray(const char* format, uint64_t actual, uint64_t expected, int size)
+static void PrintAssertExpectedMessagePointerArray(const char* format, uint64_t actual, uint64_t expected, int index)
 {
         typedef void* pointer;
-        pointer a = (pointer)actual;
-        pointer e = (pointer)expected;
-        UTILS_LOG(format, UTYPE(e), UTYPE(a), UTYPE(size));
+        pointer* a = (pointer*)actual;
+        pointer* e = (pointer*)expected;
+        UTILS_LOG(format, UTYPE(e[index]), UTYPE(a[index]), UTYPE(index));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -484,6 +658,8 @@ static void PrintAssertExpectedMessageCharInArray(const char* format, uint64_t a
 {
         char a = actual;
         char* e = (char*)expected;
+        UTILS_LOG("char in array {}", UTYPE(e));
+        UTILS_LOG("expected={}", UTYPE_CHAR ^ 0x80, e, 3);
         UTILS_LOG(format, UARRAY(e, size), UTYPE(a));
 }
 
@@ -498,21 +674,21 @@ static void PrintAssertExpectedMessageIntInArray(const char* format, uint64_t ac
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static void PrintAssertExpectedMessageStringInArray(const char* format, uint64_t actual, uint64_t expected, int size)
-{
-        typedef const char* string;
-        string a = (string)actual;
-        string* e = (string*)expected;
-        UTILS_LOG(format, UARRAY(e, size), UTYPE(a));
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
 static void PrintAssertExpectedMessagePointerInArray(const char* format, uint64_t actual, uint64_t expected, int size)
 {
         typedef void* pointer;
         pointer a = (pointer)actual;
         pointer* e = (pointer*)expected;
+        UTILS_LOG(format, UARRAY(e, size), UTYPE(a));
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+static void PrintAssertExpectedMessageStringInArray(const char* format, uint64_t actual, uint64_t expected, int size)
+{
+        typedef const char* string;
+        string a = (string)actual;
+        string* e = (string*)expected;
         UTILS_LOG(format, UARRAY(e, size), UTYPE(a));
 }
 
@@ -532,12 +708,12 @@ void utils_assert(const char* file, const char* func, int line, UtilsOp operatio
                 int size = va_arg(args, int);
 
                 static const char* printFormats[UOP_COUNT] = {
-                        "Expected {} in {}.", "Expected {} in {}.", "Expected {} in {}.",
-                        "Expected {} in {}.", "Expected {} in {}.", "Expected {} in {}.",
+                        "Expected {} got {}.", "Expected {} got {}.", "Expected {} got {}.",
+                        "Expected {} got {}.", "Expected {} got {}.", "Expected {} got {}.",
                 };
                 static bool (*compareFunctions[UTYPE_COUNT])(UtilsType, uint64_t, uint64_t, int) = {
-                        CompareIntInArray, CompareIntInArray,    CompareIntInArray,
-                        CompareIntInArray, CompareStringInArray,
+                        CompareBoolInArray,    CompareCharInArray,   CompareIntInArray,
+                        ComparePointerInArray, CompareStringInArray,
                 };
                 static void (*printFunctions[UTYPE_COUNT])(const char*, uint64_t, uint64_t, int) = {
                         PrintAssertExpectedMessageBoolInArray,   PrintAssertExpectedMessageCharInArray,
@@ -554,7 +730,7 @@ void utils_assert(const char* file, const char* func, int line, UtilsOp operatio
                         UTILS_LOG("File {} at line {}:", UTYPE(file), UTYPE(line));
                         printFunction(printFormats[operation], lhs, rhs, size);
                         UTILS_LOG("-----------------------------------------------------\n");
-                        __builtin_trap();
+                        UTILS_TRAP;
                 }
         }
         else if (type.isArray)
@@ -570,7 +746,7 @@ void utils_assert(const char* file, const char* func, int line, UtilsOp operatio
                         "Expected {} in {} at index {}.",
                 };
                 static bool (*compareFunctions[UTYPE_COUNT])(UtilsOp, UtilsType, uint64_t, uint64_t, int, int*) = {
-                        CompareIntArray, CompareIntArray, CompareIntArray, CompareIntArray, CompareStringArray,
+                        CompareBoolArray, CompareCharArray, CompareIntArray, CompareIntArray, CompareStringArray,
                 };
                 static void (*printFunctions[UTYPE_COUNT])(const char*, uint64_t, uint64_t, int) = {
                         PrintAssertExpectedMessageBoolArray,   PrintAssertExpectedMessageCharArray,
@@ -589,7 +765,7 @@ void utils_assert(const char* file, const char* func, int line, UtilsOp operatio
                         UTILS_LOG("File {} at line {}:", UTYPE(file), UTYPE(line));
                         printFunction(printFormats[operation], lhs, rhs, index);
                         UTILS_LOG("-----------------------------------------------------\n");
-                        __builtin_trap();
+                        UTILS_TRAP;
                 }
         }
         else
@@ -620,7 +796,7 @@ void utils_assert(const char* file, const char* func, int line, UtilsOp operatio
                         UTILS_LOG("File {} at line {}:", UTYPE(file), UTYPE(line));
                         printFunction(printFormats[operation], lhs, rhs);
                         UTILS_LOG("-----------------------------------------------------\n");
-                        __builtin_trap();
+                        UTILS_TRAP;
                 }
         }
         va_end(args);
