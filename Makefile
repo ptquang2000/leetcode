@@ -8,7 +8,7 @@ MAIN_FILE := $(SRC_DIRS)/main.c
 
 INC_DIRS := $(shell find $(SRC_DIRS) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
-CPPFLAGS := $(INC_FLAGS) -MMD -MP -std=c2x
+CPPFLAGS := $(INC_FLAGS) -MMD -MP
 
 day_num := $(words $(shell find ./ -maxdepth 1 -type d -name 'day*'))
 ifneq ($(day_num),0)
@@ -48,7 +48,7 @@ main:
 endif
 
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
-	@$(CXX) $(OBJS) -o $@ $(LDFLAGS)
+	@$(CC) $(OBJS) -o $@ $(LDFLAGS)
 
 $(GCH): $(PCH)
 	@mkdir -p $(dir $@)
