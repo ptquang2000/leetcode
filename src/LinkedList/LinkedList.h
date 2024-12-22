@@ -1,8 +1,7 @@
-#ifndef TWO_POINTERS_H
-#define TWO_POINTERS_H
+#ifndef LINKED_LIST_H
+#define LINKED_LIST_H
 
 // Elements of Programming Interviews
-// Linked List
 void test_LinkedList_addTwoNumbers();
 void test_LinkedList_cyclicallyRightShiftList();
 void test_LinkedList_deletionFromList();

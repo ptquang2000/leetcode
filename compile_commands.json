@@ -3,21 +3,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/pch.h.gch",
-      "src/pch.h"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/pch.h",
-    "output": "/home/quang/leetcode/build/src/pch.h.gch"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -35,6 +21,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -52,6 +39,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -69,6 +57,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -86,6 +75,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -103,6 +93,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -120,6 +111,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -137,6 +129,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -154,6 +147,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -171,6 +165,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -188,6 +183,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -205,6 +201,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -222,6 +219,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -239,6 +237,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -256,6 +255,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -273,6 +273,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -290,6 +291,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -307,6 +309,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -324,6 +327,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -341,6 +345,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -358,6 +363,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -375,6 +381,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -392,6 +399,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -409,6 +417,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -426,6 +435,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -443,6 +453,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -460,6 +471,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -477,6 +489,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -494,6 +507,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -511,6 +525,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -528,6 +543,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -545,6 +561,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -562,6 +579,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -579,6 +597,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -596,6 +615,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -613,6 +633,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -630,6 +651,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -647,6 +669,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -664,6 +687,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -681,6 +705,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -698,6 +723,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -715,6 +741,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-include",
@@ -732,6 +759,23 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
+      "-I./src/ArrayString",
+      "-I./src/LinkedList",
+      "-c",
+      "-o",
+      "build/./src/Stack/evaluate.c.o",
+      "src/Stack/evaluate.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/Stack/evaluate.c",
+    "output": "/home/quang/leetcode/build/src/Stack/evaluate.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -747,6 +791,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -762,6 +807,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -777,6 +823,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -792,6 +839,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -807,6 +855,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -822,6 +871,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -837,6 +887,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -852,6 +903,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -867,6 +919,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -882,6 +935,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -897,6 +951,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -912,6 +967,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -927,6 +983,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -942,6 +999,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -957,6 +1015,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -972,6 +1031,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -987,6 +1047,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1002,6 +1063,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1017,6 +1079,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1032,6 +1095,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1047,6 +1111,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1062,6 +1127,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1077,6 +1143,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1092,6 +1159,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1107,6 +1175,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1122,6 +1191,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1137,6 +1207,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1152,6 +1223,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1167,36 +1239,23 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
       "-o",
-      "build/./src/ListNode.c.o",
-      "src/ListNode.c"
+      "build/./src/main.c.o",
+      "src/main.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ListNode.c",
-    "output": "/home/quang/leetcode/build/src/ListNode.c.o"
+    "file": "/home/quang/leetcode/src/main.c",
+    "output": "/home/quang/leetcode/build/src/main.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/utils.c.o",
-      "src/utils.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/utils.c",
-    "output": "/home/quang/leetcode/build/src/utils.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1212,6 +1271,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1227,6 +1287,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1242,6 +1303,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1257,6 +1319,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1272,6 +1335,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1287,6 +1351,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1302,6 +1367,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1317,6 +1383,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1332,6 +1399,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1347,6 +1415,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1362,6 +1431,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1377,6 +1447,7 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
       "-c",
@@ -1387,20 +1458,5 @@
     "directory": "/home/quang/leetcode",
     "file": "/home/quang/leetcode/src/LinkedList/cyclicallyRightShiftList.c",
     "output": "/home/quang/leetcode/build/src/LinkedList/cyclicallyRightShiftList.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/test_utils.c.o",
-      "src/test_utils.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/test_utils.c",
-    "output": "/home/quang/leetcode/build/src/test_utils.c.o"
   }
 ]
