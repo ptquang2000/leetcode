@@ -1,8 +1,6 @@
 #include "ListNode.h"
 #include "utils.h"
 
-#include <stdlib.h>
-
 // Declaration:
 ListNode* LinkedList_addTwoNumbers(ListNode* L1, ListNode* L2);
 
@@ -20,9 +18,9 @@ void test_LinkedList_addTwoNumbers()
 
                 int expected[] = {0, 2, 3, 1};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(node, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
-                free(node);
+                FREE_LIST(node);
         }
         {
                 ListNode *node, *L1, *L2;
@@ -36,18 +34,18 @@ void test_LinkedList_addTwoNumbers()
 
                 int expected[] = {7, 0, 8};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(node, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 ListNode *node, *L1, *L2;
-                L1 = &(ListNode){0, node};
-                L2 = &(ListNode){0, node};
+                L1 = &(ListNode){0, 0};
+                L2 = &(ListNode){0, 0};
                 node = LinkedList_addTwoNumbers(L1, L2);
 
                 int expected[] = {0};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(node, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
@@ -67,8 +65,8 @@ void test_LinkedList_addTwoNumbers()
 
                 int expected[] = {8, 9, 9, 9, 0, 0, 0, 1};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(node, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
-                free(node);
+                FREE_LIST(node);
         }
 }

@@ -18,7 +18,7 @@ void test_LinkedList_mergeTwoSortedLists()
 
                 int expected[] = {1, 1, 2, 3, 4, 4};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(node, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
@@ -32,7 +32,7 @@ void test_LinkedList_mergeTwoSortedLists()
 
                 int expected[] = {2, 3, 5, 7, 11};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(node, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
@@ -47,7 +47,7 @@ void test_LinkedList_mergeTwoSortedLists()
 
                 int expected[] = {0};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(node, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
 }

@@ -288,7 +288,7 @@ static bool CompareString(UtilsOp op, UtilsType type, uint64_t lhs, uint64_t rhs
 
 static bool CompareBoolArray(UtilsOp op, UtilsType type, uint64_t lhs, uint64_t rhs, int size, int* index)
 {
-        assert(size > 0);
+        assert(size >= 0);
         if (lhs == rhs && rhs == 0 && size == 0)
         {
                 return true;
@@ -318,7 +318,7 @@ static bool CompareBoolArray(UtilsOp op, UtilsType type, uint64_t lhs, uint64_t 
 
 static bool CompareCharArray(UtilsOp op, UtilsType type, uint64_t lhs, uint64_t rhs, int size, int* index)
 {
-        assert(size > 0);
+        assert(size >= 0);
         if (lhs == rhs && rhs == 0 && size == 0)
         {
                 return true;
@@ -368,7 +368,7 @@ static bool CompareCharArray(UtilsOp op, UtilsType type, uint64_t lhs, uint64_t 
 
 static bool CompareIntArray(UtilsOp op, UtilsType type, uint64_t lhs, uint64_t rhs, int size, int* index)
 {
-        assert(size > 0);
+        assert(size >= 0);
         if (lhs == rhs && rhs == 0 && size == 0)
         {
                 return true;
@@ -419,7 +419,7 @@ static bool CompareIntArray(UtilsOp op, UtilsType type, uint64_t lhs, uint64_t r
 static bool CompareStringArray(UtilsOp op, UtilsType type, uint64_t lhs, uint64_t rhs, int size, int* index)
 {
         typedef const char* string;
-        assert(size > 0);
+        assert(size >= 0);
 
         if (lhs == rhs && rhs == 0 && size == 0)
         {
@@ -461,7 +461,7 @@ static bool CompareStringArray(UtilsOp op, UtilsType type, uint64_t lhs, uint64_
 
 static bool CompareBoolInArray(UtilsType type, uint64_t lhs, uint64_t rhs, int size)
 {
-        assert(size > 0 && rhs != 0);
+        assert(size >= 0 && rhs != 0);
 
         bool a = lhs;
         bool* b = (bool*)rhs;
@@ -479,7 +479,7 @@ static bool CompareBoolInArray(UtilsType type, uint64_t lhs, uint64_t rhs, int s
 
 static bool CompareCharInArray(UtilsType type, uint64_t lhs, uint64_t rhs, int size)
 {
-        assert(size > 0 && rhs != 0);
+        assert(size >= 0 && rhs != 0);
 
         char a = lhs;
         char* b = (char*)rhs;
@@ -515,7 +515,7 @@ static bool CompareIntInArray(UtilsType type, uint64_t lhs, uint64_t rhs, int si
 
 static bool ComparePointerInArray(UtilsType type, uint64_t lhs, uint64_t rhs, int size)
 {
-        assert(size > 0 && rhs != 0);
+        assert(size >= 0 && rhs != 0);
 
         typedef void* pointer;
         pointer a = (pointer)lhs;
@@ -535,7 +535,7 @@ static bool ComparePointerInArray(UtilsType type, uint64_t lhs, uint64_t rhs, in
 static bool CompareStringInArray(UtilsType type, uint64_t lhs, uint64_t rhs, int size)
 {
         typedef const char* string;
-        assert(size > 0 && rhs != 0);
+        assert(size >= 0 && rhs != 0);
 
         string a = (string)lhs;
         string* b = (string*)rhs;

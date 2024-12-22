@@ -17,7 +17,7 @@ void test_LinkedList_reverseSublist()
 
                 int expected[] = {1, 4, 3, 2, 5};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(node, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
@@ -31,7 +31,7 @@ void test_LinkedList_reverseSublist()
 
                 int expected[] = {11, 7, 5, 3, 2};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(node, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
@@ -41,7 +41,7 @@ void test_LinkedList_reverseSublist()
 
                 int expected[] = {5};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(node, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
 }

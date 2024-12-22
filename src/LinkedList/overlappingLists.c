@@ -61,7 +61,7 @@ void test_LinkedList_overlappingLists()
                 UTILS_ASSERT_IS_NONE(LinkedList_overlappingLists(L1, L2));
         }
 
-        // NOTE: Merge at a node on cycle
+        // NOTE: Merge at cycle node
         {
                 ListNode *node, *L1, *L2, *A, *B;
                 B = &(ListNode){0, 0};

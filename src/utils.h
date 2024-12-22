@@ -92,7 +92,7 @@ void utils_assert(const char*, const char*, int, UtilsOp, ...);
                              void**: UTYPE_PTR ^ 0x80),                                                                \
                      actual, __VA_ARGS__)
 #define UTILS_ASSERT_TRUE(actual) UTILS_ASSERT_EQUAL((bool)actual, true)
-#define UTILS_ASSERT_FALSE(actual) UTILS_ASSERT_EQUAL((bool)actual, true)
+#define UTILS_ASSERT_FALSE(actual) UTILS_ASSERT_EQUAL((bool)actual, false)
 #define UTILS_ASSERT_IS(actual, expected) UTILS_ASSERT_EQUAL((void*)actual, (void*)expected);
 #define UTILS_ASSERT_IS_NONE(actual) UTILS_ASSERT_EQUAL((void*)actual, 0);
 #define UTILS_ASSERT_IN(actual, ...)                                                                                   \

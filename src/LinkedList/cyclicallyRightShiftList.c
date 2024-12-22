@@ -17,7 +17,7 @@ void test_LinkedList_cyclicallyRightShiftList()
 
                 int expected[] = {4, 5, 1, 2, 3};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(node, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
@@ -31,7 +31,7 @@ void test_LinkedList_cyclicallyRightShiftList()
 
                 int expected[] = {4, 5, 1, 2, 3};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(node, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
@@ -43,7 +43,7 @@ void test_LinkedList_cyclicallyRightShiftList()
 
                 int expected[] = {2, 0, 1};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(node, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {

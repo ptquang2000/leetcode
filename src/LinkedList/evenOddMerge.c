@@ -17,7 +17,7 @@ void test_LinkedList_evenOddMerge()
 
                 int expected[] = {1, 3, 5, 2, 4};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(node, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
@@ -33,7 +33,7 @@ void test_LinkedList_evenOddMerge()
 
                 int expected[] = {2, 3, 6, 7, 1, 5, 4};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(node, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {

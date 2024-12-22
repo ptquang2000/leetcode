@@ -19,7 +19,7 @@ void test_LinkedList_deletionFromList()
 
                 int expected[] = {4, 1, 9};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(L, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(L, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
@@ -35,7 +35,7 @@ void test_LinkedList_deletionFromList()
 
                 int expected[] = {4, 5, 9};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
-                ListNode_ToList(L, sizeof(expected) / sizeof(*expected), actual);
+                TO_LIST(L, sizeof(expected) / sizeof(*expected), actual);
                 UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
 }
