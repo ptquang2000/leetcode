@@ -7,7 +7,7 @@ void test_Stack_evaluate()
 {
         {
                 const char* rpn[] = {"2", "1", "+", "3", "*"};
-                UTILS_ASSERT_EQUAL(Stack_evaluate(sizeof(rpn) / sizeof(*rpn), rpn), 8);
+                UTILS_ASSERT_EQUAL(Stack_evaluate(sizeof(rpn) / sizeof(*rpn), rpn), 9);
         }
         {
                 const char* rpn[] = {"4", "13", "5", "/", "+"};
