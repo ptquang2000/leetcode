@@ -3,24 +3,24 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Recursion",
       "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
-      "-include",
-      "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/Stack/evaluate.c.o",
-      "day1/Stack/evaluate.c"
+      "build/./src/Recursion/combinations.c.o",
+      "src/Recursion/combinations.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/Stack/evaluate.c",
-    "output": "/home/quang/leetcode/build/day1/Stack/evaluate.c.o"
+    "file": "/home/quang/leetcode/src/Recursion/combinations.c",
+    "output": "/home/quang/leetcode/build/src/Recursion/combinations.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
+      "-I./src/Recursion",
       "-I./src/Stack",
       "-I./src/ArrayString",
       "-I./src/LinkedList",
