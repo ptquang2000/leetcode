@@ -50,20 +50,20 @@ void test_utils()
         UTILS_ASSERT_EQUAL(B0085, stringValue);
 
         UTILS_LOG("Test UTILS_ASSERT_EQUAL bool array");
-        UTILS_ASSERT_EQUAL(boolArrayActual1, boolArrayExpected, 3);
-        UTILS_ASSERT_EQUAL(boolArrayActual2, boolArrayExpected, 3);
+        UTILS_ASSERT_EQUAL_ARRAY(boolArrayActual1, boolArrayExpected, 3);
+        UTILS_ASSERT_EQUAL_ARRAY(boolArrayActual2, boolArrayExpected, 3);
 
         UTILS_LOG("Test UTILS_ASSERT_EQUAL char array");
-        UTILS_ASSERT_EQUAL(charArrayActual1, charArrayExpected, 3);
-        UTILS_ASSERT_EQUAL(charArrayActual2, charArrayExpected, 3);
+        UTILS_ASSERT_EQUAL_ARRAY(charArrayActual1, charArrayExpected, 3);
+        UTILS_ASSERT_EQUAL_ARRAY(charArrayActual2, charArrayExpected, 3);
 
         UTILS_LOG("Test UTILS_ASSERT_EQUAL int array");
-        UTILS_ASSERT_EQUAL(intArrayActual1, intArrayExpected, 3);
-        UTILS_ASSERT_EQUAL(intArrayActual2, intArrayExpected, 3);
+        UTILS_ASSERT_EQUAL_ARRAY(intArrayActual1, intArrayExpected, 3);
+        UTILS_ASSERT_EQUAL_ARRAY(intArrayActual2, intArrayExpected, 3);
 
         UTILS_LOG("Test UTILS_ASSERT_EQUAL string array");
-        UTILS_ASSERT_EQUAL(stringArrayActual1, stringArrayExpected, 3);
-        UTILS_ASSERT_EQUAL(stringArrayActual2, stringArrayExpected, 3);
+        UTILS_ASSERT_EQUAL_ARRAY(stringArrayActual1, stringArrayExpected, 3);
+        UTILS_ASSERT_EQUAL_ARRAY(stringArrayActual2, stringArrayExpected, 3);
 
         UTILS_LOG("Test UTILS_ASSERT_IS");
         UTILS_ASSERT_IS(stringArrayExpected, stringArrayExpected);
