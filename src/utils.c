@@ -377,34 +377,6 @@ static bool is_in_array(size_t i_actual, size_t i_expected, size_t i_size, size_
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static bool is_array_in_array(size_t i_expected, size_t i_expected_size, size_t i_actual, size_t i_actual_size,
-                              size_t i_count, size_t i_stride, size_t i_size_stride, UtilsType i_type)
-{
-        // typedef const char* string;
-
-        // const size_t mask = ((size_t)-1) >> (sizeof(size_t) - i_stride) * 8;
-        // for (size_t i = 0; i < i_size; i += i_stride)
-        //{
-        //         if (i_type == UTYPE_STRING)
-        //         {
-        //                 const string lhs = (string)(i_actual + 0);
-        //                 const string rhs = (string)(i_expected + i);
-        //                 if (strcmp(lhs, rhs) == 0)
-        //                         return true;
-        //         }
-        //         else
-        //         {
-        //                 const size_t lhs = *(size_t*)(i_actual + 0) & mask;
-        //                 const size_t rhs = *(size_t*)(i_expected + i) & mask;
-        //                 if (lhs == rhs)
-        //                         return true;
-        //         }
-        // }
-        return false;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
 static size_t* construct_count_set(size_t i_data, size_t i_size, size_t i_stride, UtilsType i_type)
 {
         size_t* set = calloc(i_size, sizeof(*set));
