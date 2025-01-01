@@ -10,9 +10,9 @@ void test_Recursion_combinations()
                 int expected[][2] = {
                         {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4}, {3, 4},
                 };
-                int actualSize;
-                int** actual = Recursion_combinations(4, k, &actualSize);
-                UTILS_ASSERT_EQUAL(actualSize, sizeof(expected) / sizeof(*expected));
-                //UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected), k);
+                int actual_count;
+                int** actual = Recursion_combinations(4, k, &actual_count);
+                UTILS_ASSERT_EQUAL(actual_count, sizeof(expected) / sizeof(*expected));
+                // UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected), k);
         }
 }
