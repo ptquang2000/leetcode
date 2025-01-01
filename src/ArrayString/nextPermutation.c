@@ -14,7 +14,7 @@ void test_ArrayString_nextPermutation()
                 int actualSize;
                 int* actual = ArrayString_nextPermutation(4, perm, &actualSize);
                 UTILS_ASSERT_EQUAL(actualSize, 4);
-                UTILS_ASSERT_EQUAL(actual, expect, 4);
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expect, 4);
                 if (actual != perm)
                 {
                         free(actual);
@@ -25,7 +25,7 @@ void test_ArrayString_nextPermutation()
                 int actualSize;
                 int* actual = ArrayString_nextPermutation(4, perm, &actualSize);
                 UTILS_ASSERT_EQUAL(actualSize, 0);
-                UTILS_ASSERT_EQUAL(actual, NULL, 0);
+                UTILS_ASSERT_EQUAL_ARRAY(actual, NULL, 0);
                 if (actual != perm)
                 {
                         free(actual);
@@ -37,7 +37,7 @@ void test_ArrayString_nextPermutation()
                 int actualSize;
                 int* actual = ArrayString_nextPermutation(7, perm, &actualSize);
                 UTILS_ASSERT_EQUAL(actualSize, 7);
-                UTILS_ASSERT_EQUAL(actual, expect, 7);
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expect, 7);
                 if (actual != perm)
                 {
                         free(actual);

@@ -19,7 +19,7 @@ void test_LinkedList_addTwoNumbers()
                 int expected[] = {0, 2, 3, 1};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
                 FREE_LIST(node);
         }
         {
@@ -35,7 +35,7 @@ void test_LinkedList_addTwoNumbers()
                 int expected[] = {7, 0, 8};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 ListNode *node, *L1, *L2;
@@ -46,7 +46,7 @@ void test_LinkedList_addTwoNumbers()
                 int expected[] = {0};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 ListNode *node, *L1, *L2;
@@ -66,7 +66,7 @@ void test_LinkedList_addTwoNumbers()
                 int expected[] = {8, 9, 9, 9, 0, 0, 0, 1};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
                 FREE_LIST(node);
         }
 }

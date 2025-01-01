@@ -11,7 +11,7 @@ void test_ArrayString_applyPermutation()
                 ArrayString_applyPermutation(4, perm, 4, A);
 
                 const char expected[] = {'d', 'c', 'b', 'a'};
-                UTILS_ASSERT_EQUAL(A, expected, 4);
+                UTILS_ASSERT_EQUAL_ARRAY(A, expected, 4);
         }
         {
                 char A[] = {'a', 'b', 'c', 'd'};
@@ -19,6 +19,6 @@ void test_ArrayString_applyPermutation()
                 ArrayString_applyPermutation(4, perm, 4, A);
 
                 const char expected[] = {'b', 'c', 'a', 'd'};
-                UTILS_ASSERT_EQUAL(A, expected, 4);
+                UTILS_ASSERT_EQUAL_ARRAY(A, expected, 4);
         }
 }

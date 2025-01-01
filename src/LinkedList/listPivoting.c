@@ -20,7 +20,7 @@ void test_LinkedList_listPivoting()
                 int expected[] = {3, 2, 2, 5, 7, 11, 11};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 ListNode *node, *L;
@@ -35,7 +35,7 @@ void test_LinkedList_listPivoting()
                 int expected[] = {1, 2, 2, 3, 4, 5};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 ListNode *node, *L;
@@ -46,6 +46,6 @@ void test_LinkedList_listPivoting()
                 int expected[] = {1, 2};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
         }
 }

@@ -16,6 +16,6 @@ void test_ArrayString_multiply()
 
         int expect[] = {-1, 4, 7, 5, 7, 3, 9, 5, 2, 5, 8, 9, 6, 7, 6, 4, 1, 2, 9, 2, 7};
         UTILS_ASSERT_EQUAL(actualSize, 21);
-        UTILS_ASSERT_EQUAL(actual, expect, 21);
+        UTILS_ASSERT_EQUAL_ARRAY(actual, expect, 21);
         free(actual);
 }

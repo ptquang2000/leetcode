@@ -21,15 +21,15 @@ void test_ArrayString_generatePascalTriangle()
         UTILS_ASSERT_EQUAL(colSize[3], 4);
         UTILS_ASSERT_EQUAL(colSize[4], 5);
 
-        UTILS_ASSERT_EQUAL(actual[0], expected[0], 1);
+        UTILS_ASSERT_EQUAL_ARRAY(actual[0], expected[0], 1);
+        UTILS_ASSERT_EQUAL_ARRAY(actual[1], expected[1], 2);
+        UTILS_ASSERT_EQUAL_ARRAY(actual[2], expected[2], 3);
+        UTILS_ASSERT_EQUAL_ARRAY(actual[3], expected[3], 4);
+        UTILS_ASSERT_EQUAL_ARRAY(actual[4], expected[4], 5);
         free(actual[0]);
-        UTILS_ASSERT_EQUAL(actual[1], expected[1], 2);
         free(actual[1]);
-        UTILS_ASSERT_EQUAL(actual[2], expected[2], 3);
         free(actual[2]);
-        UTILS_ASSERT_EQUAL(actual[3], expected[3], 4);
         free(actual[3]);
-        UTILS_ASSERT_EQUAL(actual[4], expected[4], 5);
         free(actual[4]);
 
         free(actual);

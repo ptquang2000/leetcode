@@ -16,7 +16,7 @@ void test_LinkedList_removeDuplicates()
                 int expected[] = {1, 2};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 ListNode *node, *L;
@@ -30,7 +30,7 @@ void test_LinkedList_removeDuplicates()
                 int expected[] = {1, 2, 3};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 ListNode *node, *L;
@@ -46,6 +46,6 @@ void test_LinkedList_removeDuplicates()
                 int expected[] = {2, 3, 5, 7, 11};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
         }
 }

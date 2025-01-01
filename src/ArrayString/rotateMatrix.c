@@ -18,8 +18,8 @@ void test_ArrayString_rotateMatrix()
                 {16, 12, 8, 4},
         };
         ArrayString_rotateMatrix(4, matrix);
-        UTILS_ASSERT_EQUAL(matrix[0], expected[0], 4);
-        UTILS_ASSERT_EQUAL(matrix[1], expected[1], 4);
-        UTILS_ASSERT_EQUAL(matrix[2], expected[2], 4);
-        UTILS_ASSERT_EQUAL(matrix[3], expected[3], 4);
+        UTILS_ASSERT_EQUAL_ARRAY(matrix[0], expected[0], 4);
+        UTILS_ASSERT_EQUAL_ARRAY(matrix[1], expected[1], 4);
+        UTILS_ASSERT_EQUAL_ARRAY(matrix[2], expected[2], 4);
+        UTILS_ASSERT_EQUAL_ARRAY(matrix[3], expected[3], 4);
 }

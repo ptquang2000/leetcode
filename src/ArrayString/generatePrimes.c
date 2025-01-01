@@ -13,7 +13,7 @@ void test_ArrayString_generatePrimes()
 
         int expect[] = {2, 3, 5, 7, 11, 13, 17};
         UTILS_ASSERT_EQUAL(actualSize, 7);
-        UTILS_ASSERT_EQUAL(actual, expect, 7);
+        UTILS_ASSERT_EQUAL_ARRAY(actual, expect, 7);
 
         free(actual);
 }

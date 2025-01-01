@@ -25,9 +25,9 @@ void test_ArrayString_dutchFlagPartition()
                 UTILS_ASSERT_EQUAL(count(7, A, 2), 2);
 
                 const int expectLess[] = {2, 2, 2, 2, 2};
-                UTILS_ASSERT_LESS(A, expectLess, 5);
+                UTILS_ASSERT_LESS_ARRAY(A, expectLess, 5);
                 const int expectEqual[] = {2, 2};
-                UTILS_ASSERT_EQUAL(A + 5, expectEqual, 2);
+                UTILS_ASSERT_EQUAL_ARRAY(A + 5, expectEqual, 2);
         }
         {
                 int A[] = {0, 1, 2, 0, 2, 1, 1};
@@ -38,8 +38,8 @@ void test_ArrayString_dutchFlagPartition()
                 UTILS_ASSERT_EQUAL(count(7, A, 2), 2);
 
                 const int expectEqual[] = {0, 0};
-                UTILS_ASSERT_EQUAL(A, expectEqual, 2);
+                UTILS_ASSERT_EQUAL_ARRAY(A, expectEqual, 2);
                 const int expectGreater[] = {0, 0, 0, 0, 0};
-                UTILS_ASSERT_GREATER(A + 2, expectGreater, 5);
+                UTILS_ASSERT_GREATER_ARRAY(A + 2, expectGreater, 5);
         }
 }

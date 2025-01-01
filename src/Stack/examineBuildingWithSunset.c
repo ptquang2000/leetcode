@@ -14,7 +14,7 @@ void test_Stack_examineBuildingWithSunset()
                 int* actual =
                         Stack_examineBuildingWithSunset(sizeof(sequence) / sizeof(*sequence), sequence, &actualSize);
                 UTILS_ASSERT_EQUAL(actualSize, sizeof(expected) / sizeof(*expected));
-                UTILS_ASSERT_EQUAL(actual, expected, actualSize);
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, actualSize);
                 free(actual);
         }
         {
@@ -24,7 +24,7 @@ void test_Stack_examineBuildingWithSunset()
                 int* actual =
                         Stack_examineBuildingWithSunset(sizeof(sequence) / sizeof(*sequence), sequence, &actualSize);
                 UTILS_ASSERT_EQUAL(actualSize, sizeof(expected) / sizeof(*expected));
-                UTILS_ASSERT_EQUAL(actual, expected, actualSize);
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, actualSize);
                 free(actual);
         }
 }

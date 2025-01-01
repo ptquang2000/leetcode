@@ -14,7 +14,7 @@ void test_ArrayString_plusOne()
                 int* actual = ArrayString_plusOne(3, A, &actualSize);
                 UTILS_ASSERT_EQUAL(actualSize, 3);
                 int expected[] = {1, 3, 0};
-                UTILS_ASSERT_EQUAL(actual, expected, 3);
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, 3);
                 free(actual);
         }
         {
@@ -23,7 +23,7 @@ void test_ArrayString_plusOne()
                 int* actual = ArrayString_plusOne(3, A, &actualSize);
                 UTILS_ASSERT_EQUAL(actualSize, 4);
                 int expected[] = {1, 0, 0, 0};
-                UTILS_ASSERT_EQUAL(actual, expected, 4);
+                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, 4);
                 free(actual);
         }
 }
