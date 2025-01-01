@@ -113,4 +113,4 @@ $(NEW_PROB_SRCS):
 	@echo -e '$(func_def)' >> $@
 	@echo -e '}' >> $@
 
-generate: $(NEW_PROB_SRCS)
+generate: $(NEW_PROB_SRCS) setup
