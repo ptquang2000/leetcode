@@ -89,6 +89,13 @@ void utils_assert_count_equal_array(const char* i_file, const char* i_func, int 
                 default: (size_t)-1)
 #define PTR_UTYPE(p) TO_UTYPE(*p)
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
+#define free_array(x, n)                                                                                               \
+        do                                                                                                             \
+        {                                                                                                              \
+                while (n)                                                                                              \
+                        free(x[--n]);                                                                                  \
+                free(x);                                                                                               \
+        } while (0);
 
 #define UTILS_ASSERT_EQUAL(actual, expected)                                                                           \
         utils_assert_equal(__FILE__, __FUNCTION__, __LINE__, TO_UTYPE(actual), (size_t)actual, (size_t)expected,       \
