@@ -8,11 +8,11 @@ void test_Recursion_combinations()
 {
         {
                 const int n = 4, k = 2;
-                int expected[][2] = {
-                        {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4}, {3, 4},
+                int* expected[] = {
+                        (int[]){1, 2}, (int[]){1, 3}, (int[]){1, 4}, (int[]){2, 3}, (int[]){2, 4}, (int[]){3, 4},
                 };
                 int expected_size[] = {k, k, k, k, k, k};
-                int expected_count = ARRAY_SIZE(expected);
+                int expected_count = ARRAY_SIZE(expected_size);
                 int *actual_size, actual_count;
                 int** actual = Recursion_combinations(n, k, &actual_size, &actual_count);
                 UTILS_ASSERT_EQUAL(actual_count, expected_count);
@@ -24,14 +24,14 @@ void test_Recursion_combinations()
         }
         {
                 const int n = 4, k = 3;
-                int expected[][3] = {
-                        {1, 2, 3},
-                        {1, 2, 4},
-                        {1, 3, 4},
-                        {2, 3, 4},
+                int* expected[] = {
+                        (int[]){1, 2, 3},
+                        (int[]){1, 2, 4},
+                        (int[]){1, 3, 4},
+                        (int[]){2, 3, 4},
                 };
                 int expected_size[] = {k, k, k};
-                int expected_count = ARRAY_SIZE(expected);
+                int expected_count = ARRAY_SIZE(expected_size);
                 int *actual_size, actual_count;
                 int** actual = Recursion_combinations(n, k, &actual_size, &actual_count);
                 UTILS_ASSERT_EQUAL(actual_count, expected_count);
@@ -43,11 +43,11 @@ void test_Recursion_combinations()
         }
         {
                 const int n = 1, k = 1;
-                int expected[][1] = {
-                        {1},
+                int* expected[] = {
+                        (int[]){1},
                 };
                 int expected_size[] = {k};
-                int expected_count = ARRAY_SIZE(expected);
+                int expected_count = ARRAY_SIZE(expected_size);
                 int *actual_size, actual_count;
                 int** actual = Recursion_combinations(n, k, &actual_size, &actual_count);
                 UTILS_ASSERT_EQUAL(actual_count, expected_count);

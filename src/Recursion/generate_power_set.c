@@ -9,11 +9,12 @@ void test_Recursion_generate_power_set()
 {
         {
                 int input_set[] = {1, 2, 3};
-                const int expected[][3] = {
-                        {0, 0, 0}, {1, 0, 0}, {2, 0, 0}, {1, 2, 0}, {3, 0, 0}, {1, 3, 0}, {2, 3, 0}, {1, 2, 3},
+                const int* expected[] = {
+                        (int[]){0, 0, 0}, (int[]){1, 0, 0}, (int[]){2, 0, 0}, (int[]){1, 2, 0},
+                        (int[]){3, 0, 0}, (int[]){1, 3, 0}, (int[]){2, 3, 0}, (int[]){1, 2, 3},
                 };
                 const int expected_size[] = {0, 1, 1, 2, 1, 2, 2, 3};
-                const int expected_count = ARRAY_SIZE(expected);
+                const int expected_count = ARRAY_SIZE(expected_size);
                 int *actual_size, actual_count;
                 int** actual =
                         Recursion_generate_power_set(ARRAY_SIZE(input_set), input_set, &actual_size, &actual_count);
