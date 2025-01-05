@@ -3,10 +3,11 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
       "build/./src/pch.h.gch",
@@ -20,1678 +21,1465 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/Recursion/generate_power_set.c.o",
-      "day1/Recursion/generate_power_set.c"
+      "build/./day1/recursion/generate_power_set.c.o",
+      "day1/recursion/generate_power_set.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/Recursion/generate_power_set.c",
-    "output": "/home/quang/leetcode/build/day1/Recursion/generate_power_set.c.o"
+    "file": "/home/quang/leetcode/day1/recursion/generate_power_set.c",
+    "output": "/home/quang/leetcode/build/day1/recursion/generate_power_set.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/Recursion/combinations.c.o",
-      "day1/Recursion/combinations.c"
+      "build/./day1/recursion/combinations.c.o",
+      "day1/recursion/combinations.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/Recursion/combinations.c",
-    "output": "/home/quang/leetcode/build/day1/Recursion/combinations.c.o"
+    "file": "/home/quang/leetcode/day1/recursion/combinations.c",
+    "output": "/home/quang/leetcode/build/day1/recursion/combinations.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/Recursion/permutations.c.o",
-      "day1/Recursion/permutations.c"
+      "build/./day1/recursion/permutations.c.o",
+      "day1/recursion/permutations.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/Recursion/permutations.c",
-    "output": "/home/quang/leetcode/build/day1/Recursion/permutations.c.o"
+    "file": "/home/quang/leetcode/day1/recursion/permutations.c",
+    "output": "/home/quang/leetcode/build/day1/recursion/permutations.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/Recursion/n_queens.c.o",
-      "day1/Recursion/n_queens.c"
+      "build/./day1/recursion/n_queens.c.o",
+      "day1/recursion/n_queens.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/Recursion/n_queens.c",
-    "output": "/home/quang/leetcode/build/day1/Recursion/n_queens.c.o"
+    "file": "/home/quang/leetcode/day1/recursion/n_queens.c",
+    "output": "/home/quang/leetcode/build/day1/recursion/n_queens.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/Recursion/generate_balanced_parentheses.c.o",
-      "day1/Recursion/generate_balanced_parentheses.c"
+      "build/./day1/recursion/generate_balanced_parentheses.c.o",
+      "day1/recursion/generate_balanced_parentheses.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/Recursion/generate_balanced_parentheses.c",
-    "output": "/home/quang/leetcode/build/day1/Recursion/generate_balanced_parentheses.c.o"
+    "file": "/home/quang/leetcode/day1/recursion/generate_balanced_parentheses.c",
+    "output": "/home/quang/leetcode/build/day1/recursion/generate_balanced_parentheses.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/Recursion/solve_sudoku.c.o",
-      "day1/Recursion/solve_sudoku.c"
+      "build/./day1/recursion/solve_sudoku.c.o",
+      "day1/recursion/solve_sudoku.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/Recursion/solve_sudoku.c",
-    "output": "/home/quang/leetcode/build/day1/Recursion/solve_sudoku.c.o"
+    "file": "/home/quang/leetcode/day1/recursion/solve_sudoku.c",
+    "output": "/home/quang/leetcode/build/day1/recursion/solve_sudoku.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/Stack/examineBuildingWithSunset.c.o",
-      "day1/Stack/examineBuildingWithSunset.c"
+      "build/./day1/linked_list/removeKthLast.c.o",
+      "day1/linked_list/removeKthLast.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/Stack/examineBuildingWithSunset.c",
-    "output": "/home/quang/leetcode/build/day1/Stack/examineBuildingWithSunset.c.o"
+    "file": "/home/quang/leetcode/day1/linked_list/removeKthLast.c",
+    "output": "/home/quang/leetcode/build/day1/linked_list/removeKthLast.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/Stack/evaluate.c.o",
-      "day1/Stack/evaluate.c"
+      "build/./day1/linked_list/overlappingLists.c.o",
+      "day1/linked_list/overlappingLists.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/Stack/evaluate.c",
-    "output": "/home/quang/leetcode/build/day1/Stack/evaluate.c.o"
+    "file": "/home/quang/leetcode/day1/linked_list/overlappingLists.c",
+    "output": "/home/quang/leetcode/build/day1/linked_list/overlappingLists.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/Stack/isWellFormed.c.o",
-      "day1/Stack/isWellFormed.c"
+      "build/./day1/linked_list/removeDuplicates.c.o",
+      "day1/linked_list/removeDuplicates.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/Stack/isWellFormed.c",
-    "output": "/home/quang/leetcode/build/day1/Stack/isWellFormed.c.o"
+    "file": "/home/quang/leetcode/day1/linked_list/removeDuplicates.c",
+    "output": "/home/quang/leetcode/build/day1/linked_list/removeDuplicates.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/Stack/shortestEquivalentPath.c.o",
-      "day1/Stack/shortestEquivalentPath.c"
+      "build/./day1/linked_list/hasCycle.c.o",
+      "day1/linked_list/hasCycle.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/Stack/shortestEquivalentPath.c",
-    "output": "/home/quang/leetcode/build/day1/Stack/shortestEquivalentPath.c.o"
+    "file": "/home/quang/leetcode/day1/linked_list/hasCycle.c",
+    "output": "/home/quang/leetcode/build/day1/linked_list/hasCycle.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/deleteDuplicates.c.o",
-      "day1/ArrayString/deleteDuplicates.c"
+      "build/./day1/linked_list/addTwoNumbers.c.o",
+      "day1/linked_list/addTwoNumbers.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/deleteDuplicates.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/deleteDuplicates.c.o"
+    "file": "/home/quang/leetcode/day1/linked_list/addTwoNumbers.c",
+    "output": "/home/quang/leetcode/build/day1/linked_list/addTwoNumbers.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/isPalindrome.c.o",
-      "day1/ArrayString/isPalindrome.c"
+      "build/./day1/linked_list/isLinkedListAPalindrome.c.o",
+      "day1/linked_list/isLinkedListAPalindrome.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/isPalindrome.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/isPalindrome.c.o"
+    "file": "/home/quang/leetcode/day1/linked_list/isLinkedListAPalindrome.c",
+    "output": "/home/quang/leetcode/build/day1/linked_list/isLinkedListAPalindrome.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/replaceAndRemove.c.o",
-      "day1/ArrayString/replaceAndRemove.c"
+      "build/./day1/linked_list/overlappingNoCycleLists.c.o",
+      "day1/linked_list/overlappingNoCycleLists.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/replaceAndRemove.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/replaceAndRemove.c.o"
+    "file": "/home/quang/leetcode/day1/linked_list/overlappingNoCycleLists.c",
+    "output": "/home/quang/leetcode/build/day1/linked_list/overlappingNoCycleLists.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/applyPermutation.c.o",
-      "day1/ArrayString/applyPermutation.c"
+      "build/./day1/linked_list/mergeTwoSortedLists.c.o",
+      "day1/linked_list/mergeTwoSortedLists.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/applyPermutation.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/applyPermutation.c.o"
+    "file": "/home/quang/leetcode/day1/linked_list/mergeTwoSortedLists.c",
+    "output": "/home/quang/leetcode/build/day1/linked_list/mergeTwoSortedLists.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/stringEncoding.c.o",
-      "day1/ArrayString/stringEncoding.c"
+      "build/./day1/linked_list/reverseSublist.c.o",
+      "day1/linked_list/reverseSublist.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/stringEncoding.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/stringEncoding.c.o"
+    "file": "/home/quang/leetcode/day1/linked_list/reverseSublist.c",
+    "output": "/home/quang/leetcode/build/day1/linked_list/reverseSublist.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/buyAndSellStockTwice.c.o",
-      "day1/ArrayString/buyAndSellStockTwice.c"
+      "build/./day1/linked_list/deletionFromList.c.o",
+      "day1/linked_list/deletionFromList.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/buyAndSellStockTwice.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/buyAndSellStockTwice.c.o"
+    "file": "/home/quang/leetcode/day1/linked_list/deletionFromList.c",
+    "output": "/home/quang/leetcode/build/day1/linked_list/deletionFromList.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/generatePrimes.c.o",
-      "day1/ArrayString/generatePrimes.c"
+      "build/./day1/linked_list/evenOddMerge.c.o",
+      "day1/linked_list/evenOddMerge.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/generatePrimes.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/generatePrimes.c.o"
+    "file": "/home/quang/leetcode/day1/linked_list/evenOddMerge.c",
+    "output": "/home/quang/leetcode/build/day1/linked_list/evenOddMerge.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/stringToInt.c.o",
-      "day1/ArrayString/stringToInt.c"
+      "build/./day1/linked_list/listPivoting.c.o",
+      "day1/linked_list/listPivoting.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/stringToInt.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/stringToInt.c.o"
+    "file": "/home/quang/leetcode/day1/linked_list/listPivoting.c",
+    "output": "/home/quang/leetcode/build/day1/linked_list/listPivoting.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/romanToInteger.c.o",
-      "day1/ArrayString/romanToInteger.c"
+      "build/./day1/linked_list/cyclicallyRightShiftList.c.o",
+      "day1/linked_list/cyclicallyRightShiftList.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/romanToInteger.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/romanToInteger.c.o"
+    "file": "/home/quang/leetcode/day1/linked_list/cyclicallyRightShiftList.c",
+    "output": "/home/quang/leetcode/build/day1/linked_list/cyclicallyRightShiftList.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/rabinKarp.c.o",
-      "day1/ArrayString/rabinKarp.c"
+      "build/./day1/stack/is_well_formed.c.o",
+      "day1/stack/is_well_formed.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/rabinKarp.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/rabinKarp.c.o"
+    "file": "/home/quang/leetcode/day1/stack/is_well_formed.c",
+    "output": "/home/quang/leetcode/build/day1/stack/is_well_formed.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/generatePascalTriangle.c.o",
-      "day1/ArrayString/generatePascalTriangle.c"
+      "build/./day1/stack/evaluate.c.o",
+      "day1/stack/evaluate.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/generatePascalTriangle.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/generatePascalTriangle.c.o"
+    "file": "/home/quang/leetcode/day1/stack/evaluate.c",
+    "output": "/home/quang/leetcode/build/day1/stack/evaluate.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/buyAndSellStockOnce.c.o",
-      "day1/ArrayString/buyAndSellStockOnce.c"
+      "build/./day1/stack/examine_building_with_sunset.c.o",
+      "day1/stack/examine_building_with_sunset.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/buyAndSellStockOnce.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/buyAndSellStockOnce.c.o"
+    "file": "/home/quang/leetcode/day1/stack/examine_building_with_sunset.c",
+    "output": "/home/quang/leetcode/build/day1/stack/examine_building_with_sunset.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/matrixInSpiralOrder.c.o",
-      "day1/ArrayString/matrixInSpiralOrder.c"
+      "build/./day1/stack/shortest_equivalent_path.c.o",
+      "day1/stack/shortest_equivalent_path.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/matrixInSpiralOrder.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/matrixInSpiralOrder.c.o"
+    "file": "/home/quang/leetcode/day1/stack/shortest_equivalent_path.c",
+    "output": "/home/quang/leetcode/build/day1/stack/shortest_equivalent_path.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/lookAndSay.c.o",
-      "day1/ArrayString/lookAndSay.c"
+      "build/./day1/array_string/deleteDuplicates.c.o",
+      "day1/array_string/deleteDuplicates.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/lookAndSay.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/lookAndSay.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/deleteDuplicates.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/deleteDuplicates.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/stringDecoding.c.o",
-      "day1/ArrayString/stringDecoding.c"
+      "build/./day1/array_string/isPalindrome.c.o",
+      "day1/array_string/isPalindrome.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/stringDecoding.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/stringDecoding.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/isPalindrome.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/isPalindrome.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/dutchFlagPartition.c.o",
-      "day1/ArrayString/dutchFlagPartition.c"
+      "build/./day1/array_string/replaceAndRemove.c.o",
+      "day1/array_string/replaceAndRemove.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/dutchFlagPartition.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/dutchFlagPartition.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/replaceAndRemove.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/replaceAndRemove.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/convertBase.c.o",
-      "day1/ArrayString/convertBase.c"
+      "build/./day1/array_string/applyPermutation.c.o",
+      "day1/array_string/applyPermutation.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/convertBase.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/convertBase.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/applyPermutation.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/applyPermutation.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/plusOne.c.o",
-      "day1/ArrayString/plusOne.c"
+      "build/./day1/array_string/stringEncoding.c.o",
+      "day1/array_string/stringEncoding.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/plusOne.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/plusOne.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/stringEncoding.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/stringEncoding.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/nextPermutation.c.o",
-      "day1/ArrayString/nextPermutation.c"
+      "build/./day1/array_string/buyAndSellStockTwice.c.o",
+      "day1/array_string/buyAndSellStockTwice.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/nextPermutation.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/nextPermutation.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/buyAndSellStockTwice.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/buyAndSellStockTwice.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/multiply.c.o",
-      "day1/ArrayString/multiply.c"
+      "build/./day1/array_string/generatePrimes.c.o",
+      "day1/array_string/generatePrimes.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/multiply.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/multiply.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/generatePrimes.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/generatePrimes.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/isValidSudoku.c.o",
-      "day1/ArrayString/isValidSudoku.c"
+      "build/./day1/array_string/stringToInt.c.o",
+      "day1/array_string/stringToInt.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/isValidSudoku.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/isValidSudoku.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/stringToInt.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/stringToInt.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/snakeString.c.o",
-      "day1/ArrayString/snakeString.c"
+      "build/./day1/array_string/romanToInteger.c.o",
+      "day1/array_string/romanToInteger.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/snakeString.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/snakeString.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/romanToInteger.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/romanToInteger.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/reverseWords.c.o",
-      "day1/ArrayString/reverseWords.c"
+      "build/./day1/array_string/rabinKarp.c.o",
+      "day1/array_string/rabinKarp.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/reverseWords.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/reverseWords.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/rabinKarp.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/rabinKarp.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/merge.c.o",
-      "day1/ArrayString/merge.c"
+      "build/./day1/array_string/generatePascalTriangle.c.o",
+      "day1/array_string/generatePascalTriangle.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/merge.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/merge.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/generatePascalTriangle.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/generatePascalTriangle.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/canReachEnd.c.o",
-      "day1/ArrayString/canReachEnd.c"
+      "build/./day1/array_string/buyAndSellStockOnce.c.o",
+      "day1/array_string/buyAndSellStockOnce.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/canReachEnd.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/canReachEnd.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/buyAndSellStockOnce.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/buyAndSellStockOnce.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/intToString.c.o",
-      "day1/ArrayString/intToString.c"
+      "build/./day1/array_string/matrixInSpiralOrder.c.o",
+      "day1/array_string/matrixInSpiralOrder.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/intToString.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/intToString.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/matrixInSpiralOrder.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/matrixInSpiralOrder.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/rotateMatrix.c.o",
-      "day1/ArrayString/rotateMatrix.c"
+      "build/./day1/array_string/lookAndSay.c.o",
+      "day1/array_string/lookAndSay.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/rotateMatrix.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/rotateMatrix.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/lookAndSay.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/lookAndSay.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/removeElement.c.o",
-      "day1/ArrayString/removeElement.c"
+      "build/./day1/array_string/stringDecoding.c.o",
+      "day1/array_string/stringDecoding.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/removeElement.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/removeElement.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/stringDecoding.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/stringDecoding.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/ArrayString/spreadsheetDecodeColumnID.c.o",
-      "day1/ArrayString/spreadsheetDecodeColumnID.c"
+      "build/./day1/array_string/dutchFlagPartition.c.o",
+      "day1/array_string/dutchFlagPartition.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/ArrayString/spreadsheetDecodeColumnID.c",
-    "output": "/home/quang/leetcode/build/day1/ArrayString/spreadsheetDecodeColumnID.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/dutchFlagPartition.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/dutchFlagPartition.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/LinkedList/removeKthLast.c.o",
-      "day1/LinkedList/removeKthLast.c"
+      "build/./day1/array_string/convertBase.c.o",
+      "day1/array_string/convertBase.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/LinkedList/removeKthLast.c",
-    "output": "/home/quang/leetcode/build/day1/LinkedList/removeKthLast.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/convertBase.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/convertBase.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/LinkedList/overlappingLists.c.o",
-      "day1/LinkedList/overlappingLists.c"
+      "build/./day1/array_string/plusOne.c.o",
+      "day1/array_string/plusOne.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/LinkedList/overlappingLists.c",
-    "output": "/home/quang/leetcode/build/day1/LinkedList/overlappingLists.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/plusOne.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/plusOne.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/LinkedList/removeDuplicates.c.o",
-      "day1/LinkedList/removeDuplicates.c"
+      "build/./day1/array_string/nextPermutation.c.o",
+      "day1/array_string/nextPermutation.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/LinkedList/removeDuplicates.c",
-    "output": "/home/quang/leetcode/build/day1/LinkedList/removeDuplicates.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/nextPermutation.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/nextPermutation.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/LinkedList/hasCycle.c.o",
-      "day1/LinkedList/hasCycle.c"
+      "build/./day1/array_string/multiply.c.o",
+      "day1/array_string/multiply.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/LinkedList/hasCycle.c",
-    "output": "/home/quang/leetcode/build/day1/LinkedList/hasCycle.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/multiply.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/multiply.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/LinkedList/addTwoNumbers.c.o",
-      "day1/LinkedList/addTwoNumbers.c"
+      "build/./day1/array_string/isValidSudoku.c.o",
+      "day1/array_string/isValidSudoku.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/LinkedList/addTwoNumbers.c",
-    "output": "/home/quang/leetcode/build/day1/LinkedList/addTwoNumbers.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/isValidSudoku.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/isValidSudoku.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/LinkedList/isLinkedListAPalindrome.c.o",
-      "day1/LinkedList/isLinkedListAPalindrome.c"
+      "build/./day1/array_string/snakeString.c.o",
+      "day1/array_string/snakeString.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/LinkedList/isLinkedListAPalindrome.c",
-    "output": "/home/quang/leetcode/build/day1/LinkedList/isLinkedListAPalindrome.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/snakeString.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/snakeString.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/LinkedList/overlappingNoCycleLists.c.o",
-      "day1/LinkedList/overlappingNoCycleLists.c"
+      "build/./day1/array_string/reverseWords.c.o",
+      "day1/array_string/reverseWords.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/LinkedList/overlappingNoCycleLists.c",
-    "output": "/home/quang/leetcode/build/day1/LinkedList/overlappingNoCycleLists.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/reverseWords.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/reverseWords.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/LinkedList/mergeTwoSortedLists.c.o",
-      "day1/LinkedList/mergeTwoSortedLists.c"
+      "build/./day1/array_string/merge.c.o",
+      "day1/array_string/merge.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/LinkedList/mergeTwoSortedLists.c",
-    "output": "/home/quang/leetcode/build/day1/LinkedList/mergeTwoSortedLists.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/merge.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/merge.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/LinkedList/reverseSublist.c.o",
-      "day1/LinkedList/reverseSublist.c"
+      "build/./day1/array_string/canReachEnd.c.o",
+      "day1/array_string/canReachEnd.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/LinkedList/reverseSublist.c",
-    "output": "/home/quang/leetcode/build/day1/LinkedList/reverseSublist.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/canReachEnd.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/canReachEnd.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/LinkedList/deletionFromList.c.o",
-      "day1/LinkedList/deletionFromList.c"
+      "build/./day1/array_string/intToString.c.o",
+      "day1/array_string/intToString.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/LinkedList/deletionFromList.c",
-    "output": "/home/quang/leetcode/build/day1/LinkedList/deletionFromList.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/intToString.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/intToString.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/LinkedList/evenOddMerge.c.o",
-      "day1/LinkedList/evenOddMerge.c"
+      "build/./day1/array_string/rotateMatrix.c.o",
+      "day1/array_string/rotateMatrix.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/LinkedList/evenOddMerge.c",
-    "output": "/home/quang/leetcode/build/day1/LinkedList/evenOddMerge.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/rotateMatrix.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/rotateMatrix.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/LinkedList/listPivoting.c.o",
-      "day1/LinkedList/listPivoting.c"
+      "build/./day1/array_string/removeElement.c.o",
+      "day1/array_string/removeElement.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/LinkedList/listPivoting.c",
-    "output": "/home/quang/leetcode/build/day1/LinkedList/listPivoting.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/removeElement.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/removeElement.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-include",
       "./src/pch.h",
       "-c",
       "-o",
-      "build/./day1/LinkedList/cyclicallyRightShiftList.c.o",
-      "day1/LinkedList/cyclicallyRightShiftList.c"
+      "build/./day1/array_string/spreadsheetDecodeColumnID.c.o",
+      "day1/array_string/spreadsheetDecodeColumnID.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/day1/LinkedList/cyclicallyRightShiftList.c",
-    "output": "/home/quang/leetcode/build/day1/LinkedList/cyclicallyRightShiftList.c.o"
+    "file": "/home/quang/leetcode/day1/array_string/spreadsheetDecodeColumnID.c",
+    "output": "/home/quang/leetcode/build/day1/array_string/spreadsheetDecodeColumnID.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/Recursion/generate_power_set.c.o",
-      "src/Recursion/generate_power_set.c"
+      "build/./src/recursion/generate_power_set.c.o",
+      "src/recursion/generate_power_set.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/Recursion/generate_power_set.c",
-    "output": "/home/quang/leetcode/build/src/Recursion/generate_power_set.c.o"
+    "file": "/home/quang/leetcode/src/recursion/generate_power_set.c",
+    "output": "/home/quang/leetcode/build/src/recursion/generate_power_set.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/Recursion/combinations.c.o",
-      "src/Recursion/combinations.c"
+      "build/./src/recursion/combinations.c.o",
+      "src/recursion/combinations.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/Recursion/combinations.c",
-    "output": "/home/quang/leetcode/build/src/Recursion/combinations.c.o"
+    "file": "/home/quang/leetcode/src/recursion/combinations.c",
+    "output": "/home/quang/leetcode/build/src/recursion/combinations.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/Recursion/permutations.c.o",
-      "src/Recursion/permutations.c"
+      "build/./src/recursion/permutations.c.o",
+      "src/recursion/permutations.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/Recursion/permutations.c",
-    "output": "/home/quang/leetcode/build/src/Recursion/permutations.c.o"
+    "file": "/home/quang/leetcode/src/recursion/permutations.c",
+    "output": "/home/quang/leetcode/build/src/recursion/permutations.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/Recursion/n_queens.c.o",
-      "src/Recursion/n_queens.c"
+      "build/./src/recursion/n_queens.c.o",
+      "src/recursion/n_queens.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/Recursion/n_queens.c",
-    "output": "/home/quang/leetcode/build/src/Recursion/n_queens.c.o"
+    "file": "/home/quang/leetcode/src/recursion/n_queens.c",
+    "output": "/home/quang/leetcode/build/src/recursion/n_queens.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/Recursion/generate_balanced_parentheses.c.o",
-      "src/Recursion/generate_balanced_parentheses.c"
+      "build/./src/recursion/generate_balanced_parentheses.c.o",
+      "src/recursion/generate_balanced_parentheses.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/Recursion/generate_balanced_parentheses.c",
-    "output": "/home/quang/leetcode/build/src/Recursion/generate_balanced_parentheses.c.o"
+    "file": "/home/quang/leetcode/src/recursion/generate_balanced_parentheses.c",
+    "output": "/home/quang/leetcode/build/src/recursion/generate_balanced_parentheses.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/Recursion/solve_sudoku.c.o",
-      "src/Recursion/solve_sudoku.c"
+      "build/./src/recursion/solve_sudoku.c.o",
+      "src/recursion/solve_sudoku.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/Recursion/solve_sudoku.c",
-    "output": "/home/quang/leetcode/build/src/Recursion/solve_sudoku.c.o"
+    "file": "/home/quang/leetcode/src/recursion/solve_sudoku.c",
+    "output": "/home/quang/leetcode/build/src/recursion/solve_sudoku.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/Stack/examineBuildingWithSunset.c.o",
-      "src/Stack/examineBuildingWithSunset.c"
+      "build/./src/linked_list/removeKthLast.c.o",
+      "src/linked_list/removeKthLast.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/Stack/examineBuildingWithSunset.c",
-    "output": "/home/quang/leetcode/build/src/Stack/examineBuildingWithSunset.c.o"
+    "file": "/home/quang/leetcode/src/linked_list/removeKthLast.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/removeKthLast.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/Stack/evaluate.c.o",
-      "src/Stack/evaluate.c"
+      "build/./src/linked_list/overlappingLists.c.o",
+      "src/linked_list/overlappingLists.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/Stack/evaluate.c",
-    "output": "/home/quang/leetcode/build/src/Stack/evaluate.c.o"
+    "file": "/home/quang/leetcode/src/linked_list/overlappingLists.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/overlappingLists.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/Stack/isWellFormed.c.o",
-      "src/Stack/isWellFormed.c"
+      "build/./src/linked_list/removeDuplicates.c.o",
+      "src/linked_list/removeDuplicates.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/Stack/isWellFormed.c",
-    "output": "/home/quang/leetcode/build/src/Stack/isWellFormed.c.o"
+    "file": "/home/quang/leetcode/src/linked_list/removeDuplicates.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/removeDuplicates.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/Stack/shortestEquivalentPath.c.o",
-      "src/Stack/shortestEquivalentPath.c"
+      "build/./src/linked_list/hasCycle.c.o",
+      "src/linked_list/hasCycle.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/Stack/shortestEquivalentPath.c",
-    "output": "/home/quang/leetcode/build/src/Stack/shortestEquivalentPath.c.o"
+    "file": "/home/quang/leetcode/src/linked_list/hasCycle.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/hasCycle.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/ArrayString/deleteDuplicates.c.o",
-      "src/ArrayString/deleteDuplicates.c"
+      "build/./src/linked_list/addTwoNumbers.c.o",
+      "src/linked_list/addTwoNumbers.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/deleteDuplicates.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/deleteDuplicates.c.o"
+    "file": "/home/quang/leetcode/src/linked_list/addTwoNumbers.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/addTwoNumbers.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/ArrayString/isPalindrome.c.o",
-      "src/ArrayString/isPalindrome.c"
+      "build/./src/linked_list/isLinkedListAPalindrome.c.o",
+      "src/linked_list/isLinkedListAPalindrome.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/isPalindrome.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/isPalindrome.c.o"
+    "file": "/home/quang/leetcode/src/linked_list/isLinkedListAPalindrome.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/isLinkedListAPalindrome.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/ArrayString/replaceAndRemove.c.o",
-      "src/ArrayString/replaceAndRemove.c"
+      "build/./src/linked_list/overlappingNoCycleLists.c.o",
+      "src/linked_list/overlappingNoCycleLists.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/replaceAndRemove.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/replaceAndRemove.c.o"
+    "file": "/home/quang/leetcode/src/linked_list/overlappingNoCycleLists.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/overlappingNoCycleLists.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/ArrayString/applyPermutation.c.o",
-      "src/ArrayString/applyPermutation.c"
+      "build/./src/linked_list/mergeTwoSortedLists.c.o",
+      "src/linked_list/mergeTwoSortedLists.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/applyPermutation.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/applyPermutation.c.o"
+    "file": "/home/quang/leetcode/src/linked_list/mergeTwoSortedLists.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/mergeTwoSortedLists.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/ArrayString/stringEncoding.c.o",
-      "src/ArrayString/stringEncoding.c"
+      "build/./src/linked_list/reverseSublist.c.o",
+      "src/linked_list/reverseSublist.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/stringEncoding.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/stringEncoding.c.o"
+    "file": "/home/quang/leetcode/src/linked_list/reverseSublist.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/reverseSublist.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/ArrayString/buyAndSellStockTwice.c.o",
-      "src/ArrayString/buyAndSellStockTwice.c"
+      "build/./src/linked_list/deletionFromList.c.o",
+      "src/linked_list/deletionFromList.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/buyAndSellStockTwice.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/buyAndSellStockTwice.c.o"
+    "file": "/home/quang/leetcode/src/linked_list/deletionFromList.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/deletionFromList.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/ArrayString/generatePrimes.c.o",
-      "src/ArrayString/generatePrimes.c"
+      "build/./src/linked_list/evenOddMerge.c.o",
+      "src/linked_list/evenOddMerge.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/generatePrimes.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/generatePrimes.c.o"
+    "file": "/home/quang/leetcode/src/linked_list/evenOddMerge.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/evenOddMerge.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/ArrayString/stringToInt.c.o",
-      "src/ArrayString/stringToInt.c"
+      "build/./src/linked_list/listPivoting.c.o",
+      "src/linked_list/listPivoting.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/stringToInt.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/stringToInt.c.o"
+    "file": "/home/quang/leetcode/src/linked_list/listPivoting.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/listPivoting.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/ArrayString/romanToInteger.c.o",
-      "src/ArrayString/romanToInteger.c"
+      "build/./src/linked_list/cyclicallyRightShiftList.c.o",
+      "src/linked_list/cyclicallyRightShiftList.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/romanToInteger.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/romanToInteger.c.o"
+    "file": "/home/quang/leetcode/src/linked_list/cyclicallyRightShiftList.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/cyclicallyRightShiftList.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/ArrayString/rabinKarp.c.o",
-      "src/ArrayString/rabinKarp.c"
+      "build/./src/stack/is_well_formed.c.o",
+      "src/stack/is_well_formed.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/rabinKarp.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/rabinKarp.c.o"
+    "file": "/home/quang/leetcode/src/stack/is_well_formed.c",
+    "output": "/home/quang/leetcode/build/src/stack/is_well_formed.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/ArrayString/generatePascalTriangle.c.o",
-      "src/ArrayString/generatePascalTriangle.c"
+      "build/./src/stack/evaluate.c.o",
+      "src/stack/evaluate.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/generatePascalTriangle.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/generatePascalTriangle.c.o"
+    "file": "/home/quang/leetcode/src/stack/evaluate.c",
+    "output": "/home/quang/leetcode/build/src/stack/evaluate.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/ArrayString/buyAndSellStockOnce.c.o",
-      "src/ArrayString/buyAndSellStockOnce.c"
+      "build/./src/stack/examine_building_with_sunset.c.o",
+      "src/stack/examine_building_with_sunset.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/buyAndSellStockOnce.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/buyAndSellStockOnce.c.o"
+    "file": "/home/quang/leetcode/src/stack/examine_building_with_sunset.c",
+    "output": "/home/quang/leetcode/build/src/stack/examine_building_with_sunset.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/ArrayString/matrixInSpiralOrder.c.o",
-      "src/ArrayString/matrixInSpiralOrder.c"
+      "build/./src/stack/shortest_equivalent_path.c.o",
+      "src/stack/shortest_equivalent_path.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/matrixInSpiralOrder.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/matrixInSpiralOrder.c.o"
+    "file": "/home/quang/leetcode/src/stack/shortest_equivalent_path.c",
+    "output": "/home/quang/leetcode/build/src/stack/shortest_equivalent_path.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/lookAndSay.c.o",
-      "src/ArrayString/lookAndSay.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/lookAndSay.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/lookAndSay.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/stringDecoding.c.o",
-      "src/ArrayString/stringDecoding.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/stringDecoding.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/stringDecoding.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/dutchFlagPartition.c.o",
-      "src/ArrayString/dutchFlagPartition.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/dutchFlagPartition.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/dutchFlagPartition.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/convertBase.c.o",
-      "src/ArrayString/convertBase.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/convertBase.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/convertBase.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/plusOne.c.o",
-      "src/ArrayString/plusOne.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/plusOne.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/plusOne.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/nextPermutation.c.o",
-      "src/ArrayString/nextPermutation.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/nextPermutation.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/nextPermutation.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/multiply.c.o",
-      "src/ArrayString/multiply.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/multiply.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/multiply.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/isValidSudoku.c.o",
-      "src/ArrayString/isValidSudoku.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/isValidSudoku.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/isValidSudoku.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/snakeString.c.o",
-      "src/ArrayString/snakeString.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/snakeString.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/snakeString.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/reverseWords.c.o",
-      "src/ArrayString/reverseWords.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/reverseWords.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/reverseWords.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/merge.c.o",
-      "src/ArrayString/merge.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/merge.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/merge.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/canReachEnd.c.o",
-      "src/ArrayString/canReachEnd.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/canReachEnd.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/canReachEnd.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/intToString.c.o",
-      "src/ArrayString/intToString.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/intToString.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/intToString.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/rotateMatrix.c.o",
-      "src/ArrayString/rotateMatrix.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/rotateMatrix.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/rotateMatrix.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/removeElement.c.o",
-      "src/ArrayString/removeElement.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/removeElement.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/removeElement.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ArrayString/spreadsheetDecodeColumnID.c.o",
-      "src/ArrayString/spreadsheetDecodeColumnID.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ArrayString/spreadsheetDecodeColumnID.c",
-    "output": "/home/quang/leetcode/build/src/ArrayString/spreadsheetDecodeColumnID.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
-      "-c",
-      "-o",
-      "build/./src/ListNode.c.o",
-      "src/ListNode.c"
-    ],
-    "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/ListNode.c",
-    "output": "/home/quang/leetcode/build/src/ListNode.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
       "build/./src/main.c.o",
@@ -1705,10 +1493,11 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
       "build/./src/utils.c.o",
@@ -1722,231 +1511,551 @@
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/LinkedList/removeKthLast.c.o",
-      "src/LinkedList/removeKthLast.c"
+      "build/./src/array_string/deleteDuplicates.c.o",
+      "src/array_string/deleteDuplicates.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/LinkedList/removeKthLast.c",
-    "output": "/home/quang/leetcode/build/src/LinkedList/removeKthLast.c.o"
+    "file": "/home/quang/leetcode/src/array_string/deleteDuplicates.c",
+    "output": "/home/quang/leetcode/build/src/array_string/deleteDuplicates.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/LinkedList/overlappingLists.c.o",
-      "src/LinkedList/overlappingLists.c"
+      "build/./src/array_string/isPalindrome.c.o",
+      "src/array_string/isPalindrome.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/LinkedList/overlappingLists.c",
-    "output": "/home/quang/leetcode/build/src/LinkedList/overlappingLists.c.o"
+    "file": "/home/quang/leetcode/src/array_string/isPalindrome.c",
+    "output": "/home/quang/leetcode/build/src/array_string/isPalindrome.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/LinkedList/removeDuplicates.c.o",
-      "src/LinkedList/removeDuplicates.c"
+      "build/./src/array_string/replaceAndRemove.c.o",
+      "src/array_string/replaceAndRemove.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/LinkedList/removeDuplicates.c",
-    "output": "/home/quang/leetcode/build/src/LinkedList/removeDuplicates.c.o"
+    "file": "/home/quang/leetcode/src/array_string/replaceAndRemove.c",
+    "output": "/home/quang/leetcode/build/src/array_string/replaceAndRemove.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/LinkedList/hasCycle.c.o",
-      "src/LinkedList/hasCycle.c"
+      "build/./src/array_string/applyPermutation.c.o",
+      "src/array_string/applyPermutation.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/LinkedList/hasCycle.c",
-    "output": "/home/quang/leetcode/build/src/LinkedList/hasCycle.c.o"
+    "file": "/home/quang/leetcode/src/array_string/applyPermutation.c",
+    "output": "/home/quang/leetcode/build/src/array_string/applyPermutation.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/LinkedList/addTwoNumbers.c.o",
-      "src/LinkedList/addTwoNumbers.c"
+      "build/./src/array_string/stringEncoding.c.o",
+      "src/array_string/stringEncoding.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/LinkedList/addTwoNumbers.c",
-    "output": "/home/quang/leetcode/build/src/LinkedList/addTwoNumbers.c.o"
+    "file": "/home/quang/leetcode/src/array_string/stringEncoding.c",
+    "output": "/home/quang/leetcode/build/src/array_string/stringEncoding.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/LinkedList/isLinkedListAPalindrome.c.o",
-      "src/LinkedList/isLinkedListAPalindrome.c"
+      "build/./src/array_string/buyAndSellStockTwice.c.o",
+      "src/array_string/buyAndSellStockTwice.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/LinkedList/isLinkedListAPalindrome.c",
-    "output": "/home/quang/leetcode/build/src/LinkedList/isLinkedListAPalindrome.c.o"
+    "file": "/home/quang/leetcode/src/array_string/buyAndSellStockTwice.c",
+    "output": "/home/quang/leetcode/build/src/array_string/buyAndSellStockTwice.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/LinkedList/overlappingNoCycleLists.c.o",
-      "src/LinkedList/overlappingNoCycleLists.c"
+      "build/./src/array_string/generatePrimes.c.o",
+      "src/array_string/generatePrimes.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/LinkedList/overlappingNoCycleLists.c",
-    "output": "/home/quang/leetcode/build/src/LinkedList/overlappingNoCycleLists.c.o"
+    "file": "/home/quang/leetcode/src/array_string/generatePrimes.c",
+    "output": "/home/quang/leetcode/build/src/array_string/generatePrimes.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/LinkedList/mergeTwoSortedLists.c.o",
-      "src/LinkedList/mergeTwoSortedLists.c"
+      "build/./src/array_string/stringToInt.c.o",
+      "src/array_string/stringToInt.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/LinkedList/mergeTwoSortedLists.c",
-    "output": "/home/quang/leetcode/build/src/LinkedList/mergeTwoSortedLists.c.o"
+    "file": "/home/quang/leetcode/src/array_string/stringToInt.c",
+    "output": "/home/quang/leetcode/build/src/array_string/stringToInt.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/LinkedList/reverseSublist.c.o",
-      "src/LinkedList/reverseSublist.c"
+      "build/./src/array_string/romanToInteger.c.o",
+      "src/array_string/romanToInteger.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/LinkedList/reverseSublist.c",
-    "output": "/home/quang/leetcode/build/src/LinkedList/reverseSublist.c.o"
+    "file": "/home/quang/leetcode/src/array_string/romanToInteger.c",
+    "output": "/home/quang/leetcode/build/src/array_string/romanToInteger.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/LinkedList/deletionFromList.c.o",
-      "src/LinkedList/deletionFromList.c"
+      "build/./src/array_string/rabinKarp.c.o",
+      "src/array_string/rabinKarp.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/LinkedList/deletionFromList.c",
-    "output": "/home/quang/leetcode/build/src/LinkedList/deletionFromList.c.o"
+    "file": "/home/quang/leetcode/src/array_string/rabinKarp.c",
+    "output": "/home/quang/leetcode/build/src/array_string/rabinKarp.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/LinkedList/evenOddMerge.c.o",
-      "src/LinkedList/evenOddMerge.c"
+      "build/./src/array_string/generatePascalTriangle.c.o",
+      "src/array_string/generatePascalTriangle.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/LinkedList/evenOddMerge.c",
-    "output": "/home/quang/leetcode/build/src/LinkedList/evenOddMerge.c.o"
+    "file": "/home/quang/leetcode/src/array_string/generatePascalTriangle.c",
+    "output": "/home/quang/leetcode/build/src/array_string/generatePascalTriangle.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/LinkedList/listPivoting.c.o",
-      "src/LinkedList/listPivoting.c"
+      "build/./src/array_string/buyAndSellStockOnce.c.o",
+      "src/array_string/buyAndSellStockOnce.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/LinkedList/listPivoting.c",
-    "output": "/home/quang/leetcode/build/src/LinkedList/listPivoting.c.o"
+    "file": "/home/quang/leetcode/src/array_string/buyAndSellStockOnce.c",
+    "output": "/home/quang/leetcode/build/src/array_string/buyAndSellStockOnce.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
-      "build/./src/LinkedList/cyclicallyRightShiftList.c.o",
-      "src/LinkedList/cyclicallyRightShiftList.c"
+      "build/./src/array_string/matrixInSpiralOrder.c.o",
+      "src/array_string/matrixInSpiralOrder.c"
     ],
     "directory": "/home/quang/leetcode",
-    "file": "/home/quang/leetcode/src/LinkedList/cyclicallyRightShiftList.c",
-    "output": "/home/quang/leetcode/build/src/LinkedList/cyclicallyRightShiftList.c.o"
+    "file": "/home/quang/leetcode/src/array_string/matrixInSpiralOrder.c",
+    "output": "/home/quang/leetcode/build/src/array_string/matrixInSpiralOrder.c.o"
   },
   {
     "arguments": [
       "/usr/bin/cc",
       "-I./src",
-      "-I./src/Recursion",
-      "-I./src/Stack",
-      "-I./src/ArrayString",
-      "-I./src/LinkedList",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/lookAndSay.c.o",
+      "src/array_string/lookAndSay.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/lookAndSay.c",
+    "output": "/home/quang/leetcode/build/src/array_string/lookAndSay.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/stringDecoding.c.o",
+      "src/array_string/stringDecoding.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/stringDecoding.c",
+    "output": "/home/quang/leetcode/build/src/array_string/stringDecoding.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/dutchFlagPartition.c.o",
+      "src/array_string/dutchFlagPartition.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/dutchFlagPartition.c",
+    "output": "/home/quang/leetcode/build/src/array_string/dutchFlagPartition.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/convertBase.c.o",
+      "src/array_string/convertBase.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/convertBase.c",
+    "output": "/home/quang/leetcode/build/src/array_string/convertBase.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/plusOne.c.o",
+      "src/array_string/plusOne.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/plusOne.c",
+    "output": "/home/quang/leetcode/build/src/array_string/plusOne.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/nextPermutation.c.o",
+      "src/array_string/nextPermutation.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/nextPermutation.c",
+    "output": "/home/quang/leetcode/build/src/array_string/nextPermutation.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/multiply.c.o",
+      "src/array_string/multiply.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/multiply.c",
+    "output": "/home/quang/leetcode/build/src/array_string/multiply.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/isValidSudoku.c.o",
+      "src/array_string/isValidSudoku.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/isValidSudoku.c",
+    "output": "/home/quang/leetcode/build/src/array_string/isValidSudoku.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/snakeString.c.o",
+      "src/array_string/snakeString.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/snakeString.c",
+    "output": "/home/quang/leetcode/build/src/array_string/snakeString.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/reverseWords.c.o",
+      "src/array_string/reverseWords.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/reverseWords.c",
+    "output": "/home/quang/leetcode/build/src/array_string/reverseWords.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/merge.c.o",
+      "src/array_string/merge.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/merge.c",
+    "output": "/home/quang/leetcode/build/src/array_string/merge.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/canReachEnd.c.o",
+      "src/array_string/canReachEnd.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/canReachEnd.c",
+    "output": "/home/quang/leetcode/build/src/array_string/canReachEnd.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/intToString.c.o",
+      "src/array_string/intToString.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/intToString.c",
+    "output": "/home/quang/leetcode/build/src/array_string/intToString.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/rotateMatrix.c.o",
+      "src/array_string/rotateMatrix.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/rotateMatrix.c",
+    "output": "/home/quang/leetcode/build/src/array_string/rotateMatrix.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/removeElement.c.o",
+      "src/array_string/removeElement.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/removeElement.c",
+    "output": "/home/quang/leetcode/build/src/array_string/removeElement.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/array_string/spreadsheetDecodeColumnID.c.o",
+      "src/array_string/spreadsheetDecodeColumnID.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/spreadsheetDecodeColumnID.c",
+    "output": "/home/quang/leetcode/build/src/array_string/spreadsheetDecodeColumnID.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
+      "-c",
+      "-o",
+      "build/./src/list_node.c.o",
+      "src/list_node.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/list_node.c",
+    "output": "/home/quang/leetcode/build/src/list_node.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./src/recursion",
+      "-I./src/linked_list",
+      "-I./src/stack",
+      "-I./src/array_string",
+      "-g",
       "-c",
       "-o",
       "build/./src/test_utils.c.o",
