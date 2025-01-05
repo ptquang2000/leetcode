@@ -273,12 +273,12 @@ static bool is_equal_array(size_t i_actual, size_t i_expected, size_t i_size, si
         typedef const char* string;
 
         const size_t mask = ((size_t)-1) >> (sizeof(size_t) - i_stride) * 8;
-        for (size_t i = 0; i < i_size; i += i_stride)
+        for (size_t i = 0; i < i_size * i_stride; i += i_stride)
         {
                 if (i_type == UTYPE_STRING)
                 {
-                        const string lhs = (string)(i_actual + i);
-                        const string rhs = (string)(i_expected + i);
+                        const string lhs = *(string*)(i_actual + i);
+                        const string rhs = *(string*)(i_expected + i);
                         if (strcmp(lhs, rhs) != 0)
                                 return false;
                 }
@@ -300,12 +300,12 @@ static bool is_less_array(size_t i_actual, size_t i_expected, size_t i_size, siz
         typedef const char* string;
 
         const size_t mask = ((size_t)-1) >> (sizeof(size_t) - i_stride) * 8;
-        for (size_t i = 0; i < i_size; i += i_stride)
+        for (size_t i = 0; i < i_size * i_stride; i += i_stride)
         {
                 if (i_type == UTYPE_STRING)
                 {
-                        const string lhs = (string)(i_actual + i);
-                        const string rhs = (string)(i_expected + i);
+                        const string lhs = *(string*)(i_actual + i);
+                        const string rhs = *(string*)(i_expected + i);
                         if (strcmp(lhs, rhs) != -1)
                                 return false;
                 }
@@ -327,7 +327,7 @@ static bool is_greater_array(size_t i_actual, size_t i_expected, size_t i_size, 
         typedef const char* string;
 
         const size_t mask = ((size_t)-1) >> (sizeof(size_t) - i_stride) * 8;
-        for (size_t i = 0; i < i_size; i += i_stride)
+        for (size_t i = 0; i < i_size * i_stride; i += i_stride)
         {
                 if (i_type == UTYPE_STRING)
                 {
@@ -355,12 +355,12 @@ static bool is_in_array(size_t i_actual, size_t i_expected, size_t i_size, size_
         assert(i_size >= 0 && i_expected != 0);
 
         const size_t mask = ((size_t)-1) >> (sizeof(size_t) - i_stride) * 8;
-        for (size_t i = 0; i < i_size; i += i_stride)
+        for (size_t i = 0; i < i_size * i_stride; i += i_stride)
         {
                 if (i_type == UTYPE_STRING)
                 {
-                        const string lhs = (string)(i_actual + 0);
-                        const string rhs = (string)(i_expected + i);
+                        const string lhs = *(string*)(i_actual + 0);
+                        const string rhs = *(string*)(i_expected + i);
                         if (strcmp(lhs, rhs) == 0)
                                 return true;
                 }

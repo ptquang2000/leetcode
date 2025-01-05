@@ -30,7 +30,7 @@ void test_Recursion_combinations()
                         (int[]){1, 3, 4},
                         (int[]){2, 3, 4},
                 };
-                int expected_size[] = {k, k, k};
+                int expected_size[] = {k, k, k, k};
                 int expected_count = ARRAY_SIZE(expected_size);
                 int *actual_size, actual_count;
                 int** actual = Recursion_combinations(n, k, &actual_size, &actual_count);

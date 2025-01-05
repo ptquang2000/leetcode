@@ -1,7 +1,5 @@
 #include "utils.h"
 
-#include <stdlib.h>
-
 // Declaration:
 char** Recursion_generate_balanced_parentheses(int i_num_pairs, int* o_size);
 
@@ -16,7 +14,6 @@ void test_Recursion_generate_balanced_parentheses()
                 UTILS_ASSERT_COUNT_EQUAL((const char**)actual, expected, expected_size);
 
                 free_array(actual, actual_size);
-                free(actual);
         }
         {
                 const int num_pairs = 2;
@@ -27,7 +24,6 @@ void test_Recursion_generate_balanced_parentheses()
                 UTILS_ASSERT_COUNT_EQUAL((const char**)actual, expected, expected_size);
 
                 free_array(actual, actual_size);
-                free(actual);
         }
         {
                 const int num_pairs = 1;
@@ -38,6 +34,5 @@ void test_Recursion_generate_balanced_parentheses()
                 UTILS_ASSERT_COUNT_EQUAL((const char**)actual, expected, expected_size);
 
                 free_array(actual, actual_size);
-                free(actual);
         }
 }
