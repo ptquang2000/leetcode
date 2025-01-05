@@ -482,7 +482,7 @@ void utils_assert_greater(const char* i_file, const char* i_func, int i_line, Ut
 void utils_assert_equal_array(const char* i_file, const char* i_func, int i_line, UtilsType i_type, size_t i_actual,
                               size_t i_expected, size_t i_size, size_t i_stride)
 {
-        while (!is_equal_array(i_actual, i_expected, i_stride, i_size, i_type))
+        while (!is_equal_array(i_actual, i_expected, i_size, i_stride, i_type))
         {
                 UTILS_LOG("\n-----------------------------------------------------");
                 UTILS_LOG("FAILED: {}", UTYPE(i_func));

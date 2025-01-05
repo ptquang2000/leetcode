@@ -8,7 +8,7 @@ MAIN_FILE := $(SRC_DIRS)/main.c
 
 INC_DIRS := $(shell find $(SRC_DIRS) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
-CPPFLAGS := $(INC_FLAGS) -MMD -MP
+CPPFLAGS := $(INC_FLAGS) -MMD -MP -g
 
 day_num := $(words $(shell find ./ -maxdepth 1 -type d -name 'day*'))
 ifneq ($(day_num),0)
