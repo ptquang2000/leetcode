@@ -3,10 +3,7 @@
 
 #include <stddef.h>
 
-struct queue_node {
-        void *node;
-        struct queue_node *next;
-};
+struct queue_node;
 
 struct queue {
         size_t size;

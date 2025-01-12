@@ -15,7 +15,6 @@ CPPFLAGS := $(INC_FLAGS) -MMD -MP -DTEST_UTILS -g
 
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 	$(CC) $(OBJS) -o $@ $(LDFLAGS)
-	$(BUILD_DIR)/$(TARGET_EXEC)
 
 $(BUILD_DIR)/%.c.o: %.c
 	mkdir -p $(dir $@)

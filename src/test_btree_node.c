@@ -6,9 +6,9 @@ void test_btree_node()
         /*
          *   3
          *  / \
-         * 9  20
-         *   /  \
-         *  15   7
+         * 9   20
+         *    /  \
+         *   15   7
          */
         struct btree_node *tree1 = &(struct btree_node){
                 .value = 3,
@@ -84,13 +84,13 @@ void test_btree_node()
         UTILS_LOG("tree2={}", UTYPE(tree2));
 
         /*
-         *        5
-         *      /   \
-         *     4     8
-         *    /     / \
-         *   11    13  4
-         *  /  \
-         * 7    2
+         *       5
+         *      / \
+         *     4   8
+         *    /   / \
+         *   11  13  4
+         *  / \
+         * 7   2
          */
         struct btree_node *tree3 = &(struct btree_node){
                 .value = 5,
@@ -157,11 +157,11 @@ void test_btree_node()
         UTILS_LOG("tree4={}", UTYPE(tree4));
 
         /*
-         *       1
-         *      / \
-         *     2   5
-         *    / \   \
-         *   3   4   6
+         *     1
+         *    / \
+         *   2   5
+         *  / \   \
+         * 3   4   6
          */
         struct btree_node *tree5 = &(struct btree_node){
                 .value = 1,
@@ -196,15 +196,15 @@ void test_btree_node()
         UTILS_LOG("tree5={}", UTYPE(tree5));
 
         /*
-         *       1
+         * 1
+         *  \
+         *   2
+         *    \
+         *     3
+         *      \
+         *       4
          *        \
-         *         2
-         *          \
-         *           3
-         *            \
-         *             4
-         *              \
-         *               5
+         *         5
          */
         struct btree_node *tree6 = &(struct btree_node){
                 .value = 1,

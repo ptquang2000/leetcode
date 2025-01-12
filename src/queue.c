@@ -3,6 +3,12 @@
 #include <assert.h>
 #include <stdlib.h>
 
+struct queue_node {
+        void *node;
+        struct queue_node *next;
+};
+
+
 struct queue queue_ctor()
 {
         return (struct queue){
