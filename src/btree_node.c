@@ -1,5 +1,6 @@
 #include "btree_node.h"
 #include "queue.h"
+#include "utils.h"
 
 #include <assert.h>
 #include <stdbool.h>
@@ -33,19 +34,43 @@ struct btree_node *btree_ctor_bfs(size_t size, void *data, size_t stride, size_t
         if (!size)
                 return NULL;
 
-        assert(idx < size);
+        UTILS_ASSERT_MSG(idx < size, "Error: Missing node {} at height={}, size={}", UTYPE(idx), UTYPE(height),
+                         UTYPE(size));
         const size_t val = array_at(data, idx, stride);
         if (val == BTREE_NULL)
                 return NULL;
 
         struct btree_node *node = node(val);
-        const size_t breadth = size < 1 << height ? size : 1 << height;
+        const size_t breadth = min(size, 1 << height);
+        const size_t remain = size - breadth;
+
+        size_t skip = 0;
+        for (size_t i = 0; i < idx; i++) {
+                if (array_at(data, i, stride) == BTREE_NULL)
+                        skip++;
+        }
+        idx -= skip;
+        height -= skip;
 
         const size_t left_idx = idx * 2;
-        node->left = btree_ctor_bfs(size - breadth, data + breadth * stride, stride, height + 1, left_idx);
-        const size_t right_idx = node->left ? idx * 2 + 1 : (idx - 1) * 2;
-        node->right = btree_ctor_bfs(size - breadth, data + breadth * stride, stride, height + 1, right_idx);
+        if (left_idx < remain)
+                node->left = btree_ctor_bfs(remain, data + breadth * stride, stride, height + 1, left_idx);
+        const size_t right_idx = idx * 2 + 1;
+        if (right_idx < remain)
+                node->right = btree_ctor_bfs(remain, data + breadth * stride, stride, height + 1, right_idx);
         return node;
+}
+
+void btree_dtor(struct btree_node *root)
+{
+        if (!root)
+                return;
+
+        btree_dtor(root->left);
+        btree_dtor(root->right);
+
+        free(root->right);
+        free(root->left);
 }
 
 void print_btree(struct btree_node *node, size_t height)

@@ -6,6 +6,9 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+#define min(a, b) ((a) < (b) ? (a) : (b))
+#define max(a, b) ((a) < (b) ? (b) : (a))
+
 struct btree_node;
 
 typedef enum UtilsType {
@@ -46,6 +49,14 @@ typedef enum UtilsType {
 
 void utils_print(const char *i_format, ...);
 #define UTILS_LOG(...) utils_print(__VA_ARGS__);
+
+#define UTILS_ASSERT_MSG(cond, ...)                                                                                    \
+        do {                                                                                                           \
+                if (!(cond)) {                                                                                         \
+                        UTILS_LOG(__VA_ARGS__);                                                                        \
+                        __builtin_trap();                                                                              \
+                }                                                                                                      \
+        } while (0)
 
 void utils_assert_equal(const char *i_file, const char *i_func, int i_line, UtilsType i_type, size_t i_actual,
                         size_t i_expected, size_t i_stride);
