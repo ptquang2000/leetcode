@@ -7,7 +7,7 @@ int *binary_tree_preorder_traversal(struct btree_node *root, int *o_size);
 void test_binary_tree_preorder_traversal()
 {
         {
-                int data[] = {1, BTREE_NULL, 2, 3};
+                int data[] = {1, NONE, 2, 3};
                 struct btree_node *tree = btree(data, ARRAY_SIZE(data));
                 int expected[] = {1, 2, 3};
                 int actual_size;

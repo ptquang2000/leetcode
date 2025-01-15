@@ -4,7 +4,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#define BTREE_NULL (0xC0FFE)
+#define NONE (0xC0FFE)
 
 struct btree_node {
         size_t value;

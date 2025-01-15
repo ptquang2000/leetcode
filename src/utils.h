@@ -89,6 +89,7 @@ void utils_assert_count_equal_array(const char *i_file, const char *i_func, int 
                 uint64_t *: sizeof(uint64_t),                                                                          \
                 void **: sizeof(void *),                                                                               \
                 const char **: sizeof(const char *),                                                                   \
+                struct btree_node **: sizeof(struct btree_node *),                                                     \
                 default: 0)
 #define TO_UTYPE(p)                                                                                                    \
         _Generic((p),                                                                                                  \

@@ -13,7 +13,7 @@ void test_btree_node()
          *    /  \
          *   15   7
          */
-        size_t data1[] = {3, 9, 20, BTREE_NULL, BTREE_NULL, 15, 7};
+        size_t data1[] = {3, 9, 20, NONE, NONE, 15, 7};
         struct btree_node *tree1 = &(struct btree_node){
                 .value = 3,
                 .left =
@@ -54,7 +54,7 @@ void test_btree_node()
          *  / \
          * 4   4
          */
-        size_t data2[] = {1, 2, 2, 3, 3, BTREE_NULL, BTREE_NULL, 4, 4};
+        size_t data2[] = {1, 2, 2, 3, 3, NONE, NONE, 4, 4};
         struct btree_node *tree2 = &(struct btree_node){
                 .value = 1,
                 .left =
@@ -105,7 +105,7 @@ void test_btree_node()
          *  / \       \
          * 7   2       1
          */
-        size_t data3[] = {5, 4, 8, 11, BTREE_NULL, 13, 4, 7, 2, BTREE_NULL, BTREE_NULL, BTREE_NULL, 1};
+        size_t data3[] = {5, 4, 8, 11, NONE, 13, 4, 7, 2, NONE, NONE, NONE, 1};
         struct btree_node *tree3 = &(struct btree_node){
                 .value = 5,
                 .left =
@@ -191,7 +191,7 @@ void test_btree_node()
          *  / \   \
          * 3   4   6
          */
-        size_t data5[] = {1, 2, 5, 3, 4, BTREE_NULL, 6};
+        size_t data5[] = {1, 2, 5, 3, 4, NONE, 6};
         struct btree_node *tree5 = &(struct btree_node){
                 .value = 1,
                 .left =
@@ -239,7 +239,7 @@ void test_btree_node()
          *        \
          *         5
          */
-        size_t data6[] = {1, BTREE_NULL, 2, BTREE_NULL, 3, BTREE_NULL, 4, BTREE_NULL, 5};
+        size_t data6[] = {1, NONE, 2, NONE, 3, NONE, 4, NONE, 5};
         struct btree_node *tree6 = &(struct btree_node){
                 .value = 1,
                 .left = 0,
@@ -280,7 +280,7 @@ void test_btree_node()
          *  / \     / \
          * 7   2   5   1
          */
-        size_t data7[] = {5, 4, 8, 11, BTREE_NULL, 13, 4, 7, 2, BTREE_NULL, BTREE_NULL, 5, 1};
+        size_t data7[] = {5, 4, 8, 11, NONE, 13, 4, 7, 2, NONE, NONE, 5, 1};
         struct btree_node *tree7 = &(struct btree_node){
                 .value = 5,
                 .left =
@@ -395,7 +395,7 @@ void test_btree_node()
          *      / \   /
          *     6   7 9
          */
-        size_t data9[] = {1, 2, 3, 4, 5, BTREE_NULL, 8, BTREE_NULL, BTREE_NULL, 6, 7, 9};
+        size_t data9[] = {1, 2, 3, 4, 5, NONE, 8, NONE, NONE, 6, 7, 9};
         struct btree_node *tree9 = &(struct btree_node){
                 .value = 1,
                 .left =
@@ -454,7 +454,7 @@ void test_btree_node()
          *  /
          * 3
          */
-        size_t data10[] = {1, BTREE_NULL, 2, 3};
+        size_t data10[] = {1, NONE, 2, 3};
         struct btree_node *tree10 = &(struct btree_node){
                 .value = 1,
                 .left = 0,
