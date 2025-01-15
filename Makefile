@@ -5,6 +5,7 @@ SRC_DIRS := ./src
 ALL_TOPIC_DIRS := $(shell find $(SRC_DIRS) -mindepth 1 -maxdepth 1 -type d)
 PROJ_SRCS := $(shell find $(SRC_DIRS) -maxdepth 1 -name '*.c')
 MAIN_FILE := $(SRC_DIRS)/main.c
+IGNORED_FILES := test.c test_btree_node.c test_utils.c
 
 INC_DIRS := $(shell find $(SRC_DIRS) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
@@ -36,7 +37,7 @@ endif
 
 PCH := $(SRC_DIRS)/pch.h
 GCH := $(patsubst %, $(BUILD_DIR)/%.gch, $(PCH))
-SRCS := $(prob_srcs) $(proj_srcs)
+SRCS := $(prob_srcs) $(filter-out IGNORED_FILES, $(proj_srcs))
 OBJS := $(patsubst %, $(BUILD_DIR)/%.o, $(SRCS))
 
 ifneq ($(day_dir),)

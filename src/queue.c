@@ -8,6 +8,7 @@ struct queue_node {
         struct queue_node *next;
 };
 
+////////////////////////////////////////////////////////////////////////////////
 
 struct queue queue_ctor()
 {
@@ -17,6 +18,8 @@ struct queue queue_ctor()
                 .back = 0,
         };
 }
+
+////////////////////////////////////////////////////////////////////////////////
 
 void queue_dtor(struct queue *q)
 {
@@ -30,6 +33,8 @@ void queue_dtor(struct queue *q)
         q->back = 0;
         q->size = 0;
 }
+
+////////////////////////////////////////////////////////////////////////////////
 
 void queue_push(struct queue *q, void *next)
 {
@@ -50,6 +55,8 @@ void queue_push(struct queue *q, void *next)
         q->size++;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
 void *queue_pop(struct queue *q)
 {
         assert(q != 0 && "Queue is null");
@@ -69,3 +76,5 @@ void *queue_pop(struct queue *q)
 
         return n;
 }
+
+////////////////////////////////////////////////////////////////////////////////

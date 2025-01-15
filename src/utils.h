@@ -101,6 +101,7 @@ void utils_assert_count_equal_array(const char *i_file, const char *i_func, int 
                 uint64_t: UTYPE_UINT64,                                                                                \
                 void *: UTYPE_PTR,                                                                                     \
                 const char *: UTYPE_STRING,                                                                            \
+                struct btree_node *: UTYPE_BTREE,                                                                      \
                 default: (size_t)-1)
 #define PTR_UTYPE(p) TO_UTYPE(*p)
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))

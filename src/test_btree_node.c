@@ -474,4 +474,12 @@ void test_btree_node()
         tree = btree(data10, ARRAY_SIZE(data10));
         UTILS_LOG("tree={}", UTYPE(tree));
         free_btree(tree);
+
+        UTILS_LOG("\n====== BTREE ASSERT=======");
+        UTILS_ASSERT_EQUAL(tree1, tree1);
+        UTILS_ASSERT_EQUAL(tree1, tree8);
+        UTILS_ASSERT_GREATER(tree6, tree10);
+        UTILS_ASSERT_LESS(tree10, tree6);
+        UTILS_ASSERT_GREATER(tree10, tree6);
+        UTILS_ASSERT_LESS(tree6, tree10);
 }

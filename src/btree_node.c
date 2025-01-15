@@ -20,6 +20,8 @@ typedef struct queue bt_queue;
 static struct btree_node *new_node(struct btree_node i_node);
 #define node(...) new_node((struct btree_node){__VA_ARGS__});
 
+////////////////////////////////////////////////////////////////////////////////
+
 static struct btree_node *new_node(struct btree_node i_node)
 {
         struct btree_node *node = calloc(1, sizeof(*node));
@@ -28,6 +30,8 @@ static struct btree_node *new_node(struct btree_node i_node)
         node->value = i_node.value;
         return node;
 }
+
+////////////////////////////////////////////////////////////////////////////////
 
 struct btree_node *btree_ctor_bfs(size_t size, void *data, size_t stride, size_t height, size_t idx)
 {
@@ -61,6 +65,8 @@ struct btree_node *btree_ctor_bfs(size_t size, void *data, size_t stride, size_t
         return node;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
 void btree_dtor(struct btree_node *root)
 {
         if (!root)
@@ -72,6 +78,8 @@ void btree_dtor(struct btree_node *root)
         free(root->right);
         free(root->left);
 }
+
+////////////////////////////////////////////////////////////////////////////////
 
 void print_btree(struct btree_node *node, size_t height)
 {
@@ -88,9 +96,30 @@ void print_btree(struct btree_node *node, size_t height)
         print_btree(node->left, 0);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
 void utils_format_btree(size_t i_root)
 {
         struct btree_node *root = (struct btree_node *)i_root;
         printf("\n");
         print_btree(root, 0);
 }
+
+////////////////////////////////////////////////////////////////////////////////
+
+int btreecmp(struct btree_node *r1, struct btree_node *r2)
+{
+        if (!r1 && !r2)
+                return 0;
+        if (!r1)
+                return -1;
+        if (!r2)
+                return 1;
+
+        int left = btreecmp(r1->left, r2->left);
+        int right = btreecmp(r1->right, r2->right);
+        int cmp = r1->value < r2->value ? -1 : r1->value > r2->value ? 1 : 0;
+        return left < right ? -1 : left > right ? 1 : cmp;
+}
+
+////////////////////////////////////////////////////////////////////////////////

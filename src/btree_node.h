@@ -2,8 +2,9 @@
 #define BTREE_NODE_H
 
 #include <stddef.h>
+#include <stdint.h>
 
-#define BTREE_NULL 0
+#define BTREE_NULL (0xC0FFE)
 
 struct btree_node {
         size_t value;

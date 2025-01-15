@@ -35,7 +35,14 @@ static void utils_format_uint64_array(size_t i_value, int i_size);
 static void utils_format_string_array(size_t i_value, int i_size);
 static void utils_format_pointer_array(size_t i_value, int i_size);
 
-void utils_format_btree(size_t i_root);
+static int utils_scalar_cmp(size_t lhs, size_t rhs);
+static int utils_str_cmp(size_t lhs, size_t rhs);
+static int utils_btree_cmp(size_t lhs, size_t rhs);
+
+////////////////////////////////////////////////////////////////////////////////
+
+extern void utils_format_btree(size_t i_root);
+extern int btreecmp(struct btree_node *r1, struct btree_node *r2);
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -52,6 +59,33 @@ static void (*s_uarray_format[UTYPE_COUNT])(size_t, int) = {
         utils_format_string_array,
         0,
 };
+static int (*s_utype_cmp[UTYPE_COUNT])(size_t, size_t) = {
+        utils_scalar_cmp, utils_scalar_cmp, utils_scalar_cmp, utils_scalar_cmp,
+        utils_scalar_cmp, utils_str_cmp,    utils_btree_cmp,
+};
+
+////////////////////////////////////////////////////////////////////////////////
+
+static int utils_scalar_cmp(size_t lhs, size_t rhs)
+{
+        return lhs < rhs ? -1 : lhs > rhs ? 1 : 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+static int utils_str_cmp(size_t lhs, size_t rhs)
+{
+        typedef const char *string;
+        return strcmp((string)lhs, (string)rhs);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+static int utils_btree_cmp(size_t lhs, size_t rhs)
+{
+        typedef struct btree_node *tree;
+        return btreecmp((tree)lhs, (tree)rhs);
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -278,21 +312,12 @@ void utils_print(const char *i_format, ...)
 
 static bool is_equal_array(size_t i_actual, size_t i_expected, size_t i_size, size_t i_stride, UtilsType i_type)
 {
-        typedef const char *string;
-
         const size_t mask = ((size_t)-1) >> (sizeof(size_t) - i_stride) * 8;
         for (size_t i = 0; i < i_size * i_stride; i += i_stride) {
-                if (i_type == UTYPE_STRING) {
-                        const string lhs = *(string *)(i_actual + i);
-                        const string rhs = *(string *)(i_expected + i);
-                        if (strcmp(lhs, rhs) != 0)
-                                return false;
-                } else {
-                        const size_t lhs = *(size_t *)(i_actual + i) & mask;
-                        const size_t rhs = *(size_t *)(i_expected + i) & mask;
-                        if (lhs != rhs)
-                                return false;
-                }
+                const size_t lhs = *(size_t *)(i_actual + i) & mask;
+                const size_t rhs = *(size_t *)(i_expected + i) & mask;
+                if (s_utype_cmp[i_type](lhs, rhs) != 0)
+                        return false;
         }
         return true;
 }
@@ -301,21 +326,12 @@ static bool is_equal_array(size_t i_actual, size_t i_expected, size_t i_size, si
 
 static bool is_less_array(size_t i_actual, size_t i_expected, size_t i_size, size_t i_stride, UtilsType i_type)
 {
-        typedef const char *string;
-
         const size_t mask = ((size_t)-1) >> (sizeof(size_t) - i_stride) * 8;
         for (size_t i = 0; i < i_size * i_stride; i += i_stride) {
-                if (i_type == UTYPE_STRING) {
-                        const string lhs = *(string *)(i_actual + i);
-                        const string rhs = *(string *)(i_expected + i);
-                        if (strcmp(lhs, rhs) != -1)
-                                return false;
-                } else {
-                        const size_t lhs = *(size_t *)(i_actual + i) & mask;
-                        const size_t rhs = *(size_t *)(i_expected + i) & mask;
-                        if (lhs >= rhs)
-                                return false;
-                }
+                const size_t lhs = *(size_t *)(i_actual + i) & mask;
+                const size_t rhs = *(size_t *)(i_expected + i) & mask;
+                if (s_utype_cmp[i_type](lhs, rhs) != -1)
+                        return false;
         }
         return true;
 }
@@ -328,17 +344,10 @@ static bool is_greater_array(size_t i_actual, size_t i_expected, size_t i_size, 
 
         const size_t mask = ((size_t)-1) >> (sizeof(size_t) - i_stride) * 8;
         for (size_t i = 0; i < i_size * i_stride; i += i_stride) {
-                if (i_type == UTYPE_STRING) {
-                        const string lhs = (string)(i_actual + i);
-                        const string rhs = (string)(i_expected + i);
-                        if (strcmp(lhs, rhs) != 1)
-                                return false;
-                } else {
-                        const size_t lhs = *(size_t *)(i_actual + i) & mask;
-                        const size_t rhs = *(size_t *)(i_expected + i) & mask;
-                        if (lhs <= rhs)
-                                return false;
-                }
+                const size_t lhs = *(size_t *)(i_actual + i) & mask;
+                const size_t rhs = *(size_t *)(i_expected + i) & mask;
+                if (s_utype_cmp[i_type](lhs, rhs) != 1)
+                        return false;
         }
         return true;
 }
@@ -352,17 +361,10 @@ static bool is_in_array(size_t i_actual, size_t i_expected, size_t i_size, size_
 
         const size_t mask = ((size_t)-1) >> (sizeof(size_t) - i_stride) * 8;
         for (size_t i = 0; i < i_size * i_stride; i += i_stride) {
-                if (i_type == UTYPE_STRING) {
-                        const string lhs = *(string *)(i_actual + 0);
-                        const string rhs = *(string *)(i_expected + i);
-                        if (strcmp(lhs, rhs) == 0)
-                                return true;
-                } else {
-                        const size_t lhs = *(size_t *)(i_actual + 0) & mask;
-                        const size_t rhs = *(size_t *)(i_expected + i) & mask;
-                        if (lhs == rhs)
-                                return true;
-                }
+                const size_t lhs = *(size_t *)(i_actual + 0) & mask;
+                const size_t rhs = *(size_t *)(i_expected + i) & mask;
+                if (s_utype_cmp[i_type](lhs, rhs) == 0)
+                        return true;
         }
         return false;
 }
@@ -420,7 +422,7 @@ static size_t *construct_count_array_set(size_t i_data, size_t i_size, size_t i_
 void utils_assert_equal(const char *i_file, const char *i_func, int i_line, UtilsType i_type, size_t i_actual,
                         size_t i_expected, size_t i_stride)
 {
-        while (!is_equal_array((size_t)&i_actual, (size_t)&i_expected, i_stride, 1, i_type)) {
+        while (!is_equal_array((size_t)&i_actual, (size_t)&i_expected, 1, i_stride, i_type)) {
                 UTILS_LOG("\n-----------------------------------------------------");
                 UTILS_LOG("FAILED: {}", UTYPE(i_func));
                 UTILS_LOG("File {} at line {}:", UTYPE(i_file), UTYPE(i_line));

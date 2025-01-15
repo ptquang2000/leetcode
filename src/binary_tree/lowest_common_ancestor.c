@@ -1,10 +1,9 @@
 #include "btree_node.h"
 #include "utils.h"
 
-#include <stdbool.h>
-
 // Declaration:
-bool binary_tree_lowest_common_ancestor(struct btree_node *root, struct btree_node *node0, struct btree_node *node1);
+struct btree_node *binary_tree_lowest_common_ancestor(struct btree_node *root, struct btree_node *node0,
+                                                      struct btree_node *node1);
 
 void test_binary_tree_lowest_common_ancestor()
 {
