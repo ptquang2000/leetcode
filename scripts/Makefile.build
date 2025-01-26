@@ -1,0 +1,36 @@
+out-obj := $(build_dir)/$(obj)
+
+PHONY := $(out-obj)/
+$(out-obj)/:
+
+subdir-y :=
+obj-y :=
+
+include $(srcroot)/scripts/Makefile.include
+include $(srcroot)/$(obj)/Makefile
+
+real-subdir := $(addprefix $(out-obj)/, $(subdir-y))
+real-obj-y := $(patsubst %.o, $(out-obj)/%.o, $(obj-y))
+real-obj-y += $(addsuffix /built-in.a, $(real-subdir))
+
+# Compile C sources:
+$(out-obj)/%.o: $(obj)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) -c $< -o $@
+
+# Compile precompile headers:
+$(out-obj)/%.gch: $(obj)/%.h
+	@mkdir -p $(dir $@)
+	$(CC) -c $< -o $@
+
+# Descend to subdir:
+$(out-obj)/%/built-in.a: $(obj)/%
+	$(MAKE) $(build)=$^
+
+# Link built-in:
+$(out-obj)/built-in.a: $(real-obj-y)
+	ar rcs $@ $^
+
+$(out-obj)/: $(out-obj)/built-in.a ;
+
+.PHONY: $(PHONY)

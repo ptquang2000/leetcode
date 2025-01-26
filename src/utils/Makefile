@@ -2,4 +2,6 @@
 # Makefile for utils
 #
 
-obj-$(CONFIG_UTILS) += utils.o
+obj-y += utils.o
+
+subir-$(CONFIG_TEST_UTILS) += test

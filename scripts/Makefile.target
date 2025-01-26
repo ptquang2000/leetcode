@@ -1,0 +1,40 @@
+src := $(srcroot)/$(obj)
+
+PHONY := $(obj)/
+$(obj)/:
+
+subdir-y :=
+subdir- :=
+obj-y :=
+obj- :=
+
+this-target := $(firstword $(MAKECMDGOALS))
+ifneq ($(filter-out $(this-target), $(MAKECMDGOALS)),)
+	$(error Run must contain only one target)
+endif
+
+ifneq ($(this-target),)
+matched-obj := $(shell ls $(obj)/*$(this-target)*.c 2>/dev/null)
+matched-dir := $(shell ls -d $(obj)/*$(this-target)* 2>/dev/null)
+$(this-target): $(obj)/;
+endif
+
+include $(srcroot)/scripts/Makefile.include
+include $(srcroot)/$(obj)/Makefile
+
+real-subdir := $(sort $(addprefix $(src)/, $(subdir-)))
+real-config := $(sort $(basename $(matched-obj)))
+
+PHONY += $(real-config)
+$(real-config):
+	touch $(config_dir)/CONFIG_$(call to_upper, $(patsubst $(obj)/%, %,$@))
+	touch $(config_dir)/CONFIG_$(call to_upper, $(notdir $(realpath $(obj))))
+
+PHONY += $(real-subdir)
+$(real-subdir):
+	$(MAKE) $(runtarget)=$@ $(this-target)
+
+$(obj)/: $(real-subdir) $(real-config)
+	@:
+
+.PHONY: $(PHONY)
