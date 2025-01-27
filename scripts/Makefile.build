@@ -6,6 +6,7 @@ $(out-obj)/:
 subdir-y :=
 obj-y :=
 
+-include $(srcroot)/include/config/auto.conf
 include $(srcroot)/scripts/Makefile.include
 include $(srcroot)/$(obj)/Makefile
 
@@ -29,7 +30,7 @@ $(out-obj)/%/built-in.a: $(obj)/%
 
 # Link built-in:
 $(out-obj)/built-in.a: $(real-obj-y)
-	ar rcs $@ $^
+	$(AR) rcs $@ $^
 
 $(out-obj)/: $(out-obj)/built-in.a ;
 

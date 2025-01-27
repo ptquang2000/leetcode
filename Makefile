@@ -20,10 +20,8 @@ PHONY += main
 main: $(outdir)/built-in.a
 	$(CC) $< -o $@
 
-generated_configs = $(addsuffix =y\\n, $(shell ls -1 $(config_dir) | grep "CONFIG_"))
-
-$(config):
-	$(MAKE) $(config)=src
+$(config_dir)/auto.conf: $(BUILD_CONFIG)
+	$(MAKE) $(config)=src syncconfig
 
 PHONY += prepare
 prepare: $(config) ;
@@ -34,14 +32,18 @@ PHONY += clean
 clean:
 	rm -rf $(config_dir) $(build_dir)
 
+PHONY += prepare_config
 prepare_config:
 	mkdir -p $(config_dir) && touch $(BUILD_CONFIG)
+
+generate_configs = $(addsuffix =y\\n, $(shell ls -1 $(config_dir) | grep "CONFIG_"))
 
 real-goals := $(filter-out $(PHONY), $(MAKECMDGOALS))
 this-target := $(firstword $(real-goals))
 ifneq ($(filter-out $(this-target), $(real-goals)),)
 $(error Run must contain only one target)
 endif
+
 ifneq ($(this-target),)
 $(this-target): prepare_config
 	$(MAKE) $(runtarget)=src $(this-target)
