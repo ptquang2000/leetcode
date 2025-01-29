@@ -22,7 +22,7 @@ main: $(outdir)/built-in.a
 
 $(config_dir)/auto.conf $(config_dir)/autoconf.h: $(BUILD_CONFIG)
 	$(file >$(config_dir)/auto.conf,# Synced by $(BUILD_CONFIG))
-	$(file >$(config_dir)/autoconf.h,# Synced by $(BUILD_CONFIG))
+	$(file >$(config_dir)/autoconf.h,// Synced by $(BUILD_CONFIG))
 	$(MAKE) $(config)=src
 
 PHONY += prepare

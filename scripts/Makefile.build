@@ -14,15 +14,17 @@ real-subdir := $(addprefix $(out-obj)/, $(subdir-y))
 real-obj-y := $(patsubst %.o, $(out-obj)/%.o, $(obj-y))
 real-obj-y += $(addsuffix /built-in.a, $(real-subdir))
 
+CFLAGS += -I$(srcroot)/src  -I$(srcroot)/include
+
 # Compile C sources:
 $(out-obj)/%.o: $(obj)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) -I$(srcroot)/src -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Compile precompile headers:
 $(out-obj)/%.gch: $(obj)/%.h
 	@mkdir -p $(dir $@)
-	$(CC) -I$(srcroot)/src $< -o $@
+	$(CC) $(CFLAGS) $< -o $@
 
 # Descend to subdir:
 $(out-obj)/%/built-in.a: $(obj)/%
@@ -30,7 +32,7 @@ $(out-obj)/%/built-in.a: $(obj)/%
 
 # Link built-in:
 $(out-obj)/built-in.a: $(real-obj-y)
-	$(AR) rcs $@ $^
+	$(AR) rcT $@ $^
 
 $(out-obj)/: $(out-obj)/built-in.a ;
 
