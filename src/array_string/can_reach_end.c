@@ -1,5 +1,5 @@
 #include "array_string.h"
-#include "utils.h"
+#include "utils/utils.h"
 
 #include <stdbool.h>
 

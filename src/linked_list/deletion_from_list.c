@@ -1,5 +1,5 @@
 #include "list_node.h"
-#include "utils.h"
+#include "utils/utils.h"
 
 // Declaration:
 void linked_list_deletionFromList(struct list_node *nodeToDelete);

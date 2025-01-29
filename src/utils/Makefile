@@ -4,4 +4,4 @@
 
 obj-y += utils.o
 
-subir-$(CONFIG_TEST_UTILS) += test
+subdir-$(CONFIG_UTILS_TEST) += test

@@ -1,4 +1,4 @@
-#include "utils.h"
+#include "utils/utils.h"
 
 // Declaration:
 void array_string_reverseWords(int size, char s[size]);

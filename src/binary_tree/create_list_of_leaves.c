@@ -1,5 +1,5 @@
 #include "btree_node.h"
-#include "utils.h"
+#include "utils/utils.h"
 
 // Declaration:
 struct btree_node **binary_tree_create_list_of_leaves(struct btree_node *root, int *o_size);

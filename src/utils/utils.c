@@ -1,5 +1,5 @@
-#include "utils.h"
-#include "btree_node.h"
+#include "utils/utils.h"
+#include "binary_tree/btree_node.h"
 
 #include <assert.h>
 #include <stdarg.h>

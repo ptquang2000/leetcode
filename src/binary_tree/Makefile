@@ -13,3 +13,5 @@ obj-$(CONFIG_LOWEST_COMMON_ACESTOR) += lowest_common_ancestor.o
 obj-$(CONFIG_PREORDER_TRAVERSAL) += preorder_traversal.o
 obj-$(CONFIG_RECONSTRUCT_PREORDER) += reconstruct_preorder.o
 obj-$(CONFIG_SUM_ROOT_TO_LEAVE) += sum_root_to_leave.o
+
+subdir-$(CONFIG_BINARY_TREE_TEST) += test

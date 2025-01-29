@@ -27,12 +27,11 @@ real-subdir := $(sort $(addprefix $(src)/, $(subdir-)))
 
 ifneq ($(matched-config),)
 matched-config += $(call config_name, $(obj))
-real-config := $(foreach cfg, $(matched-config), \
-	$(addprefix $(config_dir)/, $(call to_upper, $(cfg))))
+real-config := $(foreach cfg, $(matched-config), $(call to_upper, $(cfg)))
 endif
 
-$(config_dir)/CONFIG_%:
-	$(file >$@,)
+CONFIG_%:
+	$(file >>$(BUILD_CONFIG),$@=y)
 
 PHONY += $(real-subdir)
 $(real-subdir):

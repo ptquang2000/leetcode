@@ -1,5 +1,5 @@
 #include "array_string.h"
-#include "utils.h"
+#include "utils/utils.h"
 
 // Declaration:
 int array_string_buyAndSellStockTwice(int priceSize, int prices[]);

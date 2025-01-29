@@ -1,5 +1,5 @@
 #include "list_node.h"
-#include "utils.h"
+#include "utils/utils.h"
 
 // Declaration:
 struct list_node *linked_list_hasCycle(struct list_node *L);

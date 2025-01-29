@@ -17,12 +17,12 @@ real-obj-y += $(addsuffix /built-in.a, $(real-subdir))
 # Compile C sources:
 $(out-obj)/%.o: $(obj)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) -c $< -o $@
+	$(CC) -I$(srcroot)/src -c $< -o $@
 
 # Compile precompile headers:
 $(out-obj)/%.gch: $(obj)/%.h
 	@mkdir -p $(dir $@)
-	$(CC) -c $< -o $@
+	$(CC) -I$(srcroot)/src $< -o $@
 
 # Descend to subdir:
 $(out-obj)/%/built-in.a: $(obj)/%

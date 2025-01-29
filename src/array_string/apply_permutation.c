@@ -1,4 +1,4 @@
-#include "utils.h"
+#include "utils/utils.h"
 
 // Declaration:
 void array_string_applyPermutation(int permSize, int perm[permSize], int ASize, char A[ASize]);

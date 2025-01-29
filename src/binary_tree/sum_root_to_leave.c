@@ -1,5 +1,5 @@
 #include "btree_node.h"
-#include "utils.h"
+#include "utils/utils.h"
 
 // Declaration:
 int binary_tree_sum_root_to_leave(struct btree_node *root);

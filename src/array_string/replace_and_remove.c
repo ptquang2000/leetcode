@@ -1,4 +1,4 @@
-#include "utils.h"
+#include "utils/utils.h"
 
 // Declaration:
 int array_string_replaceAndRemove(int size, char* s);

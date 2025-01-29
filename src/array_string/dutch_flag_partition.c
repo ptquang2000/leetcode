@@ -1,4 +1,4 @@
-#include "utils.h"
+#include "utils/utils.h"
 
 // Declaration:
 void array_string_dutchFlagPartition(int pivotIndex, int ASize, int A[ASize]);

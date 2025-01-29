@@ -1,5 +1,5 @@
 #include "btree_node.h"
-#include "utils.h"
+#include "utils/utils.h"
 
 // Declaration:
 int *binary_tree_preorder_traversal(struct btree_node *root, int *o_size);
