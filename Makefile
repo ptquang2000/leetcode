@@ -2,15 +2,13 @@ abs_srctree := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 srcroot := .
 build_dir := $(srcroot)/build
 config_dir := $(srcroot)/include/config
+DAY_NUM := $(words $(shell ls -d day* 2>/dev/null))
 BUILD_CONFIG := $(srcroot)/.config
 
-day_num := $(words $(shell ls -d day* 2>/dev/null))
-day_dir := day$(if $(day_num),$(shell expr $(day_num) + 1),1)
-
-export srcroot abs_srctree build_dir config_dir day_dir BUILD_CONFIG
+export srcroot abs_srctree build_dir config_dir DAY_NUM BUILD_CONFIG
 
 outdir := $(build_dir)/$(srcroot)/src
-
+daydir := day$(DAY_NUM)
 include $(srcroot)/scripts/Makefile.include
 
 PHONY := all
@@ -18,15 +16,17 @@ all:
 
 PHONY += generate
 generate:
-	mkdir -p $(day_dir)
 	$(MAKE) $(generate)=src
 
 $(outdir)/built-in.a:
 	$(MAKE) $(build)=src
+ 
+day%:
+	$(error Missing generated source in $@. Run make generate first!)
 
 PHONY += main
 main: $(outdir)/built-in.a
-	$(CC) $< -o $@
+	$(CC) $< -o $(build_dir)/$@
 
 $(config_dir)/auto.conf $(config_dir)/autoconf.h: $(BUILD_CONFIG)
 	$(file >$(config_dir)/auto.conf,# Synced by $(BUILD_CONFIG))
@@ -36,7 +36,7 @@ $(config_dir)/auto.conf $(config_dir)/autoconf.h: $(BUILD_CONFIG)
 PHONY += prepare
 prepare: $(config_dir)/auto.conf ;
 
-all: prepare main
+all: $(daydir) prepare main
 
 PHONY += clean
 clean:

@@ -2,7 +2,7 @@
 # Makefile for array string
 #
 
-obj-$(CONFIG_APPLY_PERMUATATION) += apply_permutation.o
+obj-$(CONFIG_APPLY_PERMUTATION) += apply_permutation.o
 obj-$(CONFIG_BUY_AND_SELL_STOCK_ONCE) += buy_and_sell_stock_once.o
 obj-$(CONFIG_BUY_AND_SELL_STOCK_TWICE) += buy_and_sell_stock_twice.o
 obj-$(CONFIG_CAN_REACH_END) += can_reach_end.o

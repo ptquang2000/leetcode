@@ -1,7 +1,8 @@
-ifeq ($(day_dir),)
-$(error missing day dir)
+ifeq ($(DAY_NUM),)
+$(error missing day num)
 endif
 
+day_dir := day$(if $(DAY_NUM),$(shell expr $(DAY_NUM) + 1),1)
 out-obj := $(day_dir)/$(obj)
 
 PHONY := $(out-obj)/

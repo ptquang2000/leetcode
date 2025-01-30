@@ -6,6 +6,12 @@ $(out-obj)/:
 subdir-y :=
 obj-y :=
 
+daydir := day$(DAY_NUM)/src
+# Hack for generated subdir
+ifeq ($(obj),src)
+subdir-y += ../$(daydir)
+endif
+
 -include $(srcroot)/include/config/auto.conf
 include $(srcroot)/scripts/Makefile.include
 include $(srcroot)/$(obj)/Makefile
@@ -14,9 +20,8 @@ real-subdir := $(addprefix $(out-obj)/, $(subdir-y))
 real-obj-y := $(patsubst %.o, $(out-obj)/%.o, $(obj-y))
 real-obj-y += $(addsuffix /built-in.a, $(real-subdir))
 
-CFLAGS += -I$(srcroot)/src  -I$(srcroot)/include
-
 # Compile C sources:
+$(out-obj)/%.o: CFLAGS += -I$(srcroot)/src  -I$(srcroot)/include -include src/pch.h
 $(out-obj)/%.o: $(obj)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@

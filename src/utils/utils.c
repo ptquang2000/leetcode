@@ -1,5 +1,6 @@
 #include "utils/utils.h"
 #include "binary_tree/btree_node.h"
+#include "config/autoconf.h"
 
 #include <assert.h>
 #include <stdarg.h>
@@ -41,8 +42,18 @@ static int utils_btree_cmp(size_t lhs, size_t rhs);
 
 ////////////////////////////////////////////////////////////////////////////////
 
+#ifdef UTILS_BINARY_TREE
 extern void utils_format_btree(size_t i_root);
 extern int btreecmp(struct btree_node *r1, struct btree_node *r2);
+#else
+void utils_format_btree(size_t i_root)
+{
+}
+int btreecmp(struct btree_node *r1, struct btree_node *r2)
+{
+        return 0;
+}
+#endif
 
 ////////////////////////////////////////////////////////////////////////////////
 
