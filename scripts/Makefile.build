@@ -1,4 +1,4 @@
-out-obj := $(build_dir)/$(obj)
+out-obj := $(builddir)/$(obj)
 
 PHONY := $(out-obj)/
 $(out-obj)/:
@@ -32,7 +32,7 @@ $(out-obj)/%.gch: $(obj)/%.h
 	$(CC) $(CFLAGS) $< -o $@
 
 # Descend to subdir:
-$(out-obj)/%/built-in.a: $(obj)/%
+$(out-obj)/%/built-in.a: $(obj)/% CONFIG_$$(call to_upper, %)
 	$(MAKE) $(build)=$^
 
 # Link built-in:
