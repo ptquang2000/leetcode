@@ -2,6 +2,8 @@
 # Makefile for bt
 #
 
+obj-y += btree_node.o
+
 obj-$(CONFIG_CREATE_LIST_OF_LEAVES) += create_list_of_leaves.o
 obj-$(CONFIG_FIND_KTH_NODE_BINARY_TREE) += find_kth_node_binary_tree.o
 obj-$(CONFIG_FROM_PREORDER_INORDER) += from_preorder_inorder.o

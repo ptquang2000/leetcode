@@ -18,7 +18,8 @@
 
 int main()
 {
-// Array string
+        // Array string
+
 #ifdef CONFIG_APPLY_PERMUTATION
         test_array_string_applyPermutation();
 #endif
@@ -143,7 +144,8 @@ int main()
         test_binary_tree_sum_root_to_leave();
 #endif
 
-// Linked list
+        // Linked list
+
 #ifdef CONFIG_ADD_TWO_NUMBERS
         test_linked_list_addTwoNumbers();
 #endif
@@ -185,6 +187,7 @@ int main()
 #endif
 
         // Recursion
+
 #ifdef CONFIG_COMBINATIONS
         test_recursion_combinations();
 #endif
@@ -205,6 +208,7 @@ int main()
 #endif
 
         // Stack
+
 #ifdef CONFIG_EVALUATE
         test_stack_evaluate();
 #endif

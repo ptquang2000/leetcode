@@ -18,7 +18,10 @@ PHONY += generate
 generate:
 	$(MAKE) $(generate)=src
 
-$(outdir)/built-in.a:
+PHONY += prepare
+prepare: $(config_dir)/auto.conf ;
+
+$(outdir)/built-in.a: prepare
 	$(MAKE) $(build)=src
  
 day%:
@@ -32,9 +35,6 @@ $(config_dir)/auto.conf $(config_dir)/autoconf.h: $(BUILD_CONFIG)
 	$(file >$(config_dir)/auto.conf,# Synced by $(BUILD_CONFIG))
 	$(file >$(config_dir)/autoconf.h,// Synced by $(BUILD_CONFIG))
 	$(MAKE) $(config)=src
-
-PHONY += prepare
-prepare: $(config_dir)/auto.conf ;
 
 all: $(daydir) prepare main
 
