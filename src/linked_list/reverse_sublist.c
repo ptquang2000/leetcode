@@ -1,8 +1,7 @@
 #include "list_node.h"
 #include "utils/utils.h"
 
-// Declaration:
-struct list_node *linked_list_reverseSublist(struct list_node *L, int start, int finish);
+extern struct list_node *linked_list_reverseSublist(struct list_node *L, int start, int finish);
 
 void test_linked_list_reverseSublist()
 {

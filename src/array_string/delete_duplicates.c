@@ -1,8 +1,7 @@
 #include "array_string.h"
 #include "utils/utils.h"
 
-// Declaration:
-int array_string_deleteDuplicates(int ASize, int A[ASize]);
+extern int array_string_deleteDuplicates(int ASize, int A[ASize]);
 
 void test_array_string_deleteDuplicates()
 {

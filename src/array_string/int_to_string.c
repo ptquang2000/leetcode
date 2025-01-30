@@ -3,8 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Declaration:
-char* array_string_intToString(int x);
+extern char* array_string_intToString(int x);
 
 void test_array_string_intToString()
 {

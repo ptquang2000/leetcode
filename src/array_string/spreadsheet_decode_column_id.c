@@ -1,7 +1,6 @@
 #include "utils/utils.h"
 
-// Declaration:
-int array_string_spreadsheetDecodeColumnID(const char* column);
+extern int array_string_spreadsheetDecodeColumnID(const char* column);
 
 void test_array_string_spreadsheetDecodeColumnID()
 {

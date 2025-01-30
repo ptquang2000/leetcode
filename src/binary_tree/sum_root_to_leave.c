@@ -1,8 +1,7 @@
 #include "btree_node.h"
 #include "utils/utils.h"
 
-// Declaration:
-int binary_tree_sum_root_to_leave(struct btree_node *root);
+extern int binary_tree_sum_root_to_leave(struct btree_node *root);
 
 void test_binary_tree_sum_root_to_leave()
 {

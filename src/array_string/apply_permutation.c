@@ -1,7 +1,6 @@
 #include "utils/utils.h"
 
-// Declaration:
-void array_string_applyPermutation(int permSize, int perm[permSize], int ASize, char A[ASize]);
+extern void array_string_applyPermutation(int permSize, int perm[permSize], int ASize, char A[ASize]);
 
 void test_array_string_applyPermutation()
 {

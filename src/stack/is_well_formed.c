@@ -2,8 +2,7 @@
 
 #include <stdbool.h>
 
-// Declaration:
-bool stack_is_well_formed(const char* s);
+extern bool stack_is_well_formed(const char* s);
 
 void test_stack_is_well_formed()
 {

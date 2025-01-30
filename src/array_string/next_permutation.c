@@ -3,8 +3,7 @@
 
 #include <stdlib.h>
 
-// Declaration:
-int* array_string_nextPermutation(int permSize, int perm[permSize], int* size);
+extern int* array_string_nextPermutation(int permSize, int perm[permSize], int* size);
 
 void test_array_string_nextPermutation()
 {

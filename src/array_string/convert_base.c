@@ -3,8 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Declaration:
-char* array_string_convertBase(const char* numAsString, int b1, int b2);
+extern char* array_string_convertBase(const char* numAsString, int b1, int b2);
 
 void test_array_string_convertBase()
 {

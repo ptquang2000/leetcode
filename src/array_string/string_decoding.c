@@ -3,8 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Declaration:
-char* array_string_stringDecoding(const char* s);
+extern char* array_string_stringDecoding(const char* s);
 
 void test_array_string_stringDecoding()
 {

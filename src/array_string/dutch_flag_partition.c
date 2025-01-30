@@ -1,7 +1,6 @@
 #include "utils/utils.h"
 
-// Declaration:
-void array_string_dutchFlagPartition(int pivotIndex, int ASize, int A[ASize]);
+extern void array_string_dutchFlagPartition(int pivotIndex, int ASize, int A[ASize]);
 
 static int count(int size, int array[size], int value)
 {

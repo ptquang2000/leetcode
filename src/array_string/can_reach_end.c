@@ -3,8 +3,7 @@
 
 #include <stdbool.h>
 
-// Declaration:
-bool array_string_canReachEnd(int ASize, int A[ASize]);
+extern bool array_string_canReachEnd(int ASize, int A[ASize]);
 
 void test_array_string_canReachEnd()
 {

@@ -1,8 +1,7 @@
 #include "list_node.h"
 #include "utils/utils.h"
 
-// Declaration:
-struct list_node *linked_list_mergeTwoSortedLists(struct list_node *L1, struct list_node *L2);
+extern struct list_node *linked_list_mergeTwoSortedLists(struct list_node *L1, struct list_node *L2);
 
 void test_linked_list_mergeTwoSortedLists()
 {

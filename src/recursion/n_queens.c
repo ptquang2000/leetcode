@@ -1,8 +1,7 @@
 #include "utils/utils.h"
 #include <stdlib.h>
 
-// Declaration:
-int** recursion_n_queens(int n, int** o_size, int* o_count);
+extern int** recursion_n_queens(int n, int** o_size, int* o_count);
 
 void test_recursion_n_queens()
 {

@@ -3,8 +3,7 @@
 
 #include <stdbool.h>
 
-// Declaration:
-bool linked_list_isLinkedListAPalindrome(struct list_node *L);
+extern bool linked_list_isLinkedListAPalindrome(struct list_node *L);
 
 void test_linked_list_isLinkedListAPalindrome()
 {

@@ -3,8 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Declaration:
-char* array_string_lookAndSay(int n);
+extern char* array_string_lookAndSay(int n);
 
 void test_array_string_lookAndSay()
 {

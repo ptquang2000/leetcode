@@ -1,8 +1,7 @@
 #include "list_node.h"
 #include "utils/utils.h"
 
-// Declaration:
-struct list_node *linked_list_cyclicallyRightShiftList(struct list_node *L, int k);
+extern struct list_node *linked_list_cyclicallyRightShiftList(struct list_node *L, int k);
 
 void test_linked_list_cyclicallyRightShiftList()
 {

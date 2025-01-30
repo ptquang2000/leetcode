@@ -1,7 +1,6 @@
 #include "utils/utils.h"
 
-// Declaration:
-int array_string_romanToInteger(const char* s);
+extern int array_string_romanToInteger(const char* s);
 
 void test_array_string_romanToInteger()
 {

@@ -1,7 +1,6 @@
 #include "utils/utils.h"
 
-// Declaration:
-int array_string_replaceAndRemove(int size, char* s);
+extern int array_string_replaceAndRemove(int size, char* s);
 
 void test_array_string_replaceAndRemove()
 {

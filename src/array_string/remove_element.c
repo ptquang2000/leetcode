@@ -1,7 +1,6 @@
 #include "pch.h"
 
-// Declaration:
-int array_string_removeElement(int* nums, int numsSize, int val);
+extern int array_string_removeElement(int* nums, int numsSize, int val);
 
 static void tc1()
 {

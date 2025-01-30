@@ -1,7 +1,6 @@
 #include "utils/utils.h"
 
-// Declaration:
-char** recursion_generate_balanced_parentheses(int i_num_pairs, int* o_size);
+extern char** recursion_generate_balanced_parentheses(int i_num_pairs, int* o_size);
 
 void test_recursion_generate_balanced_parentheses()
 {

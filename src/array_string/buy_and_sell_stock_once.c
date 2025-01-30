@@ -1,8 +1,7 @@
 #include "array_string.h"
 #include "utils/utils.h"
 
-// Declaration:
-int array_string_buyAndSellStockOnce(int priceSize, int prices[]);
+extern int array_string_buyAndSellStockOnce(int priceSize, int prices[]);
 
 void test_array_string_buyAndSellStockOnce()
 {

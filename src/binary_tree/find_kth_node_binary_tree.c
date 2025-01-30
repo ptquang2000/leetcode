@@ -1,8 +1,7 @@
 #include "btree_node.h"
 #include "utils/utils.h"
 
-// Declaration:
-struct btree_node *binary_tree_find_kth_node_binary_tree(struct btree_node *root, int k);
+extern struct btree_node *binary_tree_find_kth_node_binary_tree(struct btree_node *root, int k);
 
 void test_binary_tree_find_kth_node_binary_tree()
 {

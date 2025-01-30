@@ -1,8 +1,7 @@
 #include "list_node.h"
 #include "utils/utils.h"
 
-// Declaration:
-void linked_list_deletionFromList(struct list_node *nodeToDelete);
+extern void linked_list_deletionFromList(struct list_node *nodeToDelete);
 
 void test_linked_list_deletionFromList()
 {

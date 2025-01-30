@@ -1,7 +1,6 @@
 #include "utils/utils.h"
 
-// Declaration:
-bool array_string_isPalindrome(const char* s);
+extern bool array_string_isPalindrome(const char* s);
 
 void test_array_string_isPalindrome()
 {

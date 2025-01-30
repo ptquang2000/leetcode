@@ -3,8 +3,7 @@
 
 #include <stdlib.h>
 
-// Declaration
-int* array_string_plusOne(int ASize, int A[ASize], int* size);
+extern int* array_string_plusOne(int ASize, int A[ASize], int* size);
 
 void test_array_string_plusOne()
 {

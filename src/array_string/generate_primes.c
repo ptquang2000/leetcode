@@ -3,8 +3,7 @@
 
 #include <stdlib.h>
 
-// Declaration:
-int* array_string_generatePrimes(int n, int* size);
+extern int* array_string_generatePrimes(int n, int* size);
 
 void test_array_string_generatePrimes()
 {

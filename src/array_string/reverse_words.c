@@ -1,7 +1,6 @@
 #include "utils/utils.h"
 
-// Declaration:
-void array_string_reverseWords(int size, char s[size]);
+extern void array_string_reverseWords(int size, char s[size]);
 
 void test_array_string_reverseWords()
 {

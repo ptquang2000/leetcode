@@ -2,8 +2,7 @@
 
 #include <stdlib.h>
 
-// Declaration:
-int** array_string_generatePascalTriangle(int n, int* rowSize, int** colSize);
+extern int** array_string_generatePascalTriangle(int n, int* rowSize, int** colSize);
 
 void test_array_string_generatePascalTriangle()
 {

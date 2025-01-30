@@ -1,7 +1,6 @@
 #include "utils/utils.h"
 
-// Declaration:
-bool array_string_isValidSudoku(int* partialAssignment[], int size);
+extern bool array_string_isValidSudoku(int* partialAssignment[], int size);
 
 void test_array_string_isValidSudoku()
 {

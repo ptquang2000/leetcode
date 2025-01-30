@@ -1,8 +1,7 @@
 #include "btree_node.h"
 #include "utils/utils.h"
 
-// Declaration:
-int *binary_tree_inorder_traversal(struct btree_node *root, int *o_size);
+extern int *binary_tree_inorder_traversal(struct btree_node *root, int *o_size);
 
 void test_binary_tree_inorder_traversal()
 {

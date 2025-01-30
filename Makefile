@@ -4,7 +4,10 @@ build_dir := $(srcroot)/build
 config_dir := $(srcroot)/include/config
 BUILD_CONFIG := $(srcroot)/.config
 
-export srcroot abs_srctree build_dir config_dir BUILD_CONFIG
+day_num := $(words $(shell ls -d day* 2>/dev/null))
+day_dir := day$(if $(day_num),$(shell expr $(day_num) + 1),1)
+
+export srcroot abs_srctree build_dir config_dir day_dir BUILD_CONFIG
 
 outdir := $(build_dir)/$(srcroot)/src
 
@@ -12,6 +15,11 @@ include $(srcroot)/scripts/Makefile.include
 
 PHONY := all
 all:
+
+PHONY += generate
+generate:
+	mkdir -p $(day_dir)
+	$(MAKE) $(generate)=src
 
 $(outdir)/built-in.a:
 	$(MAKE) $(build)=src
@@ -32,7 +40,7 @@ all: prepare main
 
 PHONY += clean
 clean:
-	rm -rf $(config_dir) $(build_dir)
+	rm -rf $(config_dir) $(build_dir) day*
 
 PHONY += prepare_config
 prepare_config:

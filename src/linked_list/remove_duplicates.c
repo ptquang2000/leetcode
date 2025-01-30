@@ -1,8 +1,7 @@
 #include "list_node.h"
 #include "utils/utils.h"
 
-// Declaration:
-struct list_node *linked_list_removeDuplicates(struct list_node *L);
+extern struct list_node *linked_list_removeDuplicates(struct list_node *L);
 
 void test_linked_list_removeDuplicates()
 {

@@ -1,7 +1,6 @@
 #include "utils/utils.h"
 
-// Declaration:
-void array_string_rotateMatrix(int size, int* squareMatrix[size]);
+extern void array_string_rotateMatrix(int size, int* squareMatrix[size]);
 
 void test_array_string_rotateMatrix()
 {
