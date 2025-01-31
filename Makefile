@@ -7,8 +7,9 @@ BUILD_CONFIG := $(srcroot)/.config
 
 export srcroot abs_srctree builddir configdir DAY_NUM BUILD_CONFIG
 
-outdir := $(builddir)/$(srcroot)/src
 daydir := day$(DAY_NUM)
+BUILTIN_OBJS := $(patsubst %, $(builddir)/%/built-in.a, src $(daydir)/src)
+
 include $(srcroot)/scripts/Makefile.include
 
 PHONY := all
@@ -19,26 +20,23 @@ PHONY += generate
 generate:
 	$(MAKE) $(generate)=src
 
-PHONY += prepare
-prepare: $(configdir)/auto.conf ;
-
-$(outdir)/built-in.a: prepare
-	$(MAKE) $(build)=src
+$(BUILTIN_OBJS): $(configdir)/auto.conf $(configdir)/autoconf.h
+	$(MAKE) $(build)=$(strip $(patsubst build/%/built-in.a, %, $@))
 
 day%:
 	$(error Missing generated source in $@. Run make generate first!)
 
 # Compile required sources
 PHONY += main
-main: $(outdir)/built-in.a
-	$(CC) $< -o $(builddir)/$@
+main: $(BUILTIN_OBJS)
+	$(CC) $(real-prereqs) -o $(builddir)/$@
 
 $(configdir)/auto.conf $(configdir)/autoconf.h: $(BUILD_CONFIG)
 	$(file >$(configdir)/auto.conf,# Synced by $(BUILD_CONFIG))
 	$(file >$(configdir)/autoconf.h,// Synced by $(BUILD_CONFIG))
 	$(MAKE) $(config)=src
 
-all: $(daydir) prepare main
+all: $(daydir) main
 
 PHONY += clean
 clean:

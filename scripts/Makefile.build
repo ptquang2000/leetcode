@@ -6,12 +6,6 @@ $(out-obj)/:
 subdir-y :=
 obj-y :=
 
-daydir := day$(DAY_NUM)/src
-# Hack for generated subdir
-ifeq ($(obj),src)
-subdir-y += ../$(daydir)
-endif
-
 -include $(srcroot)/include/config/auto.conf
 include $(srcroot)/scripts/Makefile.include
 include $(srcroot)/$(obj)/Makefile
