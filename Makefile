@@ -24,7 +24,7 @@ prepare: $(configdir)/auto.conf ;
 
 $(outdir)/built-in.a: prepare
 	$(MAKE) $(build)=src
- 
+
 day%:
 	$(error Missing generated source in $@. Run make generate first!)
 

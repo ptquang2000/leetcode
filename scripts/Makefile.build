@@ -20,9 +20,12 @@ real-subdir := $(addprefix $(out-obj)/, $(subdir-y))
 real-obj-y := $(patsubst %.o, $(out-obj)/%.o, $(obj-y))
 real-obj-y += $(addsuffix /built-in.a, $(real-subdir))
 
+PHONY += FORCE
+FORCE:
+
 # Compile C sources:
 $(out-obj)/%.o: CFLAGS += -I$(srcroot)/src  -I$(srcroot)/include -include src/pch.h
-$(out-obj)/%.o: $(obj)/%.c
+$(out-obj)/%.o: $(obj)/%.c FORCE
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -32,12 +35,13 @@ $(out-obj)/%.gch: $(obj)/%.h
 	$(CC) $(CFLAGS) $< -o $@
 
 # Descend to subdir:
-$(out-obj)/%/built-in.a: $(obj)/% CONFIG_$$(call to_upper, %)
-	$(MAKE) $(build)=$^
+$(out-obj)/%/built-in.a: $(obj)/% FORCE
+	$(MAKE) $(build)=$<
 
 # Link built-in:
-$(out-obj)/built-in.a: $(real-obj-y)
-	$(AR) rcT $@ $^
+$(out-obj)/built-in.a: $(real-obj-y) FORCE
+	rm -f $@
+	$(AR) cDPrsT $@ $(real-prereqs)
 
 $(out-obj)/: $(out-obj)/built-in.a ;
 

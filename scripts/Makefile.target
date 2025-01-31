@@ -32,6 +32,7 @@ endif
 
 CONFIG_%:
 	$(file >>$(BUILD_CONFIG),$@=y)
+	$(file >$(addprefix $(configdir)/,$(call to_lower,$@)))
 
 PHONY += $(real-subdir)
 $(real-subdir):
