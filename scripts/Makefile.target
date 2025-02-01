@@ -5,7 +5,7 @@ PHONY := $(obj)/
 $(obj)/:
 
 ifneq ($(filter-out $(this-target), $(MAKECMDGOALS)),)
-	$(error Run must contain only one target)
+	$(error Run must contain no more than one target)
 endif
 $(this-target): $(obj)/;
 

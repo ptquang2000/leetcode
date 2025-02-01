@@ -40,7 +40,7 @@ all: $(daydir) main
 
 PHONY += clean
 clean:
-	rm -rf $(configdir) $(builddir) day*
+	rm -rf $(configdir) $(builddir) day* $(BUILD_CONFIG)
 
 # Generate .config
 PHONY += prepare_config

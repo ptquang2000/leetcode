@@ -2,7 +2,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-void test_utils()
+int main()
 {
         bool trueValue = true;
         bool falseValue = false;

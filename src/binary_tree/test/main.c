@@ -1,7 +1,7 @@
 #include "btree_node.h"
 #include "utils/utils.h"
 
-void test_btree_node()
+int main()
 {
         struct btree_node *tree;
 
