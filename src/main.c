@@ -18,7 +18,7 @@
 
 int main()
 {
-        // Array string
+        // Array
 
 #ifdef CONFIG_APPLY_PERMUTATION
         test_array_string_applyPermutation();
@@ -32,89 +32,95 @@ int main()
 #ifdef CONFIG_CAN_REACH_END
         test_array_string_canReachEnd();
 #endif
-#ifdef CONFIG_CONVERT_BASE
+#ifdef CONFIG_DELETE_DUPLICATES
         test_array_string_deleteDuplicates();
 #endif
-#ifdef CONFIG_DELETE_DUPLICATES
+#ifdef CONFIG_DUTCH_FLAG_PARTITION
         test_array_string_dutchFlagPartition();
 #endif
-#ifdef CONFIG_DUTCH_FLAG_PARTITION
+#ifdef CONFIG_GENERATE_PRIMES
         test_array_string_generatePrimes();
 #endif
-#ifdef CONFIG_GENERATE_PASCAL_TRIANGLE
+#ifdef CONFIG_MULTIPLY
         test_array_string_multiply();
 #endif
-#ifdef CONFIG_GENERATE_PRIMES
+#ifdef CONFIG_NEXT_PERMUTATION
         test_array_string_nextPermutation();
 #endif
-#ifdef CONFIG_INT_TO_STRING
+#ifdef CONFIG_PLUS_ONE
         test_array_string_plusOne();
 #endif
-#ifdef CONFIG_IS_PALINDROME
+#ifdef CONFIG_IS_VALID_SUDOKU
         test_array_string_isValidSudoku();
 #endif
-#ifdef CONFIG_IS_VALID_SUDOKU
+#ifdef CONFIG_MATRIX_IN_SPIRAL_ORDER
         test_array_string_matrixInSpiralOrder();
 #endif
-#ifdef CONFIG_LOOK_AND_SAY
+#ifdef CONFIG_ROTATE_MATRIX
         test_array_string_rotateMatrix();
 #endif
-#ifdef CONFIG_MATRIX_IN_SPIRAL_ORDER
+#ifdef CONFIG_GENERATE_PASCAL_TRIANGLE
         test_array_string_generatePascalTriangle();
 #endif
-#ifdef CONFIG_MERGE
+
+        // String
+
+#ifdef CONFIG_CONVERT_BASE
         test_array_string_convertBase();
 #endif
-#ifdef CONFIG_MULTIPLY
+#ifdef CONFIG_INT_TO_STRING
         test_array_string_intToString();
 #endif
-#ifdef CONFIG_NEXT_PERMUTATION
+#ifdef CONFIG_IS_PALINDROME
         test_array_string_isPalindrome();
 #endif
-#ifdef CONFIG_PLUS_ONE
+#ifdef CONFIG_LOOK_AND_SAY
         test_array_string_lookAndSay();
 #endif
 #ifdef CONFIG_RABIN_KARP
         test_array_string_rabinKarp();
 #endif
-#ifdef CONFIG_REMOVE_ELEMENT
+#ifdef CONFIG_REPLACE_AND_REMOVE
         test_array_string_replaceAndRemove();
 #endif
-#ifdef CONFIG_REPLACE_AND_REMOVE
+#ifdef CONFIG_REVERSE_WORDS
         test_array_string_reverseWords();
 #endif
-#ifdef CONFIG_REVERSE_WORDS
+#ifdef CONFIG_ROMAN_TO_INTEGER
         test_array_string_romanToInteger();
 #endif
-#ifdef CONFIG_ROMAN_TO_INTEGER
+#ifdef CONFIG_SNAKE_STRING
         test_array_string_snakeString();
 #endif
-#ifdef CONFIG_ROTATE_MATRIX
+#ifdef CONFIG_SPREADSHEET_DECODE_COLUMN_ID
         test_array_string_spreadsheetDecodeColumnID();
 #endif
-#ifdef CONFIG_SNAKE_STRING
+#ifdef CONFIG_STRING_DECODING
         test_array_string_stringEncoding();
 #endif
-#ifdef CONFIG_SPREADSHEET_DECODE_COLUMN_ID
+#ifdef CONFIG_STRING_ENCODING
         test_array_string_stringDecoding();
 #endif
-#ifdef CONFIG_STRING_DECODING
+#ifdef CONFIG_STRING_TO_INT
         test_array_string_stringToInt();
 #endif
-#ifdef CONFIG_STRING_ENCODING
+
+        // Array String
+
+#ifdef CONFIG_MERGE
         test_array_string_merge();
 #endif
-#ifdef CONFIG_STRING_TO_INT
+#ifdef CONFIG_REMOVE_ELEMENT
         test_array_string_removeElement();
 #endif
 
         // Binary tree
 
 #ifdef CONFIG_CREATE_LIST_OF_LEAVES
-        test_binary_tree_find_kth_node_binary_tree();
+        test_binary_tree_create_list_of_leaves();
 #endif
 #ifdef CONFIG_FIND_KTH_NODE_BINARY_TREE
-        test_binary_tree_create_list_of_leaves();
+        test_binary_tree_find_kth_node_binary_tree();
 #endif
 #ifdef CONFIG_FROM_PREORDER_INORDER
         test_binary_tree_from_preorder_inorder();

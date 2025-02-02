@@ -37,6 +37,6 @@ $(out-obj)/built-in.a: $(real-obj-y) FORCE
 	rm -f $@
 	$(AR) cDPrsT $@ $(real-prereqs)
 
-$(out-obj)/: $(out-obj)/built-in.a ;
+$(out-obj)/: $(out-obj)/built-in.a FORCE;
 
 .PHONY: $(PHONY)

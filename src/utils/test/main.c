@@ -1,4 +1,5 @@
-#include "utils/utils.h"
+#define TEST_UTILS
+#include "utils/utils.c"
 #include <stddef.h>
 #include <stdint.h>
 

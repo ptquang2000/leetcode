@@ -2,7 +2,9 @@
 # Makefile for src
 #
 
+ifneq ($(ENABLE_UNITTEST),1)
 obj-y += main.o
+endif
 
 subdir-y += utils
 subdir-$(CONFIG_ARRAY_STRING) += array_string
