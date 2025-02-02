@@ -1,0 +1,53 @@
+#
+# Makefile for generating .config based on matched filenames.
+#
+
+src := $(srcroot)/$(obj)
+this-target := $(firstword $(MAKECMDGOALS))
+
+PHONY := $(obj)/
+$(obj)/:
+
+ifneq ($(filter-out $(this-target), $(MAKECMDGOALS)),)
+	$(error Run must contain no more than one target)
+endif
+$(this-target): $(obj)/;
+
+subdir-y :=
+subdir- :=
+
+include $(srcroot)/scripts/Makefile.include
+include $(srcroot)/$(obj)/Makefile
+
+matched-dir := $(shell ls -d $(obj)/$(this-target) 2>/dev/null)
+ifneq ($(match_all),1)
+matched-config := $(call config_name, \
+	$(shell ls $(obj)/*$(this-target)*.c 2>/dev/null))
+else
+matched-config := $(call config_name, \
+	$(shell ls $(obj)/*.c 2>/dev/null))
+endif
+
+real-subdir := $(sort $(addprefix $(src)/, $(subdir-) $(subdir-y)))
+test-config := $(if $(filter test, $(subdir-)), $(call config_name $(subdir-y), $(obj))_TEST)
+
+ifneq ($(matched-config),)
+matched-config += $(call config_name, $(obj))
+real-config := $(foreach cfg, $(matched-config), $(call to_upper, $(cfg)))
+endif
+
+CONFIG_%:
+	$(file >>$(BUILD_CONFIG),$@=y)
+
+CONFIG_%_TEST:
+	$(file >>$(BUILD_CONFIG),# $@ is not set)
+
+PHONY += $(real-subdir)
+$(real-subdir):
+	$(MAKE) $(runtarget)=$@ $(this-target) \
+		match_all=$(if $(findstring $@, $(matched-dir)),1,)
+
+$(obj)/: $(real-subdir) $(real-config) $(test-config)
+	@:
+
+.PHONY: $(PHONY)

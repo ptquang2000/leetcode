@@ -1,8 +1,7 @@
 #include "btree_node.h"
-#include "utils.h"
+#include "utils/utils.h"
 
-// Declaration:
-struct btree_node *binary_tree_reconstruct_preorder(int size, int preorder[size]);
+extern struct btree_node *binary_tree_reconstruct_preorder(int size, int preorder[size]);
 
 void test_binary_tree_reconstruct_preorder()
 {

@@ -1,8 +1,7 @@
 #include "btree_node.h"
-#include "utils.h"
+#include "utils/utils.h"
 
-// Declaration:
-int binary_tree_has_path_sum(struct btree_node *root, int remaining_weight);
+extern int binary_tree_has_path_sum(struct btree_node *root, int remaining_weight);
 
 void test_binary_tree_has_path_sum()
 {

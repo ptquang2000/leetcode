@@ -1,10 +1,9 @@
 #include "array_string.h"
-#include "utils.h"
+#include "utils/utils.h"
 
 #include <stdlib.h>
 
-// Declaration:
-int* array_string_multiply(int num1Size, int num1[num1Size], int num2Size, int num2[num2Size], int* numSize);
+extern int* array_string_multiply(int num1Size, int num1[num1Size], int num2Size, int num2[num2Size], int* numSize);
 
 void test_array_string_multiply()
 {

@@ -1,9 +1,8 @@
-#include "utils.h"
+#include "utils/utils.h"
 
 #include <stdbool.h>
 
-// Declaration:
-bool recursion_solve_sudoku(int size, int* partialAssignment[size]);
+extern bool recursion_solve_sudoku(int size, int* partialAssignment[size]);
 
 void test_recursion_solve_sudoku()
 {

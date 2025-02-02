@@ -1,9 +1,8 @@
-#include "utils.h"
+#include "utils/utils.h"
 
 #include <stdlib.h>
 
-// Declaration:
-int** recursion_generate_power_set(int i_size, int i_input_set[i_size], int** o_size, int* o_count);
+extern int** recursion_generate_power_set(int i_size, int i_input_set[i_size], int** o_size, int* o_count);
 
 void test_recursion_generate_power_set()
 {

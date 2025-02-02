@@ -1,8 +1,8 @@
 #include "btree_node.h"
-#include "utils.h"
+#include "utils/utils.h"
 
-// Declaration:
-struct btree_node *binary_tree_from_preorder_inorder(int preorder_size, int preorder[preorder_size], int inorder_size, int inorder[inorder_size]);
+extern struct btree_node *binary_tree_from_preorder_inorder(int preorder_size, int preorder[preorder_size],
+                                                            int inorder_size, int inorder[inorder_size]);
 
 void test_binary_tree_from_preorder_inorder()
 {

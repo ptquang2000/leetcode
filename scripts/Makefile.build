@@ -1,0 +1,42 @@
+out-obj := $(builddir)/$(obj)
+
+PHONY := $(out-obj)/
+$(out-obj)/:
+
+subdir-y :=
+obj-y :=
+
+-include $(srcroot)/include/config/auto.conf
+include $(srcroot)/scripts/Makefile.include
+include $(srcroot)/$(obj)/Makefile
+
+real-subdir := $(addprefix $(out-obj)/, $(subdir-y))
+real-obj-y := $(patsubst %.o, $(out-obj)/%.o, $(obj-y))
+real-obj-y += $(addsuffix /built-in.a, $(real-subdir))
+
+PHONY += FORCE
+FORCE:
+
+# Compile C sources:
+$(out-obj)/%.o: CFLAGS += -I$(srcroot)/src  -I$(srcroot)/include -include src/pch.h
+$(out-obj)/%.o: $(obj)/%.c FORCE
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Compile precompile headers:
+$(out-obj)/%.gch: $(obj)/%.h
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $< -o $@
+
+# Descend to subdir:
+$(out-obj)/%/built-in.a: $(obj)/% FORCE
+	$(MAKE) $(build)=$<
+
+# Link built-in:
+$(out-obj)/built-in.a: $(real-obj-y) FORCE
+	rm -f $@
+	$(AR) cDPrsT $@ $(real-prereqs)
+
+$(out-obj)/: $(out-obj)/built-in.a FORCE;
+
+.PHONY: $(PHONY)

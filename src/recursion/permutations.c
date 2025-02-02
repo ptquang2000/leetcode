@@ -1,9 +1,8 @@
-#include "utils.h"
+#include "utils/utils.h"
 
 #include <stdlib.h>
 
-// Declaration:
-int** recursion_permutations(int i_size, int A[i_size], int** o_size, int* o_count);
+extern int** recursion_permutations(int i_size, int A[i_size], int** o_size, int* o_count);
 
 void test_recursion_permutations()
 {

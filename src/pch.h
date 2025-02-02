@@ -1,5 +1,6 @@
-#include "utils.h"
-#include "list_node.h"
+#include "utils/utils.h"
+#include "linked_list/list_node.h"
+#include "binary_tree/binary_tree.h"
 
 #include <assert.h>
 #include <stdbool.h>

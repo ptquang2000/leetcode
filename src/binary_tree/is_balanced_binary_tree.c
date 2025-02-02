@@ -1,10 +1,9 @@
 #include "btree_node.h"
-#include "utils.h"
+#include "utils/utils.h"
 
 #include <stdbool.h>
 
-// Declaration:
-bool binary_tree_is_balanced_binary_tree(struct btree_node *root);
+extern bool binary_tree_is_balanced_binary_tree(struct btree_node *root);
 
 void test_binary_tree_is_balanced_binary_tree()
 {

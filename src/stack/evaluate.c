@@ -1,7 +1,6 @@
-#include "utils.h"
+#include "utils/utils.h"
 
-// Declaration:
-int stack_evaluate(int size, const char* rpnExpression[size]);
+extern int stack_evaluate(int size, const char* rpnExpression[size]);
 
 void test_stack_evaluate()
 {

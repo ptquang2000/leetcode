@@ -1,9 +1,8 @@
-#include "utils.h"
+#include "utils/utils.h"
 
 #include <stdlib.h>
 
-// Declaration:
-int* stack_examine_building_with_sunset(int size, int sequence[size], int* o_size);
+extern int* stack_examine_building_with_sunset(int size, int sequence[size], int* o_size);
 
 void test_stack_examine_building_with_sunset()
 {

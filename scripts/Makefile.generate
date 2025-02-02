@@ -1,0 +1,46 @@
+ifeq ($(DAY_NUM),)
+$(error missing day num)
+endif
+
+day_dir := day$(if $(DAY_NUM),$(shell expr $(DAY_NUM) + 1),1)
+out-obj := $(day_dir)/$(obj)
+
+PHONY := $(out-obj)/
+$(out-obj)/:
+
+subdir- :=
+obj- :=
+
+include $(srcroot)/scripts/Makefile.include
+include $(srcroot)/$(obj)/Makefile
+
+real-obj-y := $(patsubst %.o, $(out-obj)/%.c, $(obj-))
+real-obj-y += $(patsubst %, $(out-obj)/%/Makefile, $(filter-out test, $(subdir-)))
+
+func_name = $(patsubst %;,%, $(strip $(filter-out extern, \
+	    $(shell awk '/extern(.*);/ {print}' FS='\n' RS='' $1) \
+	    )))
+
+# Generate C sources:
+$(out-obj)/%.c: src-file = $(patsubst $(out-obj)/%.c, $(obj)/%.c, $@)
+$(out-obj)/%.c: this-cfg = $(call to_upper, $(patsubst $(out-obj)/%.c, %, $@))
+$(out-obj)/%.c: real-obj = $(patsubst $(out-obj)/%.c, %.o, $@)
+
+$(out-obj)/%.c:
+	$(file >$@,$(call func_name, $(src-file)))
+	$(file >>$@,{)
+	$(file >>$@,})
+	$(file >>$(out-obj)/Makefile,obj-$$(CONFIG_$(this-cfg)) += $(real-obj))
+
+# Descend to subdir:
+$(out-obj)/%/Makefile: $(obj)/%
+	mkdir -p $(dir $@)
+	$(MAKE) $(generate)=$^
+
+$(out-obj)/Makefile: $(real-obj-y)
+	$(foreach subdir, $(subdir-), \
+		$(file >>$@,subdir-$$(CONFIG_$(call to_upper, $(subdir))) += $(subdir)))
+
+$(out-obj)/: $(out-obj)/Makefile;
+
+.PHONY: $(PHONY)
