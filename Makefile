@@ -51,7 +51,11 @@ unittest: $(TEST_OBJS) FORCE
 
 PHONY += clean
 clean:
-	rm -rf $(configdir) $(builddir) day* $(BUILD_CONFIG)
+	rm -rf $(builddir)
+
+PHONY += cleanall
+cleanall: clean
+	rm -rf $(configdir) day* $(BUILD_CONFIG)
 
 day%:
 	$(error Missing generated source in $@. Run make generate first!)

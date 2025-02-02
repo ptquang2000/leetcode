@@ -6,6 +6,8 @@ ifneq ($(ENABLE_UNITTEST),1)
 obj-y += main.o
 endif
 
+obj-y += pch.gch
+
 subdir-y += utils
 subdir-$(CONFIG_ARRAY_STRING) += array_string
 subdir-$(CONFIG_LINKED_LIST) += linked_list

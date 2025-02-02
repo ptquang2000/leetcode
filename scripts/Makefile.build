@@ -11,14 +11,15 @@ include $(srcroot)/scripts/Makefile.include
 include $(srcroot)/$(obj)/Makefile
 
 real-subdir := $(addprefix $(out-obj)/, $(subdir-y))
-real-obj-y := $(patsubst %.o, $(out-obj)/%.o, $(obj-y))
+real-obj-y := $(patsubst %.gch, $(out-obj)/%.gch, $(filter pch.gch, $(obj-y)))
+real-obj-y += $(patsubst %.o, $(out-obj)/%.o, $(filter-out pch.gch, $(obj-y)))
 real-obj-y += $(addsuffix /built-in.a, $(real-subdir))
 
 PHONY += FORCE
 FORCE:
 
 # Compile C sources:
-$(out-obj)/%.o: CFLAGS += -I$(srcroot)/src  -I$(srcroot)/include -include src/pch.h
+$(out-obj)/%.o: CFLAGS += -I$(srcroot)/src  -I$(srcroot)/include -include pch.h
 $(out-obj)/%.o: $(obj)/%.c FORCE
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -26,7 +27,7 @@ $(out-obj)/%.o: $(obj)/%.c FORCE
 # Compile precompile headers:
 $(out-obj)/%.gch: $(obj)/%.h
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Descend to subdir:
 $(out-obj)/%/built-in.a: $(obj)/% FORCE
