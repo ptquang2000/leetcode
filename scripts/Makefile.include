@@ -7,7 +7,7 @@ to_lower = $(shell echo $(1) | tr A-Z a-z)
 to_upper = $(shell echo $(1) | tr a-z A-Z)
 
 get_basename = $(basename $(notdir $(1)))
-config_name = $(addprefix CONFIG_, $(call get_basename, $(1)))
+config_name = $(call to_upper, $(addprefix CONFIG_, $(call get_basename, $1)))
 
 add_config = touch $(1)
 
