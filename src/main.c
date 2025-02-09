@@ -137,7 +137,7 @@ int main()
 #ifdef CONFIG_IS_SYMMETRIC
         test_binary_tree_is_symmetric();
 #endif
-#ifdef CONFIG_LOWEST_COMMON_ACESTOR
+#ifdef CONFIG_LOWEST_COMMON_ANCESTOR
         test_binary_tree_lowest_common_ancestor();
 #endif
 #ifdef CONFIG_PREORDER_TRAVERSAL

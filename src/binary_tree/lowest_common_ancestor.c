@@ -66,5 +66,24 @@ void test_binary_tree_lowest_common_ancestor()
                         .right = 0,
                 };
                 UTILS_ASSERT_IS(binary_tree_lowest_common_ancestor(tree, tree, node2), tree);
+                UTILS_ASSERT_IS(binary_tree_lowest_common_ancestor(tree, node2, tree), tree);
+        }
+        {
+                struct btree_node *node2 = &(struct btree_node){
+                        .value = 2,
+                        .left = 0,
+                        .right = 0,
+                };
+                struct btree_node *node3 = &(struct btree_node){
+                        .value = 3,
+                        .left = 0,
+                        .right = 0,
+                };
+                struct btree_node *tree = &(struct btree_node){
+                        .value = 1,
+                        .left = node2,
+                        .right = node3,
+                };
+                UTILS_ASSERT_IS(binary_tree_lowest_common_ancestor(tree, node3, node2), tree);
         }
 }

@@ -19,7 +19,7 @@ PHONY += FORCE
 FORCE:
 
 # Compile C sources:
-$(out-obj)/%.o: CFLAGS += -I$(srcroot)/src  -I$(srcroot)/include -include pch.h
+$(out-obj)/%.o: CFLAGS += -I$(srcroot)/src  -I$(srcroot)/include -include pch.h -ggdb
 $(out-obj)/%.o: $(obj)/%.c FORCE
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@

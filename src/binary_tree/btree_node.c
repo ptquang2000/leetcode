@@ -109,17 +109,111 @@ void utils_format_btree(size_t i_root)
 
 int btreecmp(struct btree_node *r1, struct btree_node *r2)
 {
-        if (!r1 && !r2)
-                return 0;
-        if (!r1)
-                return -1;
-        if (!r2)
-                return 1;
+        struct btree_node *root;
+        struct array {
+                struct btree_node **data;
+                int sz;
+        };
+        struct array stack = {};
+        struct array pre1 = {};
+        struct array pre2 = {};
+        struct array in1 = {};
+        struct array in2 = {};
 
-        int left = btreecmp(r1->left, r2->left);
-        int right = btreecmp(r1->right, r2->right);
-        int cmp = r1->value < r2->value ? -1 : r1->value > r2->value ? 1 : 0;
-        return left < right ? -1 : left > right ? 1 : cmp;
+        root = r1;
+        while (root || stack.sz) {
+                if (root) {
+                        pre1.data = realloc(pre1.data, ++pre1.sz * sizeof(*pre1.data));
+                        pre1.data[pre1.sz - 1] = root;
+
+                        stack.data = realloc(stack.data, ++stack.sz * sizeof(*stack.data));
+                        stack.data[stack.sz - 1] = root->right;
+
+                        root = root->left;
+                } else {
+                        root = stack.sz ? stack.data[--stack.sz] : 0;
+                }
+        }
+        assert(stack.sz == 0);
+
+        root = r2;
+        while (root || stack.sz) {
+                if (root) {
+                        pre2.data = realloc(pre2.data, ++pre2.sz * sizeof(*pre2.data));
+                        pre2.data[pre2.sz - 1] = root;
+
+                        stack.data = realloc(stack.data, ++stack.sz * sizeof(*stack.data));
+                        stack.data[stack.sz - 1] = root->right;
+
+                        root = root->left;
+                } else {
+                        root = stack.sz ? stack.data[--stack.sz] : 0;
+                }
+        }
+        assert(stack.sz == 0);
+
+        root = r1;
+        while (root || stack.sz) {
+                if (root) {
+                        stack.data = realloc(stack.data, ++stack.sz * sizeof(*stack.data));
+                        stack.data[stack.sz - 1] = root;
+
+                        root = root->left;
+                } else {
+                        root = stack.sz ? stack.data[--stack.sz] : 0;
+
+                        in1.data = realloc(in1.data, ++in1.sz * sizeof(*in1.data));
+                        in1.data[in1.sz - 1] = root;
+
+                        root = root->right;
+                }
+        }
+        assert(stack.sz == 0);
+
+        root = r2;
+        while (root || stack.sz) {
+                if (root) {
+                        stack.data = realloc(stack.data, ++stack.sz * sizeof(*stack.data));
+                        stack.data[stack.sz - 1] = root;
+
+                        root = root->left;
+                } else {
+                        root = stack.sz ? stack.data[--stack.sz] : 0;
+
+                        in2.data = realloc(in2.data, ++in2.sz * sizeof(*in2.data));
+                        in2.data[in2.sz - 1] = root;
+
+                        root = root->right;
+                }
+        }
+
+        assert(pre1.sz == in1.sz);
+        assert(pre2.sz == in2.sz);
+
+        int res = pre1.sz < pre2.sz ? -1 : pre1.sz > pre2.sz ? 1 : 0;
+
+        if (res == 0) {
+                for (size_t i = 0, res = 0; i < pre1.sz; i++) {
+                        res = pre1.data[i]->value < pre2.data[i]->value   ? -1
+                              : pre1.data[i]->value > pre2.data[i]->value ? 1
+                                                                          : 0;
+                        if (res != 0)
+                                break;
+
+                        res = in1.data[i]->value < in2.data[i]->value   ? -1
+                              : in1.data[i]->value > in2.data[i]->value ? 1
+                                                                        : 0;
+                        if (res != 0)
+                                break;
+                }
+        }
+
+        free(stack.data);
+        free(pre1.data);
+        free(pre2.data);
+        free(in1.data);
+        free(in2.data);
+        return res;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
