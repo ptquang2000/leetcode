@@ -1,0 +1,15 @@
+#ifndef HEAP_H
+#define HEAP_H
+
+#include <stddef.h>
+
+struct heap {
+        size_t size;
+        size_t *data;
+};
+
+void heap_push(struct heap *, size_t);
+size_t heap_pop(struct heap *);
+size_t heap_top(struct heap *);
+
+#endif

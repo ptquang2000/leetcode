@@ -15,3 +15,4 @@ subdir-$(CONFIG_STACK) += stack
 subdir-$(CONFIG_RECURSION) += recursion
 subdir-$(CONFIG_BINARY_TREE) += binary_tree
 subdir-$(CONFIG_QUEUE) += queue
+subdir-$(CONFIG_HEAP) += heap
