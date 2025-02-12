@@ -6,6 +6,8 @@
 struct heap {
         size_t size;
         size_t *data;
+
+        size_t maxheap;
 };
 
 void heap_push(struct heap *, size_t);
