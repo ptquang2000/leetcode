@@ -15,6 +15,9 @@
 #ifdef CONFIG_STACK
 #include "stack/stack.h"
 #endif
+#ifdef CONFIG_HEAP
+#include "heap/heap.h"
+#endif
 
 int main()
 {
@@ -226,5 +229,19 @@ int main()
 #endif
 #ifdef CONFIG_SHORTEST_EQUIVALENT_PATH
         test_stack_shortest_equivalent_path();
+#endif
+
+        // Heap
+#ifdef CONFIG_MERGE_SORTED_ARRAYS
+        test_heap_merge_sorted_arrays();
+#endif
+#ifdef CONFIG_SORT_K_INCREASING_DECREASING_ARRAY
+        test_heap_sort_k_increasing_decreasing_array();
+#endif
+#ifdef CONFIG_FIND_CLOSEST_K_STARS
+        test_heap_find_closest_k_stars();
+#endif
+#ifdef CONFIG_SORT_APPROXIMATELY_SORTED_ARRAY
+        test_heap_sort_approximately_sorted_array();
 #endif
 }

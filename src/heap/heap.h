@@ -1,17 +1,9 @@
 #ifndef HEAP_H
 #define HEAP_H
 
-#include <stddef.h>
-
-struct heap {
-        size_t size;
-        size_t *data;
-
-        size_t maxheap;
-};
-
-void heap_push(struct heap *, size_t);
-size_t heap_pop(struct heap *);
-size_t heap_top(struct heap *);
+void test_heap_merge_sorted_arrays();
+void test_heap_sort_k_increasing_decreasing_array();
+void test_heap_find_closest_k_stars();
+void test_heap_sort_approximately_sorted_array();
 
 #endif
