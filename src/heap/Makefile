@@ -2,7 +2,7 @@
 # Makefile for heap
 #
 
-obj-y += heap.o
+obj-y += binary_heap.o
 
 obj-$(CONFIG_MERGE_SORTED_ARRAYS) += merge_sorted_arrays.o
 obj-$(CONFIG_SORT_K_INCREASING_DECREASING_ARRAY) += sort_k_increasing_decreasing_array.o
