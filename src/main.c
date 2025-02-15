@@ -244,4 +244,10 @@ int main()
 #ifdef CONFIG_SORT_APPROXIMATELY_SORTED_ARRAY
         test_heap_sort_approximately_sorted_array();
 #endif
+#ifdef CONFIG_ONLINE_MEDIAN
+        test_heap_online_median();
+#endif
+#ifdef CONFIG_K_LARGEST_IN_BINARY_HEAP
+        test_heap_k_largest_in_binary_heap();
+#endif
 }

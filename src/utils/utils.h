@@ -16,6 +16,7 @@ typedef enum UtilsType {
         UTYPE_CHAR,
         UTYPE_INT,
         UTYPE_UINT64,
+        UTYPE_FLOAT,
         UTYPE_PTR,
         UTYPE_STRING,
         UTYPE_BTREE,
@@ -28,6 +29,7 @@ typedef enum UtilsType {
                 char: UTYPE_CHAR,                                                                                      \
                 int: UTYPE_INT,                                                                                        \
                 uint64_t: UTYPE_UINT64,                                                                                \
+                float: UTYPE_FLOAT,                                                                                    \
                 const char *: UTYPE_STRING,                                                                            \
                 struct btree_node *: UTYPE_BTREE,                                                                      \
                 bool *: UTYPE_PTR,                                                                                     \
@@ -41,6 +43,7 @@ typedef enum UtilsType {
                 char *: UTYPE_CHAR ^ 0x80,                                                                             \
                 int *: UTYPE_INT ^ 0x80,                                                                               \
                 uint64_t *: UTYPE_UINT64 ^ 0x80,                                                                       \
+                float *: UTYPE_FLOAT ^ 0x80,                                                                           \
                 const char **: UTYPE_STRING ^ 0x80,                                                                    \
                 void **: UTYPE_PTR ^ 0x80),                                                                            \
                 value, (size_t)size
@@ -87,6 +90,7 @@ void utils_assert_count_equal_array(const char *i_file, const char *i_func, int 
                 uint16_t *: sizeof(uint16_t),                                                                          \
                 uint32_t *: sizeof(uint32_t),                                                                          \
                 uint64_t *: sizeof(uint64_t),                                                                          \
+                float *: sizeof(float),                                                                                \
                 void **: sizeof(void *),                                                                               \
                 const char **: sizeof(const char *),                                                                   \
                 struct btree_node **: sizeof(struct btree_node *),                                                     \
@@ -100,6 +104,7 @@ void utils_assert_count_equal_array(const char *i_file, const char *i_func, int 
                 uint16_t: UTYPE_CHAR,                                                                                  \
                 uint32_t: UTYPE_INT,                                                                                   \
                 uint64_t: UTYPE_UINT64,                                                                                \
+                float: UTYPE_FLOAT,                                                                                    \
                 void *: UTYPE_PTR,                                                                                     \
                 const char *: UTYPE_STRING,                                                                            \
                 struct btree_node *: UTYPE_BTREE,                                                                      \

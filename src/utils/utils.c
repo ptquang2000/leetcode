@@ -3,6 +3,7 @@
 #include "config/autoconf.h"
 
 #include <assert.h>
+#include <math.h>
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stddef.h>
@@ -24,6 +25,7 @@ static void utils_format_bool(size_t i_value);
 static void utils_format_bool_ptr(size_t i_value);
 static void utils_format_int(size_t i_value);
 static void utils_format_uint64(size_t i_value);
+static void utils_format_float(size_t i_value);
 static void utils_format_int_ptr(size_t i_value);
 static void utils_format_char(size_t i_value);
 static void utils_format_char_ptr(size_t i_value);
@@ -33,10 +35,12 @@ static void utils_format_bool_array(size_t i_value, int i_size);
 static void utils_format_char_array(size_t i_value, int i_size);
 static void utils_format_int_array(size_t i_value, int i_size);
 static void utils_format_uint64_array(size_t i_value, int i_size);
+static void utils_format_float_array(size_t i_value, int i_size);
 static void utils_format_string_array(size_t i_value, int i_size);
 static void utils_format_pointer_array(size_t i_value, int i_size);
 
 static int utils_scalar_cmp(size_t lhs, size_t rhs);
+static int utils_float_cmp(size_t lhs, size_t rhs);
 static int utils_str_cmp(size_t lhs, size_t rhs);
 static int utils_btree_cmp(size_t lhs, size_t rhs);
 
@@ -58,21 +62,16 @@ int btreecmp(struct btree_node *r1, struct btree_node *r2)
 ////////////////////////////////////////////////////////////////////////////////
 
 static void (*s_utype_format[UTYPE_COUNT])(size_t) = {
-        utils_format_bool, utils_format_char,   utils_format_int,   utils_format_uint64,
-        utils_format_ptr,  utils_format_string, utils_format_btree,
+        utils_format_bool,  utils_format_char, utils_format_int,    utils_format_uint64,
+        utils_format_float, utils_format_ptr,  utils_format_string, utils_format_btree,
 };
 static void (*s_uarray_format[UTYPE_COUNT])(size_t, int) = {
-        utils_format_bool_array,
-        utils_format_char_array,
-        utils_format_int_array,
-        utils_format_uint64_array,
-        utils_format_pointer_array,
-        utils_format_string_array,
-        0,
+        utils_format_bool_array,  utils_format_char_array,    utils_format_int_array,    utils_format_uint64_array,
+        utils_format_float_array, utils_format_pointer_array, utils_format_string_array, 0,
 };
 static int (*s_utype_cmp[UTYPE_COUNT])(size_t, size_t) = {
         utils_scalar_cmp, utils_scalar_cmp, utils_scalar_cmp, utils_scalar_cmp,
-        utils_scalar_cmp, utils_str_cmp,    utils_btree_cmp,
+        utils_float_cmp,  utils_scalar_cmp, utils_str_cmp,    utils_btree_cmp,
 };
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -80,6 +79,15 @@ static int (*s_utype_cmp[UTYPE_COUNT])(size_t, size_t) = {
 static int utils_scalar_cmp(size_t lhs, size_t rhs)
 {
         return lhs < rhs ? -1 : lhs > rhs ? 1 : 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+static int utils_float_cmp(size_t lhs, size_t rhs)
+{
+        float lhsf = fabsf((float)lhs);
+        float rhsf = fabsf((float)rhs);
+        return lhsf < rhsf ? -1 : lhsf > rhsf ? 1 : 0;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -133,6 +141,13 @@ static void utils_format_int(size_t i_value)
 static void utils_format_uint64(size_t i_value)
 {
         printf("%ld", i_value);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+static void utils_format_float(size_t i_value)
+{
+        printf("%f", fabsf((float)i_value));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -229,6 +244,21 @@ static void utils_format_uint64_array(size_t i_value, int i_size)
         printf("[");
         for (int i = 0; i < i_size; i++) {
                 printf("%ld", arr[i]);
+                if (i != i_size - 1) {
+                        printf(", ");
+                }
+        }
+        printf("]");
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+static void utils_format_float_array(size_t i_value, int i_size)
+{
+        float *arr = (float *)(i_value);
+        printf("[");
+        for (int i = 0; i < i_size; i++) {
+                printf("%f", fabsf(arr[i]));
                 if (i != i_size - 1) {
                         printf(", ");
                 }
