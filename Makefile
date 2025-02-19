@@ -30,9 +30,16 @@ $(BUILTIN_OBJS): $(configdir)/auto.conf $(configdir)/autoconf.h FORCE
 	$(MAKE) $(build)=$(strip $(patsubst build/%/built-in.a, %, $@))
 
 # Compile required sources
+
+built-in.a: $(BUILTIN_OBJS)
+	rm -f $@
+	$(AR) cDPrsT $@ $(real-prereqs)
+
+LIBS += -lm
+
 PHONY += main
-main: $(BUILTIN_OBJS)
-	$(CC) $(real-prereqs) -o $(builddir)/$@
+main: built-in.a
+	$(CC) $(real-prereqs) -o $(builddir)/$@ $(LIBS)
 	$(builddir)/$@
 
 $(configdir)/auto.conf $(configdir)/autoconf.h: $(BUILD_CONFIG)

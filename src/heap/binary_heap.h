@@ -1,6 +1,7 @@
 #ifndef BINARY_HEAP_H
 #define BINARY_HEAP_H
 
+#include <stdbool.h>
 #include <stddef.h>
 
 struct heap {
@@ -8,6 +9,8 @@ struct heap {
         size_t *data;
 
         size_t maxheap;
+        bool (*__lt__)(size_t, size_t);
+        bool (*__gt__)(size_t, size_t);
 };
 
 void heap_push(struct heap *, size_t);

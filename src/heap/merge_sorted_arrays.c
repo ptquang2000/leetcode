@@ -10,7 +10,7 @@ void test_heap_merge_sorted_arrays()
                         (int[]){0, 6},
                         (int[]){0, 6, 28},
                 };
-                int sorted_arrays_size[] = {3, 2, 2};
+                int sorted_arrays_size[] = {3, 2, 3};
                 int expected[] = {0, 0, 3, 5, 6, 6, 7, 28};
                 int expected_size;
                 int *actual = heap_merge_sorted_arrays(ARRAY_SIZE(sorted_arrays_size), sorted_arrays,

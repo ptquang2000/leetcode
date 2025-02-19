@@ -9,13 +9,31 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
+static bool __lt__(size_t lhs, size_t rhs)
+{
+        return lhs < rhs;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+static bool __gt__(size_t lhs, size_t rhs)
+{
+        return lhs > rhs;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 static void heapify_up(struct heap *h, size_t i)
 {
+        size_t p = parent_idx(i);
         if (i <= 0)
                 return;
 
-        size_t p = parent_idx(i);
-        size_t m = h->maxheap ? (h->data[p] < h->data[i] ? p : i) : (h->data[p] > h->data[i] ? p : i);
+        bool (*lt)(size_t, size_t) = h->__lt__ ? h->__lt__ : __lt__;
+        bool (*gt)(size_t, size_t) = h->__gt__ ? h->__gt__ : __gt__;
+        bool (*op)(size_t, size_t) = h->maxheap ? lt : gt;
+
+        size_t m = op(h->data[p], h->data[i]) ? p : i;
         if (m != i) {
                 h->data[p] ^= h->data[i];
                 h->data[i] ^= h->data[p];
@@ -33,10 +51,12 @@ static void heapify_down(struct heap *h, size_t i)
         if (i >= h->size || l >= h->size)
                 return;
 
-        size_t m = h->maxheap ? (h->data[l] < h->data[r] ? (h->data[i] < h->data[r] ? r : i)
-                                                         : (h->data[i] < h->data[l] ? l : i))
-                              : (h->data[l] > h->data[r] ? (h->data[i] > h->data[r] ? r : i)
-                                                         : (h->data[i] > h->data[l] ? l : i));
+        bool (*lt)(size_t, size_t) = h->__lt__ ? h->__lt__ : __lt__;
+        bool (*gt)(size_t, size_t) = h->__gt__ ? h->__gt__ : __gt__;
+        bool (*op)(size_t, size_t) = h->maxheap ? lt : gt;
+
+        size_t m = op(h->data[l], h->data[r]) ? (op(h->data[i], h->data[r]) ? r : i)
+                                              : (op(h->data[i], h->data[l]) ? l : i);
         if (m != i) {
                 h->data[m] ^= h->data[i];
                 h->data[i] ^= h->data[m];
@@ -62,6 +82,7 @@ size_t heap_pop(struct heap *h)
         size_t v = h->data[0];
         if (--h->size == 0) {
                 free(h->data);
+                h->data = 0;
                 return v;
         }
 
