@@ -31,14 +31,14 @@ $(BUILTIN_OBJS): $(configdir)/auto.conf $(configdir)/autoconf.h FORCE
 
 # Compile required sources
 
-built-in.a: $(BUILTIN_OBJS)
+$(builddir)/built-in.a: $(BUILTIN_OBJS)
 	rm -f $@
 	$(AR) cDPrsT $@ $(real-prereqs)
 
 LIBS += -lm
 
 PHONY += main
-main: built-in.a
+main: $(builddir)/built-in.a
 	$(CC) $(real-prereqs) -o $(builddir)/$@ $(LIBS)
 	$(builddir)/$@
 

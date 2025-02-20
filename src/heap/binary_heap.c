@@ -69,6 +69,9 @@ static void heapify_down(struct heap *h, size_t i)
 
 void heap_push(struct heap *h, size_t v)
 {
+        UTILS_ASSERT_MSG((!h->__gt__ && !h->__lt__) || (h->maxheap && h->__lt__) || (!h->maxheap && h->__gt__),
+                         "Are you sure to override the correct function?");
+
         h->data = realloc(h->data, ++h->size * sizeof(*h->data));
         h->data[h->size - 1] = v;
         heapify_up(h, h->size - 1);
