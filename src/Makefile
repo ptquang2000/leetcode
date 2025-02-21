@@ -9,6 +9,8 @@ endif
 obj-y += pch.gch
 
 subdir-y += utils
+
+subdir-$(CONFIG_DSA) += dsa
 subdir-$(CONFIG_ARRAY_STRING) += array_string
 subdir-$(CONFIG_LINKED_LIST) += linked_list
 subdir-$(CONFIG_STACK) += stack

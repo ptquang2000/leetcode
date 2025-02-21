@@ -1,5 +1,8 @@
 #include "config/autoconf.h"
 
+#ifdef CONFIG_DSA
+#include "dsa/dsa.h"
+#endif
 #ifdef CONFIG_ARRAY_STRING
 #include "array_string/array_string.h"
 #endif
@@ -249,5 +252,46 @@ int main()
 #endif
 #ifdef CONFIG_K_LARGEST_IN_BINARY_HEAP
         test_heap_k_largest_in_binary_heap();
+#endif
+
+// DSA
+#ifdef CONFIG_BINARY_SEARCH
+        test_dsa_binary_search();
+#endif
+#ifdef CONFIG_BT_BFS
+        test_dsa_bt_bfs();
+#endif
+#ifdef CONFIG_BT_IN_ORDER
+        test_dsa_bt_in_order();
+#endif
+#ifdef CONFIG_BT_POST_ORDER
+        test_dsa_bt_post_order();
+#endif
+#ifdef CONFIG_BT_PRE_ORDER
+        test_dsa_bt_pre_order();
+#endif
+#ifdef CONFIG_COMPARE
+        test_dsa_compare();
+#endif
+#ifdef CONFIG_DOUBLY_LINKED_LIST
+        test_dsa_doubly_linked_list();
+#endif
+#ifdef CONFIG_LINEAR_SEARCH
+        test_dsa_linear_search();
+#endif
+#ifdef CONFIG_MAZE_SOLVER
+        test_dsa_solve();
+#endif
+#ifdef CONFIG_DSA_QUEUE
+        test_dsa_queue();
+#endif
+#ifdef CONFIG_QUICK_SORT
+        test_dsa_quick_sort();
+#endif
+#ifdef CONFIG_DSA_STACK
+        test_dsa_stack();
+#endif
+#ifdef CONFIG_TWO_CRYSTAL_BALLS
+        test_dsa_two_crystal_balls();
 #endif
 }
