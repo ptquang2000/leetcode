@@ -5,8 +5,12 @@ extern struct dsa_queue dsa_queue_ctor();
 
 void test_dsa_queue()
 {
-        struct dsa_queue *q;
-        *q = dsa_queue_ctor();
+        struct dsa_queue queue = dsa_queue_ctor();
+        struct dsa_queue *q = &queue;
+
+        UTILS_ASSERT_TRUE(q->enqueue != 0);
+        UTILS_ASSERT_TRUE(q->deque != 0);
+        UTILS_ASSERT_TRUE(q->peek != 0);
 
         q->enqueue(q, 5);
         q->enqueue(q, 7);

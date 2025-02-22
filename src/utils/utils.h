@@ -136,8 +136,8 @@ void utils_assert_count_equal_array(const char *i_file, const char *i_func, int 
 #define UTILS_ASSERT_GREATER_ARRAY(actual, expected, size)                                                             \
         utils_assert_greater_array(__FILE__, __FUNCTION__, __LINE__, PTR_UTYPE(actual), (size_t)actual,                \
                                    (size_t)expected, size, PTR_STRIDE(actual))
-#define UTILS_ASSERT_TRUE(actual) UTILS_ASSERT_EQUAL((bool)actual, true)
-#define UTILS_ASSERT_FALSE(actual) UTILS_ASSERT_EQUAL((bool)actual, false)
+#define UTILS_ASSERT_TRUE(actual) UTILS_ASSERT_EQUAL((bool)(actual), true)
+#define UTILS_ASSERT_FALSE(actual) UTILS_ASSERT_EQUAL((bool)(actual), false)
 #define UTILS_ASSERT_IS(actual, expected) UTILS_ASSERT_EQUAL((void *)actual, (void *)expected);
 #define UTILS_ASSERT_IS_NONE(actual) UTILS_ASSERT_EQUAL((void *)actual, 0);
 #define UTILS_ASSERT_IN(actual, expected, size)                                                                        \

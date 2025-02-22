@@ -143,4 +143,10 @@ static struct dsa_bt *tree2 = &(struct dsa_bt){
                 },
 };
 
+struct min_heap {
+        int length;
+        void (*insert)(struct min_heap *h, int v);
+        int (*delete)(struct min_heap *h);
+};
+
 #endif

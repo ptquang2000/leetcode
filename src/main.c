@@ -254,9 +254,13 @@ int main()
         test_heap_k_largest_in_binary_heap();
 #endif
 
-// DSA
+        // DSA
+
 #ifdef CONFIG_BINARY_SEARCH
         test_dsa_binary_search();
+#endif
+#ifdef CONFIG_BST_DFS
+        test_dsa_bst_dfs();
 #endif
 #ifdef CONFIG_BT_BFS
         test_dsa_bt_bfs();
@@ -284,6 +288,9 @@ int main()
 #endif
 #ifdef CONFIG_DSA_QUEUE
         test_dsa_queue();
+#endif
+#ifdef CONFIG_MIN_HEAP
+        test_dsa_min_heap();
 #endif
 #ifdef CONFIG_QUICK_SORT
         test_dsa_quick_sort();

@@ -5,8 +5,12 @@ extern struct dsa_stack dsa_stack_ctor();
 
 void test_dsa_stack()
 {
-        struct dsa_stack *s;
-        *s = dsa_stack_ctor();
+        struct dsa_stack stack = dsa_stack_ctor();
+        struct dsa_stack *s = &stack;
+
+        UTILS_ASSERT_TRUE(s->push != 0);
+        UTILS_ASSERT_TRUE(s->pop != 0);
+        UTILS_ASSERT_TRUE(s->peek != 0);
 
         s->push(s, 5);
         s->push(s, 7);
