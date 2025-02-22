@@ -43,11 +43,3207 @@
       "-ggdb",
       "-c",
       "-o",
+      "build/src/array_string/apply_permutation.o",
+      "src/array_string/apply_permutation.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/apply_permutation.c",
+    "output": "/home/quang/leetcode/build/src/array_string/apply_permutation.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/buy_and_sell_stock_once.o",
+      "src/array_string/buy_and_sell_stock_once.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/buy_and_sell_stock_once.c",
+    "output": "/home/quang/leetcode/build/src/array_string/buy_and_sell_stock_once.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/buy_and_sell_stock_twice.o",
+      "src/array_string/buy_and_sell_stock_twice.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/buy_and_sell_stock_twice.c",
+    "output": "/home/quang/leetcode/build/src/array_string/buy_and_sell_stock_twice.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/can_reach_end.o",
+      "src/array_string/can_reach_end.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/can_reach_end.c",
+    "output": "/home/quang/leetcode/build/src/array_string/can_reach_end.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/convert_base.o",
+      "src/array_string/convert_base.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/convert_base.c",
+    "output": "/home/quang/leetcode/build/src/array_string/convert_base.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/delete_duplicates.o",
+      "src/array_string/delete_duplicates.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/delete_duplicates.c",
+    "output": "/home/quang/leetcode/build/src/array_string/delete_duplicates.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/dutch_flag_partition.o",
+      "src/array_string/dutch_flag_partition.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/dutch_flag_partition.c",
+    "output": "/home/quang/leetcode/build/src/array_string/dutch_flag_partition.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/generate_pascal_triangle.o",
+      "src/array_string/generate_pascal_triangle.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/generate_pascal_triangle.c",
+    "output": "/home/quang/leetcode/build/src/array_string/generate_pascal_triangle.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/generate_primes.o",
+      "src/array_string/generate_primes.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/generate_primes.c",
+    "output": "/home/quang/leetcode/build/src/array_string/generate_primes.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/int_to_string.o",
+      "src/array_string/int_to_string.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/int_to_string.c",
+    "output": "/home/quang/leetcode/build/src/array_string/int_to_string.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/is_palindrome.o",
+      "src/array_string/is_palindrome.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/is_palindrome.c",
+    "output": "/home/quang/leetcode/build/src/array_string/is_palindrome.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/is_valid_sudoku.o",
+      "src/array_string/is_valid_sudoku.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/is_valid_sudoku.c",
+    "output": "/home/quang/leetcode/build/src/array_string/is_valid_sudoku.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/look_and_say.o",
+      "src/array_string/look_and_say.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/look_and_say.c",
+    "output": "/home/quang/leetcode/build/src/array_string/look_and_say.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/matrix_in_spiral_order.o",
+      "src/array_string/matrix_in_spiral_order.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/matrix_in_spiral_order.c",
+    "output": "/home/quang/leetcode/build/src/array_string/matrix_in_spiral_order.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/merge.o",
+      "src/array_string/merge.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/merge.c",
+    "output": "/home/quang/leetcode/build/src/array_string/merge.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/multiply.o",
+      "src/array_string/multiply.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/multiply.c",
+    "output": "/home/quang/leetcode/build/src/array_string/multiply.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/next_permutation.o",
+      "src/array_string/next_permutation.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/next_permutation.c",
+    "output": "/home/quang/leetcode/build/src/array_string/next_permutation.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/plus_one.o",
+      "src/array_string/plus_one.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/plus_one.c",
+    "output": "/home/quang/leetcode/build/src/array_string/plus_one.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/rabin_karp.o",
+      "src/array_string/rabin_karp.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/rabin_karp.c",
+    "output": "/home/quang/leetcode/build/src/array_string/rabin_karp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/remove_element.o",
+      "src/array_string/remove_element.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/remove_element.c",
+    "output": "/home/quang/leetcode/build/src/array_string/remove_element.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/replace_and_remove.o",
+      "src/array_string/replace_and_remove.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/replace_and_remove.c",
+    "output": "/home/quang/leetcode/build/src/array_string/replace_and_remove.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/reverse_words.o",
+      "src/array_string/reverse_words.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/reverse_words.c",
+    "output": "/home/quang/leetcode/build/src/array_string/reverse_words.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/roman_to_integer.o",
+      "src/array_string/roman_to_integer.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/roman_to_integer.c",
+    "output": "/home/quang/leetcode/build/src/array_string/roman_to_integer.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/rotate_matrix.o",
+      "src/array_string/rotate_matrix.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/rotate_matrix.c",
+    "output": "/home/quang/leetcode/build/src/array_string/rotate_matrix.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/snake_string.o",
+      "src/array_string/snake_string.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/snake_string.c",
+    "output": "/home/quang/leetcode/build/src/array_string/snake_string.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/spreadsheet_decode_column_id.o",
+      "src/array_string/spreadsheet_decode_column_id.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/spreadsheet_decode_column_id.c",
+    "output": "/home/quang/leetcode/build/src/array_string/spreadsheet_decode_column_id.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/string_decoding.o",
+      "src/array_string/string_decoding.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/string_decoding.c",
+    "output": "/home/quang/leetcode/build/src/array_string/string_decoding.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/string_encoding.o",
+      "src/array_string/string_encoding.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/string_encoding.c",
+    "output": "/home/quang/leetcode/build/src/array_string/string_encoding.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/array_string/string_to_int.o",
+      "src/array_string/string_to_int.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/array_string/string_to_int.c",
+    "output": "/home/quang/leetcode/build/src/array_string/string_to_int.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/apply_permutation.o",
+      "day*/src/array_string/apply_permutation.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/apply_permutation.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/apply_permutation.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/buy_and_sell_stock_once.o",
+      "day*/src/array_string/buy_and_sell_stock_once.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/buy_and_sell_stock_once.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/buy_and_sell_stock_once.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/buy_and_sell_stock_twice.o",
+      "day*/src/array_string/buy_and_sell_stock_twice.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/buy_and_sell_stock_twice.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/buy_and_sell_stock_twice.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/can_reach_end.o",
+      "day*/src/array_string/can_reach_end.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/can_reach_end.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/can_reach_end.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/convert_base.o",
+      "day*/src/array_string/convert_base.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/convert_base.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/convert_base.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/delete_duplicates.o",
+      "day*/src/array_string/delete_duplicates.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/delete_duplicates.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/delete_duplicates.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/dutch_flag_partition.o",
+      "day*/src/array_string/dutch_flag_partition.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/dutch_flag_partition.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/dutch_flag_partition.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/generate_pascal_triangle.o",
+      "day*/src/array_string/generate_pascal_triangle.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/generate_pascal_triangle.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/generate_pascal_triangle.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/generate_primes.o",
+      "day*/src/array_string/generate_primes.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/generate_primes.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/generate_primes.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/int_to_string.o",
+      "day*/src/array_string/int_to_string.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/int_to_string.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/int_to_string.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/is_palindrome.o",
+      "day*/src/array_string/is_palindrome.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/is_palindrome.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/is_palindrome.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/is_valid_sudoku.o",
+      "day*/src/array_string/is_valid_sudoku.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/is_valid_sudoku.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/is_valid_sudoku.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/look_and_say.o",
+      "day*/src/array_string/look_and_say.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/look_and_say.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/look_and_say.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/matrix_in_spiral_order.o",
+      "day*/src/array_string/matrix_in_spiral_order.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/matrix_in_spiral_order.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/matrix_in_spiral_order.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/merge.o",
+      "day*/src/array_string/merge.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/merge.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/merge.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/multiply.o",
+      "day*/src/array_string/multiply.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/multiply.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/multiply.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/next_permutation.o",
+      "day*/src/array_string/next_permutation.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/next_permutation.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/next_permutation.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/plus_one.o",
+      "day*/src/array_string/plus_one.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/plus_one.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/plus_one.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/rabin_karp.o",
+      "day*/src/array_string/rabin_karp.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/rabin_karp.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/rabin_karp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/remove_element.o",
+      "day*/src/array_string/remove_element.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/remove_element.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/remove_element.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/replace_and_remove.o",
+      "day*/src/array_string/replace_and_remove.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/replace_and_remove.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/replace_and_remove.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/reverse_words.o",
+      "day*/src/array_string/reverse_words.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/reverse_words.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/reverse_words.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/roman_to_integer.o",
+      "day*/src/array_string/roman_to_integer.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/roman_to_integer.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/roman_to_integer.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/rotate_matrix.o",
+      "day*/src/array_string/rotate_matrix.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/rotate_matrix.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/rotate_matrix.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/snake_string.o",
+      "day*/src/array_string/snake_string.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/snake_string.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/snake_string.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/spreadsheet_decode_column_id.o",
+      "day*/src/array_string/spreadsheet_decode_column_id.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/spreadsheet_decode_column_id.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/spreadsheet_decode_column_id.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/string_decoding.o",
+      "day*/src/array_string/string_decoding.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/string_decoding.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/string_decoding.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/string_encoding.o",
+      "day*/src/array_string/string_encoding.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/string_encoding.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/string_encoding.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/array_string/string_to_int.o",
+      "day*/src/array_string/string_to_int.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/array_string/string_to_int.c",
+    "output": "/home/quang/leetcode/build/day*/src/array_string/string_to_int.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/main.c",
+    "output": "/home/quang/leetcode/build/src/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/utils/utils.o",
+      "src/utils/utils.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/utils/utils.c",
+    "output": "/home/quang/leetcode/build/src/utils/utils.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/binary_tree/btree_node.o",
+      "src/binary_tree/btree_node.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/binary_tree/btree_node.c",
+    "output": "/home/quang/leetcode/build/src/binary_tree/btree_node.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/binary_tree/create_list_of_leaves.o",
+      "src/binary_tree/create_list_of_leaves.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/binary_tree/create_list_of_leaves.c",
+    "output": "/home/quang/leetcode/build/src/binary_tree/create_list_of_leaves.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/binary_tree/find_kth_node_binary_tree.o",
+      "src/binary_tree/find_kth_node_binary_tree.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/binary_tree/find_kth_node_binary_tree.c",
+    "output": "/home/quang/leetcode/build/src/binary_tree/find_kth_node_binary_tree.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/binary_tree/from_preorder_inorder.o",
+      "src/binary_tree/from_preorder_inorder.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/binary_tree/from_preorder_inorder.c",
+    "output": "/home/quang/leetcode/build/src/binary_tree/from_preorder_inorder.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/binary_tree/has_path_sum.o",
+      "src/binary_tree/has_path_sum.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/binary_tree/has_path_sum.c",
+    "output": "/home/quang/leetcode/build/src/binary_tree/has_path_sum.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/binary_tree/inorder_traversal.o",
+      "src/binary_tree/inorder_traversal.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/binary_tree/inorder_traversal.c",
+    "output": "/home/quang/leetcode/build/src/binary_tree/inorder_traversal.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/binary_tree/is_balanced_binary_tree.o",
+      "src/binary_tree/is_balanced_binary_tree.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/binary_tree/is_balanced_binary_tree.c",
+    "output": "/home/quang/leetcode/build/src/binary_tree/is_balanced_binary_tree.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/binary_tree/is_symmetric.o",
+      "src/binary_tree/is_symmetric.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/binary_tree/is_symmetric.c",
+    "output": "/home/quang/leetcode/build/src/binary_tree/is_symmetric.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/binary_tree/lowest_common_ancestor.o",
+      "src/binary_tree/lowest_common_ancestor.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/binary_tree/lowest_common_ancestor.c",
+    "output": "/home/quang/leetcode/build/src/binary_tree/lowest_common_ancestor.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/binary_tree/preorder_traversal.o",
+      "src/binary_tree/preorder_traversal.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/binary_tree/preorder_traversal.c",
+    "output": "/home/quang/leetcode/build/src/binary_tree/preorder_traversal.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/binary_tree/reconstruct_preorder.o",
+      "src/binary_tree/reconstruct_preorder.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/binary_tree/reconstruct_preorder.c",
+    "output": "/home/quang/leetcode/build/src/binary_tree/reconstruct_preorder.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/binary_tree/sum_root_to_leave.o",
+      "src/binary_tree/sum_root_to_leave.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/binary_tree/sum_root_to_leave.c",
+    "output": "/home/quang/leetcode/build/src/binary_tree/sum_root_to_leave.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/binary_tree/create_list_of_leaves.o",
+      "day*/src/binary_tree/create_list_of_leaves.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/binary_tree/create_list_of_leaves.c",
+    "output": "/home/quang/leetcode/build/day*/src/binary_tree/create_list_of_leaves.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/binary_tree/find_kth_node_binary_tree.o",
+      "day*/src/binary_tree/find_kth_node_binary_tree.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/binary_tree/find_kth_node_binary_tree.c",
+    "output": "/home/quang/leetcode/build/day*/src/binary_tree/find_kth_node_binary_tree.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/binary_tree/from_preorder_inorder.o",
+      "day*/src/binary_tree/from_preorder_inorder.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/binary_tree/from_preorder_inorder.c",
+    "output": "/home/quang/leetcode/build/day*/src/binary_tree/from_preorder_inorder.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/binary_tree/has_path_sum.o",
+      "day*/src/binary_tree/has_path_sum.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/binary_tree/has_path_sum.c",
+    "output": "/home/quang/leetcode/build/day*/src/binary_tree/has_path_sum.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/binary_tree/inorder_traversal.o",
+      "day*/src/binary_tree/inorder_traversal.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/binary_tree/inorder_traversal.c",
+    "output": "/home/quang/leetcode/build/day*/src/binary_tree/inorder_traversal.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/binary_tree/is_balanced_binary_tree.o",
+      "day*/src/binary_tree/is_balanced_binary_tree.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/binary_tree/is_balanced_binary_tree.c",
+    "output": "/home/quang/leetcode/build/day*/src/binary_tree/is_balanced_binary_tree.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/binary_tree/is_symmetric.o",
+      "day*/src/binary_tree/is_symmetric.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/binary_tree/is_symmetric.c",
+    "output": "/home/quang/leetcode/build/day*/src/binary_tree/is_symmetric.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/binary_tree/lowest_common_ancestor.o",
+      "day*/src/binary_tree/lowest_common_ancestor.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/binary_tree/lowest_common_ancestor.c",
+    "output": "/home/quang/leetcode/build/day*/src/binary_tree/lowest_common_ancestor.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/binary_tree/preorder_traversal.o",
+      "day*/src/binary_tree/preorder_traversal.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/binary_tree/preorder_traversal.c",
+    "output": "/home/quang/leetcode/build/day*/src/binary_tree/preorder_traversal.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/binary_tree/reconstruct_preorder.o",
+      "day*/src/binary_tree/reconstruct_preorder.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/binary_tree/reconstruct_preorder.c",
+    "output": "/home/quang/leetcode/build/day*/src/binary_tree/reconstruct_preorder.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/binary_tree/sum_root_to_leave.o",
+      "day*/src/binary_tree/sum_root_to_leave.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/binary_tree/sum_root_to_leave.c",
+    "output": "/home/quang/leetcode/build/day*/src/binary_tree/sum_root_to_leave.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/main.c",
+    "output": "/home/quang/leetcode/build/src/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/utils/utils.o",
+      "src/utils/utils.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/utils/utils.c",
+    "output": "/home/quang/leetcode/build/src/utils/utils.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/binary_search.o",
+      "src/dsa/binary_search.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/binary_search.c",
+    "output": "/home/quang/leetcode/build/src/dsa/binary_search.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/bst_dfs.o",
+      "src/dsa/bst_dfs.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/bst_dfs.c",
+    "output": "/home/quang/leetcode/build/src/dsa/bst_dfs.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/bt_bfs.o",
+      "src/dsa/bt_bfs.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/bt_bfs.c",
+    "output": "/home/quang/leetcode/build/src/dsa/bt_bfs.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/bt_in_order.o",
+      "src/dsa/bt_in_order.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/bt_in_order.c",
+    "output": "/home/quang/leetcode/build/src/dsa/bt_in_order.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/bt_post_order.o",
+      "src/dsa/bt_post_order.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/bt_post_order.c",
+    "output": "/home/quang/leetcode/build/src/dsa/bt_post_order.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/bt_pre_order.o",
+      "src/dsa/bt_pre_order.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/bt_pre_order.c",
+    "output": "/home/quang/leetcode/build/src/dsa/bt_pre_order.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/compare.o",
+      "src/dsa/compare.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/compare.c",
+    "output": "/home/quang/leetcode/build/src/dsa/compare.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/doubly_linked_list.o",
+      "src/dsa/doubly_linked_list.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/doubly_linked_list.c",
+    "output": "/home/quang/leetcode/build/src/dsa/doubly_linked_list.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/linear_search.o",
+      "src/dsa/linear_search.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/linear_search.c",
+    "output": "/home/quang/leetcode/build/src/dsa/linear_search.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/maze_solver.o",
+      "src/dsa/maze_solver.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/maze_solver.c",
+    "output": "/home/quang/leetcode/build/src/dsa/maze_solver.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/dsa_queue.o",
+      "src/dsa/dsa_queue.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/dsa_queue.c",
+    "output": "/home/quang/leetcode/build/src/dsa/dsa_queue.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
       "build/src/dsa/min_heap.o",
       "src/dsa/min_heap.c"
     ],
     "directory": "/home/quang/leetcode",
     "file": "/home/quang/leetcode/src/dsa/min_heap.c",
     "output": "/home/quang/leetcode/build/src/dsa/min_heap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/quick_sort.o",
+      "src/dsa/quick_sort.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/quick_sort.c",
+    "output": "/home/quang/leetcode/build/src/dsa/quick_sort.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/dsa_stack.o",
+      "src/dsa/dsa_stack.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/dsa_stack.c",
+    "output": "/home/quang/leetcode/build/src/dsa/dsa_stack.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/two_crystal_balls.o",
+      "src/dsa/two_crystal_balls.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/two_crystal_balls.c",
+    "output": "/home/quang/leetcode/build/src/dsa/two_crystal_balls.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/binary_search.o",
+      "day*/src/dsa/binary_search.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/binary_search.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/binary_search.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/bst_dfs.o",
+      "day*/src/dsa/bst_dfs.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/bst_dfs.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/bst_dfs.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/bt_bfs.o",
+      "day*/src/dsa/bt_bfs.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/bt_bfs.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/bt_bfs.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/bt_in_order.o",
+      "day*/src/dsa/bt_in_order.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/bt_in_order.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/bt_in_order.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/bt_post_order.o",
+      "day*/src/dsa/bt_post_order.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/bt_post_order.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/bt_post_order.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/bt_pre_order.o",
+      "day*/src/dsa/bt_pre_order.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/bt_pre_order.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/bt_pre_order.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/compare.o",
+      "day*/src/dsa/compare.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/compare.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/compare.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/doubly_linked_list.o",
+      "day*/src/dsa/doubly_linked_list.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/doubly_linked_list.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/doubly_linked_list.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/linear_search.o",
+      "day*/src/dsa/linear_search.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/linear_search.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/linear_search.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/maze_solver.o",
+      "day*/src/dsa/maze_solver.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/maze_solver.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/maze_solver.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/dsa_queue.o",
+      "day*/src/dsa/dsa_queue.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/dsa_queue.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/dsa_queue.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/min_heap.o",
+      "day*/src/dsa/min_heap.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/min_heap.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/min_heap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/quick_sort.o",
+      "day*/src/dsa/quick_sort.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/quick_sort.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/quick_sort.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/dsa_stack.o",
+      "day*/src/dsa/dsa_stack.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/dsa_stack.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/dsa_stack.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/two_crystal_balls.o",
+      "day*/src/dsa/two_crystal_balls.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/two_crystal_balls.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/two_crystal_balls.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/main.c",
+    "output": "/home/quang/leetcode/build/src/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/utils/utils.o",
+      "src/utils/utils.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/utils/utils.c",
+    "output": "/home/quang/leetcode/build/src/utils/utils.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/min_heap.o",
+      "src/dsa/min_heap.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/min_heap.c",
+    "output": "/home/quang/leetcode/build/src/dsa/min_heap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/heap/binary_heap.o",
+      "src/heap/binary_heap.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/heap/binary_heap.c",
+    "output": "/home/quang/leetcode/build/src/heap/binary_heap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/heap/merge_sorted_arrays.o",
+      "src/heap/merge_sorted_arrays.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/heap/merge_sorted_arrays.c",
+    "output": "/home/quang/leetcode/build/src/heap/merge_sorted_arrays.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/heap/sort_k_increasing_decreasing_array.o",
+      "src/heap/sort_k_increasing_decreasing_array.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/heap/sort_k_increasing_decreasing_array.c",
+    "output": "/home/quang/leetcode/build/src/heap/sort_k_increasing_decreasing_array.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/heap/find_closest_k_stars.o",
+      "src/heap/find_closest_k_stars.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/heap/find_closest_k_stars.c",
+    "output": "/home/quang/leetcode/build/src/heap/find_closest_k_stars.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/heap/sort_approximately_sorted_array.o",
+      "src/heap/sort_approximately_sorted_array.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/heap/sort_approximately_sorted_array.c",
+    "output": "/home/quang/leetcode/build/src/heap/sort_approximately_sorted_array.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/heap/online_median.o",
+      "src/heap/online_median.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/heap/online_median.c",
+    "output": "/home/quang/leetcode/build/src/heap/online_median.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/heap/k_largest_in_binary_heap.o",
+      "src/heap/k_largest_in_binary_heap.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/heap/k_largest_in_binary_heap.c",
+    "output": "/home/quang/leetcode/build/src/heap/k_largest_in_binary_heap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/min_heap.o",
+      "day*/src/dsa/min_heap.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/min_heap.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/min_heap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/heap/merge_sorted_arrays.o",
+      "day*/src/heap/merge_sorted_arrays.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/heap/merge_sorted_arrays.c",
+    "output": "/home/quang/leetcode/build/day*/src/heap/merge_sorted_arrays.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/heap/sort_k_increasing_decreasing_array.o",
+      "day*/src/heap/sort_k_increasing_decreasing_array.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/heap/sort_k_increasing_decreasing_array.c",
+    "output": "/home/quang/leetcode/build/day*/src/heap/sort_k_increasing_decreasing_array.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/heap/find_closest_k_stars.o",
+      "day*/src/heap/find_closest_k_stars.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/heap/find_closest_k_stars.c",
+    "output": "/home/quang/leetcode/build/day*/src/heap/find_closest_k_stars.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/heap/sort_approximately_sorted_array.o",
+      "day*/src/heap/sort_approximately_sorted_array.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/heap/sort_approximately_sorted_array.c",
+    "output": "/home/quang/leetcode/build/day*/src/heap/sort_approximately_sorted_array.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/heap/online_median.o",
+      "day*/src/heap/online_median.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/heap/online_median.c",
+    "output": "/home/quang/leetcode/build/day*/src/heap/online_median.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/heap/k_largest_in_binary_heap.o",
+      "day*/src/heap/k_largest_in_binary_heap.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/heap/k_largest_in_binary_heap.c",
+    "output": "/home/quang/leetcode/build/day*/src/heap/k_largest_in_binary_heap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/main.c",
+    "output": "/home/quang/leetcode/build/src/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/utils/utils.o",
+      "src/utils/utils.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/utils/utils.c",
+    "output": "/home/quang/leetcode/build/src/utils/utils.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/doubly_linked_list.o",
+      "src/dsa/doubly_linked_list.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/doubly_linked_list.c",
+    "output": "/home/quang/leetcode/build/src/dsa/doubly_linked_list.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/linked_list/list_node.o",
+      "src/linked_list/list_node.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/linked_list/list_node.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/list_node.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/linked_list/add_two_numbers.o",
+      "src/linked_list/add_two_numbers.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/linked_list/add_two_numbers.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/add_two_numbers.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/linked_list/cyclically_right_shift_list.o",
+      "src/linked_list/cyclically_right_shift_list.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/linked_list/cyclically_right_shift_list.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/cyclically_right_shift_list.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/linked_list/deletion_from_list.o",
+      "src/linked_list/deletion_from_list.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/linked_list/deletion_from_list.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/deletion_from_list.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/linked_list/even_odd_merge.o",
+      "src/linked_list/even_odd_merge.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/linked_list/even_odd_merge.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/even_odd_merge.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/linked_list/has_cycle.o",
+      "src/linked_list/has_cycle.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/linked_list/has_cycle.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/has_cycle.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/linked_list/is_linked_list_a_palindrome.o",
+      "src/linked_list/is_linked_list_a_palindrome.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/linked_list/is_linked_list_a_palindrome.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/is_linked_list_a_palindrome.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/linked_list/list_pivoting.o",
+      "src/linked_list/list_pivoting.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/linked_list/list_pivoting.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/list_pivoting.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/linked_list/merge_two_sorted_lists.o",
+      "src/linked_list/merge_two_sorted_lists.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/linked_list/merge_two_sorted_lists.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/merge_two_sorted_lists.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/linked_list/overlapping_lists.o",
+      "src/linked_list/overlapping_lists.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/linked_list/overlapping_lists.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/overlapping_lists.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/linked_list/overlapping_no_cycle_lists.o",
+      "src/linked_list/overlapping_no_cycle_lists.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/linked_list/overlapping_no_cycle_lists.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/overlapping_no_cycle_lists.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/linked_list/remove_duplicates.o",
+      "src/linked_list/remove_duplicates.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/linked_list/remove_duplicates.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/remove_duplicates.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/linked_list/remove_kth_last.o",
+      "src/linked_list/remove_kth_last.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/linked_list/remove_kth_last.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/remove_kth_last.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/linked_list/reverse_sublist.o",
+      "src/linked_list/reverse_sublist.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/linked_list/reverse_sublist.c",
+    "output": "/home/quang/leetcode/build/src/linked_list/reverse_sublist.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/doubly_linked_list.o",
+      "day*/src/dsa/doubly_linked_list.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/doubly_linked_list.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/doubly_linked_list.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/linked_list/add_two_numbers.o",
+      "day*/src/linked_list/add_two_numbers.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/linked_list/add_two_numbers.c",
+    "output": "/home/quang/leetcode/build/day*/src/linked_list/add_two_numbers.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/linked_list/cyclically_right_shift_list.o",
+      "day*/src/linked_list/cyclically_right_shift_list.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/linked_list/cyclically_right_shift_list.c",
+    "output": "/home/quang/leetcode/build/day*/src/linked_list/cyclically_right_shift_list.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/linked_list/deletion_from_list.o",
+      "day*/src/linked_list/deletion_from_list.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/linked_list/deletion_from_list.c",
+    "output": "/home/quang/leetcode/build/day*/src/linked_list/deletion_from_list.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/linked_list/even_odd_merge.o",
+      "day*/src/linked_list/even_odd_merge.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/linked_list/even_odd_merge.c",
+    "output": "/home/quang/leetcode/build/day*/src/linked_list/even_odd_merge.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/linked_list/has_cycle.o",
+      "day*/src/linked_list/has_cycle.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/linked_list/has_cycle.c",
+    "output": "/home/quang/leetcode/build/day*/src/linked_list/has_cycle.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/linked_list/is_linked_list_a_palindrome.o",
+      "day*/src/linked_list/is_linked_list_a_palindrome.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/linked_list/is_linked_list_a_palindrome.c",
+    "output": "/home/quang/leetcode/build/day*/src/linked_list/is_linked_list_a_palindrome.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/linked_list/list_pivoting.o",
+      "day*/src/linked_list/list_pivoting.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/linked_list/list_pivoting.c",
+    "output": "/home/quang/leetcode/build/day*/src/linked_list/list_pivoting.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/linked_list/merge_two_sorted_lists.o",
+      "day*/src/linked_list/merge_two_sorted_lists.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/linked_list/merge_two_sorted_lists.c",
+    "output": "/home/quang/leetcode/build/day*/src/linked_list/merge_two_sorted_lists.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/linked_list/overlapping_lists.o",
+      "day*/src/linked_list/overlapping_lists.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/linked_list/overlapping_lists.c",
+    "output": "/home/quang/leetcode/build/day*/src/linked_list/overlapping_lists.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/linked_list/overlapping_no_cycle_lists.o",
+      "day*/src/linked_list/overlapping_no_cycle_lists.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/linked_list/overlapping_no_cycle_lists.c",
+    "output": "/home/quang/leetcode/build/day*/src/linked_list/overlapping_no_cycle_lists.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/linked_list/remove_duplicates.o",
+      "day*/src/linked_list/remove_duplicates.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/linked_list/remove_duplicates.c",
+    "output": "/home/quang/leetcode/build/day*/src/linked_list/remove_duplicates.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/linked_list/remove_kth_last.o",
+      "day*/src/linked_list/remove_kth_last.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/linked_list/remove_kth_last.c",
+    "output": "/home/quang/leetcode/build/day*/src/linked_list/remove_kth_last.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/linked_list/reverse_sublist.o",
+      "day*/src/linked_list/reverse_sublist.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/linked_list/reverse_sublist.c",
+    "output": "/home/quang/leetcode/build/day*/src/linked_list/reverse_sublist.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/main.c",
+    "output": "/home/quang/leetcode/build/src/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/utils/utils.o",
+      "src/utils/utils.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/utils/utils.c",
+    "output": "/home/quang/leetcode/build/src/utils/utils.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/recursion/combinations.o",
+      "src/recursion/combinations.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/recursion/combinations.c",
+    "output": "/home/quang/leetcode/build/src/recursion/combinations.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/recursion/generate_balanced_parentheses.o",
+      "src/recursion/generate_balanced_parentheses.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/recursion/generate_balanced_parentheses.c",
+    "output": "/home/quang/leetcode/build/src/recursion/generate_balanced_parentheses.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/recursion/generate_power_set.o",
+      "src/recursion/generate_power_set.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/recursion/generate_power_set.c",
+    "output": "/home/quang/leetcode/build/src/recursion/generate_power_set.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/recursion/n_queens.o",
+      "src/recursion/n_queens.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/recursion/n_queens.c",
+    "output": "/home/quang/leetcode/build/src/recursion/n_queens.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/recursion/permutations.o",
+      "src/recursion/permutations.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/recursion/permutations.c",
+    "output": "/home/quang/leetcode/build/src/recursion/permutations.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/recursion/solve_sudoku.o",
+      "src/recursion/solve_sudoku.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/recursion/solve_sudoku.c",
+    "output": "/home/quang/leetcode/build/src/recursion/solve_sudoku.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/recursion/combinations.o",
+      "day*/src/recursion/combinations.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/recursion/combinations.c",
+    "output": "/home/quang/leetcode/build/day*/src/recursion/combinations.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/recursion/generate_balanced_parentheses.o",
+      "day*/src/recursion/generate_balanced_parentheses.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/recursion/generate_balanced_parentheses.c",
+    "output": "/home/quang/leetcode/build/day*/src/recursion/generate_balanced_parentheses.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/recursion/generate_power_set.o",
+      "day*/src/recursion/generate_power_set.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/recursion/generate_power_set.c",
+    "output": "/home/quang/leetcode/build/day*/src/recursion/generate_power_set.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/recursion/n_queens.o",
+      "day*/src/recursion/n_queens.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/recursion/n_queens.c",
+    "output": "/home/quang/leetcode/build/day*/src/recursion/n_queens.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/recursion/permutations.o",
+      "day*/src/recursion/permutations.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/recursion/permutations.c",
+    "output": "/home/quang/leetcode/build/day*/src/recursion/permutations.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/recursion/solve_sudoku.o",
+      "day*/src/recursion/solve_sudoku.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/recursion/solve_sudoku.c",
+    "output": "/home/quang/leetcode/build/day*/src/recursion/solve_sudoku.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/main.c",
+    "output": "/home/quang/leetcode/build/src/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/utils/utils.o",
+      "src/utils/utils.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/utils/utils.c",
+    "output": "/home/quang/leetcode/build/src/utils/utils.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/dsa_stack.o",
+      "src/dsa/dsa_stack.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/dsa/dsa_stack.c",
+    "output": "/home/quang/leetcode/build/src/dsa/dsa_stack.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/stack/evaluate.o",
+      "src/stack/evaluate.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/stack/evaluate.c",
+    "output": "/home/quang/leetcode/build/src/stack/evaluate.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/stack/examine_building_with_sunset.o",
+      "src/stack/examine_building_with_sunset.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/stack/examine_building_with_sunset.c",
+    "output": "/home/quang/leetcode/build/src/stack/examine_building_with_sunset.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/stack/is_well_formed.o",
+      "src/stack/is_well_formed.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/stack/is_well_formed.c",
+    "output": "/home/quang/leetcode/build/src/stack/is_well_formed.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/stack/shortest_equivalent_path.o",
+      "src/stack/shortest_equivalent_path.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/src/stack/shortest_equivalent_path.c",
+    "output": "/home/quang/leetcode/build/src/stack/shortest_equivalent_path.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/dsa_stack.o",
+      "day*/src/dsa/dsa_stack.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/dsa/dsa_stack.c",
+    "output": "/home/quang/leetcode/build/day*/src/dsa/dsa_stack.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/stack/evaluate.o",
+      "day*/src/stack/evaluate.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/stack/evaluate.c",
+    "output": "/home/quang/leetcode/build/day*/src/stack/evaluate.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/stack/examine_building_with_sunset.o",
+      "day*/src/stack/examine_building_with_sunset.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/stack/examine_building_with_sunset.c",
+    "output": "/home/quang/leetcode/build/day*/src/stack/examine_building_with_sunset.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/stack/is_well_formed.o",
+      "day*/src/stack/is_well_formed.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/stack/is_well_formed.c",
+    "output": "/home/quang/leetcode/build/day*/src/stack/is_well_formed.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/stack/shortest_equivalent_path.o",
+      "day*/src/stack/shortest_equivalent_path.c"
+    ],
+    "directory": "/home/quang/leetcode",
+    "file": "/home/quang/leetcode/day*/src/stack/shortest_equivalent_path.c",
+    "output": "/home/quang/leetcode/build/day*/src/stack/shortest_equivalent_path.o"
   }
 ]

@@ -19,3 +19,11 @@ Note: This will execute all problems that match the name with wildcard. (It is `
 ```sh
 make unittest test=`module name`
 ```
+
+#### Update compile_commands.json
+
+This requires `jq` and `bear` installed.
+
+```sh
+sh scripts/upd_compile_commands_json.sh
+```
