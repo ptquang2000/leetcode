@@ -2,6 +2,7 @@ build := -f $(srcroot)/scripts/Makefile.build obj
 config := -f $(srcroot)/scripts/Makefile.config obj
 runtarget := -f $(srcroot)/scripts/Makefile.target obj
 generate := -f $(srcroot)/scripts/Makefile.generate obj
+unittest := -e ENABLE_UNITTEST=1
 
 to_lower = $(shell echo $(1) | tr A-Z a-z)
 to_upper = $(shell echo $(1) | tr a-z A-Z)

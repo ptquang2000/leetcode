@@ -29,7 +29,9 @@ matched-config := $(call config_name, \
 endif
 
 real-subdir := $(sort $(addprefix $(src)/, $(subdir-) $(subdir-y)))
+ifeq ($(call get_basename, $(obj)),$(this-target))
 test-config := $(if $(filter test, $(subdir-)), $(call config_name $(subdir-y), $(obj))_TEST)
+endif
 
 ifneq ($(matched-config),)
 matched-config += $(call config_name, $(obj))
@@ -40,7 +42,9 @@ CONFIG_%:
 	$(file >>$(BUILD_CONFIG),$@=y)
 
 CONFIG_%_TEST:
-	$(file >>$(BUILD_CONFIG),# $@ is not set)
+	$(if $(ENABLE_UNITTEST), \
+		$(file >>$(BUILD_CONFIG),$@=y), \
+		$(file >>$(BUILD_CONFIG),# $@ is not set))
 
 PHONY += $(real-subdir)
 $(real-subdir):

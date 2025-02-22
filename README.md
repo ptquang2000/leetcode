@@ -16,8 +16,6 @@ Note: This will execute all problems that match the name with wildcard. (It is `
 
 #### Unittest
 
-First add .config file, then add the required configs for your desired test module. After that run this commands.
-
 ```sh
-make -e ENABLE_UNITTEST=1
+make unittest test=`module name`
 ```
