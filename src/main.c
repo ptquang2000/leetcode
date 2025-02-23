@@ -274,6 +274,9 @@ int main()
 #ifdef CONFIG_BT_PRE_ORDER
         test_dsa_bt_pre_order();
 #endif
+#ifdef CONFIG_BUBBLE_SORT
+        test_dsa_bubble_sort();
+#endif
 #ifdef CONFIG_COMPARE
         test_dsa_compare();
 #endif

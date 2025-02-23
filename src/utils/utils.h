@@ -113,8 +113,9 @@ void utils_assert_count_equal_array(const char *i_file, const char *i_func, int 
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
 #define free_array(x, n)                                                                                               \
         do {                                                                                                           \
-                while (n)                                                                                              \
-                        free(x[--n]);                                                                                  \
+                size_t __i = n;                                                                                        \
+                while (__i)                                                                                            \
+                        free(x[--__i]);                                                                                \
                 free(x);                                                                                               \
         } while (0);
 

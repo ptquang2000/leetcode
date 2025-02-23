@@ -8,6 +8,7 @@ obj-$(CONFIG_BT_BFS) += bt_bfs.o
 obj-$(CONFIG_BT_IN_ORDER) += bt_in_order.o
 obj-$(CONFIG_BT_POST_ORDER) += bt_post_order.o
 obj-$(CONFIG_BT_PRE_ORDER) += bt_pre_order.o
+obj-$(CONFIG_BUBBLE_SORT) += bubble_sort.o
 obj-$(CONFIG_COMPARE) += compare.o
 obj-$(CONFIG_DOUBLY_LINKED_LIST) += doubly_linked_list.o
 obj-$(CONFIG_LINEAR_SEARCH) += linear_search.o

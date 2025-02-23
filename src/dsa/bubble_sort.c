@@ -1,0 +1,11 @@
+#include "utils/utils.h"
+
+extern void dsa_bubble_sort(int size, int arr[size]);
+
+void test_dsa_bubble_sort()
+{
+        int arr[] = {9, 3, 7, 4, 69, 420, 42};
+        dsa_bubble_sort(ARRAY_SIZE(arr), arr);
+        int expected[] = {3, 4, 7, 9, 42, 69, 420};
+        UTILS_ASSERT_EQUAL_ARRAY(arr, expected, ARRAY_SIZE(expected));
+}

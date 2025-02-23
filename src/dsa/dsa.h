@@ -8,6 +8,7 @@ void test_dsa_bt_bfs();
 void test_dsa_bt_in_order();
 void test_dsa_bt_post_order();
 void test_dsa_bt_pre_order();
+void test_dsa_bubble_sort();
 void test_dsa_compare();
 void test_dsa_doubly_linked_list();
 void test_dsa_linear_search();
