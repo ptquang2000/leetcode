@@ -304,4 +304,13 @@ int main()
 #ifdef CONFIG_TWO_CRYSTAL_BALLS
         test_dsa_two_crystal_balls();
 #endif
+#ifdef CONFIG_GRAPH_LIST_BFS
+        test_dsa_graph_list_bfs();
+#endif
+#ifdef CONFIG_GRAPH_MATRIX_BFS
+        test_dsa_graph_matrix_bfs();
+#endif
+#ifdef CONFIG_DIJKSTRA_LIST
+        test_dsa_dijkstra_list();
+#endif
 }
