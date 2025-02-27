@@ -18,7 +18,7 @@ void test_dsa_min_heap();
 void test_dsa_quick_sort();
 void test_dsa_stack();
 void test_dsa_two_crystal_balls();
-void test_dsa_graph_list_bfs();
+void test_dsa_graph_list_dfs();
 void test_dsa_graph_matrix_bfs();
 void test_dsa_dijkstra_list();
 

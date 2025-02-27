@@ -304,8 +304,8 @@ int main()
 #ifdef CONFIG_TWO_CRYSTAL_BALLS
         test_dsa_two_crystal_balls();
 #endif
-#ifdef CONFIG_GRAPH_LIST_BFS
-        test_dsa_graph_list_bfs();
+#ifdef CONFIG_GRAPH_LIST_DFS
+        test_dsa_graph_list_dfs();
 #endif
 #ifdef CONFIG_GRAPH_MATRIX_BFS
         test_dsa_graph_matrix_bfs();

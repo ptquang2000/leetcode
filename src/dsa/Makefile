@@ -18,6 +18,6 @@ obj-$(CONFIG_MIN_HEAP) += min_heap.o
 obj-$(CONFIG_QUICK_SORT) += quick_sort.o
 obj-$(CONFIG_DSA_STACK) += dsa_stack.o
 obj-$(CONFIG_TWO_CRYSTAL_BALLS) += two_crystal_balls.o
-obj-$(CONFIG_GRAPH_LIST_BFS) += graph_list_bfs.o
+obj-$(CONFIG_GRAPH_LIST_DFS) += graph_list_dfs.o
 obj-$(CONFIG_GRAPH_MATRIX_BFS) += graph_matrix_bfs.o
 obj-$(CONFIG_DIJKSTRA_LIST) += dijkstra_list.o
