@@ -11,9 +11,9 @@ int main()
         char xValue = 'x';
         char charValue = '=';
         char DValue = 'D';
-        const char* stringValue = "B==D";
-        const char* B0085 = "B0085";
-        void* noneValue = 0;
+        const char *stringValue = "B==D";
+        const char *B0085 = "B0085";
+        void *noneValue = 0;
         bool boolArrayExpected[3] = {true, false, true};
         bool boolArrayActual1[3] = {true, false, true};
         bool boolArrayActual2[3] = {true, true, true};
@@ -23,9 +23,9 @@ int main()
         int intArrayExpected[3] = {69, 69, 69};
         int intArrayActual1[3] = {69, 69, 69};
         int intArrayActual2[3] = {69, 420, 69};
-        const char* stringArrayExpected[3] = {"B==D", "B==D", "B==D"};
-        const char* stringArrayActual1[3] = {"B==D", "B==D", "B==D"};
-        const char* stringArrayActual2[3] = {"B==D", "B0085", "B==D"};
+        const char *stringArrayExpected[3] = {"B==D", "B==D", "B==D"};
+        const char *stringArrayActual1[3] = {"B==D", "B==D", "B==D"};
+        const char *stringArrayActual2[3] = {"B==D", "B0085", "B==D"};
         int intArrayIn[3] = {69420, 69420, 69420};
 
         UTILS_LOG("\nTest UTILS_LOG\n");
@@ -122,13 +122,13 @@ int main()
         size_t cccc_size = sizeof(cccc) / sizeof(*cccc);
         size_t ddddd_size = sizeof(ddddd) / sizeof(*ddddd);
         size_t e_size = sizeof(e) / sizeof(*e);
-        char* abcd_array[] = {aa, bbb, cccc, ddddd};
+        char *abcd_array[] = {aa, bbb, cccc, ddddd};
         size_t abcd_array_size[] = {aa_size, bbb_size, cccc_size, ddddd_size};
-        char* bdac_array[] = {bbb, ddddd, aa, cccc};
+        char *bdac_array[] = {bbb, ddddd, aa, cccc};
         size_t bdac_array_size[] = {bbb_size, ddddd_size, aa_size, cccc_size};
-        char* bdeac_array[] = {bbb, ddddd, e, aa, cccc};
+        char *bdeac_array[] = {bbb, ddddd, e, aa, cccc};
         size_t bdeac_array_size[] = {bbb_size, ddddd_size, e_size, aa_size, cccc_size};
-        char* bceac_array[] = {bbb, cccc, e, cccc, aa};
+        char *bceac_array[] = {bbb, cccc, e, cccc, aa};
         size_t bceac_array_size[] = {bbb_size, cccc_size, e_size, cccc_size, aa_size};
         size_t abcd_array_count = sizeof(abcd_array_size) / sizeof(*abcd_array_size);
         size_t bdeac_array_count = sizeof(bdeac_array_size) / sizeof(*bdeac_array_size);
@@ -152,11 +152,11 @@ int main()
         int three_twos_size = sizeof(three_twos) / sizeof(*three_twos);
         int one_three[] = {3};
         int one_three_size = sizeof(one_three) / sizeof(*one_three);
-        int* one_two_three[] = {two_ones, three_twos, one_three};
+        int *one_two_three[] = {two_ones, three_twos, one_three};
         int one_two_three_size[] = {two_ones_size, three_twos_size, one_three_size};
-        int* reverse_one_two_three[] = {one_three, three_twos, two_ones};
+        int *reverse_one_two_three[] = {one_three, three_twos, two_ones};
         int reverse_one_two_three_size[] = {one_three_size, three_twos_size, two_ones_size};
-        int* one_one_three[] = {two_ones, two_ones, one_three};
+        int *one_one_three[] = {two_ones, two_ones, one_three};
         int one_one_three_size[] = {two_ones_size, two_ones_size, one_three_size};
         int int_array_count = sizeof(one_two_three_size) / sizeof(*one_two_three_size);
 
@@ -168,15 +168,31 @@ int main()
         UTILS_ASSERT_COUNT_EQUAL_ARRAY(one_two_three, one_two_three_size, one_one_three, one_one_three_size,
                                        int_array_count);
 
-        const char* strings[] = {"69", "420", "69420"};
+        const char *strings[] = {"69", "420", "69420"};
         uint32_t strings_size = sizeof(strings) / sizeof(*strings);
-        const char* reversed_strings[] = {"69420", "420", "69"};
+        const char *reversed_strings[] = {"69420", "420", "69"};
         uint32_t reversed_strings_size = sizeof(reversed_strings) / sizeof(*reversed_strings);
-        const char* different_strings[] = {"80085", "B==D", "69420"};
+        const char *different_strings[] = {"80085", "B==D", "69420"};
         uint32_t different_strings_size = sizeof(different_strings) / sizeof(*different_strings);
 
         UTILS_LOG("Test UTILS_ASSERT_COUNT_EQUAL string");
         UTILS_ASSERT_COUNT_EQUAL(strings, strings, strings_size);
         UTILS_ASSERT_COUNT_EQUAL(strings, reversed_strings, strings_size);
         UTILS_ASSERT_COUNT_EQUAL(strings, different_strings, strings_size);
+
+        int *matrix1[] = {
+                (int[]){2, 5, 6, 69, 420, 69420},
+                (int[]){1, 3, 9, 69, 420, 69420},
+                (int[]){10, 24, 21, 69, 420, 69420},
+        };
+        int *matrix2[] = {
+                (int[]){10, 24, 21, 69, 420, 69420},
+                (int[]){2, 5, 6, 69, 420, 69420},
+                (int[]){1, 3, 9, 69, 420, 69420},
+        };
+        int matrix_size[] = {6, 6, 6};
+
+        UTILS_LOG("Test UTILS_ASSERT_EQUAL_MD_ARRAY int");
+        UTILS_ASSERT_EQUAL_MD_ARRAY(matrix1, matrix1, matrix_size, ARRAY_SIZE(matrix_size));
+        UTILS_ASSERT_EQUAL_MD_ARRAY(matrix1, matrix2, matrix_size, ARRAY_SIZE(matrix_size));
 }

@@ -555,6 +555,30 @@ void utils_assert_greater_array(const char *i_file, const char *i_func, int i_li
 
 ////////////////////////////////////////////////////////////////////////////////
 
+void utils_assert_equal_multi_dim_array(const char *i_file, const char *i_func, int i_line, UtilsType i_type,
+                                        size_t i_actual, size_t i_expected, size_t i_size, size_t i_count,
+                                        size_t i_stride, size_t i_size_stride)
+{
+        size_t *actual = (size_t *)i_actual;
+        size_t *expected = (size_t *)i_expected;
+
+        const size_t mask = ((size_t)-1) >> (sizeof(size_t) - i_size_stride) * 8;
+        for (size_t i = 0; i < i_count; i++) {
+                const size_t size = *(size_t *)(i_size + i * i_size_stride) & mask;
+                while (!is_equal_array(actual[i], expected[i], size, i_stride, i_type)) {
+                        UTILS_LOG("\n-----------------------------------------------------");
+                        UTILS_LOG("FAILED: {}", UTYPE(i_func));
+                        UTILS_LOG("File {} at line {}:", UTYPE(i_file), UTYPE(i_line));
+                        UTILS_LOG("At index {}: Expected {} got {}.", UTYPE(i),
+                                  FORMAT_UARRAY(i_type, expected[i], size), FORMAT_UARRAY(i_type, actual[i], size));
+                        UTILS_LOG("-----------------------------------------------------\n");
+                        UTILS_TRAP;
+                }
+        }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 void utils_assert_in_array(const char *i_file, const char *i_func, int i_line, UtilsType i_type, size_t i_actual,
                            size_t i_expected, size_t i_size, size_t i_stride)
 {

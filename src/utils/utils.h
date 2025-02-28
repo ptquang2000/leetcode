@@ -69,6 +69,9 @@ void utils_assert_greater(const char *i_file, const char *i_func, int i_line, Ut
                           size_t i_expected, size_t i_stride);
 void utils_assert_equal_array(const char *i_file, const char *i_func, int i_line, UtilsType i_type, size_t i_actual,
                               size_t i_expected, size_t i_size, size_t i_stride);
+void utils_assert_equal_multi_dim_array(const char *i_file, const char *i_func, int i_line, UtilsType i_type,
+                                        size_t i_actual, size_t i_expected, size_t i_size, size_t count,
+                                        size_t i_stride, size_t i_size_stride);
 void utils_assert_less_array(const char *i_file, const char *i_func, int i_line, UtilsType i_type, size_t i_actual,
                              size_t i_expected, size_t i_size, size_t i_stride);
 void utils_assert_greater_array(const char *i_file, const char *i_func, int i_line, UtilsType i_type, size_t i_actual,
@@ -131,6 +134,10 @@ void utils_assert_count_equal_array(const char *i_file, const char *i_func, int 
 #define UTILS_ASSERT_EQUAL_ARRAY(actual, expected, size)                                                               \
         utils_assert_equal_array(__FILE__, __FUNCTION__, __LINE__, PTR_UTYPE(actual), (size_t)actual,                  \
                                  (size_t)expected, size, PTR_STRIDE(actual))
+#define UTILS_ASSERT_EQUAL_MD_ARRAY(actual, expected, size, count)                                                     \
+        utils_assert_equal_multi_dim_array(__FILE__, __FUNCTION__, __LINE__, PTR_UTYPE(*actual), (size_t)actual,       \
+                                           (size_t)expected, (size_t)size, count, PTR_STRIDE(*actual),                 \
+                                           PTR_STRIDE(size))
 #define UTILS_ASSERT_LESS_ARRAY(actual, expected, size)                                                                \
         utils_assert_less_array(__FILE__, __FUNCTION__, __LINE__, PTR_UTYPE(actual), (size_t)actual, (size_t)expected, \
                                 size, PTR_STRIDE(actual))
