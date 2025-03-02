@@ -134,7 +134,7 @@ void utils_assert_count_equal_array(const char *i_file, const char *i_func, int 
 #define UTILS_ASSERT_EQUAL_ARRAY(actual, expected, size)                                                               \
         utils_assert_equal_array(__FILE__, __FUNCTION__, __LINE__, PTR_UTYPE(actual), (size_t)actual,                  \
                                  (size_t)expected, size, PTR_STRIDE(actual))
-#define UTILS_ASSERT_EQUAL_MD_ARRAY(actual, expected, size, count)                                                     \
+#define UTILS_ASSERT_EQUAL_MULTI_DIM_ARRAY(actual, expected, size, count)                                              \
         utils_assert_equal_multi_dim_array(__FILE__, __FUNCTION__, __LINE__, PTR_UTYPE(*actual), (size_t)actual,       \
                                            (size_t)expected, (size_t)size, count, PTR_STRIDE(*actual),                 \
                                            PTR_STRIDE(size))

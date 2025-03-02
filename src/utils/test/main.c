@@ -193,6 +193,6 @@ int main()
         int matrix_size[] = {6, 6, 6};
 
         UTILS_LOG("Test UTILS_ASSERT_EQUAL_MD_ARRAY int");
-        UTILS_ASSERT_EQUAL_MD_ARRAY(matrix1, matrix1, matrix_size, ARRAY_SIZE(matrix_size));
-        UTILS_ASSERT_EQUAL_MD_ARRAY(matrix1, matrix2, matrix_size, ARRAY_SIZE(matrix_size));
+        UTILS_ASSERT_EQUAL_MULTI_DIM_ARRAY(matrix1, matrix1, matrix_size, ARRAY_SIZE(matrix_size));
+        UTILS_ASSERT_EQUAL_MULTI_DIM_ARRAY(matrix1, matrix2, matrix_size, ARRAY_SIZE(matrix_size));
 }
