@@ -6,6 +6,29 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+#define PARENS ()
+
+#define __expand__(...) __expand4__(__expand4__(__expand4__(__expand4__(__VA_ARGS__))))
+#define __expand4__(...) __expand3__(__expand3__(__expand3__(__expand3__(__VA_ARGS__))))
+#define __expand3__(...) __expand2__(__expand2__(__expand2__(__expand2__(__VA_ARGS__))))
+#define __expand2__(...) __expand1__(__expand1__(__expand1__(__expand1__(__VA_ARGS__))))
+#define __expand1__(...) __VA_ARGS__
+
+#define parse_args(...) __VA_OPT__(__expand__(parse_args_helper(__VA_ARGS__)))
+#define parse_args_helper(arg, ...) typeof(arg) __VA_OPT__(, parse_args_recursion PARENS(__VA_ARGS__))
+#define parse_args_recursion() parse_args_helper
+
+#define _function_decl(macro, ...) __VA_OPT__(__expand__(_function_decl_helper(macro, __VA_ARGS__)))
+#define _function_decl_helper(macro, type, ...)                                                                        \
+        macro(type) __VA_OPT__(_function_decl_recursion PARENS(macro, __VA_ARGS__))
+#define _function_decl_recursion() _function_decl_helper
+
+#define _generic_decl(name, ...) __VA_OPT__(__expand__(_generic_decl_helper(name, __VA_ARGS__)))
+#define _generic_decl_helper(name, type, ...)                                                                          \
+        type:                                                                                                          \
+        __##name##_##type __VA_OPT__(, _generic_decl_recursion PARENS(name, __VA_ARGS__))
+#define _generic_decl_recursion() _generic_decl_helper
+
 #define min(a, b) ((a) < (b) ? (a) : (b))
 #define max(a, b) ((a) < (b) ? (b) : (a))
 
@@ -39,16 +62,27 @@ typedef enum UtilsType {
                 value
 #define UARRAY(value, size)                                                                                            \
         _Generic((value),                                                                                              \
-                bool *: UTYPE_BOOL ^ 0x80,                                                                             \
-                char *: UTYPE_CHAR ^ 0x80,                                                                             \
-                int *: UTYPE_INT ^ 0x80,                                                                               \
-                uint64_t *: UTYPE_UINT64 ^ 0x80,                                                                       \
-                float *: UTYPE_FLOAT ^ 0x80,                                                                           \
-                const char **: UTYPE_STRING ^ 0x80,                                                                    \
-                void **: UTYPE_PTR ^ 0x80),                                                                            \
+                bool *: UTYPE_BOOL ^ 0x40,                                                                             \
+                char *: UTYPE_CHAR ^ 0x40,                                                                             \
+                int *: UTYPE_INT ^ 0x40,                                                                               \
+                uint64_t *: UTYPE_UINT64 ^ 0x40,                                                                       \
+                float *: UTYPE_FLOAT ^ 0x40,                                                                           \
+                const char **: UTYPE_STRING ^ 0x40,                                                                    \
+                void **: UTYPE_PTR ^ 0x40),                                                                            \
+                value, (size_t)size
+#define UDARRAY(value, size)                                                                                           \
+        _Generic((value),                                                                                              \
+                bool **: UTYPE_BOOL ^ 0x40,                                                                            \
+                char **: UTYPE_CHAR ^ 0x40,                                                                            \
+                int **: UTYPE_INT ^ 0x40,                                                                              \
+                uint64_t **: UTYPE_UINT64 ^ 0x40,                                                                      \
+                float **: UTYPE_FLOAT ^ 0x40,                                                                          \
+                const char ***: UTYPE_STRING ^ 0x40,                                                                   \
+                void ***: UTYPE_PTR ^ 0x40),                                                                           \
                 value, (size_t)size
 #define FORMAT_UTYPE(utype, value) utype, value
-#define FORMAT_UARRAY(utype, value, size) utype ^ 0x80, value, (size_t)size
+#define FORMAT_UARRAY(utype, value, size) utype ^ 0x40, value, (size_t)size
+#define FORMAT_UDARRAY(utype, value, size) utype ^ 0x80, value, (size_t)size
 
 void utils_print(const char *i_format, ...);
 #define UTILS_LOG(...) utils_print(__VA_ARGS__);
@@ -69,9 +103,8 @@ void utils_assert_greater(const char *i_file, const char *i_func, int i_line, Ut
                           size_t i_expected, size_t i_stride);
 void utils_assert_equal_array(const char *i_file, const char *i_func, int i_line, UtilsType i_type, size_t i_actual,
                               size_t i_expected, size_t i_size, size_t i_stride);
-void utils_assert_equal_multi_dim_array(const char *i_file, const char *i_func, int i_line, UtilsType i_type,
-                                        size_t i_actual, size_t i_expected, size_t i_size, size_t count,
-                                        size_t i_stride, size_t i_size_stride);
+void utils_assert_equal_darray(const char *i_file, const char *i_func, int i_line, UtilsType i_type, size_t i_actual,
+                               size_t i_expected, size_t i_size, size_t count, size_t i_stride, size_t i_size_stride);
 void utils_assert_less_array(const char *i_file, const char *i_func, int i_line, UtilsType i_type, size_t i_actual,
                              size_t i_expected, size_t i_size, size_t i_stride);
 void utils_assert_greater_array(const char *i_file, const char *i_func, int i_line, UtilsType i_type, size_t i_actual,
@@ -134,10 +167,9 @@ void utils_assert_count_equal_array(const char *i_file, const char *i_func, int 
 #define UTILS_ASSERT_EQUAL_ARRAY(actual, expected, size)                                                               \
         utils_assert_equal_array(__FILE__, __FUNCTION__, __LINE__, PTR_UTYPE(actual), (size_t)actual,                  \
                                  (size_t)expected, size, PTR_STRIDE(actual))
-#define UTILS_ASSERT_EQUAL_MULTI_DIM_ARRAY(actual, expected, size, count)                                              \
-        utils_assert_equal_multi_dim_array(__FILE__, __FUNCTION__, __LINE__, PTR_UTYPE(*actual), (size_t)actual,       \
-                                           (size_t)expected, (size_t)size, count, PTR_STRIDE(*actual),                 \
-                                           PTR_STRIDE(size))
+#define UTILS_ASSERT_EQUAL_DARRAY(actual, expected, size, count)                                                       \
+        utils_assert_equal_darray(__FILE__, __FUNCTION__, __LINE__, PTR_UTYPE(*actual), (size_t)actual,                \
+                                  (size_t)expected, (size_t)size, count, PTR_STRIDE(*actual), PTR_STRIDE(size))
 #define UTILS_ASSERT_LESS_ARRAY(actual, expected, size)                                                                \
         utils_assert_less_array(__FILE__, __FUNCTION__, __LINE__, PTR_UTYPE(actual), (size_t)actual, (size_t)expected, \
                                 size, PTR_STRIDE(actual))

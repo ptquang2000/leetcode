@@ -1,6 +1,5 @@
 #include "heap/binary_heap.h"
-#define TEST_UTILS
-#include "utils/utils.c"
+#include "utils/utils.h"
 
 int main()
 {

@@ -1,6 +1,5 @@
 #include "binary_tree/btree_node.h"
-#define TEST_UTILS
-#include "utils/utils.c"
+#include "utils/utils.h"
 
 int main()
 {
