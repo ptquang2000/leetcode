@@ -25,10 +25,11 @@ int main()
         log("hello world\n");
         log("hello {} world", 1);
 
-        typedef struct_template(8) generic_t;
-        typedef struct_template('c') char_t;
-        typedef struct_template(arr1, ARRAY_SIZE(arr1)) array_t;
-        typedef struct_template(darr1, darr_len, ARRAY_SIZE(darr1)) darray_t;
+        struct_template(8) generic_t = {.data = 0};
+        struct_template('c') char_t = {.data = 0};
+        struct_template(arr1, ARRAY_SIZE(arr1)) array_t = {.data = 0, .len = 0};
+        struct_template(darr1, darr_len, ARRAY_SIZE(darr1)) darray_t = {.data = 0, .len = 0, .nr = 0};
+
         expected_decl(e1, 'c');
         expected_decl(e2, (const char *)"hello world");
         expected_decl(e3, (short)69);

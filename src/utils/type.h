@@ -9,13 +9,21 @@ typedef const char *string;
                 __VA_OPT__(__expand__(struct_obj(__VA_ARGS__)))                                                        \
                 void (*print)(parse_args(__VA_ARGS__));                                                                \
         }
-#define struct_obj(_v, ...)                                                                                            \
-        typeof(_v) data;                                                                                               \
-        __VA_OPT__(__expand__(struct_array(__VA_ARGS__)))
-#define struct_array(_len, ...)                                                                                        \
-        typeof(_len) len;                                                                                              \
-        __VA_OPT__(__expand__(struct_darray(__VA_ARGS__)))
-#define struct_darray(_nr) typeof(_nr) nr;
+
+#define struct_obj_skip(...) __expand__(struct_array(__VA_ARGS__))
+#define struct_obj_(_v) typeof(_v) data;
+#define struct_obj(_v, ...) struct_obj_##__VA_OPT__(skip)(_v __VA_OPT__(, __VA_ARGS__))
+
+#define struct_array_skip(...) __expand__(struct_darray(__VA_ARGS__))
+#define struct_array_(_v, _len)                                                                                        \
+        typeof(*_v) *data;                                                                                             \
+        typeof(_len) len;
+#define struct_array(_v, _len, ...) struct_array_##__VA_OPT__(skip)(_v, _len __VA_OPT__(, __VA_ARGS__))
+
+#define struct_darray(_v, _len, _nr)                                                                                   \
+        typeof(**_v) **data;                                                                                           \
+        typeof(*_len) *len;                                                                                            \
+        typeof(_nr) nr;
 
 #define uobject(data_t)                                                                                                \
         struct {                                                                                                       \
