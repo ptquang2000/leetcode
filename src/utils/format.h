@@ -8,28 +8,66 @@
 #define FMT_SPECIFIER(v)                                                                                               \
         _Generic((typeof(v)){},                                                                                        \
                 char: "%c",                                                                                            \
-                const char *: "%s",                                                                                    \
+                string: "%s",                                                                                          \
                 short: "%hd",                                                                                          \
                 int: "%d",                                                                                             \
                 size_t: "%zx",                                                                                         \
-                float: "%f",                                                                                           \
+                double: "%f",                                                                                          \
                 default: "%p")
 
-#define __print_decl(data_t)                                                                                           \
-        static inline void __print_##data_t(data_t d)                                                                  \
+#define __print_obj_decl(data_t)                                                                                       \
+        static inline void __print_obj_##data_t(void *data)                                                            \
         {                                                                                                              \
-                printf(FMT_SPECIFIER(data_t), d);                                                                      \
+                data_t##_obj obj = *(data_t##_obj *)data;                                                              \
+                printf(FMT_SPECIFIER(obj.data), obj.data);                                                             \
         }
-_function_decl(__print_decl, SUPPORTED_TYPE);
-#define __print_helper(v) _Generic((typeof(v)){}, _generic_decl(print, SUPPORTED_TYPE))
+__function_decl(__print_obj_decl, SUPPORTED_TYPE);
 
-#define print_obj(_v, ...)                                                                                             \
-        typeof(_v) data;                                                                                               \
-        __VA_OPT__(__expand__(print_array(__VA_ARGS__)))
-#define print_array(_len, ...)                                                                                         \
-        typeof(_len) len;                                                                                              \
-        __VA_OPT__(__expand__(print_darray(__VA_ARGS__)))
-#define print_darray(_nr) typeof(_nr) nr;
+#define __print_array_decl(data_t)                                                                                     \
+        static inline void __print_array_##data_t(void *_p)                                                            \
+        {                                                                                                              \
+                data_t##_array _a = *(data_t##_array *)_p;                                                             \
+                array_foreach(i, _a)                                                                                   \
+                {                                                                                                      \
+                        if (i == _a.data)                                                                              \
+                                printf("[");                                                                           \
+                        printf(FMT_SPECIFIER(*i), *i);                                                                 \
+                        if (i + 1 == _a.data + _a.len)                                                                 \
+                                printf("]");                                                                           \
+                        else                                                                                           \
+                                printf(",");                                                                           \
+                }                                                                                                      \
+        }
+__function_decl(__print_array_decl, SUPPORTED_TYPE);
+
+#define __print_darray_decl(data_t)                                                                                    \
+        static inline void __print_darray_##data_t(void *_p)                                                           \
+        {                                                                                                              \
+                data_t##_darray _da = *(data_t##_darray *)_p;                                                          \
+                darray_foreach(i, _a, _da)                                                                             \
+                {                                                                                                      \
+                        if (i == _a[0])                                                                                \
+                                printf("[");                                                                           \
+                        printf(FMT_SPECIFIER(*i), *i);                                                                 \
+                        if (_a[0] + _da.len[_a - _da.data] == i + 1)                                                   \
+                                printf("]");                                                                           \
+                        else                                                                                           \
+                                printf(",");                                                                           \
+                }                                                                                                      \
+        }
+__function_decl(__print_darray_decl, SUPPORTED_TYPE);
+
+#define __print_obj_skip(...) __expand__(__print_array(__VA_ARGS__))
+#define __print_obj_(data) _Generic((typeof(data)){}, __generic_decl(__print_obj, SUPPORTED_TYPE))
+#define __print_obj(data, ...) __print_obj_##__VA_OPT__(skip)((data)__VA_OPT__(, __VA_ARGS__))
+
+#define __print_array_skip(...) __expand__(__print_darray(__VA_ARGS__))
+#define __print_array_(data, len) _Generic((typeof(*(data))){}, __generic_decl(__print_array, SUPPORTED_TYPE))
+#define __print_array(data, len, ...) __print_array_##__VA_OPT__(skip)((data), (len)__VA_OPT__(, __VA_ARGS__))
+
+#define __print_darray(data, len, nr) _Generic((typeof(**(data))){}, __generic_decl(__print_darray, SUPPORTED_TYPE))
+
+#define print_helper(...) __VA_OPT__(__print_obj(__VA_ARGS__))
 
 #define log(fmt, ...)                                                                                                  \
         do {                                                                                                           \
@@ -41,6 +79,7 @@ _function_decl(__print_decl, SUPPORTED_TYPE);
         } while (0);
 #define log_helper(arg, ...)                                                                                           \
         do {                                                                                                           \
+                arg.print(&arg);                                                                                       \
                 __str = __token + DELIM_LEN;                                                                           \
                 __token = strstr(__str + DELIM_LEN, DELIM);                                                            \
                 printf("%.*s", (int)((__token ? __token : __end) - __str), __str);                                     \
@@ -67,17 +106,5 @@ void utils_format_uint64_array(size_t i_value, int i_size);
 void utils_format_float_array(size_t i_value, int i_size);
 void utils_format_string_array(size_t i_value, int i_size);
 void utils_format_pointer_array(size_t i_value, int i_size);
-
-//
-// String formatter
-// LOG("hello {} from {} with {} times", "me", "world", 3);
-//              |
-//              V
-// log_func(
-//      "hello {} from {}",
-//      struct { .data="me", .format=str, },
-//      struct { .data="world", .format=str, },
-//      struct { .data=3,.format=int }
-//      );
 
 #endif

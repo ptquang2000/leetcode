@@ -1,48 +1,50 @@
 #ifndef UTILS_TYPE_H
 #define UTILS_TYPE_H
 
-typedef const char *string;
-#define SUPPORTED_TYPE char, string, short, int, size_t, float
+typedef char *string;
+#define SUPPORTED_TYPE char, string, short, int, size_t, double
 
-#define struct_template(...)                                                                                           \
+#define struct_tmpl(...)                                                                                               \
         struct {                                                                                                       \
-                __VA_OPT__(__expand__(struct_obj(__VA_ARGS__)))                                                        \
-                void (*print)(parse_args(__VA_ARGS__));                                                                \
+                __VA_OPT__(__expand__(__struct_obj(__VA_ARGS__)))                                                      \
+                void (*print)(void *);                                                                                 \
         }
 
-#define struct_obj_skip(...) __expand__(struct_array(__VA_ARGS__))
-#define struct_obj_(_v) typeof(_v) data;
-#define struct_obj(_v, ...) struct_obj_##__VA_OPT__(skip)(_v __VA_OPT__(, __VA_ARGS__))
+#define __struct_obj_skip(...) __expand__(__struct_array(__VA_ARGS__))
+#define __struct_obj_(_data) typeof(_data) data;
+#define __struct_obj(data, ...) __struct_obj_##__VA_OPT__(skip)(data __VA_OPT__(, __VA_ARGS__))
 
-#define struct_array_skip(...) __expand__(struct_darray(__VA_ARGS__))
-#define struct_array_(_v, _len)                                                                                        \
-        typeof(*_v) *data;                                                                                             \
+#define __struct_array_skip(...) __expand__(__struct_darray(__VA_ARGS__))
+#define __struct_array_(_data, _len)                                                                                   \
+        typeof(*_data) *data;                                                                                          \
         typeof(_len) len;
-#define struct_array(_v, _len, ...) struct_array_##__VA_OPT__(skip)(_v, _len __VA_OPT__(, __VA_ARGS__))
+#define __struct_array(data, len, ...) __struct_array_##__VA_OPT__(skip)(data, len __VA_OPT__(, __VA_ARGS__))
 
-#define struct_darray(_v, _len, _nr)                                                                                   \
-        typeof(**_v) **data;                                                                                           \
+#define __struct_darray(_data, _len, _nr)                                                                              \
+        typeof(**_data) **data;                                                                                        \
         typeof(*_len) *len;                                                                                            \
         typeof(_nr) nr;
 
-#define uobject(data_t)                                                                                                \
-        struct {                                                                                                       \
-                data_t data;                                                                                           \
-                const char *fmt;                                                                                       \
-        }
+typedef struct_tmpl(char) char_obj;
+typedef struct_tmpl(string) string_obj;
+typedef struct_tmpl(short) short_obj;
+typedef struct_tmpl(int) int_obj;
+typedef struct_tmpl(size_t) size_t_obj;
+typedef struct_tmpl(double) double_obj;
 
-#define uarray(data_t)                                                                                                 \
-        struct {                                                                                                       \
-                size_t len;                                                                                            \
-                data_t data;                                                                                           \
-        }
+typedef struct_tmpl((char *){}, size_t) char_array;
+typedef struct_tmpl((string *){}, size_t) string_array;
+typedef struct_tmpl((short *){}, size_t) short_array;
+typedef struct_tmpl((int *){}, size_t) int_array;
+typedef struct_tmpl((size_t *){}, size_t) size_t_array;
+typedef struct_tmpl((double *){}, size_t) double_array;
 
-#define udarray(data_t, len_t)                                                                                         \
-        struct {                                                                                                       \
-                size_t nr;                                                                                             \
-                len_t len;                                                                                             \
-                data_t data;                                                                                           \
-        }
+typedef struct_tmpl((char **){}, (int *){}, size_t) char_darray;
+typedef struct_tmpl((string **){}, (int *){}, size_t) string_darray;
+typedef struct_tmpl((short **){}, (int *){}, size_t) short_darray;
+typedef struct_tmpl((int **){}, (int *){}, size_t) int_darray;
+typedef struct_tmpl((size_t **){}, (int *){}, size_t) size_t_darray;
+typedef struct_tmpl((double **){}, (int *){}, size_t) double_darray;
 
 #define cmp_scalar(a, b) ((a) < (b) ? -1 : (a) > (b) ? 1 : 0)
 #define cmp_float(a, b) ((a) < (b) ? -1 : (a) > (b) ? 1 : 0)
@@ -51,6 +53,13 @@ typedef const char *string;
 #define cmp(a, b) _Generic((a), float: cmp_float(a, b), double: cmp_double(a, b), default: cmp_scalar(a, b))
 
 #define array_index(s, e) (((e) - (s)) / sizeof(typeof(s)))
+
+#define array_foreach(it, arr) for (typeof(arr.data) it = &((arr).data[0]); (it) < &((arr).data[(arr).len]); (it)++)
+
+#define darray_foreach(it, arr, darr)                                                                                  \
+        for (typeof(darr.data) arr = &((darr).data[0]); (arr) < &((darr).data[(darr).nr]); (arr)++)                    \
+                for (typeof(*arr) it = &((arr)[0][0]);                                                                 \
+                     (it) < &((arr)[0][(darr).len[array_index((darr).data[0], arr[0])]]); (it)++)
 
 #define array_zip(it1, arr1, it2, arr2)                                                                                \
         for (typeof(arr1.data) it1 = &((arr1).data[0]), it2 = &((arr2).data[0]); (it1) < &((arr1).data[(arr1).len]);   \
@@ -68,34 +77,29 @@ typedef const char *string;
                         printf("%s\n", msg);                                                                           \
         } while (0)
 
-#define assert_equal(_a, _b)                                                                                           \
+#define assert_equal(a, b)                                                                                             \
         do {                                                                                                           \
-                typedef uobject((_a)) object;                                                                          \
-                object __a = {.data = (_a)};                                                                           \
-                object __b = {.data = (_b)};                                                                           \
-                assert_msg(cmp(__a.data, __b.data) == 0, "not equal");                                                 \
+                assert_msg(cmp(a, b) == 0, "not equal");                                                               \
         } while (0)
 
-#define assert_equal_array(_a, _b, _len)                                                                               \
+#define assert_equal_array(a, b)                                                                                       \
         do {                                                                                                           \
-                typedef uarray(typeof(_a)) array;                                                                      \
-                array __a = {.data = (_a), .len = (_len)};                                                             \
-                array __b = {.data = (_b), .len = (_len)};                                                             \
-                array_zip(_lhs, __a, _rhs, __b)                                                                        \
+                array_zip(lhs, a, rhs, b)                                                                              \
                 {                                                                                                      \
-                        assert_equal(*(_lhs), *(_rhs));                                                                \
+                        assert_equal(*(lhs), *(rhs));                                                                  \
                 }                                                                                                      \
         } while (0)
 
-#define assert_equal_darray(_a, _b, _len, _nr)                                                                         \
+#define assert_equal_darray(a, b)                                                                                      \
         do {                                                                                                           \
-                typedef udarray(typeof(_a), typeof(_len)) darray;                                                      \
-                darray __a = {.nr = (_nr), .len = (_len), .data = (_a)};                                               \
-                darray __b = {.nr = (_nr), .len = (_len), .data = (_b)};                                               \
-                darray_zip(_lhs, __a, _rhs, __b)                                                                       \
+                darray_zip(lhs, a, rhs, b)                                                                             \
                 {                                                                                                      \
-                        assert_equal(*(_lhs), *(_rhs));                                                                \
+                        assert_equal(*(lhs), *(rhs));                                                                  \
                 }                                                                                                      \
         } while (0)
+
+#define assert_count_equal
+
+#define assert_in
 
 #endif

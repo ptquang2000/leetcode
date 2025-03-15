@@ -14,20 +14,20 @@
 #define __expand2__(...) __expand1__(__expand1__(__expand1__(__expand1__(__VA_ARGS__))))
 #define __expand1__(...) __VA_ARGS__
 
-#define parse_args(...) __VA_OPT__(__expand__(parse_args_helper(__VA_ARGS__)))
-#define parse_args_helper(arg, ...) typeof(arg) __VA_OPT__(, parse_args_recursion PARENS(__VA_ARGS__))
-#define parse_args_recursion() parse_args_helper
+#define parse_args(...) __VA_OPT__(__expand__(__parse_args_helper(__VA_ARGS__)))
+#define __parse_args_helper(arg, ...) typeof(arg) __VA_OPT__(, __parse_args_recursion PARENS(__VA_ARGS__))
+#define __parse_args_recursion() __parse_args_helper
 
-#define _function_decl(macro, ...) __VA_OPT__(__expand__(_function_decl_helper(macro, __VA_ARGS__)))
-#define _function_decl_helper(macro, type, ...)                                                                        \
-        macro(type) __VA_OPT__(_function_decl_recursion PARENS(macro, __VA_ARGS__))
-#define _function_decl_recursion() _function_decl_helper
+#define __function_decl(macro, ...) __VA_OPT__(__expand__(__function_decl_helper(macro, __VA_ARGS__)))
+#define __function_decl_helper(macro, type, ...)                                                                       \
+        macro(type) __VA_OPT__(__function_decl_recursion PARENS(macro, __VA_ARGS__))
+#define __function_decl_recursion() __function_decl_helper
 
-#define _generic_decl(name, ...) __VA_OPT__(__expand__(_generic_decl_helper(name, __VA_ARGS__)))
-#define _generic_decl_helper(name, type, ...)                                                                          \
+#define __generic_decl(name, ...) __VA_OPT__(__expand__(__generic_decl_helper(name, __VA_ARGS__)))
+#define __generic_decl_helper(name, type, ...)                                                                         \
         type:                                                                                                          \
-        __##name##_##type __VA_OPT__(, _generic_decl_recursion PARENS(name, __VA_ARGS__))
-#define _generic_decl_recursion() _generic_decl_helper
+        name##_##type __VA_OPT__(, __generic_decl_recursion PARENS(name, __VA_ARGS__))
+#define __generic_decl_recursion() __generic_decl_helper
 
 #define min(a, b) ((a) < (b) ? (a) : (b))
 #define max(a, b) ((a) < (b) ? (b) : (a))

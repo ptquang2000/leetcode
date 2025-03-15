@@ -1,55 +1,79 @@
 #include "utils/format.h"
 #include "utils/type.h"
-#include "utils/utils.h"
 #include <stddef.h>
 #include <stdint.h>
-#include <string.h>
 
-#define expected_decl(expected, ...)                                                                                   \
-        struct_template(__VA_ARGS__) expected = {                                                                      \
+#define decl(type, var, ...)                                                                                           \
+        type var = {                                                                                                   \
                 __VA_ARGS__,                                                                                           \
+                .print = print_helper(__VA_ARGS__),                                                                    \
         }
 
 int main()
 {
-        int arr1[] = {0, 1, 4, 5, 6};
-        int arr2[] = {0, 1, 3, 5, 6};
-        int *darr1[] = {arr1, arr2};
-        int *darr2[] = {arr2, arr2};
-        int darr_len[] = {5, 5};
-        /*assert_equal_array(arr1, arr1, ARRAY_SIZE(arr1));*/
-        /*assert_equal_array(arr1, arr2, ARRAY_SIZE(arr1));*/
-        /*assert_equal_darray(darr1, darr1, darr_len, ARRAY_SIZE(darr_len));*/
-        /*assert_equal_darray(darr1, darr2, darr_len, ARRAY_SIZE(darr_len));*/
+        int_obj obj = {
+                .data = 1,
+                .print = print_helper(obj.data),
+        };
+        int_array arr1 = {
+                .data = (int[]){0, 1, 4, 5, 6},
+                .len = 6,
+                .print = print_helper(arr1.data, arr1.len),
+        };
+        int_array arr2 = {
+                .data = (int[]){0, 1, 3, 5, 6},
+                .len = 6,
+        };
+        int_darray darr1 = {
+                .data = (int *[]){arr1.data, arr2.data},
+                .len = (int[]){5, 5},
+                .nr = 2,
+        };
+        int_darray darr2 = {
+                .data = (int *[]){arr2.data, arr2.data},
+                .len = (int[]){5, 5},
+                .nr = 2,
+        };
+        char_array arr3 = {
+                .data = (char[]){'c', 'b'},
+                .len = 2,
+                .print = print_helper(arr3.data, arr3.len),
+        };
 
-        log("hello world\n");
-        log("hello {} world", 1);
+        assert_equal_array(arr1, arr1);
+        assert_equal_array(arr1, arr2);
+        assert_equal_darray(darr1, darr1);
+        assert_equal_darray(darr1, darr2);
 
-        struct_template(8) generic_t = {.data = 0};
-        struct_template('c') char_t = {.data = 0};
-        struct_template(arr1, ARRAY_SIZE(arr1)) array_t = {.data = 0, .len = 0};
-        struct_template(darr1, darr_len, ARRAY_SIZE(darr1)) darray_t = {.data = 0, .len = 0, .nr = 0};
+        decl(char_obj, e1, 'c');
+        decl(string_obj, e2, "hello world");
+        decl(short_obj, e3, 69);
+        decl(int_obj, e4, 420);
+        decl(size_t_obj, e5, 69420);
+        decl(double_obj, e6, 420.69);
 
-        expected_decl(e1, 'c');
-        expected_decl(e2, (const char *)"hello world");
-        expected_decl(e3, (short)69);
-        expected_decl(e4, (int)420);
-        expected_decl(e5, (size_t)69420);
-        expected_decl(e6, (float)420.69);
+        decl(char_array, ac, ((char[]){'x', 'y', 'z'}), 2);
 
-        /*printf("\n----\n");*/
-        /*e1.print(e1.data);*/
-        /*printf("\n----\n");*/
-        /*e2.print(e2.data);*/
-        /*printf("\n----\n");*/
-        /*e3.print(e3.data);*/
-        /*printf("\n----\n");*/
-        /*e4.print(e4.data);*/
-        /*printf("\n----\n");*/
-        /*e5.print(e5.data);*/
-        /*printf("\n----\n");*/
-        /*e6.print(e6.data);*/
-        /*printf("\n----\n\n");*/
+        printf("\n----\n");
+        e1.print(&e1);
+        printf("\n----\n");
+        e2.print(&e2);
+        printf("\n----\n");
+        e3.print(&e3);
+        printf("\n----\n");
+        e4.print(&e4);
+        printf("\n----\n");
+        e5.print(&e5);
+        printf("\n----\n");
+        e6.print(&e6);
+        printf("\n----\n");
+
+        log("hello world");
+        printf("\n----\n");
+        log("hello {} world", arr3);
+        printf("\n----\n");
+        log("hello {} world", ac);
+        printf("\n----\n");
 
         /*bool trueValue = true;*/
         /*bool falseValue = false;*/
