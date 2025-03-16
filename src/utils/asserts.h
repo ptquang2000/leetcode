@@ -26,18 +26,4 @@ struct btree_node;
                         __builtin_trap();                                                                              \
                 }                                                                                                      \
         } while (0)
-
-#define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
-
-#define min(a, b) ((a) < (b) ? (a) : (b))
-#define max(a, b) ((a) < (b) ? (b) : (a))
-
-#define free_array(x, n)                                                                                               \
-        do {                                                                                                           \
-                size_t __i = n;                                                                                        \
-                while (__i)                                                                                            \
-                        free(x[--__i]);                                                                                \
-                free(x);                                                                                               \
-        } while (0);
-
 #endif

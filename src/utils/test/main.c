@@ -1,5 +1,5 @@
 #include "utils/logger.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 int main()
 {
