@@ -15,14 +15,6 @@
                 double: "%f",                                                                                          \
                 default: "%p")
 
-#define ext_type(ext, ...) __VA_OPT__(__expand__(ext_type_h(ext, __VA_ARGS__)))
-#define ext_type_h(ext, type, ...) type##_##ext __VA_OPT__(, ext_type_r PARENS(ext, __VA_ARGS__))
-#define ext_type_r() ext_type_h
-
-#define obj_types __expand__(ext_type(obj, SUPPORTED_TYPE))
-#define array_types __expand__(ext_type(array, SUPPORTED_TYPE))
-#define darray_types __expand__(ext_type(darray, SUPPORTED_TYPE))
-
 #define __print_obj_def(data_t)                                                                                        \
         static inline void __print_##data_t(data_t obj)                                                                \
         {                                                                                                              \
@@ -62,30 +54,27 @@ __function_decl(__print_array_def, array_types);
         }
 __function_decl(__print_darray_def, darray_types);
 
-#define __generic_decl(name, ...) __VA_OPT__(__expand__(__generic_decl_helper(name, __VA_ARGS__)))
-#define __generic_decl_helper(name, type, ...)                                                                         \
-        type:                                                                                                          \
-        name##_##type __VA_OPT__(, __generic_decl_recursion PARENS(name, __VA_ARGS__))
-#define __generic_decl_recursion() __generic_decl_helper
-#define __printf(v) _Generic((v), __generic_decl(__print, obj_types, array_types, darray_types))(v)
-
-#define utils_log(fmt, ...)                                                                                            \
+#define log(fmt, ...)                                                                                                  \
         do {                                                                                                           \
                 char *__str = fmt;                                                                                     \
                 char *__token = strstr(__str, DELIM);                                                                  \
                 char *__end = __str + strlen(__str);                                                                   \
                 printf("%.*s", (int)((__token ? __token : __end) - __str), __str);                                     \
-                __VA_OPT__(__expand__(log_helper(__VA_ARGS__)))                                                        \
+                __VA_OPT__(__expand__(__log_h(__VA_ARGS__)))                                                           \
         } while (0);
-#define log_helper(arg, ...)                                                                                           \
+#define __log_h(arg, ...)                                                                                              \
         do {                                                                                                           \
-                __printf(arg);                                                                                         \
+                _Generic((arg), __print_r PARENS(ALL_TYPES))(arg);                                                     \
                 __str = __token + DELIM_LEN;                                                                           \
                 __token = strstr(__str, DELIM);                                                                        \
                 printf("%.*s", (int)((__token ? __token : __end) - __str), __str);                                     \
-                __VA_OPT__(log_recursion PARENS(__VA_ARGS__))                                                          \
+                __VA_OPT__(__log_r PARENS(__VA_ARGS__))                                                                \
         } while (0);
-#define log_recursion() log_helper
+#define __log_r() __log_h
+#define __print_h(type, ...)                                                                                           \
+        type:                                                                                                          \
+        __print_##type __VA_OPT__(, __print_r PARENS(__VA_ARGS__))
+#define __print_r() __print_h
 
 void utils_format_bool(size_t i_value);
 void utils_format_bool_ptr(size_t i_value);

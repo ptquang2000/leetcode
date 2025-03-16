@@ -1,7 +1,4 @@
 #include "utils/format.h"
-#include "utils/type.h"
-#include <stddef.h>
-#include <stdint.h>
 
 int main()
 {
@@ -35,10 +32,10 @@ int main()
                 .len = 2,
         };
 
-        assert_equal_array(arr1, arr1);
-        assert_equal_array(arr1, arr2);
-        assert_equal_darray(darr1, darr1);
-        assert_equal_darray(darr1, darr2);
+        assert_equal(arr1, arr1);
+        assert_equal(arr1, arr2);
+        assert_equal(darr1, darr1);
+        assert_equal(darr1, darr2);
 
         char_obj e1 = {'c'};
         string_obj e2 = {"hello world"};
@@ -49,17 +46,17 @@ int main()
 
         char_array ac = {(char[]){'x', 'y', 'z'}, 3};
 
-        utils_log("{}\n", e1);
-        utils_log("{}\n", e2);
-        utils_log("{}\n", e3);
-        utils_log("{}\n", e4);
-        utils_log("{}\n", e5);
-        utils_log("{}\n", e6);
+        log("e1 {} e2 {}\n", e1, e2);
+        log("e2 {}\n", e2);
+        log("e3 {}\n", e3);
+        log("e4 {}\n", e4);
+        log("e5 {}\n", e5);
+        log("e6 {}\n", e6);
 
-        utils_log("hello world\n");
-        utils_log("hello {} world\n", arr3);
-        utils_log("hello {} world\n", ac);
-        utils_log("hello {} world\n", darr1);
+        log("hello world\n");
+        log("hello {} world\n", arr3);
+        log("hello {} world\n", ac);
+        log("hello {} world\n", darr1);
 
         /*bool trueValue = true;*/
         /*bool falseValue = false;*/
