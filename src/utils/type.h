@@ -7,7 +7,6 @@ typedef char *string;
 #define struct_tmpl(...)                                                                                               \
         struct {                                                                                                       \
                 __VA_OPT__(__expand__(__struct_obj(__VA_ARGS__)))                                                      \
-                void (*print)(void *);                                                                                 \
         }
 
 #define __struct_obj_skip(...) __expand__(__struct_array(__VA_ARGS__))

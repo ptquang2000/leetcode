@@ -3,29 +3,25 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#define decl(type, var, ...)                                                                                           \
-        type var = {                                                                                                   \
-                __VA_ARGS__,                                                                                           \
-                .print = print_helper(__VA_ARGS__),                                                                    \
-        }
-
 int main()
 {
         int_obj obj = {
                 .data = 1,
-                .print = print_helper(obj.data),
         };
         int_array arr1 = {
                 .data = (int[]){0, 1, 4, 5, 6},
                 .len = 6,
-                .print = print_helper(arr1.data, arr1.len),
         };
         int_array arr2 = {
                 .data = (int[]){0, 1, 3, 5, 6},
                 .len = 6,
         };
         int_darray darr1 = {
-                .data = (int *[]){arr1.data, arr2.data},
+                .data =
+                        (int *[]){
+                                (int[]){0, 1, 4, 5, 6},
+                                (int[]){0, 1, 3, 5, 6},
+                        },
                 .len = (int[]){5, 5},
                 .nr = 2,
         };
@@ -37,7 +33,6 @@ int main()
         char_array arr3 = {
                 .data = (char[]){'c', 'b'},
                 .len = 2,
-                .print = print_helper(arr3.data, arr3.len),
         };
 
         assert_equal_array(arr1, arr1);
@@ -45,35 +40,26 @@ int main()
         assert_equal_darray(darr1, darr1);
         assert_equal_darray(darr1, darr2);
 
-        decl(char_obj, e1, 'c');
-        decl(string_obj, e2, "hello world");
-        decl(short_obj, e3, 69);
-        decl(int_obj, e4, 420);
-        decl(size_t_obj, e5, 69420);
-        decl(double_obj, e6, 420.69);
+        char_obj e1 = {'c'};
+        string_obj e2 = {"hello world"};
+        short_obj e3 = {69};
+        int_obj e4 = {420};
+        size_t_obj e5 = {69420};
+        double_obj e6 = {420.69};
 
-        decl(char_array, ac, ((char[]){'x', 'y', 'z'}), 2);
+        char_array ac = {(char[]){'x', 'y', 'z'}, 3};
 
-        printf("\n----\n");
-        e1.print(&e1);
-        printf("\n----\n");
-        e2.print(&e2);
-        printf("\n----\n");
-        e3.print(&e3);
-        printf("\n----\n");
-        e4.print(&e4);
-        printf("\n----\n");
-        e5.print(&e5);
-        printf("\n----\n");
-        e6.print(&e6);
-        printf("\n----\n");
+        utils_log("{}\n", e1);
+        utils_log("{}\n", e2);
+        utils_log("{}\n", e3);
+        utils_log("{}\n", e4);
+        utils_log("{}\n", e5);
+        utils_log("{}\n", e6);
 
-        log("hello world");
-        printf("\n----\n");
-        log("hello {} world", arr3);
-        printf("\n----\n");
-        log("hello {} world", ac);
-        printf("\n----\n");
+        utils_log("hello world\n");
+        utils_log("hello {} world\n", arr3);
+        utils_log("hello {} world\n", ac);
+        utils_log("hello {} world\n", darr1);
 
         /*bool trueValue = true;*/
         /*bool falseValue = false;*/

@@ -15,61 +15,61 @@
                 double: "%f",                                                                                          \
                 default: "%p")
 
-#define __print_obj_decl(data_t)                                                                                       \
-        static inline void __print_obj_##data_t(void *data)                                                            \
+#define ext_type(ext, ...) __VA_OPT__(__expand__(ext_type_h(ext, __VA_ARGS__)))
+#define ext_type_h(ext, type, ...) type##_##ext __VA_OPT__(, ext_type_r PARENS(ext, __VA_ARGS__))
+#define ext_type_r() ext_type_h
+
+#define obj_types __expand__(ext_type(obj, SUPPORTED_TYPE))
+#define array_types __expand__(ext_type(array, SUPPORTED_TYPE))
+#define darray_types __expand__(ext_type(darray, SUPPORTED_TYPE))
+
+#define __print_obj_def(data_t)                                                                                        \
+        static inline void __print_##data_t(data_t obj)                                                                \
         {                                                                                                              \
-                data_t##_obj obj = *(data_t##_obj *)data;                                                              \
                 printf(FMT_SPECIFIER(obj.data), obj.data);                                                             \
         }
-__function_decl(__print_obj_decl, SUPPORTED_TYPE);
+__function_decl(__print_obj_def, obj_types);
 
-#define __print_array_decl(data_t)                                                                                     \
-        static inline void __print_array_##data_t(void *_p)                                                            \
+#define __print_array_def(data_t)                                                                                      \
+        static inline void __print_##data_t(data_t a)                                                                  \
         {                                                                                                              \
-                data_t##_array _a = *(data_t##_array *)_p;                                                             \
-                array_foreach(i, _a)                                                                                   \
+                array_foreach(i, a)                                                                                    \
                 {                                                                                                      \
-                        if (i == _a.data)                                                                              \
+                        if (i == a.data)                                                                               \
                                 printf("[");                                                                           \
                         printf(FMT_SPECIFIER(*i), *i);                                                                 \
-                        if (i + 1 == _a.data + _a.len)                                                                 \
+                        if (i + 1 == a.data + a.len)                                                                   \
                                 printf("]");                                                                           \
                         else                                                                                           \
                                 printf(",");                                                                           \
                 }                                                                                                      \
         }
-__function_decl(__print_array_decl, SUPPORTED_TYPE);
+__function_decl(__print_array_def, array_types);
 
-#define __print_darray_decl(data_t)                                                                                    \
-        static inline void __print_darray_##data_t(void *_p)                                                           \
+#define __print_darray_def(data_t)                                                                                     \
+        static inline void __print_##data_t(data_t da)                                                                 \
         {                                                                                                              \
-                data_t##_darray _da = *(data_t##_darray *)_p;                                                          \
-                darray_foreach(i, _a, _da)                                                                             \
+                darray_foreach(i, a, da)                                                                               \
                 {                                                                                                      \
-                        if (i == _a[0])                                                                                \
+                        if (i == a[0])                                                                                 \
                                 printf("[");                                                                           \
                         printf(FMT_SPECIFIER(*i), *i);                                                                 \
-                        if (_a[0] + _da.len[_a - _da.data] == i + 1)                                                   \
+                        if (a[0] + da.len[a - da.data] == i + 1)                                                       \
                                 printf("]");                                                                           \
                         else                                                                                           \
                                 printf(",");                                                                           \
                 }                                                                                                      \
         }
-__function_decl(__print_darray_decl, SUPPORTED_TYPE);
+__function_decl(__print_darray_def, darray_types);
 
-#define __print_obj_skip(...) __expand__(__print_array(__VA_ARGS__))
-#define __print_obj_(data) _Generic((typeof(data)){}, __generic_decl(__print_obj, SUPPORTED_TYPE))
-#define __print_obj(data, ...) __print_obj_##__VA_OPT__(skip)((data)__VA_OPT__(, __VA_ARGS__))
+#define __generic_decl(name, ...) __VA_OPT__(__expand__(__generic_decl_helper(name, __VA_ARGS__)))
+#define __generic_decl_helper(name, type, ...)                                                                         \
+        type:                                                                                                          \
+        name##_##type __VA_OPT__(, __generic_decl_recursion PARENS(name, __VA_ARGS__))
+#define __generic_decl_recursion() __generic_decl_helper
+#define __printf(v) _Generic((v), __generic_decl(__print, obj_types, array_types, darray_types))(v)
 
-#define __print_array_skip(...) __expand__(__print_darray(__VA_ARGS__))
-#define __print_array_(data, len) _Generic((typeof(*(data))){}, __generic_decl(__print_array, SUPPORTED_TYPE))
-#define __print_array(data, len, ...) __print_array_##__VA_OPT__(skip)((data), (len)__VA_OPT__(, __VA_ARGS__))
-
-#define __print_darray(data, len, nr) _Generic((typeof(**(data))){}, __generic_decl(__print_darray, SUPPORTED_TYPE))
-
-#define print_helper(...) __VA_OPT__(__print_obj(__VA_ARGS__))
-
-#define log(fmt, ...)                                                                                                  \
+#define utils_log(fmt, ...)                                                                                            \
         do {                                                                                                           \
                 char *__str = fmt;                                                                                     \
                 char *__token = strstr(__str, DELIM);                                                                  \
@@ -79,9 +79,9 @@ __function_decl(__print_darray_decl, SUPPORTED_TYPE);
         } while (0);
 #define log_helper(arg, ...)                                                                                           \
         do {                                                                                                           \
-                arg.print(&arg);                                                                                       \
+                __printf(arg);                                                                                         \
                 __str = __token + DELIM_LEN;                                                                           \
-                __token = strstr(__str + DELIM_LEN, DELIM);                                                            \
+                __token = strstr(__str, DELIM);                                                                        \
                 printf("%.*s", (int)((__token ? __token : __end) - __str), __str);                                     \
                 __VA_OPT__(log_recursion PARENS(__VA_ARGS__))                                                          \
         } while (0);

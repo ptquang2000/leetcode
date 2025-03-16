@@ -23,12 +23,6 @@
         macro(type) __VA_OPT__(__function_decl_recursion PARENS(macro, __VA_ARGS__))
 #define __function_decl_recursion() __function_decl_helper
 
-#define __generic_decl(name, ...) __VA_OPT__(__expand__(__generic_decl_helper(name, __VA_ARGS__)))
-#define __generic_decl_helper(name, type, ...)                                                                         \
-        type:                                                                                                          \
-        name##_##type __VA_OPT__(, __generic_decl_recursion PARENS(name, __VA_ARGS__))
-#define __generic_decl_recursion() __generic_decl_helper
-
 #define min(a, b) ((a) < (b) ? (a) : (b))
 #define max(a, b) ((a) < (b) ? (b) : (a))
 
