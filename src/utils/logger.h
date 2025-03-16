@@ -56,7 +56,7 @@
 
 #define utils_log(fmt, ...)                                                                                            \
         do {                                                                                                           \
-                char *__str = fmt;                                                                                     \
+                char *__str = fmt "\n";                                                                                \
                 char *__token = strstr(__str, DELIM);                                                                  \
                 char *__end = __str + strlen(__str);                                                                   \
                 printf("%.*s", (int)((__token ? __token : __end) - __str), __str);                                     \

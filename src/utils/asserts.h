@@ -6,7 +6,7 @@
 #define assert_msg(cond, msg)                                                                                          \
         do {                                                                                                           \
                 if (!(cond))                                                                                           \
-                        utils_log("{}\n", (string_obj){msg});                                                          \
+                        utils_log("{}", (string_obj){msg});                                                            \
         } while (0)
 
 #define assert_equal(a, b)                                                                                             \

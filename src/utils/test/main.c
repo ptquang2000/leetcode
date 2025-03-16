@@ -3,244 +3,274 @@
 
 int main()
 {
-        int_obj obj = {
-                .data = 1,
-        };
-        int_array arr1 = {
-                .data = (int[]){0, 1, 4, 5, 6},
-                .len = 6,
-        };
-        int_array arr2 = {
-                .data = (int[]){0, 1, 3, 5, 6},
-                .len = 6,
-        };
-        int_darray darr1 = {
-                .data =
-                        (int *[]){
-                                (int[]){0, 1, 4, 5, 6},
-                                (int[]){0, 1, 3, 5, 6},
-                        },
-                .len = (int[]){5, 5},
-                .nr = 2,
-        };
-        int_darray darr2 = {
-                .data = (int *[]){arr2.data, arr2.data},
-                .len = (int[]){5, 5},
-                .nr = 2,
-        };
-        char_array arr3 = {
-                .data = (char[]){'c', 'b'},
-                .len = 2,
+        char_obj c1 = {'x'};
+        char_obj c2 = {'y'};
+        string_obj s1 = {"8==D"};
+        string_obj s2 = {"B00B5"};
+        short_obj sh1 = {69};
+        short_obj sh2 = {420};
+        int_obj i1 = {69420};
+        int_obj i2 = {42069};
+        size_t_obj st1 = {696969696966969};
+        size_t_obj st2 = {420420420420420};
+        double_obj d1 = {69.60};
+        double_obj d2 = {420.420};
+        bool_obj b1 = {true};
+        bool_obj b2 = {false};
+
+        char_array ca1 = {(char[]){
+                                  '4',
+                                  'f',
+                                  'Q',
+                                  'p',
+                                  'K',
+                                  'y',
+                                  'p',
+                                  '7',
+                                  '4',
+                                  '6',
+                          },
+                          10};
+        char_array ca2 = {(char[]){
+                                  'q',
+                                  'b',
+                                  '0',
+                                  'n',
+                                  'P',
+                                  'C',
+                                  'G',
+                                  'd',
+                                  'j',
+                                  'B',
+                          },
+                          10};
+        string_array sa1 = {(string[]){
+                                    "4fQpKyp746",
+                                    "qb0nPCGdjB",
+                                    "sITQPD8iV4",
+                                    "xKkKnhpa7O",
+                                    "jvV7jhOprG",
+                                    "GaOS6ubEqK",
+                                    "icCg9UY9yM",
+                                    "yg83QEM0uo",
+                                    "kM1FF1dSOi",
+                                    "keYRvfUhRN",
+                            },
+                            10};
+        string_array sa2 = {(string[]){
+                                    "VgUmJaI82d",
+                                    "ln4M8KVoxn",
+                                    "BuoNifpXd7",
+                                    "qEGa2vlWIU",
+                                    "SY1PJhpcJJ",
+                                    "RjJCkfjMLX",
+                                    "Eq4UGJHPRp",
+                                    "WzctiOUvmM",
+                                    "cdv2lSmsiu",
+                                    "belwvdiz4L",
+                            },
+                            10};
+        short_array sha1 = {(short[]){
+                                    31,
+                                    82,
+                                    32,
+                                    55,
+                                    02,
+                                    12,
+                                    92,
+                                    47,
+                                    70,
+                                    39,
+                            },
+                            10};
+        short_array sha2 = {(short[]){
+                                    42,
+                                    51,
+                                    75,
+                                    31,
+                                    53,
+                                    33,
+                                    83,
+                                    33,
+                                    69,
+                                    78,
+                            },
+                            10};
+        int_array ia1 = {(int[]){
+                                 326239,
+                                 559855,
+                                 445399,
+                                 828639,
+                                 190305,
+                                 036316,
+                                 601773,
+                                 932819,
+                                 165302,
+                                 103586,
+                         },
+                         10};
+        int_array ia2 = {(int[]){
+                                 390227,
+                                 556859,
+                                 992170,
+                                 397070,
+                                 254049,
+                                 164126,
+                                 737516,
+                                 194706,
+                                 326994,
+                                 866113,
+                         },
+                         10};
+        size_t_array sta1 = {(size_t[]){
+                                     9957835168,
+                                     1633598403,
+                                     1951010168,
+                                     6105680956,
+                                     8459731783,
+                                     5939598083,
+                                     8420687833,
+                                     6742268768,
+                                     1952606315,
+                                     5025918970,
+                             },
+                             10};
+        size_t_array sta2 = {(size_t[]){
+                                     2925128758,
+                                     9788141779,
+                                     5363541390,
+                                     1169019322,
+                                     1843586698,
+                                     4334811848,
+                                     2766719329,
+                                     4118601554,
+                                     7667159191,
+                                     7101044942,
+                             },
+                             10};
+        double_array da1 = {(double[]){
+                                    61.45505,
+                                    87.13806,
+                                    63.85903,
+                                    06.66105,
+                                    81.98509,
+                                    74.22406,
+                                    54.75735,
+                                    98.56143,
+                                    94.26562,
+                                    67.37559,
+                            },
+                            10};
+        double_array da2 = {(double[]){
+                                    70.27696,
+                                    10.38040,
+                                    80.59800,
+                                    85.91704,
+                                    96.60537,
+                                    97.62957,
+                                    08.60370,
+                                    79.16730,
+                                    61.05988,
+                                    44.17787,
+                            },
+                            10};
+        bool_array ba1 = {(bool[]){
+                                  true,
+                                  false,
+                                  true,
+                                  true,
+                                  true,
+                                  true,
+                                  true,
+                                  true,
+                                  true,
+                                  false,
+                          },
+                          10};
+        bool_array ba2 = {(bool[]){
+                                  false,
+                                  false,
+                                  true,
+                                  false,
+                                  false,
+                                  false,
+                                  false,
+                                  true,
+                                  false,
+                                  false,
+                          },
+                          10};
+
+        int_darray ida1 = {
+                (int *[]){
+                        (int[]){475393, 988570, 87500, 237323, 124432, 178064},
+                        (int[]){857455, 310353, 539865, 047706},
+                        (int[]){53230},
+                        (int[]){522622, 578448, 630848, 250187},
+                        (int[]){618149, 815384, 358064, 658980, 56808, 676723, 661455, 235858},
+                        (int[]){12689, 932409, 966095, 133571, 610084},
+                        (int[]){132628, 2517, 465359, 638961, 595024, 134992, 851962, 829427, 609012},
+                        (int[]){959958, 177944, 809177, 255324, 528052, 267128, 124711, 512513, 242088},
+                        (int[]){751827, 122692, 850258, 182295, 380328, 206178},
+                        (int[]){281338, 442121, 712663, 622850, 341023, 679321, 728249, 593052, 846654},
+                },
+                (int[]){6, 4, 1, 4, 8, 5, 9, 9, 6, 9},
+                10,
         };
 
-        assert_equal(arr1, arr1);
-        assert_equal(arr1, arr2);
-        assert_equal(darr1, darr1);
-        assert_equal(darr1, darr2);
+        utils_log("c1={}, s1={}, sh1={}, i1={}, st1={}, d1={}, b1={}\n", c1, s1, sh1, i1, st1, d1, b1);
+        utils_log("c2={}, s2={}, sh2={}, i2={}, st2={}, d2={}, b2={}\n", c2, s2, sh2, i2, st2, d2, b2);
+        utils_log("ca1={}, ca2={}", ca1, ca2);
+        utils_log("sa1={}, sa2={}", sa1, sa2);
+        utils_log("sha1={}, sha2={}", sha1, sha2);
+        utils_log("ia1={}, ia2={}", ia1, ia2);
+        utils_log("sta1={}, sta2={}", sta1, sta2);
+        utils_log("da1={}, da2={}", da1, da2);
+        utils_log("ba1={}, ba2={}", ba1, ba2);
 
-        char_obj e1 = {'c'};
-        string_obj e2 = {"hello world"};
-        short_obj e3 = {69};
-        int_obj e4 = {420};
-        size_t_obj e5 = {69420};
-        double_obj e6 = {420.69};
-        bool_obj e7 = {true};
+        assert_equal(c1, c1);
+        assert_equal(c2, c2);
+        assert_equal(s1, s1);
+        assert_equal(s2, s2);
+        assert_equal(sh1, sh1);
+        assert_equal(sh2, sh2);
+        assert_equal(i1, i1);
+        assert_equal(i2, i2);
+        assert_equal(st1, st1);
+        assert_equal(st2, st2);
+        assert_equal(d1, d1);
+        assert_equal(d2, d2);
+        assert_equal(b1, b1);
+        assert_equal(b2, b2);
 
-        char_array ac = {(char[]){'x', 'y', 'z'}, 3};
+        assert_equal(ca1, ca1);
+        assert_equal(ca2, ca2);
+        assert_equal(sa1, sa1);
+        assert_equal(sa2, sa2);
+        assert_equal(sha1, sha1);
+        assert_equal(sha2, sha2);
+        assert_equal(ia1, ia1);
+        assert_equal(ia2, ia2);
+        assert_equal(sta1, sta1);
+        assert_equal(sta2, sta2);
+        assert_equal(da1, da1);
+        assert_equal(da2, da2);
+        assert_equal(ba1, ba1);
+        assert_equal(ba2, ba2);
 
-        utils_log("e1={} e2={} e3={} e4={} e5={} e6={} e7={}\n", e1, e2, e3, e4, e5, e6, e7);
-        utils_log("hello world\n");
-        utils_log("arr1={} arr2={} arr3={} darr1={} darr2={}\n", arr1, arr2, arr3, darr1, darr2);
+        assert_equal(c1, c2);
+        assert_equal(s1, s2);
+        assert_equal(sh1, sh2);
+        assert_equal(i1, i2);
+        assert_equal(st1, st2);
+        assert_equal(d1, d2);
+        assert_equal(b1, b2);
 
-        /*bool trueValue = true;*/
-        /*bool falseValue = false;*/
-        /*int intValue = 69420;*/
-        /*char xValue = 'x';*/
-        /*char charValue = '=';*/
-        /*char DValue = 'D';*/
-        /*const char *stringValue = "B==D";*/
-        /*const char *B0085 = "B0085";*/
-        /*void *noneValue = 0;*/
-        /*bool boolArrayExpected[3] = {true, false, true};*/
-        /*bool boolArrayActual1[3] = {true, false, true};*/
-        /*bool boolArrayActual2[3] = {true, true, true};*/
-        /*char charArrayExpected[3] = {'x', 'x', 'x'};*/
-        /*char charArrayActual1[3] = {'x', 'x', 'x'};*/
-        /*char charArrayActual2[3] = {'x', 'y', 'x'};*/
-        /*int intArrayExpected[3] = {69, 69, 69};*/
-        /*int intArrayActual1[3] = {69, 69, 69};*/
-        /*int intArrayActual2[3] = {69, 420, 69};*/
-        /*const char *stringArrayExpected[3] = {"B==D", "B==D", "B==D"};*/
-        /*const char *stringArrayActual1[3] = {"B==D", "B==D", "B==D"};*/
-        /*const char *stringArrayActual2[3] = {"B==D", "B0085", "B==D"};*/
-        /*int intArrayIn[3] = {69420, 69420, 69420};*/
-        /**/
-        /*UTILS_LOG("\nTest UTILS_LOG\n");*/
-        /*UTILS_LOG("bool:{}/{}, char:{}, int:{}, string:{}", UTYPE(trueValue), UTYPE(falseValue), UTYPE(charValue),*/
-        /*          UTYPE(intValue), UTYPE(stringValue));*/
-        /*UTILS_LOG("bool array:{}, char array:{}, int array:{}, string array:{}", UARRAY(intArrayActual2, 3),*/
-        /*          UARRAY(charArrayActual2, 3), UTYPE(intValue), UARRAY(stringArrayExpected, 3));*/
-        /**/
-        /*UTILS_LOG("\nTest UTILS_ASSERT_EQUAL bool");*/
-        /*UTILS_ASSERT_EQUAL(trueValue, trueValue);*/
-        /*UTILS_ASSERT_EQUAL(trueValue, falseValue);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_EQUAL char");*/
-        /*UTILS_ASSERT_EQUAL(xValue, xValue);*/
-        /*UTILS_ASSERT_EQUAL(charValue, DValue);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_EQUAL int");*/
-        /*UTILS_ASSERT_EQUAL(69, 69);*/
-        /*UTILS_ASSERT_EQUAL(420, 69);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_EQUAL string");*/
-        /*UTILS_ASSERT_EQUAL(B0085, B0085);*/
-        /*UTILS_ASSERT_EQUAL(B0085, stringValue);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_EQUAL bool array");*/
-        /*UTILS_ASSERT_EQUAL_ARRAY(boolArrayActual1, boolArrayExpected, 3);*/
-        /*UTILS_ASSERT_EQUAL_ARRAY(boolArrayActual2, boolArrayExpected, 3);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_EQUAL char array");*/
-        /*UTILS_ASSERT_EQUAL_ARRAY(charArrayActual1, charArrayExpected, 3);*/
-        /*UTILS_ASSERT_EQUAL_ARRAY(charArrayActual2, charArrayExpected, 3);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_EQUAL int array");*/
-        /*UTILS_ASSERT_EQUAL_ARRAY(intArrayActual1, intArrayExpected, 3);*/
-        /*UTILS_ASSERT_EQUAL_ARRAY(intArrayActual2, intArrayExpected, 3);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_EQUAL string array");*/
-        /*UTILS_ASSERT_EQUAL_ARRAY(stringArrayActual1, stringArrayExpected, 3);*/
-        /*UTILS_ASSERT_EQUAL_ARRAY(stringArrayActual2, stringArrayExpected, 3);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_IS");*/
-        /*UTILS_ASSERT_IS(stringArrayExpected, stringArrayExpected);*/
-        /*UTILS_ASSERT_IS(stringArrayActual1, stringArrayExpected);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_IS_NONE");*/
-        /*UTILS_ASSERT_IS_NONE(noneValue);*/
-        /*UTILS_ASSERT_IS_NONE(stringArrayExpected);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_IN bool array");*/
-        /*UTILS_ASSERT_IN(trueValue, boolArrayActual2, 3);*/
-        /*UTILS_ASSERT_IN(falseValue, boolArrayActual2, 3);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_IN char array");*/
-        /*UTILS_ASSERT_IN(xValue, charArrayExpected, 3);*/
-        /*UTILS_ASSERT_IN(charValue, charArrayExpected, 3);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_IN int array");*/
-        /*UTILS_ASSERT_IN(intValue, intArrayIn, 3);*/
-        /*UTILS_ASSERT_IN(intValue, intArrayExpected, 3);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_IN string array");*/
-        /*UTILS_ASSERT_IN(stringValue, stringArrayExpected, 3);*/
-        /*UTILS_ASSERT_IN(B0085, stringArrayExpected, 3);*/
-        /**/
-        /*bool trues[] = {true, true, true, true, true};*/
-        /*bool falses[] = {false, false, false, false, false};*/
-        /*bool alt_bool[] = {true, false, true, false, true};*/
-        /*size_t trues_size = sizeof(trues) / sizeof(*trues);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_COUNT_EQUAL bool");*/
-        /*UTILS_ASSERT_COUNT_EQUAL(trues, trues, trues_size);*/
-        /*UTILS_ASSERT_COUNT_EQUAL(trues, falses, trues_size);*/
-        /*UTILS_ASSERT_COUNT_EQUAL(trues, alt_bool, trues_size);*/
-        /**/
-        /*char abcde[] = {'a', 'b', 'c', 'd', 'e'};*/
-        /*char fghij[] = {'f', 'g', 'h', 'i', 'j'};*/
-        /*char edcba[] = {'e', 'd', 'c', 'b', 'a'};*/
-        /*char bfdde[] = {'b', 'f', 'd', 'd', 'e'};*/
-        /*size_t abc_size = sizeof(abcde) / sizeof(*abcde);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_COUNT_EQUAL char");*/
-        /*UTILS_ASSERT_COUNT_EQUAL(abcde, fghij, abc_size);*/
-        /*UTILS_ASSERT_COUNT_EQUAL(abcde, edcba, abc_size);*/
-        /*UTILS_ASSERT_COUNT_EQUAL(abcde, bfdde, abc_size);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_COUNT_EQUAL_ARRAY char");*/
-        /*char aa[] = {'a', 'a'};*/
-        /*char bbb[] = {'b', 'b', 'b'};*/
-        /*char cccc[] = {'c', 'c', 'c', 'c', 'c'};*/
-        /*char ddddd[] = {'d', 'd', 'd', 'd', 'd'};*/
-        /*char e[] = {'e'};*/
-        /*size_t aa_size = sizeof(aa) / sizeof(*aa);*/
-        /*size_t bbb_size = sizeof(bbb) / sizeof(*bbb);*/
-        /*size_t cccc_size = sizeof(cccc) / sizeof(*cccc);*/
-        /*size_t ddddd_size = sizeof(ddddd) / sizeof(*ddddd);*/
-        /*size_t e_size = sizeof(e) / sizeof(*e);*/
-        /*char *abcd_array[] = {aa, bbb, cccc, ddddd};*/
-        /*size_t abcd_array_size[] = {aa_size, bbb_size, cccc_size, ddddd_size};*/
-        /*char *bdac_array[] = {bbb, ddddd, aa, cccc};*/
-        /*size_t bdac_array_size[] = {bbb_size, ddddd_size, aa_size, cccc_size};*/
-        /*char *bdeac_array[] = {bbb, ddddd, e, aa, cccc};*/
-        /*size_t bdeac_array_size[] = {bbb_size, ddddd_size, e_size, aa_size, cccc_size};*/
-        /*char *bceac_array[] = {bbb, cccc, e, cccc, aa};*/
-        /*size_t bceac_array_size[] = {bbb_size, cccc_size, e_size, cccc_size, aa_size};*/
-        /*size_t abcd_array_count = sizeof(abcd_array_size) / sizeof(*abcd_array_size);*/
-        /*size_t bdeac_array_count = sizeof(bdeac_array_size) / sizeof(*bdeac_array_size);*/
-        /*UTILS_ASSERT_COUNT_EQUAL_ARRAY(abcd_array, abcd_array_size, abcd_array, abcd_array_size, abcd_array_count);*/
-        /*UTILS_ASSERT_COUNT_EQUAL_ARRAY(abcd_array, abcd_array_size, bdac_array, bdac_array_size, abcd_array_count);*/
-        /*UTILS_ASSERT_COUNT_EQUAL_ARRAY(bdeac_array, bdeac_array_size, bceac_array, bceac_array_size,
-         * bdeac_array_count);*/
-        /**/
-        /*int ones[] = {1, 1, 1, 1, 1};*/
-        /*int twos[] = {2, 2, 2, 2, 2};*/
-        /*int alt_ints[] = {1, 2, 3, 2, 3};*/
-        /*size_t ones_size = sizeof(ones) / sizeof(*ones);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_COUNT_EQUAL int");*/
-        /*UTILS_ASSERT_COUNT_EQUAL(ones, ones, ones_size);*/
-        /*UTILS_ASSERT_COUNT_EQUAL(ones, twos, ones_size);*/
-        /*UTILS_ASSERT_COUNT_EQUAL(ones, alt_ints, ones_size);*/
-        /**/
-        /*int two_ones[] = {1, 1};*/
-        /*int two_ones_size = sizeof(two_ones) / sizeof(*two_ones);*/
-        /*int three_twos[] = {2, 2, 2};*/
-        /*int three_twos_size = sizeof(three_twos) / sizeof(*three_twos);*/
-        /*int one_three[] = {3};*/
-        /*int one_three_size = sizeof(one_three) / sizeof(*one_three);*/
-        /*int *one_two_three[] = {two_ones, three_twos, one_three};*/
-        /*int one_two_three_size[] = {two_ones_size, three_twos_size, one_three_size};*/
-        /*int *reverse_one_two_three[] = {one_three, three_twos, two_ones};*/
-        /*int reverse_one_two_three_size[] = {one_three_size, three_twos_size, two_ones_size};*/
-        /*int *one_one_three[] = {two_ones, two_ones, one_three};*/
-        /*int one_one_three_size[] = {two_ones_size, two_ones_size, one_three_size};*/
-        /*int int_array_count = sizeof(one_two_three_size) / sizeof(*one_two_three_size);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_COUNT_EQUAL_ARRAY int");*/
-        /*UTILS_ASSERT_COUNT_EQUAL_ARRAY(one_two_three, one_two_three_size, one_two_three, one_two_three_size,*/
-        /*                               int_array_count);*/
-        /*UTILS_ASSERT_COUNT_EQUAL_ARRAY(one_two_three, one_two_three_size, reverse_one_two_three,*/
-        /*                               reverse_one_two_three_size, int_array_count);*/
-        /*UTILS_ASSERT_COUNT_EQUAL_ARRAY(one_two_three, one_two_three_size, one_one_three, one_one_three_size,*/
-        /*                               int_array_count);*/
-        /**/
-        /*const char *strings[] = {"69", "420", "69420"};*/
-        /*uint32_t strings_size = sizeof(strings) / sizeof(*strings);*/
-        /*const char *reversed_strings[] = {"69420", "420", "69"};*/
-        /*uint32_t reversed_strings_size = sizeof(reversed_strings) / sizeof(*reversed_strings);*/
-        /*const char *different_strings[] = {"80085", "B==D", "69420"};*/
-        /*uint32_t different_strings_size = sizeof(different_strings) / sizeof(*different_strings);*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_COUNT_EQUAL string");*/
-        /*UTILS_ASSERT_COUNT_EQUAL(strings, strings, strings_size);*/
-        /*UTILS_ASSERT_COUNT_EQUAL(strings, reversed_strings, strings_size);*/
-        /*UTILS_ASSERT_COUNT_EQUAL(strings, different_strings, strings_size);*/
-        /**/
-        /*int *matrix1[] = {*/
-        /*        (int[]){2, 5, 6, 69, 420, 69420},*/
-        /*        (int[]){1, 3, 9, 69, 420, 69420},*/
-        /*        (int[]){10, 24, 21, 69, 420, 69420},*/
-        /*};*/
-        /*int *matrix2[] = {*/
-        /*        (int[]){10, 24, 21, 69, 420, 69420},*/
-        /*        (int[]){2, 5, 6, 69, 420, 69420},*/
-        /*        (int[]){1, 3, 9, 69, 420, 69420},*/
-        /*};*/
-        /*int matrix_size[] = {6, 6, 6};*/
-        /**/
-        /*UTILS_LOG("Test UTILS_ASSERT_EQUAL_MD_ARRAY int");*/
-        /*UTILS_ASSERT_EQUAL_DARRAY(matrix1, matrix1, matrix_size, ARRAY_SIZE(matrix_size));*/
-        /*UTILS_ASSERT_EQUAL_DARRAY(matrix1, matrix2, matrix_size, ARRAY_SIZE(matrix_size));*/
+        assert_equal(ca1, ca2);
+        assert_equal(sa1, sa2);
+        assert_equal(sha1, sha2);
+        assert_equal(ia1, ia2);
+        assert_equal(sta1, sta2);
+        assert_equal(da1, da2);
+        assert_equal(ba1, ba2);
 }
