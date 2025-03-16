@@ -1,5 +1,5 @@
-#include "utils/logger.h"
 #include "utils/asserts.h"
+#include "utils/logger.h"
 
 int main()
 {
@@ -44,10 +44,11 @@ int main()
         int_obj e4 = {420};
         size_t_obj e5 = {69420};
         double_obj e6 = {420.69};
+        bool_obj e7 = {true};
 
         char_array ac = {(char[]){'x', 'y', 'z'}, 3};
 
-        utils_log("e1={} e2={} e3={} e4={} e5={} e6={}\n", e1, e2, e3, e4, e5, e6);
+        utils_log("e1={} e2={} e3={} e4={} e5={} e6={} e7={}\n", e1, e2, e3, e4, e5, e6, e7);
         utils_log("hello world\n");
         utils_log("arr1={} arr2={} arr3={} darr1={} darr2={}\n", arr1, arr2, arr3, darr1, darr2);
 

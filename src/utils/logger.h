@@ -6,20 +6,22 @@
 
 #define DELIM "{}"
 #define DELIM_LEN (sizeof(DELIM) - 1)
-#define FMT_SPECIFIER(v)                                                                                               \
-        _Generic((typeof(v)){},                                                                                        \
-                char: "%c",                                                                                            \
-                string: "%s",                                                                                          \
-                short: "%hd",                                                                                          \
-                int: "%d",                                                                                             \
-                size_t: "%zx",                                                                                         \
-                double: "%f",                                                                                          \
-                default: "%p")
+#define __printf(v)                                                                                                    \
+        printf(_Generic((v),                                                                                           \
+                       bool: "%s",                                                                                     \
+                       char: "%c",                                                                                     \
+                       string: "%s",                                                                                   \
+                       short: "%hd",                                                                                   \
+                       int: "%d",                                                                                      \
+                       size_t: "%zx",                                                                                  \
+                       double: "%f",                                                                                   \
+                       default: "%p"),                                                                                 \
+               _Generic((v), bool: ((v) ? "true" : "false"), default: (v)))
 
 #define __print_obj_def(data_t)                                                                                        \
         static inline void __print_##data_t##_obj(data_t##_obj obj)                                                    \
         {                                                                                                              \
-                printf(FMT_SPECIFIER(obj.data), obj.data);                                                             \
+                __printf(obj.data);                                                                                    \
         }
 
 #define __print_array_def(data_t)                                                                                      \
@@ -29,7 +31,7 @@
                 {                                                                                                      \
                         if (i == a.data)                                                                               \
                                 printf("[");                                                                           \
-                        printf(FMT_SPECIFIER(*i), *i);                                                                 \
+                        __printf(*i);                                                                                  \
                         if (i + 1 == a.data + a.len)                                                                   \
                                 printf("]");                                                                           \
                         else                                                                                           \
@@ -44,7 +46,7 @@
                 {                                                                                                      \
                         if (i == a[0])                                                                                 \
                                 printf("[");                                                                           \
-                        printf(FMT_SPECIFIER(*i), *i);                                                                 \
+                        __printf(*i);                                                                                  \
                         if (a[0] + da.len[a - da.data] == i + 1)                                                       \
                                 printf("]");                                                                           \
                         else                                                                                           \
