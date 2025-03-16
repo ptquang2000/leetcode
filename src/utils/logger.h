@@ -1,6 +1,7 @@
 #ifndef UTILS_FORMAT_H
 #define UTILS_FORMAT_H
 
+#include "helper.h"
 #include "type.h"
 
 #define DELIM "{}"
@@ -16,14 +17,13 @@
                 default: "%p")
 
 #define __print_obj_def(data_t)                                                                                        \
-        static inline void __print_##data_t(data_t obj)                                                                \
+        static inline void __print_##data_t##_obj(data_t##_obj obj)                                                    \
         {                                                                                                              \
                 printf(FMT_SPECIFIER(obj.data), obj.data);                                                             \
         }
-__function_decl(__print_obj_def, obj_types);
 
 #define __print_array_def(data_t)                                                                                      \
-        static inline void __print_##data_t(data_t a)                                                                  \
+        static inline void __print_##data_t##_array(data_t##_array a)                                                  \
         {                                                                                                              \
                 array_foreach(i, a)                                                                                    \
                 {                                                                                                      \
@@ -36,10 +36,9 @@ __function_decl(__print_obj_def, obj_types);
                                 printf(",");                                                                           \
                 }                                                                                                      \
         }
-__function_decl(__print_array_def, array_types);
 
 #define __print_darray_def(data_t)                                                                                     \
-        static inline void __print_##data_t(data_t da)                                                                 \
+        static inline void __print_##data_t##_darray(data_t##_darray da)                                               \
         {                                                                                                              \
                 darray_foreach(i, a, da)                                                                               \
                 {                                                                                                      \
@@ -52,9 +51,8 @@ __function_decl(__print_array_def, array_types);
                                 printf(",");                                                                           \
                 }                                                                                                      \
         }
-__function_decl(__print_darray_def, darray_types);
 
-#define log(fmt, ...)                                                                                                  \
+#define utils_log(fmt, ...)                                                                                            \
         do {                                                                                                           \
                 char *__str = fmt;                                                                                     \
                 char *__token = strstr(__str, DELIM);                                                                  \
@@ -64,7 +62,7 @@ __function_decl(__print_darray_def, darray_types);
         } while (0);
 #define __log_h(arg, ...)                                                                                              \
         do {                                                                                                           \
-                _Generic((arg), __print_r PARENS(ALL_TYPES))(arg);                                                     \
+                _Generic((arg), __print_r PARENS(__TYPES__))(arg);                                                     \
                 __str = __token + DELIM_LEN;                                                                           \
                 __token = strstr(__str, DELIM);                                                                        \
                 printf("%.*s", (int)((__token ? __token : __end) - __str), __str);                                     \
@@ -72,28 +70,14 @@ __function_decl(__print_darray_def, darray_types);
         } while (0);
 #define __log_r() __log_h
 #define __print_h(type, ...)                                                                                           \
-        type:                                                                                                          \
-        __print_##type __VA_OPT__(, __print_r PARENS(__VA_ARGS__))
+        type##_obj : __print_##type##_obj,                                                                             \
+                     type##_array : __print_##type##_array,                                                            \
+                                    type##_darray : __print_##type##_darray                                            \
+                                                    __VA_OPT__(, __print_r PARENS(__VA_ARGS__))
 #define __print_r() __print_h
 
-void utils_format_bool(size_t i_value);
-void utils_format_bool_ptr(size_t i_value);
-void utils_format_int(size_t i_value);
-void utils_format_uint64(size_t i_value);
-void utils_format_float(size_t i_value);
-void utils_format_int_ptr(size_t i_value);
-void utils_format_char(size_t i_value);
-void utils_format_char_ptr(size_t i_value);
-void utils_format_string(size_t i_value);
-void utils_format_ptr(size_t i_value);
-void utils_format_btree(size_t i_root);
-
-void utils_format_bool_array(size_t i_value, int i_size);
-void utils_format_char_array(size_t i_value, int i_size);
-void utils_format_int_array(size_t i_value, int i_size);
-void utils_format_uint64_array(size_t i_value, int i_size);
-void utils_format_float_array(size_t i_value, int i_size);
-void utils_format_string_array(size_t i_value, int i_size);
-void utils_format_pointer_array(size_t i_value, int i_size);
+__function_decl(__print_obj_def, __TYPES__);
+__function_decl(__print_array_def, __TYPES__);
+__function_decl(__print_darray_def, __TYPES__);
 
 #endif

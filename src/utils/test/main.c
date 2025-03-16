@@ -1,4 +1,5 @@
-#include "utils/format.h"
+#include "utils/logger.h"
+#include "utils/utils.h"
 
 int main()
 {
@@ -46,17 +47,9 @@ int main()
 
         char_array ac = {(char[]){'x', 'y', 'z'}, 3};
 
-        log("e1 {} e2 {}\n", e1, e2);
-        log("e2 {}\n", e2);
-        log("e3 {}\n", e3);
-        log("e4 {}\n", e4);
-        log("e5 {}\n", e5);
-        log("e6 {}\n", e6);
-
-        log("hello world\n");
-        log("hello {} world\n", arr3);
-        log("hello {} world\n", ac);
-        log("hello {} world\n", darr1);
+        utils_log("e1={} e2={} e3={} e4={} e5={} e6={}\n", e1, e2, e3, e4, e5, e6);
+        utils_log("hello world\n");
+        utils_log("arr1={} arr2={} arr3={} darr1={} darr2={}\n", arr1, arr2, arr3, darr1, darr2);
 
         /*bool trueValue = true;*/
         /*bool falseValue = false;*/
