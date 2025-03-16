@@ -201,6 +201,22 @@ int main()
                           },
                           10};
 
+        int_darray ida = {
+                (int *[]){
+                        (int[]){857455, 310353, 539865, 047706},
+                        (int[]){857455, 310353, 539865, 047706},
+                        (int[]){857455, 310353, 539865, 047706},
+                        (int[]){857455, 310353, 539865, 047706},
+                        (int[]){857455, 310353, 539865, 047706},
+                        (int[]){857455, 310353, 539865, 047706},
+                        (int[]){857455, 310353, 539865, 047706},
+                        (int[]){857455, 310353, 539865, 047706},
+                        (int[]){857455, 310353, 539865, 047706},
+                        (int[]){857455, 310353, 539865, 047706},
+                },
+                (int[]){5, 5, 5, 5, 5, 5, 5, 5, 5, 5},
+                10,
+        };
         int_darray ida1 = {
                 (int *[]){
                         (int[]){475393, 988570, 87500, 237323, 124432, 178064},
@@ -218,8 +234,10 @@ int main()
                 10,
         };
 
-        utils_log("c1={}, s1={}, sh1={}, i1={}, st1={}, d1={}, b1={}\n", c1, s1, sh1, i1, st1, d1, b1);
-        utils_log("c2={}, s2={}, sh2={}, i2={}, st2={}, d2={}, b2={}\n", c2, s2, sh2, i2, st2, d2, b2);
+
+        utils_log("");
+        utils_log("c1={}, s1={}, sh1={}, i1={}, st1={}, d1={}, b1={}", c1, s1, sh1, i1, st1, d1, b1);
+        utils_log("c2={}, s2={}, sh2={}, i2={}, st2={}, d2={}, b2={}", c2, s2, sh2, i2, st2, d2, b2);
         utils_log("ca1={}, ca2={}", ca1, ca2);
         utils_log("sa1={}, sa2={}", sa1, sa2);
         utils_log("sha1={}, sha2={}", sha1, sha2);
@@ -227,6 +245,7 @@ int main()
         utils_log("sta1={}, sta2={}", sta1, sta2);
         utils_log("da1={}, da2={}", da1, da2);
         utils_log("ba1={}, ba2={}", ba1, ba2);
+        utils_log("ida1={}", ida1);
 
         assert_equal(c1, c1);
         assert_equal(c2, c2);
@@ -273,4 +292,6 @@ int main()
         assert_equal(sta1, sta2);
         assert_equal(da1, da2);
         assert_equal(ba1, ba2);
+
+        assert_equal(ida1, ida1);
 }
