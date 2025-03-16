@@ -10,7 +10,7 @@
         printf(_Generic((v),                                                                                           \
                        bool: "%s",                                                                                     \
                        char: "%c",                                                                                     \
-                       string: "%s",                                                                                   \
+                       string: "\"%s\"",                                                                               \
                        short: "%hd",                                                                                   \
                        int: "%d",                                                                                      \
                        size_t: "%zx",                                                                                  \
