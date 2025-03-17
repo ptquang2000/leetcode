@@ -33,6 +33,17 @@ int main()
         bool_array ba1 = {(bool[]){true, false, true, true, false}, 10};
         bool_array ba2 = {(bool[]){false, false, true, false, false}, 10};
 
+        int_obj i3 = {3};
+        int_array ia3 = {(int[]){1, 2, 3, 4, 5}, 5};
+        int_array ia4 = {(int[]){2, 3, 4, 5, 6}, 5};
+        int_array ia5 = {(int[]){3, 4, 5, 6, 7}, 5};
+        int_array ia6 = {(int[]){4, 5, 6, 7, 8}, 5};
+        int_array ia7 = {(int[]){5, 6, 7, 8, 9}, 5};
+        int_array ia8 = {(int[]){6, 7, 8, 9, 10}, 5};
+        int_array ia9 = {(int[]){10, 11, 12, 13, 14}, 5};
+        int_array ia10 = {(int[]){11, 12, 13, 14, 15}, 5};
+        int_array ia11 = {(int[]){12, 13, 14, 15, 16}, 5};
+        int_array ia12 = {(int[]){13, 14, 15, 16, 17}, 5};
         int_darray ida1 = {
                 (int *[]){
                         (int[]){1, 2, 3, 4, 5, 6},
@@ -57,8 +68,60 @@ int main()
                 (int[]){1, 2, 3, 4, 5, 6},
                 6,
         };
+        int_darray ida3 = {
+                (int *[]){
+                        (int[]){2, 3, 4, 5, 6, 7},
+                        (int[]){3, 4, 5, 6, 7},
+                        (int[]){4, 5, 6, 7},
+                        (int[]){5, 6, 7},
+                        (int[]){6, 7},
+                        (int[]){7},
+                },
+                (int[]){6, 5, 4, 3, 2, 1},
+                6,
+        };
+        int_darray ida4 = {
+                (int *[]){
+                        (int[]){7},
+                        (int[]){6, 7},
+                        (int[]){5, 6, 7},
+                        (int[]){4, 5, 6, 7},
+                        (int[]){3, 4, 5, 6, 7},
+                        (int[]){2, 3, 4, 5, 6, 7},
+                },
+                (int[]){1, 2, 3, 4, 5, 6},
+                6,
+        };
+        int_darray ida5 = {
+                (int *[]){
+                        (int[]){3, 4, 5, 6, 7, 6},
+                        (int[]){3, 4, 5, 6, 7},
+                        (int[]){3, 4, 5, 6},
+                        (int[]){3, 4, 5},
+                        (int[]){3, 4},
+                        (int[]){3},
+                },
+                (int[]){6, 5, 4, 3, 2, 1},
+                6,
+        };
+        int_darray ida6 = {
+                (int *[]){
+                        (int[]){3},
+                        (int[]){3, 4},
+                        (int[]){3, 4, 5},
+                        (int[]){3, 4, 5, 6},
+                        (int[]){3, 4, 5, 6, 7},
+                        (int[]){3, 4, 5, 6, 7, 6},
+                },
+                (int[]){1, 2, 3, 4, 5, 6},
+                6,
+        };
+        _Container actnr1 = {(void *[]){&ia3, &ia4, &ia5, &ia6, &ia7, &ia8}, 5};
+        _Container actnr2 = {(void *[]){&ia7, &ia8, &ia9, &ia10, &ia11, &ia12}, 5};
+        _Container dactnr1 = {(void *[]){&ida1, &ida2, &ida4, &ida5, &ida6}, 5};
+        _Container dactnr2 = {(void *[]){&ida1, &ida2, &ida3, &ida4, &ida5}, 5};
 
-        utils_log("");
+        utils_log("----- loggers -----");
         utils_log("c1={}, s1={}, sh1={}, i1={}, st1={}, d1={}, b1={}", c1, s1, sh1, i1, st1, d1, b1);
         utils_log("c2={}, s2={}, sh2={}, i2={}, st2={}, d2={}, b2={}", c2, s2, sh2, i2, st2, d2, b2);
         utils_log("ca1={}, ca2={}", ca1, ca2);
@@ -70,6 +133,7 @@ int main()
         utils_log("ba1={}, ba2={}", ba1, ba2);
         utils_log("ida1={}, ida2={}", ida1, ida2);
 
+        utils_log("----- assert_equal:passed -----");
         assert_equal(c1, c1);
         assert_equal(c2, c2);
         assert_equal(s1, s1);
@@ -84,7 +148,9 @@ int main()
         assert_equal(d2, d2);
         assert_equal(b1, b1);
         assert_equal(b2, b2);
+        assert_equal(ida1, ida1);
 
+        utils_log("----- assert_equal:failed -----");
         assert_equal(ca1, ca1);
         assert_equal(ca2, ca2);
         assert_equal(sa1, sa1);
@@ -116,6 +182,15 @@ int main()
         assert_equal(da1, da2);
         assert_equal(ba1, ba2);
 
-        assert_equal(ida1, ida1);
         assert_equal(ida1, ida2);
+
+        utils_log("----- assert_in:passed -----");
+        assert_in(i3, ia3);
+        assert_in(ia6, actnr1);
+        assert_in(ida6, dactnr1);
+
+        utils_log("----- assert_in:failed -----");
+        assert_in(i3, ia6);
+        assert_in(ia6, actnr2);
+        assert_in(ida6, dactnr2);
 }

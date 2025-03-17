@@ -53,6 +53,8 @@ typedef struct_tmpl((int **){}, (int *){}, size_t) int_darray;
 typedef struct_tmpl((size_t **){}, (int *){}, size_t) size_t_darray;
 typedef struct_tmpl((double **){}, (int *){}, size_t) double_darray;
 
+typedef struct_tmpl((void **){}, size_t) _Container;
+
 typedef _Bool_obj bool_obj;
 typedef _Bool_array bool_array;
 typedef _Bool_darray bool_darray;
