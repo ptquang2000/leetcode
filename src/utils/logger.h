@@ -9,11 +9,11 @@
 #define __printf(v)                                                                                                    \
         printf(_Generic((v),                                                                                           \
                        bool: "%s",                                                                                     \
-                       char: "%c",                                                                                     \
+                       char: "'%c'",                                                                                   \
                        string: "\"%s\"",                                                                               \
                        short: "%hd",                                                                                   \
                        int: "%d",                                                                                      \
-                       size_t: "%zx",                                                                                  \
+                       size_t: "0x%zx",                                                                                \
                        double: "%f",                                                                                   \
                        default: "%p"),                                                                                 \
                _Generic((v), bool: ((v) ? "true" : "false"), default: (v)))

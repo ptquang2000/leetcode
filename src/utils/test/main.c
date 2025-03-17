@@ -68,7 +68,7 @@ int main()
         utils_log("sta1={}, sta2={}", sta1, sta2);
         utils_log("da1={}, da2={}", da1, da2);
         utils_log("ba1={}, ba2={}", ba1, ba2);
-        utils_log("ida1={} ida2={}", ida1, ida2);
+        utils_log("ida1={}, ida2={}", ida1, ida2);
 
         assert_equal(c1, c1);
         assert_equal(c2, c2);
