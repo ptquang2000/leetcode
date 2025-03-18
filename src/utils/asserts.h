@@ -52,36 +52,48 @@ struct btree_node;
         static inline void __assert_equal_##data_t##_array(const char *f, const char *fn, int l, data_t##_array a,     \
                                                            data_t##_array e)                                           \
         {                                                                                                              \
+                if (a.len != e.len)                                                                                    \
+                        goto __failed;                                                                                 \
                 array_zip(i, a, j, e)                                                                                  \
                 {                                                                                                      \
-                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) != 0) {                       \
-                                printf("\n-----------------------------------------------------\n");                   \
-                                printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                 \
-                                printf("Expected ");                                                                   \
-                                __print_##data_t##_array(e);                                                           \
-                                printf(" got ");                                                                       \
-                                __print_##data_t##_array(a);                                                           \
-                                printf("\n-----------------------------------------------------\n\n");                 \
-                                __builtin_trap();                                                                      \
-                        }                                                                                              \
+                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) == 0)                         \
+                                return;                                                                                \
                 }                                                                                                      \
+        __failed:                                                                                                      \
+                printf("\n-----------------------------------------------------\n");                                   \
+                printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                                 \
+                printf("Expected ");                                                                                   \
+                __print_##data_t##_array(e);                                                                           \
+                printf(" got ");                                                                                       \
+                __print_##data_t##_array(a);                                                                           \
+                printf("\n-----------------------------------------------------\n\n");                                 \
+                __builtin_trap();                                                                                      \
         }
 #define __assert_equal_darray_def(data_t)                                                                              \
         static inline void __assert_equal_##data_t##_darray(const char *f, const char *fn, int l, data_t##_darray a,   \
                                                             data_t##_darray e)                                         \
         {                                                                                                              \
-                darray_zip(i, a, j, e)                                                                                 \
+                if (a.nr != e.nr)                                                                                      \
+                        goto __failed;                                                                                 \
+                darray_zip(i, n, a, j, m, e)                                                                           \
                 {                                                                                                      \
-                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) != 0) {                       \
-                                printf("\n-----------------------------------------------------\n");                   \
-                                printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                 \
-                                printf("Expected ");                                                                   \
-                                __print_##data_t##_darray(e);                                                          \
-                                printf(" got ");                                                                       \
-                                __print_##data_t##_darray(a);                                                          \
-                                printf("\n-----------------------------------------------------\n\n");                 \
-                                __builtin_trap();                                                                      \
+                        if (n[0] == i && m[0] == j) {                                                                  \
+                                size_t l1 = a.len[n - a.data];                                                         \
+                                size_t l2 = e.len[m - e.data];                                                         \
+                                if (l1 != l2)                                                                          \
+                                        goto __failed;                                                                 \
                         }                                                                                              \
+                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) == 0)                         \
+                                return;                                                                                \
+                __failed:                                                                                              \
+                        printf("\n-----------------------------------------------------\n");                           \
+                        printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
+                        printf("Expected ");                                                                           \
+                        __print_##data_t##_darray(e);                                                                  \
+                        printf(" got ");                                                                               \
+                        __print_##data_t##_darray(a);                                                                  \
+                        printf("\n-----------------------------------------------------\n\n");                         \
+                        __builtin_trap();                                                                              \
                 }                                                                                                      \
         }
 
@@ -151,6 +163,8 @@ struct btree_node;
                 {                                                                                                      \
                         data_t##_darray e = *(data_t##_darray *)(*i);                                                  \
                         __print_##data_t##_darray(e);                                                                  \
+                        if (i - c.data < c.len - 1)                                                                    \
+                                printf(", ");                                                                          \
                 }                                                                                                      \
                 printf("\n-----------------------------------------------------\n\n");                                 \
                 __builtin_trap();                                                                                      \
@@ -252,10 +266,108 @@ struct btree_node;
                 free(c.data);                                                                                          \
                 free(infos);                                                                                           \
         }
+#define __assert_count_equal_darray_def(data_t)                                                                        \
+        static inline void __assert_count_equal_##data_t##_darray(const char *f, const char *fn, int l,                \
+                                                                  data_t##_darray a, data_t##_darray e)                \
+        {                                                                                                              \
+                struct info {                                                                                          \
+                        data_t *p;                                                                                     \
+                        size_t len;                                                                                    \
+                        int cnta;                                                                                      \
+                        int cnte;                                                                                      \
+                } *infos = calloc(a.nr + e.nr, sizeof(struct info));                                                   \
+                _Container c = {calloc(a.nr + e.nr, sizeof(void *)), a.nr + e.nr};                                     \
+                array_foreach(i, c)                                                                                    \
+                {                                                                                                      \
+                        *i = &infos[i - c.data];                                                                       \
+                        struct info *info = (struct info *)(*i);                                                       \
+                        info->p = 0;                                                                                   \
+                        info->cnta = 0;                                                                                \
+                        info->cnte = 0;                                                                                \
+                }                                                                                                      \
+                darray_foreach(k, i, a)                                                                                \
+                {                                                                                                      \
+                        if (k != a.data[i - a.data])                                                                   \
+                                continue;                                                                              \
+                        struct info *info = (struct info *)(c.data[i - a.data]);                                       \
+                        info->p = a.data[i - a.data];                                                                  \
+                        info->len = a.len[i - a.data];                                                                 \
+                        info->cnta++;                                                                                  \
+                        array_foreach(j, c)                                                                            \
+                        {                                                                                              \
+                                struct info *_info = (struct info *)(*j);                                              \
+                                if (j - c.data == i - a.data || _info->p == 0)                                         \
+                                        break;                                                                         \
+                                data_t##_array lhs = {_info->p, _info->len};                                           \
+                                data_t##_array rhs = {info->p, info->len};                                             \
+                                if (__cmp_##data_t##_array(lhs, rhs) == 0) {                                           \
+                                        info->cnta = 0;                                                                \
+                                        info->p = 0;                                                                   \
+                                        info->len = 0;                                                                 \
+                                        _info->cnta++;                                                                 \
+                                        break;                                                                         \
+                                }                                                                                      \
+                        }                                                                                              \
+                }                                                                                                      \
+                darray_foreach(k, i, e)                                                                                \
+                {                                                                                                      \
+                        if (k != e.data[i - e.data])                                                                   \
+                                continue;                                                                              \
+                        struct info *info = (struct info *)(c.data[i - e.data + a.nr]);                                \
+                        info->p = e.data[i - e.data];                                                                  \
+                        info->len = e.len[i - e.data];                                                                 \
+                        info->cnte++;                                                                                  \
+                        array_foreach(j, c)                                                                            \
+                        {                                                                                              \
+                                struct info *_info = (struct info *)(*j);                                              \
+                                if (j - c.data == i - e.data + a.nr || _info->p == 0)                                  \
+                                        break;                                                                         \
+                                data_t##_array lhs = {_info->p, _info->len};                                           \
+                                data_t##_array rhs = {info->p, info->len};                                             \
+                                if (__cmp_##data_t##_array(lhs, rhs) == 0) {                                           \
+                                        info->cnte = 0;                                                                \
+                                        info->p = 0;                                                                   \
+                                        info->len = 0;                                                                 \
+                                        _info->cnte++;                                                                 \
+                                        break;                                                                         \
+                                }                                                                                      \
+                        }                                                                                              \
+                }                                                                                                      \
+                int failed = 0;                                                                                        \
+                array_foreach(i, c)                                                                                    \
+                {                                                                                                      \
+                        struct info *info = (struct info *)(*i);                                                       \
+                        int diff = info->cnte > info->cnta ? info->cnta : info->cnte;                                  \
+                        if (info->p == 0)                                                                              \
+                                continue;                                                                              \
+                        failed |= info->cnte != info->cnta;                                                            \
+                }                                                                                                      \
+                if (failed) {                                                                                          \
+                        printf("\n-----------------------------------------------------\n");                           \
+                        printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
+                        array_foreach(i, c)                                                                            \
+                        {                                                                                              \
+                                struct info *info = (struct info *)(*i);                                               \
+                                if (info->p == 0 || (info->cnte == info->cnta))                                        \
+                                        continue;                                                                      \
+                                data_t##_array arr = {info->p, info->len};                                             \
+                                printf("First has %d, ", info->cnta);                                                  \
+                                printf("Second has %d: ", info->cnte);                                                 \
+                                __print_##data_t##_array(arr);                                                         \
+                                printf("\n");                                                                          \
+                        }                                                                                              \
+                        printf("\n-----------------------------------------------------\n\n");                         \
+                        __builtin_trap();                                                                              \
+                }                                                                                                      \
+                free(c.data);                                                                                          \
+                free(infos);                                                                                           \
+        }
 
 #define __assert_count_equal(a, ...) _Generic((a), __VA_OPT__(__expand__(__assert_count_equal_h(__VA_ARGS__))))
 #define __assert_count_equal_h(type, ...)                                                                              \
-        type##_array : __assert_count_equal_##type##_array __VA_OPT__(, __assert_count_equal_r PARENS(__VA_ARGS__))
+        type##_array : __assert_count_equal_##type##_array,                                                            \
+                       type##_darray : __assert_count_equal_##type##_darray                                            \
+                                       __VA_OPT__(, __assert_count_equal_r PARENS(__VA_ARGS__))
 #define __assert_count_equal_r() __assert_count_equal_h
 #define assert_count_equal_helper(a, b) __assert_count_equal(a, __TYPES__)(__FILE__, __FUNCTION__, __LINE__, a, b)
 
@@ -266,5 +378,6 @@ __function_decl(__assert_in_obj_def, __TYPES__);
 __function_decl(__assert_in_array_def, __TYPES__);
 __function_decl(__assert_in_darray_def, __TYPES__);
 __function_decl(__assert_count_equal_array_def, __TYPES__);
+__function_decl(__assert_count_equal_darray_def, __TYPES__);
 
 #endif

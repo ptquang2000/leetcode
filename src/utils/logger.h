@@ -42,16 +42,20 @@
 #define __print_darray_def(data_t)                                                                                     \
         static inline void __print_##data_t##_darray(data_t##_darray da)                                               \
         {                                                                                                              \
+                printf("[");                                                                                           \
                 darray_foreach(i, a, da)                                                                               \
                 {                                                                                                      \
                         if (i == a[0])                                                                                 \
                                 printf("[");                                                                           \
                         __printf(*i);                                                                                  \
-                        if (a[0] + da.len[a - da.data] == i + 1)                                                       \
+                        if (a[0] + da.len[a - da.data] == i + 1) {                                                     \
                                 printf("]");                                                                           \
-                        else                                                                                           \
+                                if (a - da.data < da.nr - 1)                                                           \
+                                        printf(",");                                                                   \
+                        } else                                                                                         \
                                 printf(",");                                                                           \
                 }                                                                                                      \
+                printf("]");                                                                                           \
         }
 
 #define utils_log(fmt, ...)                                                                                            \

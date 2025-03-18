@@ -197,8 +197,11 @@ int main()
         utils_log("----- assert_count_equal:passed -----");
         assert_count_equal(ia11, ia11);
         assert_count_equal(ia11, ia12);
+        assert_count_equal(ida1, ida2);
 
         utils_log("----- assert_count_equal:failed -----");
         assert_count_equal(ia9, ia12);
         assert_count_equal(ia10, ia11);
+        assert_count_equal(ida2, ida3);
+
 }

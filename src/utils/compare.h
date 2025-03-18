@@ -30,6 +30,8 @@
 #define __cmp_array_def(data_t)                                                                                        \
         static inline int __cmp_##data_t##_array(data_t##_array a, data_t##_array b)                                   \
         {                                                                                                              \
+                if (a.len != b.len)                                                                                    \
+                        return a.len < b.len ? -1 : 1;                                                                 \
                 array_zip(lhs, a, rhs, b)                                                                              \
                 {                                                                                                      \
                         int r = __cmp_##data_t##_obj((data_t##_obj){*(lhs)}, (data_t##_obj){*(rhs)});                  \
@@ -42,8 +44,16 @@
 #define __cmp_darray_def(data_t)                                                                                       \
         static inline int __cmp_##data_t##_darray(data_t##_darray a, data_t##_darray b)                                \
         {                                                                                                              \
-                darray_zip(lhs, a, rhs, b)                                                                             \
+                if (a.nr != b.nr)                                                                                      \
+                        return a.nr < b.nr ? -1 : 1;                                                                   \
+                darray_zip(lhs, lr, a, rhs, rr, b)                                                                     \
                 {                                                                                                      \
+                        if (lr[0] == lhs && rr[0] == rhs) {                                                            \
+                                size_t llen = a.len[lr - a.data];                                                      \
+                                size_t rlen = b.len[rr - b.data];                                                      \
+                                if (llen != rlen)                                                                      \
+                                        return llen < rlen ? -1 : 1;                                                   \
+                        }                                                                                              \
                         int r = __cmp_##data_t##_obj((data_t##_obj){*(lhs)}, (data_t##_obj){*(rhs)});                  \
                         if (r != 0)                                                                                    \
                                 return r;                                                                              \
