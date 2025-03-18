@@ -1,8 +1,8 @@
 #ifndef UTILS_COMPARE_H
 #define UTILS_COMPARE_H
 
-#include "type.h"
 #include "array.h"
+#include "type.h"
 
 #include <math.h>
 #include <string.h>

@@ -1,7 +1,9 @@
 #ifndef UTILS_ASSERTS_H
 #define UTILS_ASSERTS_H
 
+#include <assert.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "compare.h"
 #include "config/autoconf.h"
@@ -20,7 +22,7 @@
 
 #define assert_equal(a, b) assert_equal_helper(a, b)
 #define assert_in(a, b) assert_in_helper(a, b)
-#define assert_count_equal
+#define assert_count_equal(a, b) assert_count_equal_helper(a, b)
 
 struct btree_node;
 #define UTILS_ASSERT_MSG(cond, ...)                                                                                    \
@@ -163,11 +165,103 @@ struct btree_node;
 #define __assert_in_r() __assert_in_h
 #define assert_in_helper(a, b) __assert_in(a, __TYPES__)(__FILE__, __FUNCTION__, __LINE__, a, b)
 
+#define __assert_count_equal_array_def(data_t)                                                                         \
+        static inline void __assert_count_equal_##data_t##_array(const char *f, const char *fn, int l,                 \
+                                                                 data_t##_array a, data_t##_array e)                   \
+        {                                                                                                              \
+                struct info {                                                                                          \
+                        data_t *p;                                                                                     \
+                        int cnta;                                                                                      \
+                        int cnte;                                                                                      \
+                } *infos = calloc(a.len + e.len, sizeof(struct info));                                                 \
+                _Container c = {calloc(a.len + e.len, sizeof(void *)), a.len + e.len};                                 \
+                array_foreach(i, c)                                                                                    \
+                {                                                                                                      \
+                        *i = &infos[i - c.data];                                                                       \
+                        struct info *info = (struct info *)(*i);                                                       \
+                        info->p = 0;                                                                                   \
+                        info->cnta = 0;                                                                                \
+                        info->cnte = 0;                                                                                \
+                }                                                                                                      \
+                array_foreach(i, a)                                                                                    \
+                {                                                                                                      \
+                        struct info *info = (struct info *)(c.data[i - a.data]);                                       \
+                        info->p = &(a.data[i - a.data]);                                                               \
+                        info->cnta++;                                                                                  \
+                        array_foreach(j, c)                                                                            \
+                        {                                                                                              \
+                                struct info *_info = (struct info *)(*j);                                              \
+                                if (j - c.data == i - a.data || _info->p == 0)                                         \
+                                        break;                                                                         \
+                                data_t##_obj lhs = {*_info->p};                                                        \
+                                data_t##_obj rhs = {*info->p};                                                         \
+                                if (__cmp_##data_t##_obj(lhs, rhs) == 0) {                                             \
+                                        info->cnta = 0;                                                                \
+                                        info->p = 0;                                                                   \
+                                        _info->cnta++;                                                                 \
+                                        break;                                                                         \
+                                }                                                                                      \
+                        }                                                                                              \
+                }                                                                                                      \
+                array_foreach(i, e)                                                                                    \
+                {                                                                                                      \
+                        struct info *info = (struct info *)(c.data[i - e.data + a.len]);                               \
+                        info->p = &(e.data[i - e.data]);                                                               \
+                        info->cnte++;                                                                                  \
+                        array_foreach(j, c)                                                                            \
+                        {                                                                                              \
+                                struct info *_info = (struct info *)(*j);                                              \
+                                if (j - c.data == i - e.data + a.len || _info->p == 0)                                 \
+                                        break;                                                                         \
+                                data_t##_obj lhs = {*_info->p};                                                        \
+                                data_t##_obj rhs = {*info->p};                                                         \
+                                if (__cmp_##data_t##_obj(lhs, rhs) == 0) {                                             \
+                                        info->cnte = 0;                                                                \
+                                        info->p = 0;                                                                   \
+                                        _info->cnte++;                                                                 \
+                                        break;                                                                         \
+                                }                                                                                      \
+                        }                                                                                              \
+                }                                                                                                      \
+                int failed = 0;                                                                                        \
+                array_foreach(i, c)                                                                                    \
+                {                                                                                                      \
+                        struct info *info = (struct info *)(*i);                                                       \
+                        int diff = info->cnte > info->cnta ? info->cnta : info->cnte;                                  \
+                        info->cnte -= diff;                                                                            \
+                        info->cnta -= diff;                                                                            \
+                        failed = info->cnte | info->cnta;                                                              \
+                }                                                                                                      \
+                if (failed) {                                                                                          \
+                        printf("\n-----------------------------------------------------\n");                           \
+                        printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
+                        array_foreach(i, c)                                                                            \
+                        {                                                                                              \
+                                struct info *info = (struct info *)(*i);                                               \
+                                data_t##_obj obj = {*info->p};                                                         \
+                                printf("First has %d, ", info->cnta);                                                  \
+                                printf("Second has %d: ", info->cnte);                                                 \
+                                __print_##data_t##_obj(obj);                                                           \
+                        }                                                                                              \
+                        printf("\n-----------------------------------------------------\n\n");                         \
+                        __builtin_trap();                                                                              \
+                }                                                                                                      \
+                free(c.data);                                                                                          \
+                free(infos);                                                                                           \
+        }
+
+#define __assert_count_equal(a, ...) _Generic((a), __VA_OPT__(__expand__(__assert_count_equal_h(__VA_ARGS__))))
+#define __assert_count_equal_h(type, ...)                                                                              \
+        type##_array : __assert_count_equal_##type##_array __VA_OPT__(, __assert_count_equal_r PARENS(__VA_ARGS__))
+#define __assert_count_equal_r() __assert_count_equal_h
+#define assert_count_equal_helper(a, b) __assert_count_equal(a, __TYPES__)(__FILE__, __FUNCTION__, __LINE__, a, b)
+
 __function_decl(__assert_equal_obj_def, __TYPES__);
 __function_decl(__assert_equal_array_def, __TYPES__);
 __function_decl(__assert_equal_darray_def, __TYPES__);
 __function_decl(__assert_in_obj_def, __TYPES__);
 __function_decl(__assert_in_array_def, __TYPES__);
 __function_decl(__assert_in_darray_def, __TYPES__);
+__function_decl(__assert_count_equal_array_def, __TYPES__);
 
 #endif

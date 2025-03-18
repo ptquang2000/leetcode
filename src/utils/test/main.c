@@ -43,7 +43,7 @@ int main()
         int_array ia9 = {(int[]){10, 11, 12, 13, 14}, 5};
         int_array ia10 = {(int[]){11, 12, 13, 14, 15}, 5};
         int_array ia11 = {(int[]){12, 13, 14, 15, 16}, 5};
-        int_array ia12 = {(int[]){13, 14, 15, 16, 17}, 5};
+        int_array ia12 = {(int[]){16, 15, 14, 13, 12}, 5};
         int_darray ida1 = {
                 (int *[]){
                         (int[]){1, 2, 3, 4, 5, 6},
@@ -193,4 +193,8 @@ int main()
         assert_in(i3, ia6);
         assert_in(ia6, actnr2);
         assert_in(ida6, dactnr2);
+
+        utils_log("----- assert_count_equal:passed -----");
+        assert_count_equal(ia11, ia11);
+        assert_count_equal(ia11, ia12);
 }
