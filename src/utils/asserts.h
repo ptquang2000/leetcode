@@ -228,9 +228,9 @@ struct btree_node;
                 {                                                                                                      \
                         struct info *info = (struct info *)(*i);                                                       \
                         int diff = info->cnte > info->cnta ? info->cnta : info->cnte;                                  \
-                        info->cnte -= diff;                                                                            \
-                        info->cnta -= diff;                                                                            \
-                        failed = info->cnte | info->cnta;                                                              \
+                        if (info->p == 0)                                                                              \
+                                continue;                                                                              \
+                        failed |= info->cnte != info->cnta;                                                            \
                 }                                                                                                      \
                 if (failed) {                                                                                          \
                         printf("\n-----------------------------------------------------\n");                           \
@@ -238,10 +238,13 @@ struct btree_node;
                         array_foreach(i, c)                                                                            \
                         {                                                                                              \
                                 struct info *info = (struct info *)(*i);                                               \
+                                if (info->p == 0 || (info->cnte == info->cnta))                                        \
+                                        continue;                                                                      \
                                 data_t##_obj obj = {*info->p};                                                         \
                                 printf("First has %d, ", info->cnta);                                                  \
                                 printf("Second has %d: ", info->cnte);                                                 \
                                 __print_##data_t##_obj(obj);                                                           \
+                                printf("\n");                                                                          \
                         }                                                                                              \
                         printf("\n-----------------------------------------------------\n\n");                         \
                         __builtin_trap();                                                                              \

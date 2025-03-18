@@ -40,7 +40,7 @@ int main()
         int_array ia6 = {(int[]){4, 5, 6, 7, 8}, 5};
         int_array ia7 = {(int[]){5, 6, 7, 8, 9}, 5};
         int_array ia8 = {(int[]){6, 7, 8, 9, 10}, 5};
-        int_array ia9 = {(int[]){10, 11, 12, 13, 14}, 5};
+        int_array ia9 = {(int[]){10, 12, 12, 12, 14}, 5};
         int_array ia10 = {(int[]){11, 12, 13, 14, 15}, 5};
         int_array ia11 = {(int[]){12, 13, 14, 15, 16}, 5};
         int_array ia12 = {(int[]){16, 15, 14, 13, 12}, 5};
@@ -197,4 +197,8 @@ int main()
         utils_log("----- assert_count_equal:passed -----");
         assert_count_equal(ia11, ia11);
         assert_count_equal(ia11, ia12);
+
+        utils_log("----- assert_count_equal:failed -----");
+        assert_count_equal(ia9, ia12);
+        assert_count_equal(ia10, ia11);
 }
