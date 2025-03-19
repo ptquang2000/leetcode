@@ -1,36 +1,19 @@
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
-#include <stdlib.h>
-
-extern int** array_string_generatePascalTriangle(int n, int* rowSize, int** colSize);
+extern int **array_string_generatePascalTriangle(int n, int *rowSize, int **colSize);
 
 void test_array_string_generatePascalTriangle()
 {
-        int rowSize, *colSize;
-        int** actual = array_string_generatePascalTriangle(5, &rowSize, &colSize);
-        int expected[][5] = {
-                {1, 0, 0, 0, 0}, {1, 1, 0, 0, 0}, {1, 2, 1, 0, 0}, {1, 3, 3, 1, 0}, {1, 4, 6, 4, 1},
-        };
-
-        UTILS_ASSERT_EQUAL(rowSize, 5);
-
-        UTILS_ASSERT_EQUAL(colSize[0], 1);
-        UTILS_ASSERT_EQUAL(colSize[1], 2);
-        UTILS_ASSERT_EQUAL(colSize[2], 3);
-        UTILS_ASSERT_EQUAL(colSize[3], 4);
-        UTILS_ASSERT_EQUAL(colSize[4], 5);
-
-        UTILS_ASSERT_EQUAL_ARRAY(actual[0], expected[0], 1);
-        UTILS_ASSERT_EQUAL_ARRAY(actual[1], expected[1], 2);
-        UTILS_ASSERT_EQUAL_ARRAY(actual[2], expected[2], 3);
-        UTILS_ASSERT_EQUAL_ARRAY(actual[3], expected[3], 4);
-        UTILS_ASSERT_EQUAL_ARRAY(actual[4], expected[4], 5);
-        free(actual[0]);
-        free(actual[1]);
-        free(actual[2]);
-        free(actual[3]);
-        free(actual[4]);
-
-        free(actual);
-        free(colSize);
+        int_darray actual = {};
+        actual.data = array_string_generatePascalTriangle(5, &actual.nr, &actual.len);
+        int_darray expected = {(int *[]){
+                                       (int[]){1},
+                                       (int[]){1, 1},
+                                       (int[]){1, 2, 1},
+                                       (int[]){1, 3, 3, 1},
+                                       (int[]){1, 4, 6, 4, 1},
+                               },
+                               (int[]){1, 2, 3, 4, 5}, 5};
+        free(actual.len);
+        free_array(actual.data, 5);
 }

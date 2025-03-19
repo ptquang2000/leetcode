@@ -1,5 +1,5 @@
 #include "list_node.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern struct list_node *linked_list_mergeTwoSortedLists(struct list_node *L1, struct list_node *L2);
 
@@ -18,7 +18,7 @@ void test_linked_list_mergeTwoSortedLists()
                 int expected[] = {1, 1, 2, 3, 4, 4};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 struct list_node *node, *L1, *L2;
@@ -32,7 +32,7 @@ void test_linked_list_mergeTwoSortedLists()
                 int expected[] = {2, 3, 5, 7, 11};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 struct list_node *node, *L1, *L2;
@@ -47,6 +47,6 @@ void test_linked_list_mergeTwoSortedLists()
                 int expected[] = {0};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
 }

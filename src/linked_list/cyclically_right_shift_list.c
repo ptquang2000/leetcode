@@ -1,5 +1,5 @@
 #include "list_node.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern struct list_node *linked_list_cyclicallyRightShiftList(struct list_node *L, int k);
 
@@ -17,7 +17,7 @@ void test_linked_list_cyclicallyRightShiftList()
                 int expected[] = {4, 5, 1, 2, 3};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 struct list_node *node, *L;
@@ -31,7 +31,7 @@ void test_linked_list_cyclicallyRightShiftList()
                 int expected[] = {4, 5, 1, 2, 3};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 struct list_node *node, *L;
@@ -43,7 +43,7 @@ void test_linked_list_cyclicallyRightShiftList()
                 int expected[] = {2, 0, 1};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 struct list_node *node, *L;

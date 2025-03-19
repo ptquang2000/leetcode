@@ -1,5 +1,5 @@
 #include "list_node.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern struct list_node *linked_list_listPivoting(struct list_node *L, int x);
 
@@ -19,7 +19,7 @@ void test_linked_list_listPivoting()
                 int expected[] = {3, 2, 2, 5, 7, 11, 11};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 struct list_node *node, *L;
@@ -34,7 +34,7 @@ void test_linked_list_listPivoting()
                 int expected[] = {1, 2, 2, 3, 4, 5};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 struct list_node *node, *L;
@@ -45,6 +45,6 @@ void test_linked_list_listPivoting()
                 int expected[] = {1, 2};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
 }

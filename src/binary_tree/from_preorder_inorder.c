@@ -1,5 +1,5 @@
 #include "btree_node.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern struct btree_node *binary_tree_from_preorder_inorder(int preorder_size, int preorder[preorder_size],
                                                             int inorder_size, int inorder[inorder_size]);
@@ -37,7 +37,7 @@ void test_binary_tree_from_preorder_inorder()
                 };
                 struct btree_node *actual =
                         binary_tree_from_preorder_inorder(ARRAY_SIZE(preorder), preorder, ARRAY_SIZE(inorder), inorder);
-                UTILS_ASSERT_EQUAL(actual, expected);
+                ASSERT_EQUAL(actual, expected);
                 free_btree(actual);
         }
         {
@@ -50,7 +50,7 @@ void test_binary_tree_from_preorder_inorder()
                 };
                 struct btree_node *actual =
                         binary_tree_from_preorder_inorder(ARRAY_SIZE(preorder), preorder, ARRAY_SIZE(inorder), inorder);
-                UTILS_ASSERT_EQUAL(actual, expected);
+                ASSERT_EQUAL(actual, expected);
                 free_btree(actual);
         }
 }

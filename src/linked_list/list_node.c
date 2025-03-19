@@ -1,5 +1,5 @@
 #include "list_node.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 #include <stdlib.h>
 

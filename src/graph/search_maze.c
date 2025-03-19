@@ -1,4 +1,4 @@
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern int **graph_search_maze(int len, int **maze, int s[2], int e[2], int *o_size);
 
@@ -63,8 +63,8 @@ void test_graph_search_maze()
         int len;
         int **path = graph_search_maze(10, maze, s, e, &len);
         int **actual = __build_maze(10, maze, len, (int(*)[2])path);
-        UTILS_ASSERT_EQUAL_MULTI_DIM_ARRAY(actual, expected1, maze_size, ARRAY_SIZE(maze_size));
-        UTILS_ASSERT_EQUAL_MULTI_DIM_ARRAY(actual, expected2, maze_size, ARRAY_SIZE(maze_size));
+        ASSERT_EQUAL_MULTI_DIM_ARRAY(actual, expected1, maze_size, ARRAY_SIZE(maze_size));
+        ASSERT_EQUAL_MULTI_DIM_ARRAY(actual, expected2, maze_size, ARRAY_SIZE(maze_size));
 
         free_array(actual, len);
         free_array(path, len);

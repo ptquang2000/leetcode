@@ -1,4 +1,5 @@
-#include "utils/utils.h"
+#include "utils/helper.h"
+#include "utils/asserts.h"
 #include <stdlib.h>
 
 extern int** recursion_combinations(int n, int k, int** o_size, int* o_count);
@@ -14,8 +15,8 @@ void test_recursion_combinations()
                 int expected_count = ARRAY_SIZE(expected_size);
                 int *actual_size, actual_count;
                 int** actual = recursion_combinations(n, k, &actual_size, &actual_count);
-                UTILS_ASSERT_EQUAL(actual_count, expected_count);
-                UTILS_ASSERT_EQUAL_ARRAY(actual_size, expected_size, expected_count);
+                ASSERT_EQUAL(actual_count, expected_count);
+                ASSERT_EQUAL(actual_size, expected_size, expected_count);
                 UTILS_ASSERT_COUNT_EQUAL_ARRAY(actual, actual_size, expected, expected_size, expected_count);
 
                 free_array(actual, actual_count);
@@ -33,8 +34,8 @@ void test_recursion_combinations()
                 int expected_count = ARRAY_SIZE(expected_size);
                 int *actual_size, actual_count;
                 int** actual = recursion_combinations(n, k, &actual_size, &actual_count);
-                UTILS_ASSERT_EQUAL(actual_count, expected_count);
-                UTILS_ASSERT_EQUAL_ARRAY(actual_size, expected_size, expected_count);
+                ASSERT_EQUAL(actual_count, expected_count);
+                ASSERT_EQUAL(actual_size, expected_size, expected_count);
                 UTILS_ASSERT_COUNT_EQUAL_ARRAY(actual, actual_size, expected, expected_size, expected_count);
 
                 free_array(actual, actual_count);
@@ -49,8 +50,8 @@ void test_recursion_combinations()
                 int expected_count = ARRAY_SIZE(expected_size);
                 int *actual_size, actual_count;
                 int** actual = recursion_combinations(n, k, &actual_size, &actual_count);
-                UTILS_ASSERT_EQUAL(actual_count, expected_count);
-                UTILS_ASSERT_EQUAL_ARRAY(actual_size, expected_size, expected_count);
+                ASSERT_EQUAL(actual_count, expected_count);
+                ASSERT_EQUAL(actual_size, expected_size, expected_count);
                 UTILS_ASSERT_COUNT_EQUAL_ARRAY(actual, actual_size, expected, expected_size, expected_count);
 
                 free_array(actual, actual_count);

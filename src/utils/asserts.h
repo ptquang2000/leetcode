@@ -20,9 +20,14 @@
                         utils_log("{}", (string_obj){msg});                                                            \
         } while (0)
 
-#define assert_equal(a, b) assert_equal_helper(a, b)
-#define assert_in(a, b) assert_in_helper(a, b)
-#define assert_count_equal(a, b) assert_count_equal_helper(a, b)
+#define ASSERT_EQUAL(a, b) assert_equal_helper(a, b)
+#define ASSERT_GREATER(a, b) assert_greater_helper(a, b)
+#define ASSERT_LESS(a, b) assert_less_helper(a, b)
+#define ASSERT_IN(a, b) assert_in_helper(a, b)
+#define ASSERT_COUNT_EQUAL(a, b) assert_count_equal_helper(a, b)
+#define ASSERT_TRUE(a) assert_equal_helper((bool_obj){a}, (bool_obj){true})
+#define ASSERT_FALSE(a) assert_equal_helper((bool_obj){a}, (bool_obj){false})
+#define ASSERT_IS_NULL(a) assert_is_null_helper(a)
 
 struct btree_node;
 #define UTILS_ASSERT_MSG(cond, ...)                                                                                    \
@@ -32,6 +37,8 @@ struct btree_node;
                         __builtin_trap();                                                                              \
                 }                                                                                                      \
         } while (0)
+
+/*################################# ASSERT_EQUAL #################################*/
 
 #define __assert_equal_obj_def(data_t)                                                                                 \
         static inline void __assert_equal_##data_t##_obj(const char *f, const char *fn, int l, data_t##_obj a,         \
@@ -106,6 +113,200 @@ struct btree_node;
 #define __assert_equal_r() __assert_equal_h
 #define assert_equal_helper(a, b) __assert_equal(a, __TYPES__)(__FILE__, __FUNCTION__, __LINE__, a, b)
 
+/*################################# ASSERT_LESS #################################*/
+
+#define __assert_less_obj_def(data_t)                                                                                  \
+        static inline void __assert_less_##data_t##_obj(const char *f, const char *fn, int l, data_t##_obj a,          \
+                                                        data_t##_obj e)                                                \
+        {                                                                                                              \
+                if (__cmp_##data_t##_obj(a, e) != -1) {                                                                \
+                        printf("\n-----------------------------------------------------\n");                           \
+                        printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
+                        __print_##data_t##_obj(e);                                                                     \
+                        printf(" not less than ");                                                                     \
+                        __print_##data_t##_obj(a);                                                                     \
+                        printf("\n-----------------------------------------------------\n\n");                         \
+                        __builtin_trap();                                                                              \
+                }                                                                                                      \
+        }
+#define __assert_less_array_def(data_t)                                                                                \
+        static inline void __assert_less_##data_t##_array(const char *f, const char *fn, int l, data_t##_array a,      \
+                                                          data_t##_array e)                                            \
+        {                                                                                                              \
+                if (a.len != e.len)                                                                                    \
+                        goto __failed;                                                                                 \
+                array_zip(i, a, j, e)                                                                                  \
+                {                                                                                                      \
+                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) == -1)                        \
+                                return;                                                                                \
+                }                                                                                                      \
+        __failed:                                                                                                      \
+                printf("\n-----------------------------------------------------\n");                                   \
+                printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                                 \
+                __print_##data_t##_array(e);                                                                           \
+                printf(" not less than ");                                                                             \
+                __print_##data_t##_array(a);                                                                           \
+                printf("\n-----------------------------------------------------\n\n");                                 \
+                __builtin_trap();                                                                                      \
+        }
+#define __assert_less_darray_def(data_t)                                                                               \
+        static inline void __assert_less_##data_t##_darray(const char *f, const char *fn, int l, data_t##_darray a,    \
+                                                           data_t##_darray e)                                          \
+        {                                                                                                              \
+                if (a.nr != e.nr)                                                                                      \
+                        goto __failed;                                                                                 \
+                darray_zip(i, n, a, j, m, e)                                                                           \
+                {                                                                                                      \
+                        if (n[0] == i && m[0] == j) {                                                                  \
+                                size_t l1 = a.len[n - a.data];                                                         \
+                                size_t l2 = e.len[m - e.data];                                                         \
+                                if (l1 != l2)                                                                          \
+                                        goto __failed;                                                                 \
+                        }                                                                                              \
+                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) == -1)                        \
+                                return;                                                                                \
+                __failed:                                                                                              \
+                        printf("\n-----------------------------------------------------\n");                           \
+                        printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
+                        __print_##data_t##_darray(e);                                                                  \
+                        printf(" not less than ");                                                                     \
+                        __print_##data_t##_darray(a);                                                                  \
+                        printf("\n-----------------------------------------------------\n\n");                         \
+                        __builtin_trap();                                                                              \
+                }                                                                                                      \
+        }
+
+#define __assert_less(a, ...) _Generic((a), __VA_OPT__(__expand__(__assert_less_h(__VA_ARGS__))))
+#define __assert_less_h(type, ...)                                                                                     \
+        type##_obj : __assert_less_##type##_obj,                                                                       \
+                     type##_array : __assert_less_##type##_array,                                                      \
+                                    type##_darray : __assert_less_##type##_darray                                      \
+                                                    __VA_OPT__(, __assert_less_r PARENS(__VA_ARGS__))
+#define __assert_less_r() __assert_less_h
+#define assert_less_helper(a, b) __assert_less(a, __TYPES__)(__FILE__, __FUNCTION__, __LINE__, a, b)
+
+/*################################# ASSERT_GREATER #################################*/
+
+#define __assert_greater_obj_def(data_t)                                                                               \
+        static inline void __assert_greater_##data_t##_obj(const char *f, const char *fn, int l, data_t##_obj a,       \
+                                                           data_t##_obj e)                                             \
+        {                                                                                                              \
+                if (__cmp_##data_t##_obj(a, e) != 1) {                                                                 \
+                        printf("\n-----------------------------------------------------\n");                           \
+                        printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
+                        __print_##data_t##_obj(e);                                                                     \
+                        printf(" not less than ");                                                                     \
+                        __print_##data_t##_obj(a);                                                                     \
+                        printf("\n-----------------------------------------------------\n\n");                         \
+                        __builtin_trap();                                                                              \
+                }                                                                                                      \
+        }
+#define __assert_greater_array_def(data_t)                                                                             \
+        static inline void __assert_greater_##data_t##_array(const char *f, const char *fn, int l, data_t##_array a,   \
+                                                             data_t##_array e)                                         \
+        {                                                                                                              \
+                if (a.len != e.len)                                                                                    \
+                        goto __failed;                                                                                 \
+                array_zip(i, a, j, e)                                                                                  \
+                {                                                                                                      \
+                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) == 1)                         \
+                                return;                                                                                \
+                }                                                                                                      \
+        __failed:                                                                                                      \
+                printf("\n-----------------------------------------------------\n");                                   \
+                printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                                 \
+                __print_##data_t##_array(e);                                                                           \
+                printf(" not less than ");                                                                             \
+                __print_##data_t##_array(a);                                                                           \
+                printf("\n-----------------------------------------------------\n\n");                                 \
+                __builtin_trap();                                                                                      \
+        }
+#define __assert_greater_darray_def(data_t)                                                                            \
+        static inline void __assert_greater_##data_t##_darray(const char *f, const char *fn, int l, data_t##_darray a, \
+                                                              data_t##_darray e)                                       \
+        {                                                                                                              \
+                if (a.nr != e.nr)                                                                                      \
+                        goto __failed;                                                                                 \
+                darray_zip(i, n, a, j, m, e)                                                                           \
+                {                                                                                                      \
+                        if (n[0] == i && m[0] == j) {                                                                  \
+                                size_t l1 = a.len[n - a.data];                                                         \
+                                size_t l2 = e.len[m - e.data];                                                         \
+                                if (l1 != l2)                                                                          \
+                                        goto __failed;                                                                 \
+                        }                                                                                              \
+                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) == 1)                         \
+                                return;                                                                                \
+                __failed:                                                                                              \
+                        printf("\n-----------------------------------------------------\n");                           \
+                        printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
+                        __print_##data_t##_darray(e);                                                                  \
+                        printf(" not less than ");                                                                     \
+                        __print_##data_t##_darray(a);                                                                  \
+                        printf("\n-----------------------------------------------------\n\n");                         \
+                        __builtin_trap();                                                                              \
+                }                                                                                                      \
+        }
+
+#define __assert_greater(a, ...) _Generic((a), __VA_OPT__(__expand__(__assert_greater_h(__VA_ARGS__))))
+#define __assert_greater_h(type, ...)                                                                                  \
+        type##_obj : __assert_greater_##type##_obj,                                                                    \
+                     type##_array : __assert_greater_##type##_array,                                                   \
+                                    type##_darray : __assert_greater_##type##_darray                                   \
+                                                    __VA_OPT__(, __assert_greater_r PARENS(__VA_ARGS__))
+#define __assert_greater_r() __assert_greater_h
+#define assert_greater_helper(a, b) __assert_greater(a, __TYPES__)(__FILE__, __FUNCTION__, __LINE__, a, b)
+
+/*################################# ASSERT_IS_NULL #################################*/
+
+#define __assert_is_null_obj_def(data_t)                                                                               \
+        static inline void __assert_is_null_##data_t##_obj(const char *f, const char *fn, int l, data_t##_obj a)       \
+        {                                                                                                              \
+                if (a.data != 0) {                                                                                     \
+                        printf("\n-----------------------------------------------------\n");                           \
+                        printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
+                        __print_##data_t##_obj(a);                                                                     \
+                        printf(" is not NULL");                                                                        \
+                        printf("\n-----------------------------------------------------\n\n");                         \
+                        __builtin_trap();                                                                              \
+                }                                                                                                      \
+        }
+#define __assert_is_null_array_def(data_t)                                                                             \
+        static inline void __assert_is_null_##data_t##_array(const char *f, const char *fn, int l, data_t##_array a)   \
+        {                                                                                                              \
+                if (a.data != 0) {                                                                                     \
+                        printf("\n-----------------------------------------------------\n");                           \
+                        printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
+                        __print_##data_t##_array(a);                                                                   \
+                        printf(" is not NULL");                                                                        \
+                        printf("\n-----------------------------------------------------\n\n");                         \
+                        __builtin_trap();                                                                              \
+                }                                                                                                      \
+        }
+#define __assert_is_null_darray_def(data_t)                                                                            \
+        static inline void __assert_is_null_##data_t##_darray(const char *f, const char *fn, int l, data_t##_darray a) \
+        {                                                                                                              \
+                if (a.data != 0) {                                                                                     \
+                        printf("\n-----------------------------------------------------\n");                           \
+                        printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
+                        __print_##data_t##_darray(a);                                                                  \
+                        printf(" is not NULL");                                                                        \
+                        printf("\n-----------------------------------------------------\n\n");                         \
+                        __builtin_trap();                                                                              \
+                }                                                                                                      \
+        }
+
+#define __assert_is_null(a, ...) _Generic((a), __VA_OPT__(__expand__(__assert_is_null_h(__VA_ARGS__))))
+#define __assert_is_null_h(type, ...)                                                                                  \
+        type##_obj : __assert_is_null_##type##_obj,                                                                    \
+                     type##_array : __assert_is_null_##type##_array,                                                   \
+                                    type##_darray : __assert_is_null_##type##_darray                                   \
+                                                    __VA_OPT__(, __assert_is_null_r PARENS(__VA_ARGS__))
+#define __assert_is_null_r() __assert_is_null_h
+#define assert_is_null_helper(a) __assert_is_null(a, __TYPES__)(__FILE__, __FUNCTION__, __LINE__, a)
+
+/*################################# ASSERT_IN #################################*/
+
 #define __assert_in_obj_def(data_t)                                                                                    \
         static inline void __assert_in_##data_t##_obj(const char *f, const char *fn, int l, data_t##_obj a,            \
                                                       data_t##_array e)                                                \
@@ -178,6 +379,8 @@ struct btree_node;
                                                     __VA_OPT__(, __assert_in_r PARENS(__VA_ARGS__))
 #define __assert_in_r() __assert_in_h
 #define assert_in_helper(a, b) __assert_in(a, __TYPES__)(__FILE__, __FUNCTION__, __LINE__, a, b)
+
+/*################################# ASSERT_COUNT_EQUAL #################################*/
 
 #define __assert_count_equal_array_def(data_t)                                                                         \
         static inline void __assert_count_equal_##data_t##_array(const char *f, const char *fn, int l,                 \
@@ -374,6 +577,15 @@ struct btree_node;
 __function_decl(__assert_equal_obj_def, __TYPES__);
 __function_decl(__assert_equal_array_def, __TYPES__);
 __function_decl(__assert_equal_darray_def, __TYPES__);
+__function_decl(__assert_less_obj_def, __TYPES__);
+__function_decl(__assert_less_array_def, __TYPES__);
+__function_decl(__assert_less_darray_def, __TYPES__);
+__function_decl(__assert_greater_obj_def, __TYPES__);
+__function_decl(__assert_greater_array_def, __TYPES__);
+__function_decl(__assert_greater_darray_def, __TYPES__);
+__function_decl(__assert_is_null_obj_def, __TYPES__);
+__function_decl(__assert_is_null_array_def, __TYPES__);
+__function_decl(__assert_is_null_darray_def, __TYPES__);
 __function_decl(__assert_in_obj_def, __TYPES__);
 __function_decl(__assert_in_array_def, __TYPES__);
 __function_decl(__assert_in_darray_def, __TYPES__);

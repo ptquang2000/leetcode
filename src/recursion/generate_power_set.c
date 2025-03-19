@@ -1,4 +1,4 @@
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 #include <stdlib.h>
 
@@ -14,7 +14,7 @@ void test_recursion_generate_power_set()
                 int *actual_size, actual_count;
                 int** actual =
                         recursion_generate_power_set(ARRAY_SIZE(input_set), input_set, &actual_size, &actual_count);
-                UTILS_ASSERT_EQUAL(actual_count, expected_count);
+                ASSERT_EQUAL(actual_count, expected_count);
                 UTILS_ASSERT_COUNT_EQUAL(actual_size, expected_size, expected_count);
                 UTILS_ASSERT_COUNT_EQUAL_ARRAY(actual, actual_size, expected, expected_size, expected_count);
 
@@ -32,7 +32,7 @@ void test_recursion_generate_power_set()
                 int *actual_size, actual_count;
                 int** actual =
                         recursion_generate_power_set(ARRAY_SIZE(input_set), input_set, &actual_size, &actual_count);
-                UTILS_ASSERT_EQUAL(actual_count, expected_count);
+                ASSERT_EQUAL(actual_count, expected_count);
                 UTILS_ASSERT_COUNT_EQUAL(actual_size, expected_size, expected_count);
                 UTILS_ASSERT_COUNT_EQUAL_ARRAY(actual, actual_size, expected, expected_size, expected_count);
 

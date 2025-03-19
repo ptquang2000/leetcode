@@ -1,4 +1,4 @@
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 #include <stdbool.h>
 
@@ -20,14 +20,14 @@ void test_recursion_solve_sudoku()
                 (int[]){9, 6, 1, 5, 3, 7, 2, 8, 4}, (int[]){2, 8, 7, 4, 1, 9, 6, 3, 5},
                 (int[]){3, 4, 5, 2, 8, 6, 1, 7, 9},
         };
-        UTILS_ASSERT_TRUE(recursion_solve_sudoku(ARRAY_SIZE(partial_assigment), partial_assigment));
-        UTILS_ASSERT_EQUAL_ARRAY(partial_assigment[0], completed[0], ARRAY_SIZE(partial_assigment));
-        UTILS_ASSERT_EQUAL_ARRAY(partial_assigment[1], completed[1], ARRAY_SIZE(partial_assigment));
-        UTILS_ASSERT_EQUAL_ARRAY(partial_assigment[2], completed[2], ARRAY_SIZE(partial_assigment));
-        UTILS_ASSERT_EQUAL_ARRAY(partial_assigment[3], completed[3], ARRAY_SIZE(partial_assigment));
-        UTILS_ASSERT_EQUAL_ARRAY(partial_assigment[4], completed[4], ARRAY_SIZE(partial_assigment));
-        UTILS_ASSERT_EQUAL_ARRAY(partial_assigment[5], completed[5], ARRAY_SIZE(partial_assigment));
-        UTILS_ASSERT_EQUAL_ARRAY(partial_assigment[6], completed[6], ARRAY_SIZE(partial_assigment));
-        UTILS_ASSERT_EQUAL_ARRAY(partial_assigment[7], completed[7], ARRAY_SIZE(partial_assigment));
-        UTILS_ASSERT_EQUAL_ARRAY(partial_assigment[8], completed[8], ARRAY_SIZE(partial_assigment));
+        ASSERT_TRUE(recursion_solve_sudoku(ARRAY_SIZE(partial_assigment), partial_assigment));
+        ASSERT_EQUAL(partial_assigment[0], completed[0], ARRAY_SIZE(partial_assigment));
+        ASSERT_EQUAL(partial_assigment[1], completed[1], ARRAY_SIZE(partial_assigment));
+        ASSERT_EQUAL(partial_assigment[2], completed[2], ARRAY_SIZE(partial_assigment));
+        ASSERT_EQUAL(partial_assigment[3], completed[3], ARRAY_SIZE(partial_assigment));
+        ASSERT_EQUAL(partial_assigment[4], completed[4], ARRAY_SIZE(partial_assigment));
+        ASSERT_EQUAL(partial_assigment[5], completed[5], ARRAY_SIZE(partial_assigment));
+        ASSERT_EQUAL(partial_assigment[6], completed[6], ARRAY_SIZE(partial_assigment));
+        ASSERT_EQUAL(partial_assigment[7], completed[7], ARRAY_SIZE(partial_assigment));
+        ASSERT_EQUAL(partial_assigment[8], completed[8], ARRAY_SIZE(partial_assigment));
 }

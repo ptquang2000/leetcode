@@ -2,7 +2,6 @@
 #include "heap/binary_heap.h"
 #include "linked_list/list_node.h"
 #include "utils/helper.h"
-#include "utils/asserts.h"
 #include "dsa/common.h"
 
 #include <assert.h>

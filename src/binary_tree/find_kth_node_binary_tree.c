@@ -1,5 +1,5 @@
 #include "btree_node.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern struct btree_node *binary_tree_find_kth_node_binary_tree(struct btree_node *root, int k);
 

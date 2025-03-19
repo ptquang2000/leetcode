@@ -1,6 +1,6 @@
 #include "btree_node.h"
 #include "queue/queue.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 #include <assert.h>
 #include <stdbool.h>

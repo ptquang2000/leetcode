@@ -1,5 +1,5 @@
 #include "list_node.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern void linked_list_deletionFromList(struct list_node *nodeToDelete);
 
@@ -13,13 +13,13 @@ void test_linked_list_deletionFromList()
                 L = &(struct list_node){4, node};
                 linked_list_deletionFromList(deletedNode);
 
-                UTILS_ASSERT_EQUAL(deletedNode->data, 1);
-                UTILS_ASSERT_EQUAL(deletedNode->next->data, 9);
+                ASSERT_EQUAL(deletedNode->data, 1);
+                ASSERT_EQUAL(deletedNode->next->data, 9);
 
                 int expected[] = {4, 1, 9};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(L, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 struct list_node *node, *L, *deletedNode;
@@ -29,12 +29,12 @@ void test_linked_list_deletionFromList()
                 L = &(struct list_node){4, node};
                 linked_list_deletionFromList(deletedNode);
 
-                UTILS_ASSERT_EQUAL(deletedNode->data, 9);
+                ASSERT_EQUAL(deletedNode->data, 9);
                 UTILS_ASSERT_IS_NONE(deletedNode->next);
 
                 int expected[] = {4, 5, 9};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(L, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
 }

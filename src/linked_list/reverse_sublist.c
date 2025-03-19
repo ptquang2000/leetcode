@@ -1,5 +1,5 @@
 #include "list_node.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern struct list_node *linked_list_reverseSublist(struct list_node *L, int start, int finish);
 
@@ -17,7 +17,7 @@ void test_linked_list_reverseSublist()
                 int expected[] = {1, 4, 3, 2, 5};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 struct list_node *node, *L;
@@ -31,7 +31,7 @@ void test_linked_list_reverseSublist()
                 int expected[] = {11, 7, 5, 3, 2};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
         {
                 struct list_node *node, *L;
@@ -41,6 +41,6 @@ void test_linked_list_reverseSublist()
                 int expected[] = {5};
                 int actual[sizeof(expected) / sizeof(*expected)] = {};
                 TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
         }
 }

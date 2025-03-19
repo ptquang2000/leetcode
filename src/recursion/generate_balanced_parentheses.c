@@ -1,4 +1,4 @@
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern char** recursion_generate_balanced_parentheses(int i_num_pairs, int* o_size);
 
@@ -9,7 +9,7 @@ void test_recursion_generate_balanced_parentheses()
                 const char* expected[] = {"((()))", "(()())", "(())()", "()(())", "()()()"};
                 int expected_size = ARRAY_SIZE(expected), actual_size;
                 char** actual = recursion_generate_balanced_parentheses(num_pairs, &actual_size);
-                UTILS_ASSERT_EQUAL(actual_size, expected_size);
+                ASSERT_EQUAL(actual_size, expected_size);
                 UTILS_ASSERT_COUNT_EQUAL((const char**)actual, expected, expected_size);
 
                 free_array(actual, actual_size);
@@ -19,7 +19,7 @@ void test_recursion_generate_balanced_parentheses()
                 const char* expected[] = {"(())", "()()"};
                 int expected_size = ARRAY_SIZE(expected), actual_size;
                 char** actual = recursion_generate_balanced_parentheses(num_pairs, &actual_size);
-                UTILS_ASSERT_EQUAL(actual_size, expected_size);
+                ASSERT_EQUAL(actual_size, expected_size);
                 UTILS_ASSERT_COUNT_EQUAL((const char**)actual, expected, expected_size);
 
                 free_array(actual, actual_size);
@@ -29,7 +29,7 @@ void test_recursion_generate_balanced_parentheses()
                 const char* expected[] = {"()"};
                 int expected_size = ARRAY_SIZE(expected), actual_size;
                 char** actual = recursion_generate_balanced_parentheses(num_pairs, &actual_size);
-                UTILS_ASSERT_EQUAL(actual_size, expected_size);
+                ASSERT_EQUAL(actual_size, expected_size);
                 UTILS_ASSERT_COUNT_EQUAL((const char**)actual, expected, expected_size);
 
                 free_array(actual, actual_size);

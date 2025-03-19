@@ -1,4 +1,4 @@
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 #include <stdlib.h>
 
@@ -12,8 +12,8 @@ void test_stack_examine_building_with_sunset()
                 int actualSize;
                 int* actual =
                         stack_examine_building_with_sunset(sizeof(sequence) / sizeof(*sequence), sequence, &actualSize);
-                UTILS_ASSERT_EQUAL(actualSize, sizeof(expected) / sizeof(*expected));
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, actualSize);
+                ASSERT_EQUAL(actualSize, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, actualSize);
                 free(actual);
         }
         {
@@ -22,8 +22,8 @@ void test_stack_examine_building_with_sunset()
                 int actualSize;
                 int* actual =
                         stack_examine_building_with_sunset(sizeof(sequence) / sizeof(*sequence), sequence, &actualSize);
-                UTILS_ASSERT_EQUAL(actualSize, sizeof(expected) / sizeof(*expected));
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, actualSize);
+                ASSERT_EQUAL(actualSize, sizeof(expected) / sizeof(*expected));
+                ASSERT_EQUAL(actual, expected, actualSize);
                 free(actual);
         }
 }

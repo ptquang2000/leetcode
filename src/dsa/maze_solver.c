@@ -1,5 +1,5 @@
 #include "common.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern struct dsa_point *dsa_solve(int row_size, int col_size, const char **maze, char wall, struct dsa_point start,
                                    struct dsa_point end, int *o_len);
@@ -37,7 +37,7 @@ void test_dsa_solve()
         for (size_t i = 0; i < len; i++)
                 actual[path[i].y][path[i].x] = '*';
 
-        UTILS_ASSERT_EQUAL_ARRAY((const char**)actual, expected, ARRAY_SIZE(expected));
+        ASSERT_EQUAL((const char**)actual, expected, ARRAY_SIZE(expected));
         free(path);
         free_array(actual, 6);
 }

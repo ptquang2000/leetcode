@@ -37,23 +37,23 @@ typedef struct_tmpl(int) int_obj;
 typedef struct_tmpl(size_t) size_t_obj;
 typedef struct_tmpl(double) double_obj;
 
-typedef struct_tmpl((char *){}, size_t) char_array;
-typedef struct_tmpl((string *){}, size_t) string_array;
-typedef struct_tmpl((bool *){}, size_t) _Bool_array;
-typedef struct_tmpl((short *){}, size_t) short_array;
-typedef struct_tmpl((int *){}, size_t) int_array;
-typedef struct_tmpl((size_t *){}, size_t) size_t_array;
-typedef struct_tmpl((double *){}, size_t) double_array;
+typedef struct_tmpl((char *){}, int) char_array;
+typedef struct_tmpl((string *){}, int) string_array;
+typedef struct_tmpl((bool *){}, int) _Bool_array;
+typedef struct_tmpl((short *){}, int) short_array;
+typedef struct_tmpl((int *){}, int) int_array;
+typedef struct_tmpl((size_t *){}, int) size_t_array;
+typedef struct_tmpl((double *){}, int) double_array;
 
-typedef struct_tmpl((char **){}, (int *){}, size_t) char_darray;
-typedef struct_tmpl((string **){}, (int *){}, size_t) string_darray;
-typedef struct_tmpl((bool **){}, (int *){}, size_t) _Bool_darray;
-typedef struct_tmpl((short **){}, (int *){}, size_t) short_darray;
-typedef struct_tmpl((int **){}, (int *){}, size_t) int_darray;
-typedef struct_tmpl((size_t **){}, (int *){}, size_t) size_t_darray;
-typedef struct_tmpl((double **){}, (int *){}, size_t) double_darray;
+typedef struct_tmpl((char **){}, (int *){}, int) char_darray;
+typedef struct_tmpl((string **){}, (int *){}, int) string_darray;
+typedef struct_tmpl((bool **){}, (int *){}, int) _Bool_darray;
+typedef struct_tmpl((short **){}, (int *){}, int) short_darray;
+typedef struct_tmpl((int **){}, (int *){}, int) int_darray;
+typedef struct_tmpl((size_t **){}, (int *){}, int) size_t_darray;
+typedef struct_tmpl((double **){}, (int *){}, int) double_darray;
 
-typedef struct_tmpl((void **){}, size_t) _Container;
+typedef struct_tmpl((void **){}, int) _Container;
 
 typedef _Bool_obj bool_obj;
 typedef _Bool_array bool_array;

@@ -58,7 +58,7 @@
                 printf("]");                                                                                           \
         }
 
-#define utils_log(fmt, ...)                                                                                            \
+#define UTILS_LOG(fmt, ...)                                                                                            \
         do {                                                                                                           \
                 char *__str = fmt "\n";                                                                                \
                 char *__token = strstr(__str, DELIM);                                                                  \

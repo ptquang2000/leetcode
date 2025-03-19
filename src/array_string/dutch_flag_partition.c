@@ -1,12 +1,11 @@
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern void array_string_dutchFlagPartition(int pivotIndex, int ASize, int A[ASize]);
 
 static int count(int size, int array[size], int value)
 {
         int result = 0;
-        for (int i = 0; i < size; i++)
-        {
+        for (int i = 0; i < size; i++) {
                 if (array[i] == value)
                         result++;
         }
@@ -16,29 +15,33 @@ static int count(int size, int array[size], int value)
 void test_array_string_dutchFlagPartition()
 {
         {
-                int A[] = {0, 1, 2, 0, 2, 1, 1};
-                array_string_dutchFlagPartition(2, 7, A);
+                int_array A = {(int[]){0, 1, 2, 0, 2, 1, 1}, 7};
+                array_string_dutchFlagPartition(2, A.len, A.data);
 
-                UTILS_ASSERT_EQUAL(count(7, A, 0), 2);
-                UTILS_ASSERT_EQUAL(count(7, A, 1), 3);
-                UTILS_ASSERT_EQUAL(count(7, A, 2), 2);
+                ASSERT_EQUAL((int_obj){count(A.len, A.data, 0)}, (int_obj){2});
+                ASSERT_EQUAL((int_obj){count(A.len, A.data, 1)}, (int_obj){3});
+                ASSERT_EQUAL((int_obj){count(A.len, A.data, 2)}, (int_obj){2});
 
-                const int expectLess[] = {2, 2, 2, 2, 2};
-                UTILS_ASSERT_LESS_ARRAY(A, expectLess, 5);
-                const int expectEqual[] = {2, 2};
-                UTILS_ASSERT_EQUAL_ARRAY(A + 5, expectEqual, 2);
+                int_array expectLess = {(int[]){2, 2, 2, 2, 2}, 5};
+                ASSERT_LESS(A, expectLess);
+                int_array expectEqual = {(int[]){2, 2}, 2};
+                A.data = A.data + 5;
+                A.len = expectEqual.len;
+                ASSERT_EQUAL(A, expectEqual);
         }
         {
-                int A[] = {0, 1, 2, 0, 2, 1, 1};
-                array_string_dutchFlagPartition(3, 7, A);
+                int_array A = {(int[]){0, 1, 2, 0, 2, 1, 1}, 7};
+                array_string_dutchFlagPartition(3, A.len, A.data);
 
-                UTILS_ASSERT_EQUAL(count(7, A, 0), 2);
-                UTILS_ASSERT_EQUAL(count(7, A, 1), 3);
-                UTILS_ASSERT_EQUAL(count(7, A, 2), 2);
+                ASSERT_EQUAL((int_obj){count(A.len, A.data, 0)}, (int_obj){2});
+                ASSERT_EQUAL((int_obj){count(A.len, A.data, 1)}, (int_obj){3});
+                ASSERT_EQUAL((int_obj){count(A.len, A.data, 2)}, (int_obj){2});
 
-                const int expectEqual[] = {0, 0};
-                UTILS_ASSERT_EQUAL_ARRAY(A, expectEqual, 2);
-                const int expectGreater[] = {0, 0, 0, 0, 0};
-                UTILS_ASSERT_GREATER_ARRAY(A + 2, expectGreater, 5);
+                int_array expectEqual = {(int[]){0, 0}, 2};
+                ASSERT_EQUAL(A, expectEqual);
+                int_array expectGreater = {(int[]){0, 0, 0, 0, 0}, 5};
+                A.data = A.data + 2;
+                A.len = expectGreater.len;
+                ASSERT_GREATER(A, expectGreater);
         }
 }

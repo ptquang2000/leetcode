@@ -1,4 +1,4 @@
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 #include <stdlib.h>
 
@@ -20,8 +20,8 @@ void test_recursion_permutations()
                 int expected_count = ARRAY_SIZE(expected_size);
                 int *actual_size, actual_count;
                 int** actual = recursion_permutations(ARRAY_SIZE(A), A, &actual_size, &actual_count);
-                UTILS_ASSERT_EQUAL(actual_count, expected_count);
-                UTILS_ASSERT_EQUAL_ARRAY(actual_size, expected_size, expected_count);
+                ASSERT_EQUAL(actual_count, expected_count);
+                ASSERT_EQUAL(actual_size, expected_size, expected_count);
                 UTILS_ASSERT_COUNT_EQUAL_ARRAY(actual, actual_size, expected, expected_size, expected_count);
 
                 free(actual_size);
@@ -35,8 +35,8 @@ void test_recursion_permutations()
                 int expected_count = ARRAY_SIZE(expected_size);
                 int *actual_size, actual_count;
                 int** actual = recursion_permutations(ARRAY_SIZE(A), A, &actual_size, &actual_count);
-                UTILS_ASSERT_EQUAL(actual_count, expected_count);
-                UTILS_ASSERT_EQUAL_ARRAY(actual_size, expected_size, expected_count);
+                ASSERT_EQUAL(actual_count, expected_count);
+                ASSERT_EQUAL(actual_size, expected_size, expected_count);
                 UTILS_ASSERT_COUNT_EQUAL_ARRAY(actual, actual_size, expected, expected_size, expected_count);
 
                 free(actual_size);
@@ -50,8 +50,8 @@ void test_recursion_permutations()
                 int expected_count = ARRAY_SIZE(expected_size);
                 int *actual_size, actual_count;
                 int** actual = recursion_permutations(ARRAY_SIZE(A), A, &actual_size, &actual_count);
-                UTILS_ASSERT_EQUAL(actual_count, expected_count);
-                UTILS_ASSERT_EQUAL_ARRAY(actual_size, expected_size, expected_count);
+                ASSERT_EQUAL(actual_count, expected_count);
+                ASSERT_EQUAL(actual_size, expected_size, expected_count);
                 UTILS_ASSERT_COUNT_EQUAL_ARRAY(actual, actual_size, expected, expected_size, expected_count);
 
                 free(actual_size);
@@ -64,8 +64,8 @@ void test_recursion_permutations()
                 int expected_count = ARRAY_SIZE(expected_size);
                 int *actual_size, actual_count;
                 int** actual = recursion_permutations(ARRAY_SIZE(A), A, &actual_size, &actual_count);
-                UTILS_ASSERT_EQUAL(actual_count, expected_count);
-                UTILS_ASSERT_EQUAL_ARRAY(actual_size, expected_size, expected_count);
+                ASSERT_EQUAL(actual_count, expected_count);
+                ASSERT_EQUAL(actual_size, expected_size, expected_count);
                 UTILS_ASSERT_COUNT_EQUAL_ARRAY(actual, actual_size, expected, expected_size, expected_count);
 
                 free(actual_size);
@@ -78,8 +78,8 @@ void test_recursion_permutations()
                 int expected_count = ARRAY_SIZE(expected_size);
                 int *actual_size, actual_count;
                 int** actual = recursion_permutations(ARRAY_SIZE(A), A, &actual_size, &actual_count);
-                UTILS_ASSERT_EQUAL(actual_count, expected_count);
-                UTILS_ASSERT_EQUAL_ARRAY(actual_size, expected_size, expected_count);
+                ASSERT_EQUAL(actual_count, expected_count);
+                ASSERT_EQUAL(actual_size, expected_size, expected_count);
                 UTILS_ASSERT_COUNT_EQUAL_ARRAY(actual, actual_size, expected, expected_size, expected_count);
 
                 free(actual_size);

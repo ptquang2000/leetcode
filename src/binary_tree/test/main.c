@@ -1,5 +1,5 @@
 #include "binary_tree/btree_node.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 int main()
 {
@@ -476,8 +476,8 @@ int main()
         free_btree(tree);
 
         UTILS_LOG("\n====== BTREE ASSERT=======");
-        UTILS_ASSERT_EQUAL(tree1, tree1);
-        UTILS_ASSERT_EQUAL(tree1, tree8);
+        ASSERT_EQUAL(tree1, tree1);
+        ASSERT_EQUAL(tree1, tree8);
         UTILS_ASSERT_GREATER(tree6, tree10);
         UTILS_ASSERT_LESS(tree10, tree6);
         UTILS_ASSERT_GREATER(tree10, tree6);

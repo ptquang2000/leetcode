@@ -1,26 +1,19 @@
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
-#include <stdlib.h>
-#include <string.h>
-
-extern char* array_string_stringDecoding(const char* s);
+extern char *array_string_stringDecoding(const char *s);
 
 void test_array_string_stringDecoding()
 {
         {
-                const char* actual = array_string_stringDecoding("4a1b3c2a");
-                const char expected[] = "aaaabcccaa";
-                int actualSize = strlen(actual);
-                UTILS_ASSERT_EQUAL(actualSize, sizeof(expected) - 1);
-                UTILS_ASSERT_EQUAL(actual, expected);
-                free((void*)actual);
+                string_obj actual = {array_string_stringDecoding("4a1b3c2a")};
+                string_obj expected = {"aaaabcccaa"};
+                ASSERT_EQUAL(actual, expected);
+                free(actual.data);
         }
         {
-                const char* actual = array_string_stringDecoding("3e4f2e");
-                const char expected[] = "eeeffffee";
-                int actualSize = strlen(actual);
-                UTILS_ASSERT_EQUAL(actualSize, sizeof(expected) - 1);
-                UTILS_ASSERT_EQUAL(actual, expected);
-                free((void*)actual);
+                string_obj actual = {array_string_stringDecoding("3e4f2e")};
+                string_obj expected = {"eeeffffee"};
+                ASSERT_EQUAL(actual, expected);
+                free(actual.data);
         }
 }

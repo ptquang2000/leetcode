@@ -1,19 +1,15 @@
 #include "array_string.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
-#include <stdlib.h>
-
-extern int* array_string_generatePrimes(int n, int* size);
+extern int *array_string_generatePrimes(int n, int *size);
 
 void test_array_string_generatePrimes()
 {
-        int actualSize;
-        int* actual = array_string_generatePrimes(18, &actualSize);
+        int_array actual;
+        actual.data = array_string_generatePrimes(18, &actual.len);
 
-        int expect[] = {2, 3, 5, 7, 11, 13, 17};
-        UTILS_ASSERT_EQUAL(actualSize, 7);
-        UTILS_ASSERT_EQUAL_ARRAY(actual, expect, 7);
+        int_array expected = {(int[]){2, 3, 5, 7, 11, 13, 17}, 7};
+        ASSERT_EQUAL(actual, expected);
 
-        free(actual);
+        free(actual.data);
 }
-

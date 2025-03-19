@@ -1,4 +1,4 @@
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern void dsa_quick_sort(int size, int arr[size]);
 
@@ -8,5 +8,5 @@ void test_dsa_quick_sort()
         dsa_quick_sort(ARRAY_SIZE(arr), arr);
 
         int expected[] = {3, 4, 7, 9, 42, 69, 420};
-        UTILS_ASSERT_EQUAL_ARRAY(arr, expected, ARRAY_SIZE(expected));
+        ASSERT_EQUAL(arr, expected, ARRAY_SIZE(expected));
 }
