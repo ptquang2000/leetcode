@@ -16,18 +16,18 @@ void test_dsa_stack()
         s->push(s, 7);
         s->push(s, 9);
 
-        ASSERT_EQUAL(s->pop(s), 9);
-        ASSERT_EQUAL(s->length, 2);
+        ASSERT_EQUAL((int_obj){s->pop(s)}, (int_obj){9});
+        ASSERT_EQUAL((int_obj){s->length}, (int_obj){2});
 
         s->push(s, 11);
 
-        ASSERT_EQUAL(s->pop(s), 11);
-        ASSERT_EQUAL(s->pop(s), 7);
-        ASSERT_EQUAL(s->peek(s), 5);
-        ASSERT_EQUAL(s->pop(s), 5);
-        ASSERT_EQUAL(s->pop(s), -1);
+        ASSERT_EQUAL((int_obj){s->pop(s)}, (int_obj){11});
+        ASSERT_EQUAL((int_obj){s->pop(s)}, (int_obj){7});
+        ASSERT_EQUAL((int_obj){s->peek(s)}, (int_obj){5});
+        ASSERT_EQUAL((int_obj){s->pop(s)}, (int_obj){5});
+        ASSERT_EQUAL((int_obj){s->pop(s)}, (int_obj){-1});
 
         s->push(s, 69);
-        ASSERT_EQUAL(s->peek(s), 69);
-        ASSERT_EQUAL(s->length, 1);
+        ASSERT_EQUAL((int_obj){s->peek(s)}, (int_obj){69});
+        ASSERT_EQUAL((int_obj){s->length}, (int_obj){1});
 }

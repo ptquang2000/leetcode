@@ -25,8 +25,8 @@
 #define ASSERT_LESS(a, b) assert_less_helper(a, b)
 #define ASSERT_IN(a, b) assert_in_helper(a, b)
 #define ASSERT_COUNT_EQUAL(a, b) assert_count_equal_helper(a, b)
-#define ASSERT_TRUE(a) assert_equal_helper((bool_obj){a & 1}, (bool_obj){true})
-#define ASSERT_FALSE(a) assert_equal_helper((bool_obj){a & 1}, (bool_obj){false})
+#define ASSERT_TRUE(a) assert_equal_helper((bool_obj){(a) & 1}, (bool_obj){true})
+#define ASSERT_FALSE(a) assert_equal_helper((bool_obj){(a) & 1}, (bool_obj){false})
 #define ASSERT_IS_NULL(a) assert_is_null_helper(a)
 #define ASSERT_IS(a, b) assert_is_helper(a, b)
 
