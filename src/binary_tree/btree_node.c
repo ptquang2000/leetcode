@@ -38,8 +38,8 @@ struct btree_node *btree_ctor_bfs(size_t size, void *data, size_t stride, size_t
         if (!size)
                 return NULL;
 
-        UTILS_ASSERT_MSG(idx < size, "Error: Missing node {} at height={}, size={}", (int_obj){idx},
-                         (size_t_obj){height}, (size_t_obj){size});
+        ASSERT_MSG(idx < size, "Error: Missing node {} at height={}, size={}", (int_obj){idx}, (size_t_obj){height},
+                   (size_t_obj){size});
         const size_t val = array_at(data, idx, stride);
         if (val == NONE)
                 return NULL;

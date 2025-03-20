@@ -9,16 +9,16 @@
 #include "config/autoconf.h"
 #include "logger.h"
 
-#if CONFIG_UTILS_TEST == 1
+#define ASSERT_MSG(cond, ...)                                                                                          \
+        do {                                                                                                           \
+                if (!(cond))                                                                                           \
+                        UTILS_LOG(__VA_ARGS__);                                                                        \
+        } while (0)
+
+#if CONFIG_UTILS_TEST == 1 || CONFIG_BINARY_TREE_TEST == 1 || CONFIG_HEAP_TEST == 1
 #undef __builtin_trap
 #define __builtin_trap() return;
 #endif
-
-#define assert_msg(cond, msg)                                                                                          \
-        do {                                                                                                           \
-                if (!(cond))                                                                                           \
-                        utils_log("{}", (string_obj){msg});                                                            \
-        } while (0)
 
 #define ASSERT_EQUAL(a, b) assert_equal_helper(a, b)
 #define ASSERT_GREATER(a, b) assert_greater_helper(a, b)
@@ -29,15 +29,6 @@
 #define ASSERT_FALSE(a) assert_equal_helper((bool_obj){(a) & 1}, (bool_obj){false})
 #define ASSERT_IS_NULL(a) assert_is_null_helper(a)
 #define ASSERT_IS(a, b) assert_is_helper(a, b)
-
-struct btree_node;
-#define UTILS_ASSERT_MSG(cond, ...)                                                                                    \
-        do {                                                                                                           \
-                if (!(cond)) {                                                                                         \
-                        UTILS_LOG(__VA_ARGS__);                                                                        \
-                        __builtin_trap();                                                                              \
-                }                                                                                                      \
-        } while (0)
 
 /*################################# ASSERT_EQUAL #################################*/
 
@@ -196,7 +187,7 @@ struct btree_node;
                         printf("\n-----------------------------------------------------\n");                           \
                         printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
                         __print_##data_t##_obj(e);                                                                     \
-                        printf(" not less than ");                                                                     \
+                        printf(" not greater than ");                                                                  \
                         __print_##data_t##_obj(a);                                                                     \
                         printf("\n-----------------------------------------------------\n\n");                         \
                         __builtin_trap();                                                                              \
@@ -217,7 +208,7 @@ struct btree_node;
                 printf("\n-----------------------------------------------------\n");                                   \
                 printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                                 \
                 __print_##data_t##_array(e);                                                                           \
-                printf(" not less than ");                                                                             \
+                printf(" not greater than ");                                                                          \
                 __print_##data_t##_array(a);                                                                           \
                 printf("\n-----------------------------------------------------\n\n");                                 \
                 __builtin_trap();                                                                                      \
@@ -242,7 +233,7 @@ struct btree_node;
                         printf("\n-----------------------------------------------------\n");                           \
                         printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
                         __print_##data_t##_darray(e);                                                                  \
-                        printf(" not less than ");                                                                     \
+                        printf(" not greater than ");                                                                  \
                         __print_##data_t##_darray(a);                                                                  \
                         printf("\n-----------------------------------------------------\n\n");                         \
                         __builtin_trap();                                                                              \
