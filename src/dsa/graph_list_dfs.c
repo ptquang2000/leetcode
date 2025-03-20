@@ -17,6 +17,6 @@ void test_dsa_graph_list_dfs()
                 int *actual = dsa_graph_list_dfs(ARRAY_SIZE(list2), list2_len, list2, 6, 0, &len);
                 int expected[] = {};
                 ASSERT_EQUAL(len, ARRAY_SIZE(expected));
-                UTILS_ASSERT_IS_NONE(actual);
+                ASSERT_IS_NULL(actual);
         }
 }

@@ -7,6 +7,7 @@ extern bool binary_tree_is_balanced_binary_tree(struct btree_node *root);
 
 void test_binary_tree_is_balanced_binary_tree()
 {
+        bt_node_obj actual = {}, expected = {};
         {
                 int data[] = {3, 9, 20, NONE, NONE, 15, 7};
                 struct btree_node *tree = btree(data, ARRAY_SIZE(data));

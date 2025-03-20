@@ -17,6 +17,6 @@ void test_dsa_graph_matrix_bfs()
                 int *actual = dsa_graph_matrix_bfs(ARRAY_SIZE(matrix2), matrix2, 6, 0, &len);
                 int expected[] = {};
                 ASSERT_EQUAL(len, ARRAY_SIZE(expected));
-                UTILS_ASSERT_IS_NONE(actual);
+                ASSERT_IS_NULL(actual);
         }
 }

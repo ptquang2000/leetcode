@@ -5,10 +5,11 @@ extern struct btree_node *binary_tree_reconstruct_preorder(int size, int preorde
 
 void test_binary_tree_reconstruct_preorder()
 {
+        bt_node_obj actual = {}, expected = {};
         {
                 int preorder[] = {'H', 'B',  'F', NONE, NONE, 'E', 'A',  NONE, NONE, NONE,
                                   'C', NONE, 'D', NONE, 'G',  'I', NONE, NONE, NONE};
-                struct btree_node *expected = &(struct btree_node){
+                expected.data = &(struct btree_node){
                         .value = 'H',
                         .left =
                                 &(struct btree_node){
@@ -54,13 +55,13 @@ void test_binary_tree_reconstruct_preorder()
                                                 },
                                 },
                 };
-                struct btree_node *actual = binary_tree_reconstruct_preorder(ARRAY_SIZE(preorder), preorder);
+                actual.data = binary_tree_reconstruct_preorder(ARRAY_SIZE(preorder), preorder);
                 ASSERT_EQUAL(actual, expected);
-                free_btree(actual);
+                free_btree(actual.data);
         }
         {
                 int preorder[] = {8, 5, 1, NONE, NONE, 7, NONE, NONE, 10, NONE, 12, NONE, NONE};
-                struct btree_node *expected = &(struct btree_node){
+                expected.data = &(struct btree_node){
                         .value = 8,
                         .left =
                                 &(struct btree_node){
@@ -91,13 +92,13 @@ void test_binary_tree_reconstruct_preorder()
                                                 },
                                 },
                 };
-                struct btree_node *actual = binary_tree_reconstruct_preorder(ARRAY_SIZE(preorder), preorder);
+                actual.data = binary_tree_reconstruct_preorder(ARRAY_SIZE(preorder), preorder);
                 ASSERT_EQUAL(actual, expected);
-                free_btree(actual);
+                free_btree(actual.data);
         }
         {
                 int preorder[] = {1, 3, NONE, NONE, NONE};
-                struct btree_node *expected = &(struct btree_node){
+                expected.data = &(struct btree_node){
                         .value = 1,
                         .left =
                                 &(struct btree_node){
@@ -108,8 +109,8 @@ void test_binary_tree_reconstruct_preorder()
 
                         .right = 0,
                 };
-                struct btree_node *actual = binary_tree_reconstruct_preorder(ARRAY_SIZE(preorder), preorder);
+                actual.data = binary_tree_reconstruct_preorder(ARRAY_SIZE(preorder), preorder);
                 ASSERT_EQUAL(actual, expected);
-                free_btree(actual);
+                free_btree(actual.data);
         }
 }

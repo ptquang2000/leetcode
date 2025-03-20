@@ -17,7 +17,7 @@ extern void __print_bt_node_obj(bt_node_obj a);
                        string: "\"%s\"",                                                                               \
                        short: "%hd",                                                                                   \
                        int: "%d",                                                                                      \
-                       size_t: "0x%zx",                                                                                \
+                       size_t: "%ld",                                                                                  \
                        double: "%f"),                                                                                  \
                _Generic((v), bool: ((v) ? "true" : "false"), default: (v)))
 

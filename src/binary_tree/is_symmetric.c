@@ -7,6 +7,7 @@ extern bool binary_tree_is_symmetric(struct btree_node *root);
 
 void test_binary_tree_is_symmetric()
 {
+        bt_node_obj actual = {}, expected = {};
         {
                 int data[] = {1, 2, 2, 3, 4, 4, 3};
                 struct btree_node *tree = btree(data, ARRAY_SIZE(data));

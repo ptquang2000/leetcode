@@ -1,10 +1,12 @@
 #include "btree_node.h"
 #include "utils/asserts.h"
 
-extern struct btree_node *binary_tree_lowest_common_ancestor(struct btree_node *root, struct btree_node *node0, struct btree_node *node1);
+extern struct btree_node *binary_tree_lowest_common_ancestor(struct btree_node *root, struct btree_node *node0,
+                                                             struct btree_node *node1);
 
 void test_binary_tree_lowest_common_ancestor()
 {
+        bt_node_obj actual = {}, expected = {};
         {
                 struct btree_node *node4 = &(struct btree_node){
                         .value = 4,
@@ -51,8 +53,12 @@ void test_binary_tree_lowest_common_ancestor()
                         .left = node5,
                         .right = node1,
                 };
-                UTILS_ASSERT_IS(binary_tree_lowest_common_ancestor(tree, node5, node1), tree);
-                UTILS_ASSERT_IS(binary_tree_lowest_common_ancestor(tree, node5, node4), node5);
+                actual.data = binary_tree_lowest_common_ancestor(tree, node5, node1);
+                expected.data = tree;
+                ASSERT_IS(actual, expected);
+                actual.data = binary_tree_lowest_common_ancestor(tree, node5, node4);
+                expected.data = node5;
+                ASSERT_IS(actual, expected);
         }
         {
                 struct btree_node *node2 = &(struct btree_node){
@@ -65,8 +71,11 @@ void test_binary_tree_lowest_common_ancestor()
                         .left = node2,
                         .right = 0,
                 };
-                UTILS_ASSERT_IS(binary_tree_lowest_common_ancestor(tree, tree, node2), tree);
-                UTILS_ASSERT_IS(binary_tree_lowest_common_ancestor(tree, node2, tree), tree);
+                expected.data = tree;
+                actual.data = binary_tree_lowest_common_ancestor(tree, tree, node2);
+                ASSERT_IS(actual, expected);
+                actual.data = binary_tree_lowest_common_ancestor(tree, node2, tree);
+                ASSERT_IS(actual, expected);
         }
         {
                 struct btree_node *node2 = &(struct btree_node){
@@ -84,6 +93,8 @@ void test_binary_tree_lowest_common_ancestor()
                         .left = node2,
                         .right = node3,
                 };
-                UTILS_ASSERT_IS(binary_tree_lowest_common_ancestor(tree, node3, node2), tree);
+                expected.data = tree;
+                actual.data = binary_tree_lowest_common_ancestor(tree, node3, node2);
+                ASSERT_IS(actual, expected);
         }
 }

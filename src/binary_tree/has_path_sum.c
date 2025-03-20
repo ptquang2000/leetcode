@@ -5,6 +5,7 @@ extern bool binary_tree_has_path_sum(struct btree_node *root, int remaining_weig
 
 void test_binary_tree_has_path_sum()
 {
+        bt_node_obj actual = {}, expected = {};
         {
                 int data[] = {5, 4, 8, 11, NONE, 13, 4, 7, 2, NONE, NONE, NONE, 1};
                 struct btree_node *tree = btree(data, ARRAY_SIZE(data));
