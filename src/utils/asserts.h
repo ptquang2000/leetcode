@@ -25,9 +25,10 @@
 #define ASSERT_LESS(a, b) assert_less_helper(a, b)
 #define ASSERT_IN(a, b) assert_in_helper(a, b)
 #define ASSERT_COUNT_EQUAL(a, b) assert_count_equal_helper(a, b)
-#define ASSERT_TRUE(a) assert_equal_helper((bool_obj){a}, (bool_obj){true})
-#define ASSERT_FALSE(a) assert_equal_helper((bool_obj){a}, (bool_obj){false})
+#define ASSERT_TRUE(a) assert_equal_helper((bool_obj){a & 1}, (bool_obj){true})
+#define ASSERT_FALSE(a) assert_equal_helper((bool_obj){a & 1}, (bool_obj){false})
 #define ASSERT_IS_NULL(a) assert_is_null_helper(a)
+#define ASSERT_IS(a, b) assert_is_helper(a, b)
 
 struct btree_node;
 #define UTILS_ASSERT_MSG(cond, ...)                                                                                    \
@@ -274,25 +275,31 @@ struct btree_node;
 #define __assert_is_null_array_def(data_t)                                                                             \
         static inline void __assert_is_null_##data_t##_array(const char *f, const char *fn, int l, data_t##_array a)   \
         {                                                                                                              \
-                if (a.data != 0) {                                                                                     \
-                        printf("\n-----------------------------------------------------\n");                           \
-                        printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
-                        __print_##data_t##_array(a);                                                                   \
-                        printf(" is not NULL");                                                                        \
-                        printf("\n-----------------------------------------------------\n\n");                         \
-                        __builtin_trap();                                                                              \
+                array_foreach(i, a)                                                                                    \
+                {                                                                                                      \
+                        if (i != 0) {                                                                                  \
+                                printf("\n-----------------------------------------------------\n");                   \
+                                printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                 \
+                                __print_##data_t##_array(a);                                                           \
+                                printf(" is not all NULL");                                                            \
+                                printf("\n-----------------------------------------------------\n\n");                 \
+                                __builtin_trap();                                                                      \
+                        }                                                                                              \
                 }                                                                                                      \
         }
 #define __assert_is_null_darray_def(data_t)                                                                            \
         static inline void __assert_is_null_##data_t##_darray(const char *f, const char *fn, int l, data_t##_darray a) \
         {                                                                                                              \
-                if (a.data != 0) {                                                                                     \
-                        printf("\n-----------------------------------------------------\n");                           \
-                        printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
-                        __print_##data_t##_darray(a);                                                                  \
-                        printf(" is not NULL");                                                                        \
-                        printf("\n-----------------------------------------------------\n\n");                         \
-                        __builtin_trap();                                                                              \
+                darray_foreach(i, n, a)                                                                                \
+                {                                                                                                      \
+                        if (i != 0) {                                                                                  \
+                                printf("\n-----------------------------------------------------\n");                   \
+                                printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                 \
+                                __print_##data_t##_darray(a);                                                          \
+                                printf(" is not all NULL");                                                            \
+                                printf("\n-----------------------------------------------------\n\n");                 \
+                                __builtin_trap();                                                                      \
+                        }                                                                                              \
                 }                                                                                                      \
         }
 
@@ -304,6 +311,66 @@ struct btree_node;
                                                     __VA_OPT__(, __assert_is_null_r PARENS(__VA_ARGS__))
 #define __assert_is_null_r() __assert_is_null_h
 #define assert_is_null_helper(a) __assert_is_null(a, __TYPES__)(__FILE__, __FUNCTION__, __LINE__, a)
+
+/*################################# ASSERT_IS #################################*/
+
+#define __assert_is_obj_def(data_t)                                                                                    \
+        static inline void __assert_is_##data_t##_obj(const char *f, const char *fn, int l, data_t##_obj a,            \
+                                                      data_t##_obj e)                                                  \
+        {                                                                                                              \
+                if (a.data != e.data) {                                                                                \
+                        printf("\n-----------------------------------------------------\n");                           \
+                        printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
+                        __print_##data_t##_obj(a);                                                                     \
+                        printf(" is not ");                                                                            \
+                        __print_##data_t##_obj(e);                                                                     \
+                        printf("\n-----------------------------------------------------\n\n");                         \
+                        __builtin_trap();                                                                              \
+                }                                                                                                      \
+        }
+#define __assert_is_array_def(data_t)                                                                                  \
+        static inline void __assert_is_##data_t##_array(const char *f, const char *fn, int l, data_t##_array a,        \
+                                                        data_t##_array e)                                              \
+        {                                                                                                              \
+                array_zip(i, a, j, e)                                                                                  \
+                {                                                                                                      \
+                        if (i != j) {                                                                                  \
+                                printf("\n-----------------------------------------------------\n");                   \
+                                printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                 \
+                                __print_##data_t##_array(a);                                                           \
+                                printf(" is not ");                                                                    \
+                                __print_##data_t##_array(e);                                                           \
+                                printf("\n-----------------------------------------------------\n\n");                 \
+                                __builtin_trap();                                                                      \
+                        }                                                                                              \
+                }                                                                                                      \
+        }
+#define __assert_is_darray_def(data_t)                                                                                 \
+        static inline void __assert_is_##data_t##_darray(const char *f, const char *fn, int l, data_t##_darray a,      \
+                                                         data_t##_darray e)                                            \
+        {                                                                                                              \
+                darray_zip(i, n, a, j, m, e)                                                                           \
+                {                                                                                                      \
+                        if (i != j) {                                                                                  \
+                                printf("\n-----------------------------------------------------\n");                   \
+                                printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                 \
+                                __print_##data_t##_darray(a);                                                          \
+                                printf(" is not ");                                                                    \
+                                __print_##data_t##_darray(e);                                                          \
+                                printf("\n-----------------------------------------------------\n\n");                 \
+                                __builtin_trap();                                                                      \
+                        }                                                                                              \
+                }                                                                                                      \
+        }
+
+#define __assert_is(a, ...) _Generic((a), __VA_OPT__(__expand__(__assert_is_h(__VA_ARGS__))))
+#define __assert_is_h(type, ...)                                                                                       \
+        type##_obj : __assert_is_##type##_obj,                                                                         \
+                     type##_array : __assert_is_##type##_array,                                                        \
+                                    type##_darray : __assert_is_##type##_darray                                        \
+                                                    __VA_OPT__(, __assert_is_r PARENS(__VA_ARGS__))
+#define __assert_is_r() __assert_is_h
+#define assert_is_helper(a, b) __assert_is(a, __TYPES__)(__FILE__, __FUNCTION__, __LINE__, a, b)
 
 /*################################# ASSERT_IN #################################*/
 
@@ -586,6 +653,9 @@ __function_decl(__assert_greater_darray_def, __TYPES__);
 __function_decl(__assert_is_null_obj_def, __TYPES__);
 __function_decl(__assert_is_null_array_def, __TYPES__);
 __function_decl(__assert_is_null_darray_def, __TYPES__);
+__function_decl(__assert_is_obj_def, __TYPES__);
+__function_decl(__assert_is_array_def, __TYPES__);
+__function_decl(__assert_is_darray_def, __TYPES__);
 __function_decl(__assert_in_obj_def, __TYPES__);
 __function_decl(__assert_in_array_def, __TYPES__);
 __function_decl(__assert_in_darray_def, __TYPES__);

@@ -203,5 +203,4 @@ int main()
         ASSERT_COUNT_EQUAL(ia9, ia12);
         ASSERT_COUNT_EQUAL(ia10, ia11);
         ASSERT_COUNT_EQUAL(ida2, ida3);
-
 }

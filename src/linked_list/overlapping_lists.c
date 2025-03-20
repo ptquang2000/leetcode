@@ -5,6 +5,7 @@ extern struct list_node *linked_list_overlappingLists(struct list_node *L1, stru
 
 void test_linked_list_overlappingLists()
 {
+        ll_node_obj actual, expected;
         // NOTE: None is cyclic
         {
                 struct list_node *node, *L1, *L2, *A;
@@ -15,7 +16,9 @@ void test_linked_list_overlappingLists()
                 L1 = &(struct list_node){0, node};
                 node = &(struct list_node){0, A};
                 L2 = &(struct list_node){0, node};
-                UTILS_ASSERT_IS(linked_list_overlappingLists(L1, L2), A);
+                expected.data = A;
+                actual.data = linked_list_overlappingLists(L1, L2);
+                ASSERT_IS(actual, expected);
         }
         {
                 struct list_node *node, *L1, *L2, *A;
@@ -25,7 +28,8 @@ void test_linked_list_overlappingLists()
                 node = &(struct list_node){0, 0};
                 node = &(struct list_node){0, node};
                 L2 = &(struct list_node){0, node};
-                UTILS_ASSERT_IS_NONE(linked_list_overlappingLists(L1, L2));
+                actual.data = linked_list_overlappingLists(L1, L2);
+                ASSERT_IS_NULL(actual);
         }
 
         // NOTE: Different cycles
@@ -41,7 +45,8 @@ void test_linked_list_overlappingLists()
                 node = &(struct list_node){0, node};
                 B->next = node;
                 L2 = &(struct list_node){0, B};
-                UTILS_ASSERT_IS_NONE(linked_list_overlappingLists(L1, L2));
+                actual.data = linked_list_overlappingLists(L1, L2);
+                ASSERT_IS_NULL(actual);
         }
 
         // NOTE: Only one is cyclic
@@ -57,7 +62,8 @@ void test_linked_list_overlappingLists()
                 node = &(struct list_node){0, node};
                 B->next = node;
                 L2 = &(struct list_node){0, B};
-                UTILS_ASSERT_IS_NONE(linked_list_overlappingLists(L1, L2));
+                actual.data = linked_list_overlappingLists(L1, L2);
+                ASSERT_IS_NULL(actual);
         }
 
         // NOTE: Merge at cycle node
@@ -73,9 +79,9 @@ void test_linked_list_overlappingLists()
                 L1 = &(struct list_node){0, node};
                 L2 = A;
 
-                void* expected[] = {A, B};
-                UTILS_ASSERT_IN((void*)linked_list_overlappingLists(L1, L2), expected,
-                                sizeof(expected) / sizeof(*expected));
+                ll_node_array c = {(struct list_node *[]){A, B}, 2};
+                actual.data = linked_list_overlappingLists(L1, L2);
+                ASSERT_IN(actual, c);
         }
 
         // NOTE: Merge before cycle
@@ -88,6 +94,8 @@ void test_linked_list_overlappingLists()
                 A = &(struct list_node){0, B};
                 L1 = &(struct list_node){0, A};
                 L2 = &(struct list_node){0, A};
-                UTILS_ASSERT_IS(linked_list_overlappingLists(L1, L2), A);
+                expected.data = A;
+                actual.data = linked_list_overlappingLists(L1, L2);
+                ASSERT_IS(actual, expected);
         }
 }

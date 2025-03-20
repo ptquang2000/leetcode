@@ -1,8 +1,12 @@
 #ifndef UTILS_FORMAT_H
 #define UTILS_FORMAT_H
 
+#include "array.h"
 #include "helper.h"
 #include "type.h"
+
+extern void __print_ll_node_obj(ll_node_obj a);
+extern void __print_bt_node_obj(bt_node_obj a);
 
 #define DELIM "{}"
 #define DELIM_LEN (sizeof(DELIM) - 1)
@@ -14,8 +18,7 @@
                        short: "%hd",                                                                                   \
                        int: "%d",                                                                                      \
                        size_t: "0x%zx",                                                                                \
-                       double: "%f",                                                                                   \
-                       default: "%p"),                                                                                 \
+                       double: "%f"),                                                                                  \
                _Generic((v), bool: ((v) ? "true" : "false"), default: (v)))
 
 #define __print_obj_def(data_t)                                                                                        \
@@ -27,16 +30,14 @@
 #define __print_array_def(data_t)                                                                                      \
         static inline void __print_##data_t##_array(data_t##_array a)                                                  \
         {                                                                                                              \
+                printf("[");                                                                                           \
                 array_foreach(i, a)                                                                                    \
                 {                                                                                                      \
-                        if (i == a.data)                                                                               \
-                                printf("[");                                                                           \
-                        __printf(*i);                                                                                  \
-                        if (i + 1 == a.data + a.len)                                                                   \
-                                printf("]");                                                                           \
-                        else                                                                                           \
+                        __print_##data_t##_obj((data_t##_obj){*i});                                                    \
+                        if (i + 1 != a.data + a.len)                                                                   \
                                 printf(",");                                                                           \
                 }                                                                                                      \
+                printf("]");                                                                                           \
         }
 
 #define __print_darray_def(data_t)                                                                                     \
@@ -47,7 +48,7 @@
                 {                                                                                                      \
                         if (i == a[0])                                                                                 \
                                 printf("[");                                                                           \
-                        __printf(*i);                                                                                  \
+                        __print_##data_t##_obj((data_t##_obj){*i});                                                    \
                         if (a[0] + da.len[a - da.data] == i + 1) {                                                     \
                                 printf("]");                                                                           \
                                 if (a - da.data < da.nr - 1)                                                           \
@@ -82,7 +83,9 @@
                                                     __VA_OPT__(, __print_r PARENS(__VA_ARGS__))
 #define __print_r() __print_h
 
-__function_decl(__print_obj_def, __TYPES__);
+__function_decl(__print_obj_def, __INTEGER__);
+__function_decl(__print_obj_def, __LITERAL__);
+__function_decl(__print_obj_def, __FLOATING__);
 __function_decl(__print_array_def, __TYPES__);
 __function_decl(__print_darray_def, __TYPES__);
 

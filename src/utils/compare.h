@@ -7,6 +7,9 @@
 #include <math.h>
 #include <string.h>
 
+extern int __cmp_ll_node_obj(ll_node_obj a, ll_node_obj b);
+extern int __cmp_bt_node_obj(bt_node_obj a, bt_node_obj b);
+
 #define __cmp_integer_def(data_t)                                                                                      \
         static inline int __cmp_##data_t##_obj(data_t##_obj lhs, data_t##_obj rhs)                                     \
         {                                                                                                              \

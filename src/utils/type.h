@@ -1,13 +1,18 @@
 #ifndef UTILS_TYPE_H
 #define UTILS_TYPE_H
 
+#include "binary_tree/btree_node.h"
 #include "helper.h"
+#include "linked_list/list_node.h"
 
 typedef char *string;
+typedef struct btree_node *bt_node;
+typedef struct list_node *ll_node;
 #define __FLOATING__ double
 #define __INTEGER__ char, bool, short, int, size_t
 #define __LITERAL__ string
-#define __TYPES__ __FLOATING__, __INTEGER__, __LITERAL__
+#define __STRUCT__ bt_node, ll_node
+#define __TYPES__ __FLOATING__, __INTEGER__, __LITERAL__, __STRUCT__
 
 #define struct_tmpl(...)                                                                                               \
         struct {                                                                                                       \
@@ -36,6 +41,8 @@ typedef struct_tmpl(short) short_obj;
 typedef struct_tmpl(int) int_obj;
 typedef struct_tmpl(size_t) size_t_obj;
 typedef struct_tmpl(double) double_obj;
+typedef struct_tmpl(bt_node) bt_node_obj;
+typedef struct_tmpl(ll_node) ll_node_obj;
 
 typedef struct_tmpl((char *){}, int) char_array;
 typedef struct_tmpl((string *){}, int) string_array;
@@ -44,6 +51,8 @@ typedef struct_tmpl((short *){}, int) short_array;
 typedef struct_tmpl((int *){}, int) int_array;
 typedef struct_tmpl((size_t *){}, int) size_t_array;
 typedef struct_tmpl((double *){}, int) double_array;
+typedef struct_tmpl((bt_node *){}, int) bt_node_array;
+typedef struct_tmpl((ll_node *){}, int) ll_node_array;
 
 typedef struct_tmpl((char **){}, (int *){}, int) char_darray;
 typedef struct_tmpl((string **){}, (int *){}, int) string_darray;
@@ -52,6 +61,8 @@ typedef struct_tmpl((short **){}, (int *){}, int) short_darray;
 typedef struct_tmpl((int **){}, (int *){}, int) int_darray;
 typedef struct_tmpl((size_t **){}, (int *){}, int) size_t_darray;
 typedef struct_tmpl((double **){}, (int *){}, int) double_darray;
+typedef struct_tmpl((bt_node **){}, (int *){}, int) bt_node_darray;
+typedef struct_tmpl((ll_node **){}, (int *){}, int) ll_node_darray;
 
 typedef struct_tmpl((void **){}, int) _Container;
 

@@ -19,24 +19,24 @@ void test_dsa_doubly_linked_list()
         l->append(l, 7);
         l->append(l, 9);
 
-        ASSERT_EQUAL(l->get(l, 2), 9);
-        ASSERT_EQUAL(l->remove_at(l, 1), 7);
-        ASSERT_EQUAL(l->length, 2);
+        ASSERT_EQUAL((int_obj){l->get(l, 2)}, (int_obj){9});
+        ASSERT_EQUAL((int_obj){l->remove_at(l, 1)}, (int_obj){7});
+        ASSERT_EQUAL((int_obj){l->length}, (int_obj){2});
 
         l->append(l, 11);
-        ASSERT_EQUAL(l->remove_at(l, 1), 9);
-        ASSERT_EQUAL(l->remove(l, 9), -1);
-        ASSERT_EQUAL(l->remove_at(l, 0), 5);
-        ASSERT_EQUAL(l->remove_at(l, 0), 11);
-        ASSERT_EQUAL(l->length, 0);
+        ASSERT_EQUAL((int_obj){l->remove_at(l, 1)}, (int_obj){9});
+        ASSERT_EQUAL((int_obj){l->remove(l, 9)}, (int_obj){-1});
+        ASSERT_EQUAL((int_obj){l->remove_at(l, 0)}, (int_obj){5});
+        ASSERT_EQUAL((int_obj){l->remove_at(l, 0)}, (int_obj){11});
+        ASSERT_EQUAL((int_obj){l->length}, (int_obj){0});
 
         l->prepend(l, 5);
         l->prepend(l, 7);
         l->prepend(l, 9);
 
-        ASSERT_EQUAL(l->get(l, 2), 5);
-        ASSERT_EQUAL(l->get(l, 0), 9);
-        ASSERT_EQUAL(l->remove(l, 9), 9);
-        ASSERT_EQUAL(l->length, 2);
-        ASSERT_EQUAL(l->get(l, 0), 7);
+        ASSERT_EQUAL((int_obj){l->get(l, 2)}, (int_obj){5});
+        ASSERT_EQUAL((int_obj){l->get(l, 0)}, (int_obj){9});
+        ASSERT_EQUAL((int_obj){l->remove(l, 9)}, (int_obj){9});
+        ASSERT_EQUAL((int_obj){l->length}, (int_obj){2});
+        ASSERT_EQUAL((int_obj){l->get(l, 0)}, (int_obj){7});
 }

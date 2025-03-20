@@ -5,6 +5,7 @@ extern struct list_node *linked_list_addTwoNumbers(struct list_node *L1, struct 
 
 void test_linked_list_addTwoNumbers()
 {
+        ll_node_obj actual, expected;
         {
                 struct list_node *node, *L1, *L2;
                 node = &(struct list_node){4, 0};
@@ -13,13 +14,13 @@ void test_linked_list_addTwoNumbers()
                 node = &(struct list_node){9, 0};
                 node = &(struct list_node){0, node};
                 L2 = &(struct list_node){7, node};
-                node = linked_list_addTwoNumbers(L1, L2);
+                actual.data = linked_list_addTwoNumbers(L1, L2);
 
-                int expected[] = {0, 2, 3, 1};
-                int actual[sizeof(expected) / sizeof(*expected)] = {};
-                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
-                FREE_LIST(node);
+                int foo[] = {0, 2, 3, 1};
+                expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
+                ASSERT_EQUAL(actual, expected);
+                FREE_LIST(actual.data);
+                FREE_LIST(expected.data);
         }
         {
                 struct list_node *node, *L1, *L2;
@@ -29,23 +30,24 @@ void test_linked_list_addTwoNumbers()
                 node = &(struct list_node){4, 0};
                 node = &(struct list_node){6, node};
                 L2 = &(struct list_node){5, node};
-                node = linked_list_addTwoNumbers(L1, L2);
+                actual.data = linked_list_addTwoNumbers(L1, L2);
 
-                int expected[] = {7, 0, 8};
-                int actual[sizeof(expected) / sizeof(*expected)] = {};
-                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
+                int foo[] = {7, 0, 8};
+                expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
+                ASSERT_EQUAL(actual, expected);
+                FREE_LIST(actual.data);
         }
         {
                 struct list_node *node, *L1, *L2;
                 L1 = &(struct list_node){0, 0};
                 L2 = &(struct list_node){0, 0};
-                node = linked_list_addTwoNumbers(L1, L2);
+                actual.data = linked_list_addTwoNumbers(L1, L2);
 
-                int expected[] = {0};
-                int actual[sizeof(expected) / sizeof(*expected)] = {};
-                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
+                int foo[] = {0};
+                expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
+                ASSERT_EQUAL(actual, expected);
+                FREE_LIST(actual.data);
+                FREE_LIST(expected.data);
         }
         {
                 struct list_node *node, *L1, *L2;
@@ -60,12 +62,12 @@ void test_linked_list_addTwoNumbers()
                 node = &(struct list_node){9, node};
                 node = &(struct list_node){9, node};
                 L2 = &(struct list_node){9, node};
-                node = linked_list_addTwoNumbers(L1, L2);
+                actual.data = linked_list_addTwoNumbers(L1, L2);
 
-                int expected[] = {8, 9, 9, 9, 0, 0, 0, 1};
-                int actual[sizeof(expected) / sizeof(*expected)] = {};
-                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                ASSERT_EQUAL(actual, expected, sizeof(expected) / sizeof(*expected));
-                FREE_LIST(node);
+                int foo[] = {8, 9, 9, 9, 0, 0, 0, 1};
+                expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
+                ASSERT_EQUAL(actual, expected);
+                FREE_LIST(actual.data);
+                FREE_LIST(expected.data);
         }
 }

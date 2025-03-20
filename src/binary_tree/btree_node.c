@@ -98,17 +98,19 @@ void print_btree(struct btree_node *node, size_t height)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-void utils_format_btree(size_t i_root)
+void __print_bt_node_obj(bt_node_obj a)
 {
-        struct btree_node *root = (struct btree_node *)i_root;
+        struct btree_node *root = a.data;
         printf("\n");
         print_btree(root, 0);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-int btreecmp(struct btree_node *r1, struct btree_node *r2)
+int __cmp_bt_node_obj(bt_node_obj a, bt_node_obj b)
 {
+        struct btree_node *r1 = a.data;
+        struct btree_node *r2 = b.data;
         struct btree_node *root;
         struct array {
                 struct btree_node **data;
