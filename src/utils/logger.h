@@ -7,6 +7,7 @@
 
 extern void __print_ll_node_obj(ll_node_obj a);
 extern void __print_bt_node_obj(bt_node_obj a);
+extern void __print_heap_obj(heap_obj a);
 
 #define DELIM "{}"
 #define DELIM_LEN (sizeof(DELIM) - 1)
