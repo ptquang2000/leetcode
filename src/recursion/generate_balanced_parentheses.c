@@ -1,37 +1,32 @@
 #include "utils/asserts.h"
 
-extern char** recursion_generate_balanced_parentheses(int i_num_pairs, int* o_size);
+extern char **recursion_generate_balanced_parentheses(int i_num_pairs, int *o_size);
 
 void test_recursion_generate_balanced_parentheses()
 {
+        string_array actual = {}, expected = {};
         {
                 const int num_pairs = 3;
-                const char* expected[] = {"((()))", "(()())", "(())()", "()(())", "()()()"};
-                int expected_size = ARRAY_SIZE(expected), actual_size;
-                char** actual = recursion_generate_balanced_parentheses(num_pairs, &actual_size);
-                ASSERT_EQUAL(actual_size, expected_size);
-                UTILS_ASSERT_COUNT_EQUAL((const char**)actual, expected, expected_size);
+                expected = (string_array){(char *[]){"((()))", "(()())", "(())()", "()(())", "()()()"}, 5};
+                actual.data = recursion_generate_balanced_parentheses(num_pairs, &actual.len);
+                ASSERT_COUNT_EQUAL(actual, expected);
 
-                free_array(actual, actual_size);
+                free_array(actual.data, actual.len);
         }
         {
                 const int num_pairs = 2;
-                const char* expected[] = {"(())", "()()"};
-                int expected_size = ARRAY_SIZE(expected), actual_size;
-                char** actual = recursion_generate_balanced_parentheses(num_pairs, &actual_size);
-                ASSERT_EQUAL(actual_size, expected_size);
-                UTILS_ASSERT_COUNT_EQUAL((const char**)actual, expected, expected_size);
+                expected = (string_array){(char *[]){"(())", "()()"}, 2};
+                actual.data = recursion_generate_balanced_parentheses(num_pairs, &actual.len);
+                ASSERT_COUNT_EQUAL(actual, expected);
 
-                free_array(actual, actual_size);
+                free_array(actual.data, actual.len);
         }
         {
                 const int num_pairs = 1;
-                const char* expected[] = {"()"};
-                int expected_size = ARRAY_SIZE(expected), actual_size;
-                char** actual = recursion_generate_balanced_parentheses(num_pairs, &actual_size);
-                ASSERT_EQUAL(actual_size, expected_size);
-                UTILS_ASSERT_COUNT_EQUAL((const char**)actual, expected, expected_size);
+                expected = (string_array){(char *[]){"()"}, 1};
+                actual.data = recursion_generate_balanced_parentheses(num_pairs, &actual.len);
+                ASSERT_COUNT_EQUAL(actual, expected);
 
-                free_array(actual, actual_size);
+                free_array(actual.data, actual.len);
         }
 }

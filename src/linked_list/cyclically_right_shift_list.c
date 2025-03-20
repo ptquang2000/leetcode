@@ -6,7 +6,7 @@ extern struct list_node *linked_list_cyclicallyRightShiftList(struct list_node *
 
 void test_linked_list_cyclicallyRightShiftList()
 {
-        ll_node_obj actual, expected;
+        ll_node_obj actual = {}, expected = {};
         {
                 struct list_node *node, *L;
                 node = &(struct list_node){5, 0};

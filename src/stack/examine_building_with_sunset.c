@@ -4,7 +4,7 @@ extern int *stack_examine_building_with_sunset(int size, int sequence[size], int
 
 void test_stack_examine_building_with_sunset()
 {
-        int_array actual, expected;
+        int_array actual = {}, expected = {};
         {
                 int sequence[] = {15, 14, 13, 12, 11};
                 expected = (int_array){(int[]){4, 3, 2, 1, 0}, 5};

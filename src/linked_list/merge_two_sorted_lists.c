@@ -5,7 +5,7 @@ extern struct list_node *linked_list_mergeTwoSortedLists(struct list_node *L1, s
 
 void test_linked_list_mergeTwoSortedLists()
 {
-        ll_node_obj actual, expected;
+        ll_node_obj actual = {}, expected = {};
         {
                 struct list_node *node, *L1, *L2;
                 node = &(struct list_node){4, 0};

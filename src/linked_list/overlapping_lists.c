@@ -5,7 +5,7 @@ extern struct list_node *linked_list_overlappingLists(struct list_node *L1, stru
 
 void test_linked_list_overlappingLists()
 {
-        ll_node_obj actual, expected;
+        ll_node_obj actual = {}, expected = {};
         // NOTE: None is cyclic
         {
                 struct list_node *node, *L1, *L2, *A;

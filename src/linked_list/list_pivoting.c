@@ -5,7 +5,7 @@ extern struct list_node *linked_list_listPivoting(struct list_node *L, int x);
 
 void test_linked_list_listPivoting()
 {
-        ll_node_obj actual, expected;
+        ll_node_obj actual = {}, expected = {};
         {
                 struct list_node *node, *L;
                 node = &(struct list_node){11, 0};
