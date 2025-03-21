@@ -14,8 +14,8 @@ void test_dsa_two_crystal_balls()
         for (size_t i = idx; i < 10000; i++)
                 data[i] = true;
 
-        ASSERT_EQUAL(dsa_two_crystal_balls(ARRAY_SIZE(data), data), idx);
+        ASSERT_EQUAL((int_obj){dsa_two_crystal_balls(ARRAY_SIZE(data), data)}, (int_obj){idx});
 
         bool foo[821] = {};
-        ASSERT_EQUAL(dsa_two_crystal_balls(ARRAY_SIZE(foo), foo), -1);
+        ASSERT_EQUAL((int_obj){dsa_two_crystal_balls(ARRAY_SIZE(foo), foo)}, (int_obj){-1});
 }

@@ -6,17 +6,13 @@ extern int *dsa_graph_matrix_bfs(int size, weighted_adj_matrix matrix[size], int
 void test_dsa_graph_matrix_bfs()
 {
         {
-                int len;
-                int *actual = dsa_graph_matrix_bfs(ARRAY_SIZE(matrix2), matrix2, 0, 6, &len);
-                int expected[] = {0, 1, 4, 5, 6};
-                ASSERT_EQUAL(len, ARRAY_SIZE(expected));
-                ASSERT_EQUAL(actual, expected, ARRAY_SIZE(expected));
+                int_array actual = {dsa_graph_matrix_bfs(ARRAY_SIZE(matrix2), matrix2, 0, 6, &actual.len)};
+                int_array expected = {(int[]){0, 1, 4, 5, 6}, 5};
+                ASSERT_EQUAL(actual, expected);
         }
         {
-                int len;
-                int *actual = dsa_graph_matrix_bfs(ARRAY_SIZE(matrix2), matrix2, 6, 0, &len);
-                int expected[] = {};
-                ASSERT_EQUAL(len, ARRAY_SIZE(expected));
+                int_array actual = {dsa_graph_matrix_bfs(ARRAY_SIZE(matrix2), matrix2, 6, 0, &actual.len)};
+                int_array expected = {(int[]){}, 0};
                 ASSERT_IS_NULL(actual);
         }
 }

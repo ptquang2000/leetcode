@@ -19,25 +19,25 @@ void test_dsa_solve()
         struct dsa_point *path = dsa_solve(6, 13, (const char **)maze, 'x', (struct dsa_point){.x = 10, .y = 0},
                                              (struct dsa_point){.x = 1, .y = 5}, &len);
 
-        const char *expected[] = {
+        string_array expected = {(char*[]){
                 "xxxxxxxxxx*x", 
                 "x        x*x", 
                 "x        x*x",
                 "x xxxxxxxx*x",
                 "x**********x",
                 "x*xxxxxxxxxx",
-        };
+        }, 6};
 
-        char **actual = calloc(6, sizeof(*actual));
+        string_array actual = {calloc(6, sizeof(*actual.data)), 6};
         for (size_t i = 0; i < 6; i++) {
-                actual[i] = calloc(14, sizeof(**actual));
-                strcpy(actual[i], maze[i]);
-                actual[i][13] = 0;
+                actual.data[i] = calloc(14, sizeof(**actual.data));
+                strcpy(actual.data[i], maze[i]);
+                actual.data[i][13] = 0;
         }
         for (size_t i = 0; i < len; i++)
-                actual[path[i].y][path[i].x] = '*';
+                actual.data[path[i].y][path[i].x] = '*';
 
-        ASSERT_EQUAL((const char**)actual, expected, ARRAY_SIZE(expected));
+        ASSERT_EQUAL(actual, expected);
         free(path);
-        free_array(actual, 6);
+        free_array(actual.data, 6);
 }
