@@ -1,16 +1,11 @@
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
-#include <stdlib.h>
-#include <string.h>
-
-extern char* array_string_snakeString(const char* s);
+extern char *array_string_snakeString(const char *s);
 
 void test_array_string_snakeString()
 {
-        const char* actual = array_string_snakeString("Hello World!");
-        const char expected[] = "e lHloWrdlo!";
-        int actualSize = strlen(actual);
-        UTILS_ASSERT_EQUAL(actualSize, sizeof(expected) - 1);
-        UTILS_ASSERT_EQUAL(actual, expected);
-        free((void*)actual);
+        string_obj actual = {array_string_snakeString("Hello World!")};
+        string_obj expected = {"e lHloWrdlo!"};
+        ASSERT_EQUAL(actual, expected);
+        free(actual.data);
 }

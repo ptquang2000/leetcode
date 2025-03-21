@@ -1,15 +1,16 @@
 #include "btree_node.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern struct btree_node *binary_tree_from_preorder_inorder(int preorder_size, int preorder[preorder_size],
                                                             int inorder_size, int inorder[inorder_size]);
 
 void test_binary_tree_from_preorder_inorder()
 {
+        bt_node_obj actual = {}, expected = {};
         {
                 int preorder[] = {3, 9, 20, 15, 7};
                 int inorder[] = {9, 3, 15, 20, 7};
-                struct btree_node *expected = &(struct btree_node){
+                expected.data = &(struct btree_node){
                         .value = 3,
                         .left =
                                 &(struct btree_node){
@@ -35,22 +36,22 @@ void test_binary_tree_from_preorder_inorder()
                                                 },
                                 },
                 };
-                struct btree_node *actual =
+                actual.data =
                         binary_tree_from_preorder_inorder(ARRAY_SIZE(preorder), preorder, ARRAY_SIZE(inorder), inorder);
-                UTILS_ASSERT_EQUAL(actual, expected);
-                free_btree(actual);
+                ASSERT_EQUAL(actual, expected);
+                free_btree(actual.data);
         }
         {
                 int preorder[] = {-1};
                 int inorder[] = {-1};
-                struct btree_node *expected = &(struct btree_node){
+                expected.data = &(struct btree_node){
                         .value = -1,
                         .left = 0,
                         .right = 0,
                 };
-                struct btree_node *actual =
+                actual.data =
                         binary_tree_from_preorder_inorder(ARRAY_SIZE(preorder), preorder, ARRAY_SIZE(inorder), inorder);
-                UTILS_ASSERT_EQUAL(actual, expected);
-                free_btree(actual);
+                ASSERT_EQUAL(actual, expected);
+                free_btree(actual.data);
         }
 }

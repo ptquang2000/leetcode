@@ -1,10 +1,11 @@
 #include "btree_node.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern struct btree_node **binary_tree_create_list_of_leaves(struct btree_node *root, int *o_size);
 
 void test_binary_tree_create_list_of_leaves()
 {
+        bt_node_array actual = {}, expected = {};
         {
                 struct btree_node l3 = {
                         .value = 3,
@@ -31,11 +32,9 @@ void test_binary_tree_create_list_of_leaves()
                                 },
                         .right = &l3,
                 };
-                struct btree_node *expected[] = {&l4, &l5, &l3};
-                int actual_size;
-                struct btree_node **actual = binary_tree_create_list_of_leaves(tree, &actual_size);
-                UTILS_ASSERT_EQUAL(actual_size, ARRAY_SIZE(expected));
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, ARRAY_SIZE(expected));
+                expected = (bt_node_array){(struct btree_node *[]){&l4, &l5, &l3}, 3};
+                actual.data = binary_tree_create_list_of_leaves(tree, &actual.len);
+                ASSERT_EQUAL(actual, expected);
         }
         {
                 struct btree_node *tree = &(struct btree_node){
@@ -43,10 +42,8 @@ void test_binary_tree_create_list_of_leaves()
                         .left = 0,
                         .right = 0,
                 };
-                struct btree_node *expected[] = {tree};
-                int actual_size;
-                struct btree_node **actual = binary_tree_create_list_of_leaves(tree, &actual_size);
-                UTILS_ASSERT_EQUAL(actual_size, ARRAY_SIZE(expected));
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, ARRAY_SIZE(expected));
+                expected = (bt_node_array){(struct btree_node *[]){tree}, 1};
+                actual.data = binary_tree_create_list_of_leaves(tree, &actual.len);
+                ASSERT_EQUAL(actual, expected);
         }
 }

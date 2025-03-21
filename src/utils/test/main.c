@@ -1,198 +1,206 @@
-#define TEST_UTILS
-#include "utils/utils.c"
-#include <stddef.h>
-#include <stdint.h>
+#include "utils/asserts.h"
+#include "utils/logger.h"
 
 int main()
 {
-        bool trueValue = true;
-        bool falseValue = false;
-        int intValue = 69420;
-        char xValue = 'x';
-        char charValue = '=';
-        char DValue = 'D';
-        const char *stringValue = "B==D";
-        const char *B0085 = "B0085";
-        void *noneValue = 0;
-        bool boolArrayExpected[3] = {true, false, true};
-        bool boolArrayActual1[3] = {true, false, true};
-        bool boolArrayActual2[3] = {true, true, true};
-        char charArrayExpected[3] = {'x', 'x', 'x'};
-        char charArrayActual1[3] = {'x', 'x', 'x'};
-        char charArrayActual2[3] = {'x', 'y', 'x'};
-        int intArrayExpected[3] = {69, 69, 69};
-        int intArrayActual1[3] = {69, 69, 69};
-        int intArrayActual2[3] = {69, 420, 69};
-        const char *stringArrayExpected[3] = {"B==D", "B==D", "B==D"};
-        const char *stringArrayActual1[3] = {"B==D", "B==D", "B==D"};
-        const char *stringArrayActual2[3] = {"B==D", "B0085", "B==D"};
-        int intArrayIn[3] = {69420, 69420, 69420};
+        char_obj c1 = {'x'};
+        char_obj c2 = {'y'};
+        string_obj s1 = {"8==D"};
+        string_obj s2 = {"B00B5"};
+        short_obj sh1 = {69};
+        short_obj sh2 = {420};
+        int_obj i1 = {69420};
+        int_obj i2 = {42069};
+        size_t_obj st1 = {696969696966969};
+        size_t_obj st2 = {420420420420420};
+        double_obj d1 = {69.60};
+        double_obj d2 = {420.420};
+        bool_obj b1 = {true};
+        bool_obj b2 = {false};
 
-        UTILS_LOG("\nTest UTILS_LOG\n");
-        UTILS_LOG("bool:{}/{}, char:{}, int:{}, string:{}", UTYPE(trueValue), UTYPE(falseValue), UTYPE(charValue),
-                  UTYPE(intValue), UTYPE(stringValue));
-        UTILS_LOG("bool array:{}, char array:{}, int array:{}, string array:{}", UARRAY(intArrayActual2, 3),
-                  UARRAY(charArrayActual2, 3), UTYPE(intValue), UARRAY(stringArrayExpected, 3));
+        char_array ca1 = {(char[]){'B', '0', '0', 'B', '5'}, 5};
+        char_array ca2 = {(char[]){'B', '0', 'O', 'B', 'S'}, 5};
+        string_array sa1 = {(string[]){"GOAT", "ghosting", "mid", "vibe check", "sus"}, 5};
+        string_array sa2 = {(string[]){"slay", "bet", "low-key", "extra", "flex"}, 5};
+        short_array sha1 = {(short[]){31, 82, 32, 55, 2}, 5};
+        short_array sha2 = {(short[]){42, 51, 75, 31, 53}, 5};
+        int_array ia1 = {(int[]){326239, 559855, 445399, 828639, 190305}, 5};
+        int_array ia2 = {(int[]){390227, 556859, 992170, 397070, 254049}, 5};
+        size_t_array sta1 = {(size_t[]){9957835168, 1633598403, 1951010168, 6105680956, 8459731783}, 5};
+        size_t_array sta2 = {(size_t[]){2925128758, 9788141779, 5363541390, 1169019322, 1843586698}, 5};
+        double_array da1 = {(double[]){61.45505, 87.13806, 63.85903, 06.66105, 81.98509}, 5};
+        double_array da2 = {(double[]){70.27696, 10.38040, 80.59800, 85.91704, 96.60537}, 5};
+        bool_array ba1 = {(bool[]){true, false, true, true, false}, 10};
+        bool_array ba2 = {(bool[]){false, false, true, false, false}, 10};
 
-        UTILS_LOG("\nTest UTILS_ASSERT_EQUAL bool");
-        UTILS_ASSERT_EQUAL(trueValue, trueValue);
-        UTILS_ASSERT_EQUAL(trueValue, falseValue);
-
-        UTILS_LOG("Test UTILS_ASSERT_EQUAL char");
-        UTILS_ASSERT_EQUAL(xValue, xValue);
-        UTILS_ASSERT_EQUAL(charValue, DValue);
-
-        UTILS_LOG("Test UTILS_ASSERT_EQUAL int");
-        UTILS_ASSERT_EQUAL(69, 69);
-        UTILS_ASSERT_EQUAL(420, 69);
-
-        UTILS_LOG("Test UTILS_ASSERT_EQUAL string");
-        UTILS_ASSERT_EQUAL(B0085, B0085);
-        UTILS_ASSERT_EQUAL(B0085, stringValue);
-
-        UTILS_LOG("Test UTILS_ASSERT_EQUAL bool array");
-        UTILS_ASSERT_EQUAL_ARRAY(boolArrayActual1, boolArrayExpected, 3);
-        UTILS_ASSERT_EQUAL_ARRAY(boolArrayActual2, boolArrayExpected, 3);
-
-        UTILS_LOG("Test UTILS_ASSERT_EQUAL char array");
-        UTILS_ASSERT_EQUAL_ARRAY(charArrayActual1, charArrayExpected, 3);
-        UTILS_ASSERT_EQUAL_ARRAY(charArrayActual2, charArrayExpected, 3);
-
-        UTILS_LOG("Test UTILS_ASSERT_EQUAL int array");
-        UTILS_ASSERT_EQUAL_ARRAY(intArrayActual1, intArrayExpected, 3);
-        UTILS_ASSERT_EQUAL_ARRAY(intArrayActual2, intArrayExpected, 3);
-
-        UTILS_LOG("Test UTILS_ASSERT_EQUAL string array");
-        UTILS_ASSERT_EQUAL_ARRAY(stringArrayActual1, stringArrayExpected, 3);
-        UTILS_ASSERT_EQUAL_ARRAY(stringArrayActual2, stringArrayExpected, 3);
-
-        UTILS_LOG("Test UTILS_ASSERT_IS");
-        UTILS_ASSERT_IS(stringArrayExpected, stringArrayExpected);
-        UTILS_ASSERT_IS(stringArrayActual1, stringArrayExpected);
-
-        UTILS_LOG("Test UTILS_ASSERT_IS_NONE");
-        UTILS_ASSERT_IS_NONE(noneValue);
-        UTILS_ASSERT_IS_NONE(stringArrayExpected);
-
-        UTILS_LOG("Test UTILS_ASSERT_IN bool array");
-        UTILS_ASSERT_IN(trueValue, boolArrayActual2, 3);
-        UTILS_ASSERT_IN(falseValue, boolArrayActual2, 3);
-
-        UTILS_LOG("Test UTILS_ASSERT_IN char array");
-        UTILS_ASSERT_IN(xValue, charArrayExpected, 3);
-        UTILS_ASSERT_IN(charValue, charArrayExpected, 3);
-
-        UTILS_LOG("Test UTILS_ASSERT_IN int array");
-        UTILS_ASSERT_IN(intValue, intArrayIn, 3);
-        UTILS_ASSERT_IN(intValue, intArrayExpected, 3);
-
-        UTILS_LOG("Test UTILS_ASSERT_IN string array");
-        UTILS_ASSERT_IN(stringValue, stringArrayExpected, 3);
-        UTILS_ASSERT_IN(B0085, stringArrayExpected, 3);
-
-        bool trues[] = {true, true, true, true, true};
-        bool falses[] = {false, false, false, false, false};
-        bool alt_bool[] = {true, false, true, false, true};
-        size_t trues_size = sizeof(trues) / sizeof(*trues);
-
-        UTILS_LOG("Test UTILS_ASSERT_COUNT_EQUAL bool");
-        UTILS_ASSERT_COUNT_EQUAL(trues, trues, trues_size);
-        UTILS_ASSERT_COUNT_EQUAL(trues, falses, trues_size);
-        UTILS_ASSERT_COUNT_EQUAL(trues, alt_bool, trues_size);
-
-        char abcde[] = {'a', 'b', 'c', 'd', 'e'};
-        char fghij[] = {'f', 'g', 'h', 'i', 'j'};
-        char edcba[] = {'e', 'd', 'c', 'b', 'a'};
-        char bfdde[] = {'b', 'f', 'd', 'd', 'e'};
-        size_t abc_size = sizeof(abcde) / sizeof(*abcde);
-
-        UTILS_LOG("Test UTILS_ASSERT_COUNT_EQUAL char");
-        UTILS_ASSERT_COUNT_EQUAL(abcde, fghij, abc_size);
-        UTILS_ASSERT_COUNT_EQUAL(abcde, edcba, abc_size);
-        UTILS_ASSERT_COUNT_EQUAL(abcde, bfdde, abc_size);
-
-        UTILS_LOG("Test UTILS_ASSERT_COUNT_EQUAL_ARRAY char");
-        char aa[] = {'a', 'a'};
-        char bbb[] = {'b', 'b', 'b'};
-        char cccc[] = {'c', 'c', 'c', 'c', 'c'};
-        char ddddd[] = {'d', 'd', 'd', 'd', 'd'};
-        char e[] = {'e'};
-        size_t aa_size = sizeof(aa) / sizeof(*aa);
-        size_t bbb_size = sizeof(bbb) / sizeof(*bbb);
-        size_t cccc_size = sizeof(cccc) / sizeof(*cccc);
-        size_t ddddd_size = sizeof(ddddd) / sizeof(*ddddd);
-        size_t e_size = sizeof(e) / sizeof(*e);
-        char *abcd_array[] = {aa, bbb, cccc, ddddd};
-        size_t abcd_array_size[] = {aa_size, bbb_size, cccc_size, ddddd_size};
-        char *bdac_array[] = {bbb, ddddd, aa, cccc};
-        size_t bdac_array_size[] = {bbb_size, ddddd_size, aa_size, cccc_size};
-        char *bdeac_array[] = {bbb, ddddd, e, aa, cccc};
-        size_t bdeac_array_size[] = {bbb_size, ddddd_size, e_size, aa_size, cccc_size};
-        char *bceac_array[] = {bbb, cccc, e, cccc, aa};
-        size_t bceac_array_size[] = {bbb_size, cccc_size, e_size, cccc_size, aa_size};
-        size_t abcd_array_count = sizeof(abcd_array_size) / sizeof(*abcd_array_size);
-        size_t bdeac_array_count = sizeof(bdeac_array_size) / sizeof(*bdeac_array_size);
-        UTILS_ASSERT_COUNT_EQUAL_ARRAY(abcd_array, abcd_array_size, abcd_array, abcd_array_size, abcd_array_count);
-        UTILS_ASSERT_COUNT_EQUAL_ARRAY(abcd_array, abcd_array_size, bdac_array, bdac_array_size, abcd_array_count);
-        UTILS_ASSERT_COUNT_EQUAL_ARRAY(bdeac_array, bdeac_array_size, bceac_array, bceac_array_size, bdeac_array_count);
-
-        int ones[] = {1, 1, 1, 1, 1};
-        int twos[] = {2, 2, 2, 2, 2};
-        int alt_ints[] = {1, 2, 3, 2, 3};
-        size_t ones_size = sizeof(ones) / sizeof(*ones);
-
-        UTILS_LOG("Test UTILS_ASSERT_COUNT_EQUAL int");
-        UTILS_ASSERT_COUNT_EQUAL(ones, ones, ones_size);
-        UTILS_ASSERT_COUNT_EQUAL(ones, twos, ones_size);
-        UTILS_ASSERT_COUNT_EQUAL(ones, alt_ints, ones_size);
-
-        int two_ones[] = {1, 1};
-        int two_ones_size = sizeof(two_ones) / sizeof(*two_ones);
-        int three_twos[] = {2, 2, 2};
-        int three_twos_size = sizeof(three_twos) / sizeof(*three_twos);
-        int one_three[] = {3};
-        int one_three_size = sizeof(one_three) / sizeof(*one_three);
-        int *one_two_three[] = {two_ones, three_twos, one_three};
-        int one_two_three_size[] = {two_ones_size, three_twos_size, one_three_size};
-        int *reverse_one_two_three[] = {one_three, three_twos, two_ones};
-        int reverse_one_two_three_size[] = {one_three_size, three_twos_size, two_ones_size};
-        int *one_one_three[] = {two_ones, two_ones, one_three};
-        int one_one_three_size[] = {two_ones_size, two_ones_size, one_three_size};
-        int int_array_count = sizeof(one_two_three_size) / sizeof(*one_two_three_size);
-
-        UTILS_LOG("Test UTILS_ASSERT_COUNT_EQUAL_ARRAY int");
-        UTILS_ASSERT_COUNT_EQUAL_ARRAY(one_two_three, one_two_three_size, one_two_three, one_two_three_size,
-                                       int_array_count);
-        UTILS_ASSERT_COUNT_EQUAL_ARRAY(one_two_three, one_two_three_size, reverse_one_two_three,
-                                       reverse_one_two_three_size, int_array_count);
-        UTILS_ASSERT_COUNT_EQUAL_ARRAY(one_two_three, one_two_three_size, one_one_three, one_one_three_size,
-                                       int_array_count);
-
-        const char *strings[] = {"69", "420", "69420"};
-        uint32_t strings_size = sizeof(strings) / sizeof(*strings);
-        const char *reversed_strings[] = {"69420", "420", "69"};
-        uint32_t reversed_strings_size = sizeof(reversed_strings) / sizeof(*reversed_strings);
-        const char *different_strings[] = {"80085", "B==D", "69420"};
-        uint32_t different_strings_size = sizeof(different_strings) / sizeof(*different_strings);
-
-        UTILS_LOG("Test UTILS_ASSERT_COUNT_EQUAL string");
-        UTILS_ASSERT_COUNT_EQUAL(strings, strings, strings_size);
-        UTILS_ASSERT_COUNT_EQUAL(strings, reversed_strings, strings_size);
-        UTILS_ASSERT_COUNT_EQUAL(strings, different_strings, strings_size);
-
-        int *matrix1[] = {
-                (int[]){2, 5, 6, 69, 420, 69420},
-                (int[]){1, 3, 9, 69, 420, 69420},
-                (int[]){10, 24, 21, 69, 420, 69420},
+        int_obj i3 = {3};
+        int_array ia3 = {(int[]){1, 2, 3, 4, 5}, 5};
+        int_array ia4 = {(int[]){2, 3, 4, 5, 6}, 5};
+        int_array ia5 = {(int[]){3, 4, 5, 6, 7}, 5};
+        int_array ia6 = {(int[]){4, 5, 6, 7, 8}, 5};
+        int_array ia7 = {(int[]){5, 6, 7, 8, 9}, 5};
+        int_array ia8 = {(int[]){6, 7, 8, 9, 10}, 5};
+        int_array ia9 = {(int[]){10, 12, 12, 12, 14}, 5};
+        int_array ia10 = {(int[]){11, 12, 13, 14, 15}, 5};
+        int_array ia11 = {(int[]){12, 13, 14, 15, 16}, 5};
+        int_array ia12 = {(int[]){16, 15, 14, 13, 12}, 5};
+        int_darray ida1 = {
+                (int *[]){
+                        (int[]){1, 2, 3, 4, 5, 6},
+                        (int[]){1, 2, 3, 4, 5},
+                        (int[]){1, 2, 3, 4},
+                        (int[]){1, 2, 3},
+                        (int[]){1, 2},
+                        (int[]){1},
+                },
+                (int[]){6, 5, 4, 3, 2, 1},
+                6,
         };
-        int *matrix2[] = {
-                (int[]){10, 24, 21, 69, 420, 69420},
-                (int[]){2, 5, 6, 69, 420, 69420},
-                (int[]){1, 3, 9, 69, 420, 69420},
+        int_darray ida2 = {
+                (int *[]){
+                        (int[]){1},
+                        (int[]){1, 2},
+                        (int[]){1, 2, 3},
+                        (int[]){1, 2, 3, 4},
+                        (int[]){1, 2, 3, 4, 5},
+                        (int[]){1, 2, 3, 4, 5, 6},
+                },
+                (int[]){1, 2, 3, 4, 5, 6},
+                6,
         };
-        int matrix_size[] = {6, 6, 6};
+        int_darray ida3 = {
+                (int *[]){
+                        (int[]){2, 3, 4, 5, 6, 7},
+                        (int[]){3, 4, 5, 6, 7},
+                        (int[]){4, 5, 6, 7},
+                        (int[]){5, 6, 7},
+                        (int[]){6, 7},
+                        (int[]){7},
+                },
+                (int[]){6, 5, 4, 3, 2, 1},
+                6,
+        };
+        int_darray ida4 = {
+                (int *[]){
+                        (int[]){7},
+                        (int[]){6, 7},
+                        (int[]){5, 6, 7},
+                        (int[]){4, 5, 6, 7},
+                        (int[]){3, 4, 5, 6, 7},
+                        (int[]){2, 3, 4, 5, 6, 7},
+                },
+                (int[]){1, 2, 3, 4, 5, 6},
+                6,
+        };
+        int_darray ida5 = {
+                (int *[]){
+                        (int[]){3, 4, 5, 6, 7, 6},
+                        (int[]){3, 4, 5, 6, 7},
+                        (int[]){3, 4, 5, 6},
+                        (int[]){3, 4, 5},
+                        (int[]){3, 4},
+                        (int[]){3},
+                },
+                (int[]){6, 5, 4, 3, 2, 1},
+                6,
+        };
+        int_darray ida6 = {
+                (int *[]){
+                        (int[]){3},
+                        (int[]){3, 4},
+                        (int[]){3, 4, 5},
+                        (int[]){3, 4, 5, 6},
+                        (int[]){3, 4, 5, 6, 7},
+                        (int[]){3, 4, 5, 6, 7, 6},
+                },
+                (int[]){1, 2, 3, 4, 5, 6},
+                6,
+        };
+        _Container actnr1 = {(void *[]){&ia3, &ia4, &ia5, &ia6, &ia7, &ia8}, 5};
+        _Container actnr2 = {(void *[]){&ia7, &ia8, &ia9, &ia10, &ia11, &ia12}, 5};
+        _Container dactnr1 = {(void *[]){&ida1, &ida2, &ida4, &ida5, &ida6}, 5};
+        _Container dactnr2 = {(void *[]){&ida1, &ida2, &ida3, &ida4, &ida5}, 5};
 
-        UTILS_LOG("Test UTILS_ASSERT_EQUAL_MD_ARRAY int");
-        UTILS_ASSERT_EQUAL_MULTI_DIM_ARRAY(matrix1, matrix1, matrix_size, ARRAY_SIZE(matrix_size));
-        UTILS_ASSERT_EQUAL_MULTI_DIM_ARRAY(matrix1, matrix2, matrix_size, ARRAY_SIZE(matrix_size));
+        UTILS_LOG("----- loggers -----");
+        UTILS_LOG("c1={}, s1={}, sh1={}, i1={}, st1={}, d1={}, b1={}", c1, s1, sh1, i1, st1, d1, b1);
+        UTILS_LOG("c2={}, s2={}, sh2={}, i2={}, st2={}, d2={}, b2={}", c2, s2, sh2, i2, st2, d2, b2);
+        UTILS_LOG("ca1={}, ca2={}", ca1, ca2);
+        UTILS_LOG("sa1={}, sa2={}", sa1, sa2);
+        UTILS_LOG("sha1={}, sha2={}", sha1, sha2);
+        UTILS_LOG("ia1={}, ia2={}", ia1, ia2);
+        UTILS_LOG("sta1={}, sta2={}", sta1, sta2);
+        UTILS_LOG("da1={}, da2={}", da1, da2);
+        UTILS_LOG("ba1={}, ba2={}", ba1, ba2);
+        UTILS_LOG("ida1={}, ida2={}", ida1, ida2);
+
+        UTILS_LOG("----- assert_equal:passed -----");
+        ASSERT_EQUAL(c1, c1);
+        ASSERT_EQUAL(c2, c2);
+        ASSERT_EQUAL(s1, s1);
+        ASSERT_EQUAL(s2, s2);
+        ASSERT_EQUAL(sh1, sh1);
+        ASSERT_EQUAL(sh2, sh2);
+        ASSERT_EQUAL(i1, i1);
+        ASSERT_EQUAL(i2, i2);
+        ASSERT_EQUAL(st1, st1);
+        ASSERT_EQUAL(st2, st2);
+        ASSERT_EQUAL(d1, d1);
+        ASSERT_EQUAL(d2, d2);
+        ASSERT_EQUAL(b1, b1);
+        ASSERT_EQUAL(b2, b2);
+        ASSERT_EQUAL(ida1, ida1);
+
+        UTILS_LOG("----- assert_equal:failed -----");
+        ASSERT_EQUAL(ca1, ca1);
+        ASSERT_EQUAL(ca2, ca2);
+        ASSERT_EQUAL(sa1, sa1);
+        ASSERT_EQUAL(sa2, sa2);
+        ASSERT_EQUAL(sha1, sha1);
+        ASSERT_EQUAL(sha2, sha2);
+        ASSERT_EQUAL(ia1, ia1);
+        ASSERT_EQUAL(ia2, ia2);
+        ASSERT_EQUAL(sta1, sta1);
+        ASSERT_EQUAL(sta2, sta2);
+        ASSERT_EQUAL(da1, da1);
+        ASSERT_EQUAL(da2, da2);
+        ASSERT_EQUAL(ba1, ba1);
+        ASSERT_EQUAL(ba2, ba2);
+
+        ASSERT_EQUAL(c1, c2);
+        ASSERT_EQUAL(s1, s2);
+        ASSERT_EQUAL(sh1, sh2);
+        ASSERT_EQUAL(i1, i2);
+        ASSERT_EQUAL(st1, st2);
+        ASSERT_EQUAL(d1, d2);
+        ASSERT_EQUAL(b1, b2);
+
+        ASSERT_EQUAL(ca1, ca2);
+        ASSERT_EQUAL(sa1, sa2);
+        ASSERT_EQUAL(sha1, sha2);
+        ASSERT_EQUAL(ia1, ia2);
+        ASSERT_EQUAL(sta1, sta2);
+        ASSERT_EQUAL(da1, da2);
+        ASSERT_EQUAL(ba1, ba2);
+
+        ASSERT_EQUAL(ida1, ida2);
+
+        UTILS_LOG("----- assert_in:passed -----");
+        ASSERT_IN(i3, ia3);
+        ASSERT_IN(ia6, actnr1);
+        ASSERT_IN(ida6, dactnr1);
+
+        UTILS_LOG("----- assert_in:failed -----");
+        ASSERT_IN(i3, ia6);
+        ASSERT_IN(ia6, actnr2);
+        ASSERT_IN(ida6, dactnr2);
+
+        UTILS_LOG("----- assert_count_equal:passed -----");
+        ASSERT_COUNT_EQUAL(ia11, ia11);
+        ASSERT_COUNT_EQUAL(ia11, ia12);
+        ASSERT_COUNT_EQUAL(ida1, ida2);
+
+        UTILS_LOG("----- assert_count_equal:failed -----");
+        ASSERT_COUNT_EQUAL(ia9, ia12);
+        ASSERT_COUNT_EQUAL(ia10, ia11);
+        ASSERT_COUNT_EQUAL(ida2, ida3);
 }

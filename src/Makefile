@@ -8,7 +8,7 @@ endif
 
 obj-y += pch.gch
 
-subdir-y += utils
+subdir-$(CONFIG_UTILS_TEST) += utils
 
 subdir-$(CONFIG_DSA) += dsa
 subdir-$(CONFIG_ARRAY_STRING) += array_string

@@ -1,5 +1,5 @@
 #include "common.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern struct min_heap dsa_min_heap_ctor();
 
@@ -8,9 +8,9 @@ void test_dsa_min_heap()
         struct min_heap heap = dsa_min_heap_ctor();
         struct min_heap *h = &heap;
 
-        UTILS_ASSERT_TRUE(h->insert != 0);
-        UTILS_ASSERT_TRUE(h->delete != 0);
-        UTILS_ASSERT_EQUAL(h->length, 0);
+        ASSERT_TRUE(h->insert != 0);
+        ASSERT_TRUE(h->delete != 0);
+        ASSERT_EQUAL((int_obj){h->length}, (int_obj){0});
 
         h->insert(h, 5);
         h->insert(h, 3);
@@ -21,15 +21,15 @@ void test_dsa_min_heap()
         h->insert(h, 8);
         h->insert(h, 7);
 
-        UTILS_ASSERT_EQUAL(h->length, 8);
-        UTILS_ASSERT_EQUAL(h->delete(h), 1);
-        UTILS_ASSERT_EQUAL(h->delete(h), 3);
-        UTILS_ASSERT_EQUAL(h->delete(h), 4);
-        UTILS_ASSERT_EQUAL(h->delete(h), 5);
-        UTILS_ASSERT_EQUAL(h->length, 4);
-        UTILS_ASSERT_EQUAL(h->delete(h), 7);
-        UTILS_ASSERT_EQUAL(h->delete(h), 8);
-        UTILS_ASSERT_EQUAL(h->delete(h), 69);
-        UTILS_ASSERT_EQUAL(h->delete(h), 420);
-        UTILS_ASSERT_EQUAL(h->length, 0);
+        ASSERT_EQUAL((int_obj){h->length}, (int_obj){8});
+        ASSERT_EQUAL((int_obj){h->delete(h)}, (int_obj){1});
+        ASSERT_EQUAL((int_obj){h->delete(h)}, (int_obj){3});
+        ASSERT_EQUAL((int_obj){h->delete(h)}, (int_obj){4});
+        ASSERT_EQUAL((int_obj){h->delete(h)}, (int_obj){5});
+        ASSERT_EQUAL((int_obj){h->length}, (int_obj){4});
+        ASSERT_EQUAL((int_obj){h->delete(h)}, (int_obj){7});
+        ASSERT_EQUAL((int_obj){h->delete(h)}, (int_obj){8});
+        ASSERT_EQUAL((int_obj){h->delete(h)}, (int_obj){69});
+        ASSERT_EQUAL((int_obj){h->delete(h)}, (int_obj){420});
+        ASSERT_EQUAL((int_obj){h->length}, (int_obj){0});
 }

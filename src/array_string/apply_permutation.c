@@ -1,23 +1,23 @@
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern void array_string_applyPermutation(int permSize, int perm[permSize], int ASize, char A[ASize]);
 
 void test_array_string_applyPermutation()
 {
         {
-                char A[] = {'a', 'b', 'c', 'd'};
-                int perm[] = {3, 2, 1, 0};
-                array_string_applyPermutation(4, perm, 4, A);
+                char_array A = {(char[]){'a', 'b', 'c', 'd'}, 4};
+                int_array perm = {(int[]){3, 2, 1, 0}, 4};
+                array_string_applyPermutation(perm.len, perm.data, A.len, A.data);
 
-                const char expected[] = {'d', 'c', 'b', 'a'};
-                UTILS_ASSERT_EQUAL_ARRAY(A, expected, 4);
+                char_array expected = {(char[]){'d', 'c', 'b', 'a'}, 4};
+                ASSERT_EQUAL(A, expected);
         }
         {
-                char A[] = {'a', 'b', 'c', 'd'};
-                int perm[] = {2, 0, 1, 3};
-                array_string_applyPermutation(4, perm, 4, A);
+                char_array A = {(char[]){'a', 'b', 'c', 'd'}, 4};
+                int_array perm = {(int[]){2, 0, 1, 3}, 4};
+                array_string_applyPermutation(perm.len, perm.data, A.len, A.data);
 
-                const char expected[] = {'b', 'c', 'a', 'd'};
-                UTILS_ASSERT_EQUAL_ARRAY(A, expected, 4);
+                char_array expected = {(char[]){'b', 'c', 'a', 'd'}, 4};
+                ASSERT_EQUAL(A, expected);
         }
 }

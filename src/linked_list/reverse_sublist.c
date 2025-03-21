@@ -1,10 +1,11 @@
 #include "list_node.h"
-#include "utils/utils.h"
+#include "utils/asserts.h"
 
 extern struct list_node *linked_list_reverseSublist(struct list_node *L, int start, int finish);
 
 void test_linked_list_reverseSublist()
 {
+        ll_node_obj actual = {}, expected = {};
         {
                 struct list_node *node, *L;
                 node = &(struct list_node){5, 0};
@@ -12,12 +13,13 @@ void test_linked_list_reverseSublist()
                 node = &(struct list_node){3, node};
                 node = &(struct list_node){2, node};
                 L = &(struct list_node){1, node};
-                node = linked_list_reverseSublist(L, 2, 4);
+                actual.data = linked_list_reverseSublist(L, 2, 4);
 
-                int expected[] = {1, 4, 3, 2, 5};
-                int actual[sizeof(expected) / sizeof(*expected)] = {};
-                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                int foo[] = {1, 4, 3, 2, 5};
+                expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
+                ASSERT_EQUAL(actual, expected);
+                FREE_LIST(actual.data);
+                FREE_LIST(expected.data);
         }
         {
                 struct list_node *node, *L;
@@ -26,21 +28,23 @@ void test_linked_list_reverseSublist()
                 node = &(struct list_node){5, node};
                 node = &(struct list_node){3, node};
                 L = &(struct list_node){11, node};
-                node = linked_list_reverseSublist(L, 2, 4);
+                actual.data = linked_list_reverseSublist(L, 2, 4);
 
-                int expected[] = {11, 7, 5, 3, 2};
-                int actual[sizeof(expected) / sizeof(*expected)] = {};
-                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                int foo[] = {11, 7, 5, 3, 2};
+                expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
+                ASSERT_EQUAL(actual, expected);
+                FREE_LIST(actual.data);
+                FREE_LIST(expected.data);
         }
         {
                 struct list_node *node, *L;
                 L = &(struct list_node){5, 0};
-                node = linked_list_reverseSublist(L, 1, 1);
+                actual.data = linked_list_reverseSublist(L, 1, 1);
 
-                int expected[] = {5};
-                int actual[sizeof(expected) / sizeof(*expected)] = {};
-                TO_LIST(node, sizeof(expected) / sizeof(*expected), actual);
-                UTILS_ASSERT_EQUAL_ARRAY(actual, expected, sizeof(expected) / sizeof(*expected));
+                int foo[] = {5};
+                expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
+                ASSERT_EQUAL(actual, expected);
+                FREE_LIST(actual.data);
+                FREE_LIST(expected.data);
         }
 }

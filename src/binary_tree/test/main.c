@@ -1,6 +1,5 @@
 #include "binary_tree/btree_node.h"
-#define TEST_UTILS
-#include "utils/utils.c"
+#include "utils/asserts.h"
 
 int main()
 {
@@ -40,9 +39,9 @@ int main()
                                         },
                         },
         };
-        UTILS_LOG("tree1={}", UTYPE(tree1));
+        UTILS_LOG("tree1={}", (bt_node_obj){tree1});
         tree = btree(data1, ARRAY_SIZE(data1));
-        UTILS_LOG("tree={}", UTYPE(tree));
+        UTILS_LOG("tree={}", (bt_node_obj){tree});
         free_btree(tree);
 
         UTILS_LOG("\n====== tree 2 =======\n");
@@ -91,9 +90,9 @@ int main()
                                 .right = 0,
                         },
         };
-        UTILS_LOG("tree2={}", UTYPE(tree2));
+        UTILS_LOG("tree2={}", (bt_node_obj){tree2});
         tree = btree(data2, ARRAY_SIZE(data2));
-        UTILS_LOG("tree={}", UTYPE(tree));
+        UTILS_LOG("tree={}", (bt_node_obj){tree});
         free_btree(tree);
 
         UTILS_LOG("\n====== tree 3 =======\n");
@@ -152,9 +151,9 @@ int main()
                                         },
                         },
         };
-        UTILS_LOG("tree3={}", UTYPE(tree3));
+        UTILS_LOG("tree3={}", (bt_node_obj){tree3});
         tree = btree(data3, ARRAY_SIZE(data3));
-        UTILS_LOG("tree={}", UTYPE(tree));
+        UTILS_LOG("tree={}", (bt_node_obj){tree});
         free_btree(tree);
 
         UTILS_LOG("\n====== tree 4 =======\n");
@@ -179,9 +178,9 @@ int main()
                                 .right = 0,
                         },
         };
-        UTILS_LOG("tree4={}", UTYPE(tree4));
+        UTILS_LOG("tree4={}", (bt_node_obj){tree4});
         tree = btree(data4, ARRAY_SIZE(data4));
-        UTILS_LOG("tree={}", UTYPE(tree));
+        UTILS_LOG("tree={}", (bt_node_obj){tree});
         free_btree(tree);
 
         UTILS_LOG("\n====== tree 5 =======\n");
@@ -223,9 +222,9 @@ int main()
                                         },
                         },
         };
-        UTILS_LOG("tree5={}", UTYPE(tree5));
+        UTILS_LOG("tree5={}", (bt_node_obj){tree5});
         tree = btree(data5, ARRAY_SIZE(data5));
-        UTILS_LOG("tree={}", UTYPE(tree));
+        UTILS_LOG("tree={}", (bt_node_obj){tree});
         free_btree(tree);
 
         UTILS_LOG("\n====== tree 6 =======\n");
@@ -266,9 +265,9 @@ int main()
                                         },
                         },
         };
-        UTILS_LOG("tree6={}", UTYPE(tree6));
+        UTILS_LOG("tree6={}", (bt_node_obj){tree6});
         tree = btree(data6, ARRAY_SIZE(data6));
-        UTILS_LOG("tree={}", UTYPE(tree));
+        UTILS_LOG("tree={}", (bt_node_obj){tree});
         free_btree(tree);
 
         UTILS_LOG("\n====== tree 7 =======\n");
@@ -332,9 +331,9 @@ int main()
                                         },
                         },
         };
-        UTILS_LOG("tree7={}", UTYPE(tree7));
+        UTILS_LOG("tree7={}", (bt_node_obj){tree7});
         tree = btree(data7, ARRAY_SIZE(data7));
-        UTILS_LOG("tree={}", UTYPE(tree));
+        UTILS_LOG("tree={}", (bt_node_obj){tree});
         free_btree(tree);
 
         UTILS_LOG("\n====== tree 8 =======\n");
@@ -381,9 +380,9 @@ int main()
                                         },
                         },
         };
-        UTILS_LOG("tree8={}", UTYPE(tree8));
+        UTILS_LOG("tree8={}", (bt_node_obj){tree8});
         tree = btree(data8, ARRAY_SIZE(data8));
-        UTILS_LOG("tree={}", UTYPE(tree));
+        UTILS_LOG("tree={}", (bt_node_obj){tree});
         free_btree(tree);
 
         UTILS_LOG("\n====== tree 9 =======\n");
@@ -442,9 +441,9 @@ int main()
                                         },
                         },
         };
-        UTILS_LOG("tree9={}", UTYPE(tree9));
+        UTILS_LOG("tree9={}", (bt_node_obj){tree9});
         tree = btree(data9, ARRAY_SIZE(data9));
-        UTILS_LOG("tree={}", UTYPE(tree));
+        UTILS_LOG("tree={}", (bt_node_obj){tree});
         free_btree(tree);
 
         UTILS_LOG("\n====== tree 10 =======\n");
@@ -471,16 +470,31 @@ int main()
                                 .right = 0,
                         },
         };
-        UTILS_LOG("tree10={}", UTYPE(tree10));
+        UTILS_LOG("tree10={}", (bt_node_obj){tree10});
         tree = btree(data10, ARRAY_SIZE(data10));
-        UTILS_LOG("tree={}", UTYPE(tree));
+        UTILS_LOG("tree={}", (bt_node_obj){tree});
         free_btree(tree);
 
-        UTILS_LOG("\n====== BTREE ASSERT=======");
-        UTILS_ASSERT_EQUAL(tree1, tree1);
-        UTILS_ASSERT_EQUAL(tree1, tree8);
-        UTILS_ASSERT_GREATER(tree6, tree10);
-        UTILS_ASSERT_LESS(tree10, tree6);
-        UTILS_ASSERT_GREATER(tree10, tree6);
-        UTILS_ASSERT_LESS(tree6, tree10);
+        UTILS_LOG("\n====== assert:passed =======");
+        bt_node_obj actual = {}, expected = {};
+        actual.data = tree1;
+        expected.data = tree1;
+        ASSERT_EQUAL(actual, expected);
+        actual.data = tree6;
+        expected.data = tree10;
+        ASSERT_GREATER(actual, expected);
+        actual.data = tree10;
+        expected.data = tree6;
+        ASSERT_LESS(actual, expected);
+
+        UTILS_LOG("\n====== assert:failed =======");
+        actual.data = tree1;
+        expected.data = tree8;
+        ASSERT_EQUAL(actual, expected);
+        actual.data = tree10;
+        expected.data = tree6;
+        ASSERT_GREATER(actual, expected);
+        actual.data = tree6;
+        expected.data = tree10;
+        ASSERT_LESS(actual, expected);
 }
