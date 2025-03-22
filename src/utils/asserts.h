@@ -55,9 +55,11 @@
                         goto __failed;                                                                                 \
                 array_zip(i, a, j, e)                                                                                  \
                 {                                                                                                      \
-                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) == 0)                         \
-                                return;                                                                                \
+                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) != 0)                         \
+                                goto __failed;                                                                         \
                 }                                                                                                      \
+        __success:                                                                                                     \
+                return;                                                                                                \
         __failed:                                                                                                      \
                 printf("\n-----------------------------------------------------\n");                                   \
                 printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                                 \
@@ -82,18 +84,20 @@
                                 if (l1 != l2)                                                                          \
                                         goto __failed;                                                                 \
                         }                                                                                              \
-                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) == 0)                         \
-                                return;                                                                                \
-                __failed:                                                                                              \
-                        printf("\n-----------------------------------------------------\n");                           \
-                        printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
-                        printf("Expected ");                                                                           \
-                        __print_##data_t##_darray(e);                                                                  \
-                        printf(" got ");                                                                               \
-                        __print_##data_t##_darray(a);                                                                  \
-                        printf("\n-----------------------------------------------------\n\n");                         \
-                        __builtin_trap();                                                                              \
+                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) != 0)                         \
+                                goto __failed;                                                                         \
                 }                                                                                                      \
+        __success:                                                                                                     \
+                return;                                                                                                \
+        __failed:                                                                                                      \
+                printf("\n-----------------------------------------------------\n");                                   \
+                printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                                 \
+                printf("Expected ");                                                                                   \
+                __print_##data_t##_darray(e);                                                                          \
+                printf(" got ");                                                                                       \
+                __print_##data_t##_darray(a);                                                                          \
+                printf("\n-----------------------------------------------------\n\n");                                 \
+                __builtin_trap();                                                                                      \
         }
 
 #define __assert_equal(a, ...) _Generic((a), __VA_OPT__(__expand__(__assert_equal_h(__VA_ARGS__))))
@@ -129,9 +133,11 @@
                         goto __failed;                                                                                 \
                 array_zip(i, a, j, e)                                                                                  \
                 {                                                                                                      \
-                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) == -1)                        \
-                                return;                                                                                \
+                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) != -1)                        \
+                                goto __failed;                                                                         \
                 }                                                                                                      \
+        __success:                                                                                                     \
+                return;                                                                                                \
         __failed:                                                                                                      \
                 printf("\n-----------------------------------------------------\n");                                   \
                 printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                                 \
@@ -155,17 +161,19 @@
                                 if (l1 != l2)                                                                          \
                                         goto __failed;                                                                 \
                         }                                                                                              \
-                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) == -1)                        \
-                                return;                                                                                \
-                __failed:                                                                                              \
-                        printf("\n-----------------------------------------------------\n");                           \
-                        printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
-                        __print_##data_t##_darray(e);                                                                  \
-                        printf(" not less than ");                                                                     \
-                        __print_##data_t##_darray(a);                                                                  \
-                        printf("\n-----------------------------------------------------\n\n");                         \
-                        __builtin_trap();                                                                              \
+                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) != -1)                        \
+                                goto __failed;                                                                         \
                 }                                                                                                      \
+        __success:                                                                                                     \
+                return;                                                                                                \
+        __failed:                                                                                                      \
+                printf("\n-----------------------------------------------------\n");                                   \
+                printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                                 \
+                __print_##data_t##_darray(e);                                                                          \
+                printf(" not less than ");                                                                             \
+                __print_##data_t##_darray(a);                                                                          \
+                printf("\n-----------------------------------------------------\n\n");                                 \
+                __builtin_trap();                                                                                      \
         }
 
 #define __assert_less(a, ...) _Generic((a), __VA_OPT__(__expand__(__assert_less_h(__VA_ARGS__))))
@@ -201,9 +209,11 @@
                         goto __failed;                                                                                 \
                 array_zip(i, a, j, e)                                                                                  \
                 {                                                                                                      \
-                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) == 1)                         \
-                                return;                                                                                \
+                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) != 1)                         \
+                                goto __failed;                                                                         \
                 }                                                                                                      \
+        __success:                                                                                                     \
+                return;                                                                                                \
         __failed:                                                                                                      \
                 printf("\n-----------------------------------------------------\n");                                   \
                 printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                                 \
@@ -227,8 +237,10 @@
                                 if (l1 != l2)                                                                          \
                                         goto __failed;                                                                 \
                         }                                                                                              \
-                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) == 1)                         \
-                                return;                                                                                \
+                        if (__cmp_##data_t##_obj((data_t##_obj){*i}, (data_t##_obj){*j}) != 1)                         \
+                                goto __failed;                                                                         \
+                __success:                                                                                             \
+                        return;                                                                                        \
                 __failed:                                                                                              \
                         printf("\n-----------------------------------------------------\n");                           \
                         printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \

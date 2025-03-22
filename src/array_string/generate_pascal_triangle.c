@@ -14,6 +14,7 @@ void test_array_string_generatePascalTriangle()
                                        (int[]){1, 4, 6, 4, 1},
                                },
                                (int[]){1, 2, 3, 4, 5}, 5};
+        ASSERT_EQUAL(actual, expected);
         free(actual.len);
         free_array(actual.data, 5);
 }

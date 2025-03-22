@@ -1,7 +1,7 @@
 #include "array_string.h"
 #include "utils/asserts.h"
 
-extern int array_string_buyAndSellStockOnce(int priceSize, int prices[]);
+extern int array_string_buyAndSellStockOnce(int priceSize, int prices[priceSize]);
 
 void test_array_string_buyAndSellStockOnce()
 {

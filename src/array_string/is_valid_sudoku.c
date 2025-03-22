@@ -1,6 +1,6 @@
 #include "utils/asserts.h"
 
-extern bool array_string_isValidSudoku(int *partialAssignment[], int size);
+extern bool array_string_isValidSudoku(int size, int *partialAssignment[size]);
 
 void test_array_string_isValidSudoku()
 {
@@ -17,7 +17,7 @@ void test_array_string_isValidSudoku()
                                                     (int[]){0, 0, 0, 0, 8, 0, 0, 7, 9},
                                             },
                                             (int[]){9, 9, 9, 9, 9, 9, 9, 9, 9}, 9};
-                ASSERT_FALSE(array_string_isValidSudoku(partialSudoku.data, partialSudoku.nr));
+                ASSERT_FALSE(array_string_isValidSudoku(partialSudoku.nr, partialSudoku.data));
         }
         {
                 int_darray completedSudoku = {(int *[]){
@@ -32,7 +32,7 @@ void test_array_string_isValidSudoku()
                                                       (int[]){3, 4, 5, 2, 8, 6, 1, 7, 9},
                                               },
                                               (int[]){9, 9, 9, 9, 9, 9, 9, 9, 9}, 9};
-                ASSERT_TRUE(array_string_isValidSudoku(completedSudoku.data, completedSudoku.nr));
+                ASSERT_TRUE(array_string_isValidSudoku(completedSudoku.nr, completedSudoku.data));
         }
         {
                 int_darray completedSudoku = {(int *[]){
@@ -47,6 +47,6 @@ void test_array_string_isValidSudoku()
                                                       (int[]){3, 4, 5, 2, 8, 6, 1, 7, 9},
                                               },
                                               (int[]){9, 9, 9, 9, 9, 9, 9, 9, 9}, 9};
-                ASSERT_FALSE(array_string_isValidSudoku(completedSudoku.data, completedSudoku.nr));
+                ASSERT_FALSE(array_string_isValidSudoku(completedSudoku.nr, completedSudoku.data));
         }
 }

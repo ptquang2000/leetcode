@@ -23,6 +23,7 @@ void test_array_string_dutchFlagPartition()
                 ASSERT_EQUAL((int_obj){count(A.len, A.data, 2)}, (int_obj){2});
 
                 int_array expectLess = {(int[]){2, 2, 2, 2, 2}, 5};
+                A.len = expectLess.len;
                 ASSERT_LESS(A, expectLess);
                 int_array expectEqual = {(int[]){2, 2}, 2};
                 A.data = A.data + 5;
@@ -38,6 +39,7 @@ void test_array_string_dutchFlagPartition()
                 ASSERT_EQUAL((int_obj){count(A.len, A.data, 2)}, (int_obj){2});
 
                 int_array expectEqual = {(int[]){0, 0}, 2};
+                A.len = expectEqual.len;
                 ASSERT_EQUAL(A, expectEqual);
                 int_array expectGreater = {(int[]){0, 0, 0, 0, 0}, 5};
                 A.data = A.data + 2;
