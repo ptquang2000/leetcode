@@ -20,7 +20,6 @@ void test_linked_list_listPivoting()
                 int foo[] = {3, 2, 2, 5, 7, 11, 11};
                 expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
                 ASSERT_EQUAL(actual, expected);
-                FREE_LIST(actual.data);
                 FREE_LIST(expected.data);
         }
         {
@@ -36,7 +35,6 @@ void test_linked_list_listPivoting()
                 int foo[] = {1, 2, 2, 3, 4, 5};
                 expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
                 ASSERT_EQUAL(actual, expected);
-                FREE_LIST(actual.data);
                 FREE_LIST(expected.data);
         }
         {
@@ -48,7 +46,6 @@ void test_linked_list_listPivoting()
                 int foo[] = {1, 2};
                 expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
                 ASSERT_EQUAL(actual, expected);
-                FREE_LIST(actual.data);
                 FREE_LIST(expected.data);
         }
 }

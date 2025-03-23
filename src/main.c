@@ -102,10 +102,10 @@ int main()
         test_array_string_spreadsheetDecodeColumnID();
 #endif
 #ifdef CONFIG_STRING_DECODING
-        test_array_string_stringEncoding();
+        test_array_string_stringDecoding();
 #endif
 #ifdef CONFIG_STRING_ENCODING
-        test_array_string_stringDecoding();
+        test_array_string_stringEncoding();
 #endif
 #ifdef CONFIG_STRING_TO_INT
         test_array_string_stringToInt();

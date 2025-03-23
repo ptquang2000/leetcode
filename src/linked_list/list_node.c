@@ -17,18 +17,55 @@ static struct list_node *new_node(struct list_node i_node)
 
 ////////////////////////////////////////////////////////////////////////////////
 
+static int __cycle_len(struct list_node *L)
+{
+        struct list_node *dummy = L->next;
+        int i = 1;
+        while (dummy != L) {
+                i++;
+                dummy = dummy->next;
+        }
+        return i;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+static struct list_node *__has_cycle(struct list_node *L)
+{
+        struct list_node *slow = L, *fast = L;
+        while (slow && fast && fast->next) {
+                slow = slow->next;
+                fast = fast->next->next;
+                if (slow == fast) {
+                        int len = __cycle_len(fast);
+                        struct list_node *advanced_node = L;
+                        for (int i = 0; i < len; i++)
+                                advanced_node = advanced_node->next;
+                        while (L != advanced_node) {
+                                L = L->next;
+                                advanced_node = advanced_node->next;
+                        }
+                        return L;
+                }
+        }
+        return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 int __cmp_ll_node_obj(ll_node_obj a, ll_node_obj b)
 {
         struct list_node *lhs = a.data;
         struct list_node *rhs = b.data;
-        while (lhs && rhs) {
-                int r = lhs->data < rhs->data ? -1 : lhs->data > rhs->data ? 0 : 1;
-                if (r != 0)
-                        return r;
+        struct list_node *c1 = __has_cycle(a.data);
+        struct list_node *c2 = __has_cycle(b.data);
+        int r = !c1 ^ !c2 ? (c1 ? -1 : 0) : (c2 ? 1 : 0);
+        while (!r && lhs != c1 && rhs != c2) {
+                r = lhs->data < rhs->data ? -1 : lhs->data > rhs->data ? 1 : 0;
                 lhs = lhs->next;
                 rhs = rhs->next;
         }
-        return lhs ? 1 : rhs ? -1 : 0;
+        return r ? r : c1 == c2 ? 0 : lhs == c1 ? -1 : rhs == c2 ? 1 : lhs ? 1 : rhs ? -1 : 0;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -36,12 +73,23 @@ int __cmp_ll_node_obj(ll_node_obj a, ll_node_obj b)
 void __print_ll_node_obj(ll_node_obj a)
 {
         struct list_node *l = a.data;
+        struct list_node *c = __has_cycle(l);
         printf("[");
-        while (l) {
+        while (l != c) {
                 printf("%d", l->data);
                 l = l->next;
-                if (l)
+                if (l != c)
                         printf(",");
+        }
+        if (l) {
+                printf(",");
+                printf("%d", l->data);
+                l = l->next;
+                while (l != c) {
+                        printf(",");
+                        printf("%d", l->data);
+                        l = l->next;
+                }
         }
         printf("]");
 }

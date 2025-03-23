@@ -18,7 +18,6 @@ void test_linked_list_removeKthLast()
                 int foo[] = {1, 2, 3, 5};
                 expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
                 ASSERT_EQUAL(actual, expected);
-                FREE_LIST(actual.data);
                 FREE_LIST(expected.data);
         }
         {
@@ -29,7 +28,6 @@ void test_linked_list_removeKthLast()
                 int foo[] = {};
                 expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
                 ASSERT_EQUAL(actual, expected);
-                FREE_LIST(actual.data);
                 FREE_LIST(expected.data);
         }
         {
@@ -41,7 +39,6 @@ void test_linked_list_removeKthLast()
                 int foo[] = {1};
                 expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
                 ASSERT_EQUAL(actual, expected);
-                FREE_LIST(actual.data);
                 FREE_LIST(expected.data);
         }
 }

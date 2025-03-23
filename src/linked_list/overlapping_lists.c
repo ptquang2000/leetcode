@@ -79,9 +79,9 @@ void test_linked_list_overlappingLists()
                 L1 = &(struct list_node){0, node};
                 L2 = A;
 
-                ll_node_array c = {(struct list_node *[]){A, B}, 2};
+                ptr_array c = {(void *[]){A, B}, 2};
                 actual.data = linked_list_overlappingLists(L1, L2);
-                ASSERT_IN(actual, c);
+                ASSERT_IN((ptr_obj){actual.data}, c);
         }
 
         // NOTE: Merge before cycle

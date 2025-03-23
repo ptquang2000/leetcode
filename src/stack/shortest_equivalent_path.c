@@ -1,8 +1,5 @@
 #include "utils/asserts.h"
 
-#include <stdlib.h>
-#include <string.h>
-
 extern char *stack_shortest_equivalent_path(const char *path);
 
 void test_stack_shortest_equivalent_path()

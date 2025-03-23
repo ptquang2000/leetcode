@@ -16,7 +16,6 @@ void test_linked_list_removeDuplicates()
                 int foo[] = {1, 2};
                 expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
                 ASSERT_EQUAL(actual, expected);
-                FREE_LIST(actual.data);
                 FREE_LIST(expected.data);
         }
         {
@@ -31,7 +30,6 @@ void test_linked_list_removeDuplicates()
                 int foo[] = {1, 2, 3};
                 expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
                 ASSERT_EQUAL(actual, expected);
-                FREE_LIST(actual.data);
                 FREE_LIST(expected.data);
         }
         {
@@ -48,7 +46,6 @@ void test_linked_list_removeDuplicates()
                 int foo[] = {2, 3, 5, 7, 11};
                 expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
                 ASSERT_EQUAL(actual, expected);
-                FREE_LIST(actual.data);
                 FREE_LIST(expected.data);
         }
 }

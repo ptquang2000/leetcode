@@ -18,7 +18,6 @@ void test_linked_list_reverseSublist()
                 int foo[] = {1, 4, 3, 2, 5};
                 expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
                 ASSERT_EQUAL(actual, expected);
-                FREE_LIST(actual.data);
                 FREE_LIST(expected.data);
         }
         {
@@ -33,7 +32,6 @@ void test_linked_list_reverseSublist()
                 int foo[] = {11, 7, 5, 3, 2};
                 expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
                 ASSERT_EQUAL(actual, expected);
-                FREE_LIST(actual.data);
                 FREE_LIST(expected.data);
         }
         {
@@ -44,7 +42,6 @@ void test_linked_list_reverseSublist()
                 int foo[] = {5};
                 expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
                 ASSERT_EQUAL(actual, expected);
-                FREE_LIST(actual.data);
                 FREE_LIST(expected.data);
         }
 }

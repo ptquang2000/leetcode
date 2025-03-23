@@ -7,11 +7,12 @@
 #include "linked_list/list_node.h"
 
 typedef char *string;
+typedef void *ptr;
 typedef struct btree_node *bt_node;
 typedef struct list_node *ll_node;
 typedef struct heap *heap;
 #define __FLOATING__ double
-#define __INTEGER__ char, bool, short, int, size_t
+#define __INTEGER__ char, bool, short, int, size_t, ptr
 #define __LITERAL__ string
 #define __STRUCT__ bt_node, ll_node, heap
 #define __TYPES__ __FLOATING__, __INTEGER__, __LITERAL__, __STRUCT__
@@ -43,6 +44,7 @@ typedef struct_tmpl(short) short_obj;
 typedef struct_tmpl(int) int_obj;
 typedef struct_tmpl(size_t) size_t_obj;
 typedef struct_tmpl(double) double_obj;
+typedef struct_tmpl(void *) ptr_obj;
 typedef struct_tmpl(bt_node) bt_node_obj;
 typedef struct_tmpl(ll_node) ll_node_obj;
 typedef struct_tmpl(heap) heap_obj;
@@ -54,6 +56,7 @@ typedef struct_tmpl((short *){}, int) short_array;
 typedef struct_tmpl((int *){}, int) int_array;
 typedef struct_tmpl((size_t *){}, int) size_t_array;
 typedef struct_tmpl((double *){}, int) double_array;
+typedef struct_tmpl((void **){}, int) ptr_array;
 typedef struct_tmpl((bt_node *){}, int) bt_node_array;
 typedef struct_tmpl((ll_node *){}, int) ll_node_array;
 typedef struct_tmpl((heap *){}, int) heap_array;
@@ -65,6 +68,7 @@ typedef struct_tmpl((short **){}, (int *){}, int) short_darray;
 typedef struct_tmpl((int **){}, (int *){}, int) int_darray;
 typedef struct_tmpl((size_t **){}, (int *){}, int) size_t_darray;
 typedef struct_tmpl((double **){}, (int *){}, int) double_darray;
+typedef struct_tmpl((void ***){}, (int *){}, int) ptr_darray;
 typedef struct_tmpl((bt_node **){}, (int *){}, int) bt_node_darray;
 typedef struct_tmpl((ll_node **){}, (int *){}, int) ll_node_darray;
 typedef struct_tmpl((heap **){}, (int *){}, int) heap_darray;

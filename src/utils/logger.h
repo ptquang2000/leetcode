@@ -19,7 +19,8 @@ extern void __print_heap_obj(heap_obj a);
                        short: "%hd",                                                                                   \
                        int: "%d",                                                                                      \
                        size_t: "%ld",                                                                                  \
-                       double: "%f"),                                                                                  \
+                       double: "%f",                                                                                   \
+                       void *: "%p"),                                                                                  \
                _Generic((v), bool: ((v) ? "true" : "false"), default: (v)))
 
 #define __print_obj_def(data_t)                                                                                        \

@@ -19,7 +19,8 @@ extern int __cmp_heap_obj(heap_obj a, heap_obj b);
 #define __cmp_string_def(data_t)                                                                                       \
         static inline int __cmp_##data_t##_obj(data_t##_obj lhs, data_t##_obj rhs)                                     \
         {                                                                                                              \
-                return strcmp(lhs.data, rhs.data);                                                                     \
+                int r = strncmp(lhs.data, rhs.data, strlen(rhs.data));                                                 \
+                return r < 0 ? -1 : r > 0 ? 1 : 0;                                                                     \
         }
 #define __cmp_floating_def(data_t)                                                                                     \
         static inline int __cmp_##data_t##_obj(data_t##_obj lhs, data_t##_obj rhs)                                     \

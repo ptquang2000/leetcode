@@ -19,7 +19,6 @@ void test_linked_list_mergeTwoSortedLists()
                 int foo[] = {1, 1, 2, 3, 4, 4};
                 expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
                 ASSERT_EQUAL(actual, expected);
-                FREE_LIST(actual.data);
                 FREE_LIST(expected.data);
         }
         {
@@ -34,7 +33,6 @@ void test_linked_list_mergeTwoSortedLists()
                 int foo[] = {2, 3, 5, 7, 11};
                 expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
                 ASSERT_EQUAL(actual, expected);
-                FREE_LIST(actual.data);
                 FREE_LIST(expected.data);
         }
         {
@@ -50,7 +48,6 @@ void test_linked_list_mergeTwoSortedLists()
                 int foo[] = {0};
                 expected.data = FROM_LIST(ARRAY_SIZE(foo), foo);
                 ASSERT_EQUAL(actual, expected);
-                FREE_LIST(actual.data);
                 FREE_LIST(expected.data);
         }
 }
