@@ -45,7 +45,7 @@ extern void __print_heap_obj(heap_obj a);
 #define __print_darray_def(data_t)                                                                                     \
         static inline void __print_##data_t##_darray(data_t##_darray da)                                               \
         {                                                                                                              \
-                printf("[");                                                                                           \
+                printf("\n[");                                                                                         \
                 darray_foreach(i, a, da)                                                                               \
                 {                                                                                                      \
                         if (i == a[0])                                                                                 \
@@ -54,7 +54,7 @@ extern void __print_heap_obj(heap_obj a);
                         if (a[0] + da.len[a - da.data] == i + 1) {                                                     \
                                 printf("]");                                                                           \
                                 if (a - da.data < da.nr - 1)                                                           \
-                                        printf(",");                                                                   \
+                                        printf(",\n");                                                                 \
                         } else                                                                                         \
                                 printf(",");                                                                           \
                 }                                                                                                      \

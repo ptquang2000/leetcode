@@ -7,7 +7,14 @@ void test_recursion_generate_power_set()
         int_darray actual = {}, expected = {};
         {
                 int input_set[] = {0};
-                expected = (int_darray){(int *[]){(int[]){}, (int[]){0}}, (int[]){0, 1}, 2};
+                expected = (int_darray){
+                        (int *[]){
+                                (int[]){},
+                                (int[]){0},
+                        },
+                        (int[]){0, 1},
+                        2,
+                };
                 actual.data = recursion_generate_power_set(ARRAY_SIZE(input_set), input_set, &actual.len, &actual.nr);
                 ASSERT_COUNT_EQUAL(actual, expected);
 
