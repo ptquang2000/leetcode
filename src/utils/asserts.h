@@ -118,9 +118,9 @@
                 if (__cmp_##data_t##_obj(a, e) != -1) {                                                                \
                         printf("\n-----------------------------------------------------\n");                           \
                         printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
-                        __print_##data_t##_obj(e);                                                                     \
-                        printf(" not less than ");                                                                     \
                         __print_##data_t##_obj(a);                                                                     \
+                        printf(" not less than ");                                                                     \
+                        __print_##data_t##_obj(e);                                                                     \
                         printf("\n-----------------------------------------------------\n\n");                         \
                         __builtin_trap();                                                                              \
                 }                                                                                                      \
@@ -141,9 +141,9 @@
         __failed:                                                                                                      \
                 printf("\n-----------------------------------------------------\n");                                   \
                 printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                                 \
-                __print_##data_t##_array(e);                                                                           \
-                printf(" not less than ");                                                                             \
                 __print_##data_t##_array(a);                                                                           \
+                printf(" not less than ");                                                                             \
+                __print_##data_t##_array(e);                                                                           \
                 printf("\n-----------------------------------------------------\n\n");                                 \
                 __builtin_trap();                                                                                      \
         }
@@ -169,9 +169,9 @@
         __failed:                                                                                                      \
                 printf("\n-----------------------------------------------------\n");                                   \
                 printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                                 \
-                __print_##data_t##_darray(e);                                                                          \
-                printf(" not less than ");                                                                             \
                 __print_##data_t##_darray(a);                                                                          \
+                printf(" not less than ");                                                                             \
+                __print_##data_t##_darray(e);                                                                          \
                 printf("\n-----------------------------------------------------\n\n");                                 \
                 __builtin_trap();                                                                                      \
         }
@@ -194,9 +194,9 @@
                 if (__cmp_##data_t##_obj(a, e) != 1) {                                                                 \
                         printf("\n-----------------------------------------------------\n");                           \
                         printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
-                        __print_##data_t##_obj(e);                                                                     \
-                        printf(" not greater than ");                                                                  \
                         __print_##data_t##_obj(a);                                                                     \
+                        printf(" not greater than ");                                                                  \
+                        __print_##data_t##_obj(e);                                                                     \
                         printf("\n-----------------------------------------------------\n\n");                         \
                         __builtin_trap();                                                                              \
                 }                                                                                                      \
@@ -217,9 +217,9 @@
         __failed:                                                                                                      \
                 printf("\n-----------------------------------------------------\n");                                   \
                 printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                                 \
-                __print_##data_t##_array(e);                                                                           \
-                printf(" not greater than ");                                                                          \
                 __print_##data_t##_array(a);                                                                           \
+                printf(" not greater than ");                                                                          \
+                __print_##data_t##_array(e);                                                                           \
                 printf("\n-----------------------------------------------------\n\n");                                 \
                 __builtin_trap();                                                                                      \
         }
@@ -244,9 +244,9 @@
                 __failed:                                                                                              \
                         printf("\n-----------------------------------------------------\n");                           \
                         printf("FAILED: %s\nFile %s at line %d:\n", fn, f, l);                                         \
-                        __print_##data_t##_darray(e);                                                                  \
-                        printf(" not greater than ");                                                                  \
                         __print_##data_t##_darray(a);                                                                  \
+                        printf(" not greater than ");                                                                  \
+                        __print_##data_t##_darray(e);                                                                  \
                         printf("\n-----------------------------------------------------\n\n");                         \
                         __builtin_trap();                                                                              \
                 }                                                                                                      \
