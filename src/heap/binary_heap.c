@@ -16,13 +16,6 @@ static bool __lt__(size_t lhs, size_t rhs)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static bool __gt__(size_t lhs, size_t rhs)
-{
-        return lhs > rhs;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
 static void heapify_up(struct heap *h, size_t i)
 {
         size_t p = parent_idx(i);
@@ -30,10 +23,7 @@ static void heapify_up(struct heap *h, size_t i)
                 return;
 
         bool (*lt)(size_t, size_t) = h->__lt__ ? h->__lt__ : __lt__;
-        bool (*gt)(size_t, size_t) = h->__gt__ ? h->__gt__ : __gt__;
-        bool (*op)(size_t, size_t) = h->maxheap ? lt : gt;
-
-        size_t m = op(h->data[p], h->data[i]) ? p : i;
+        size_t m = lt(h->data[p], h->data[i]) ^ !h->maxheap ? p : i;
         if (m != i) {
                 h->data[p] ^= h->data[i];
                 h->data[i] ^= h->data[p];
@@ -52,11 +42,8 @@ static void heapify_down(struct heap *h, size_t i)
                 return;
 
         bool (*lt)(size_t, size_t) = h->__lt__ ? h->__lt__ : __lt__;
-        bool (*gt)(size_t, size_t) = h->__gt__ ? h->__gt__ : __gt__;
-        bool (*op)(size_t, size_t) = h->maxheap ? lt : gt;
-
-        size_t m = op(h->data[l], h->data[r]) ? (op(h->data[i], h->data[r]) ? r : i)
-                                              : (op(h->data[i], h->data[l]) ? l : i);
+        size_t m = lt(h->data[l], h->data[r]) ^ !h->maxheap ? (lt(h->data[i], h->data[r]) ^ !h->maxheap ? r : i)
+                                                            : (lt(h->data[i], h->data[l]) ^ !h->maxheap ? l : i);
         if (m != i) {
                 h->data[m] ^= h->data[i];
                 h->data[i] ^= h->data[m];
@@ -69,9 +56,6 @@ static void heapify_down(struct heap *h, size_t i)
 
 void heap_push(struct heap *h, size_t v)
 {
-        ASSERT_MSG((!h->__gt__ && !h->__lt__) || (h->maxheap && h->__lt__) || (!h->maxheap && h->__gt__),
-                   "Are you sure to override the correct function?");
-
         h->data = realloc(h->data, ++h->size * sizeof(*h->data));
         h->data[h->size - 1] = v;
         heapify_up(h, h->size - 1);

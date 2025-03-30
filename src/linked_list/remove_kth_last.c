@@ -1,4 +1,3 @@
-#include "list_node.h"
 #include "utils/asserts.h"
 
 extern struct list_node *linked_list_removeKthLast(struct list_node *L, int k);

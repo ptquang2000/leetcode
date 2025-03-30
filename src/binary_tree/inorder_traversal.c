@@ -30,4 +30,12 @@ void test_binary_tree_inorder_traversal()
                 ASSERT_EQUAL(actual, expected);
                 free_btree(tree);
         }
+        {
+                int data[] = {1, 2, 3, 4, 5, NONE, 8, NONE, NONE, 6, 7, 9};
+                struct btree_node *tree = btree(data, ARRAY_SIZE(data));
+                expected = (int_array){(int[]){4, 2, 6, 5, 7, 1, 3, 9, 8}, 9};
+                actual.data = binary_tree_inorder_traversal(tree, &actual.len);
+                ASSERT_EQUAL(actual, expected);
+                free_btree(tree);
+        }
 }

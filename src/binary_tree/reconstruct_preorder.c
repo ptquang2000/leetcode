@@ -7,8 +7,7 @@ void test_binary_tree_reconstruct_preorder()
 {
         bt_node_obj actual = {}, expected = {};
         {
-                int preorder[] = {'H', 'B',  'F', NONE, NONE, 'E', 'A',  NONE, NONE, NONE,
-                                  'C', NONE, 'D', NONE, 'G',  'I', NONE, NONE, NONE};
+                int preorder[] = {'H', 'B', 'F', 0, 0, 'E', 'A', 0, 0, 0, 'C', 0, 'D', 0, 'G', 'I', 0, 0, 0};
                 expected.data = &(struct btree_node){
                         .value = 'H',
                         .left =
@@ -60,7 +59,7 @@ void test_binary_tree_reconstruct_preorder()
                 free_btree(actual.data);
         }
         {
-                int preorder[] = {8, 5, 1, NONE, NONE, 7, NONE, NONE, 10, NONE, 12, NONE, NONE};
+                int preorder[] = {8, 5, 1, 0, 0, 7, 0, 0, 10, 0, 12, 0, 0};
                 expected.data = &(struct btree_node){
                         .value = 8,
                         .left =
@@ -97,7 +96,7 @@ void test_binary_tree_reconstruct_preorder()
                 free_btree(actual.data);
         }
         {
-                int preorder[] = {1, 3, NONE, NONE, NONE};
+                int preorder[] = {1, 3, 0, 0, 0};
                 expected.data = &(struct btree_node){
                         .value = 1,
                         .left =
