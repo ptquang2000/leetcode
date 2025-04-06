@@ -7,26 +7,27 @@ extern struct dsa_point *dsa_solve(int row_size, int col_size, const char **maze
 void test_dsa_solve()
 {
         char *maze[] = {
-                "xxxxxxxxxx x", 
-                "x        x x", 
-                "x        x x",
-                "x xxxxxxxx x",
-                "x          x",
-                "x xxxxxxxxxx",
+                "xxxxxxxxxx x", //
+                "x        x x", //
+                "x        x x", //
+                "x xxxxxxxx x", //
+                "x          x", //
+                "x xxxxxxxxxx", //
         };
 
         int len;
         struct dsa_point *path = dsa_solve(6, 13, (const char **)maze, 'x', (struct dsa_point){.x = 10, .y = 0},
-                                             (struct dsa_point){.x = 1, .y = 5}, &len);
+                                           (struct dsa_point){.x = 1, .y = 5}, &len);
 
-        string_array expected = {(char*[]){
-                "xxxxxxxxxx*x", 
-                "x        x*x", 
-                "x        x*x",
-                "x xxxxxxxx*x",
-                "x**********x",
-                "x*xxxxxxxxxx",
-        }, 6};
+        string_array expected = {(char *[]){
+                                         "xxxxxxxxxx*x", //
+                                         "x        x*x", //
+                                         "x        x*x", //
+                                         "x xxxxxxxx*x", //
+                                         "x**********x", //
+                                         "x*xxxxxxxxxx", //
+                                 },
+                                 6};
 
         string_array actual = {calloc(6, sizeof(*actual.data)), 6};
         for (size_t i = 0; i < 6; i++) {

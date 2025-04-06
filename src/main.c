@@ -21,6 +21,9 @@
 #ifdef CONFIG_HEAP
 #include "heap/heap.h"
 #endif
+#ifdef CONFIG_GRAPH
+#include "graph/graph.h"
+#endif
 
 int main()
 {
@@ -312,5 +315,17 @@ int main()
 #endif
 #ifdef CONFIG_DIJKSTRA_LIST
         test_dsa_dijkstra_list();
+#endif
+
+        // Graph
+
+#ifdef CONFIG_FILLED_SURROUNDED_REGION
+        test_graph_filled_surrounded_region();
+#endif
+#ifdef CONFIG_FLIP_COLOR
+        test_graph_flip_color();
+#endif
+#ifdef CONFIG_SEARCH_MAZE
+        test_graph_search_maze();
 #endif
 }

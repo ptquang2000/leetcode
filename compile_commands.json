@@ -9,23 +9,6 @@
       "-ggdb",
       "-c",
       "-o",
-      "build/src/pch.gch",
-      "src/pch.h"
-    ],
-    "directory": "/home/quang/master.c",
-    "file": "/home/quang/master.c/src/pch.h",
-    "output": "/home/quang/master.c/build/src/pch.gch"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I./src",
-      "-I./include",
-      "-include",
-      "pch.h",
-      "-ggdb",
-      "-c",
-      "-o",
       "build/src/main.o",
       "src/main.c"
     ],
