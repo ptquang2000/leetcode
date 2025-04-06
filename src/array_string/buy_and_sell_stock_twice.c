@@ -1,4 +1,3 @@
-#include "array_string.h"
 #include "utils/asserts.h"
 
 extern int array_string_buyAndSellStockTwice(int priceSize, int prices[priceSize]);
