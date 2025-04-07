@@ -1,54 +1,28 @@
 #include "utils/asserts.h"
 
-extern void graph_filled_surrounded_region(int n, int m, int **actual);
+extern void graph_filled_surrounded_region(int m, int n, char **board);
 
 void test_graph_filled_surrounded_region()
 {
         {
-                int_darray actual = {
+                char_darray actual = {
                         .data =
-                                (int *[]){
-                                        (int[]){'B', 'B', 'B', 'B'},
-                                        (int[]){'W', 'B', 'W', 'B'},
-                                        (int[]){'B', 'W', 'W', 'B'},
-                                        (int[]){'B', 'B', 'B', 'B'},
+                                (char *[]){
+                                        (char[]){'B', 'B', 'B', 'B'},
+                                        (char[]){'W', 'B', 'W', 'B'},
+                                        (char[]){'B', 'W', 'W', 'B'},
+                                        (char[]){'B', 'B', 'B', 'B'},
                                 },
                         .len = (int[]){4, 4, 4, 4},
                         .nr = 4,
                 };
-                int_darray expected = {
+                char_darray expected = {
                         .data =
-                                (int *[]){
-                                        (int[]){'B', 'B', 'B', 'B'},
-                                        (int[]){'W', 'B', 'B', 'B'},
-                                        (int[]){'B', 'B', 'B', 'B'},
-                                        (int[]){'B', 'B', 'B', 'B'},
-                                },
-                        .len = (int[]){4, 4, 4, 4},
-                        .nr = 4,
-                };
-                graph_filled_surrounded_region(actual.nr, actual.nr, actual.data);
-                ASSERT_EQUAL(actual, expected);
-        }
-        {
-                int_darray actual = {
-                        .data =
-                                (int *[]){
-                                        (int[]){'B', 'B', 'B', 'B'},
-                                        (int[]){'B', 'W', 'W', 'B'},
-                                        (int[]){'B', 'B', 'W', 'B'},
-                                        (int[]){'B', 'W', 'B', 'B'},
-                                },
-                        .len = (int[]){4, 4, 4, 4},
-                        .nr = 4,
-                };
-                int_darray expected = {
-                        .data =
-                                (int *[]){
-                                        (int[]){'B', 'B', 'B', 'B'},
-                                        (int[]){'B', 'B', 'B', 'B'},
-                                        (int[]){'B', 'B', 'B', 'B'},
-                                        (int[]){'B', 'W', 'B', 'B'},
+                                (char *[]){
+                                        (char[]){'B', 'B', 'B', 'B'},
+                                        (char[]){'W', 'B', 'B', 'B'},
+                                        (char[]){'B', 'B', 'B', 'B'},
+                                        (char[]){'B', 'B', 'B', 'B'},
                                 },
                         .len = (int[]){4, 4, 4, 4},
                         .nr = 4,
@@ -57,18 +31,44 @@ void test_graph_filled_surrounded_region()
                 ASSERT_EQUAL(actual, expected);
         }
         {
-                int_darray actual = {
+                char_darray actual = {
                         .data =
-                                (int *[]){
-                                        (int[]){'B'},
+                                (char *[]){
+                                        (char[]){'B', 'B', 'B', 'B'},
+                                        (char[]){'B', 'W', 'W', 'B'},
+                                        (char[]){'B', 'B', 'W', 'B'},
+                                        (char[]){'B', 'W', 'B', 'B'},
+                                },
+                        .len = (int[]){4, 4, 4, 4},
+                        .nr = 4,
+                };
+                char_darray expected = {
+                        .data =
+                                (char *[]){
+                                        (char[]){'B', 'B', 'B', 'B'},
+                                        (char[]){'B', 'B', 'B', 'B'},
+                                        (char[]){'B', 'B', 'B', 'B'},
+                                        (char[]){'B', 'W', 'B', 'B'},
+                                },
+                        .len = (int[]){4, 4, 4, 4},
+                        .nr = 4,
+                };
+                graph_filled_surrounded_region(actual.nr, actual.nr, actual.data);
+                ASSERT_EQUAL(actual, expected);
+        }
+        {
+                char_darray actual = {
+                        .data =
+                                (char *[]){
+                                        (char[]){'B'},
                                 },
                         .len = (int[]){1},
                         .nr = 1,
                 };
-                int_darray expected = {
+                char_darray expected = {
                         .data =
-                                (int *[]){
-                                        (int[]){'B'},
+                                (char *[]){
+                                        (char[]){'B'},
                                 },
                         .len = (int[]){1},
                         .nr = 1,
