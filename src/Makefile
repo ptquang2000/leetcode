@@ -19,3 +19,4 @@ subdir-$(CONFIG_BINARY_TREE) += binary_tree
 subdir-$(CONFIG_QUEUE) += queue
 subdir-$(CONFIG_HEAP) += heap
 subdir-$(CONFIG_GRAPH) += graph
+subdir-$(CONFIG_MAP) += map
