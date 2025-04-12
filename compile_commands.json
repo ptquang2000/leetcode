@@ -2100,6 +2100,193 @@
       "-ggdb",
       "-c",
       "-o",
+      "build/src/dsa/graph_list_dfs.o",
+      "src/dsa/graph_list_dfs.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/dsa/graph_list_dfs.c",
+    "output": "/home/quang/master.c/build/src/dsa/graph_list_dfs.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/graph_matrix_bfs.o",
+      "src/dsa/graph_matrix_bfs.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/dsa/graph_matrix_bfs.c",
+    "output": "/home/quang/master.c/build/src/dsa/graph_matrix_bfs.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/graph/filled_surrounded_region.o",
+      "src/graph/filled_surrounded_region.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/graph/filled_surrounded_region.c",
+    "output": "/home/quang/master.c/build/src/graph/filled_surrounded_region.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/graph/flip_color.o",
+      "src/graph/flip_color.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/graph/flip_color.c",
+    "output": "/home/quang/master.c/build/src/graph/flip_color.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/graph/search_maze.o",
+      "src/graph/search_maze.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/graph/search_maze.c",
+    "output": "/home/quang/master.c/build/src/graph/search_maze.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/graph_list_dfs.o",
+      "day*/src/dsa/graph_list_dfs.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/day*/src/dsa/graph_list_dfs.c",
+    "output": "/home/quang/master.c/build/day*/src/dsa/graph_list_dfs.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/dsa/graph_matrix_bfs.o",
+      "day*/src/dsa/graph_matrix_bfs.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/day*/src/dsa/graph_matrix_bfs.c",
+    "output": "/home/quang/master.c/build/day*/src/dsa/graph_matrix_bfs.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/graph/filled_surrounded_region.o",
+      "day*/src/graph/filled_surrounded_region.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/day*/src/graph/filled_surrounded_region.c",
+    "output": "/home/quang/master.c/build/day*/src/graph/filled_surrounded_region.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/graph/flip_color.o",
+      "day*/src/graph/flip_color.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/day*/src/graph/flip_color.c",
+    "output": "/home/quang/master.c/build/day*/src/graph/flip_color.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/graph/search_maze.o",
+      "day*/src/graph/search_maze.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/day*/src/graph/search_maze.c",
+    "output": "/home/quang/master.c/build/day*/src/graph/search_maze.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/main.c",
+    "output": "/home/quang/master.c/build/src/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
       "build/src/dsa/min_heap.o",
       "src/dsa/min_heap.c"
     ],
@@ -2854,6 +3041,346 @@
     "directory": "/home/quang/master.c",
     "file": "/home/quang/master.c/day*/src/linked_list/reverse_sublist.c",
     "output": "/home/quang/master.c/build/day*/src/linked_list/reverse_sublist.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/main.c",
+    "output": "/home/quang/master.c/build/src/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/htable.o",
+      "src/map/htable.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/htable.c",
+    "output": "/home/quang/master.c/build/src/map/htable.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/can_perform_palindrome.o",
+      "src/map/can_perform_palindrome.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/can_perform_palindrome.c",
+    "output": "/home/quang/master.c/build/src/map/can_perform_palindrome.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/find_all_substrings.o",
+      "src/map/find_all_substrings.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/find_all_substrings.c",
+    "output": "/home/quang/master.c/build/src/map/find_all_substrings.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/find_nearest_repetition.o",
+      "src/map/find_nearest_repetition.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/find_nearest_repetition.c",
+    "output": "/home/quang/master.c/build/src/map/find_nearest_repetition.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/find_smallest_sequentially_covering_set.o",
+      "src/map/find_smallest_sequentially_covering_set.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/find_smallest_sequentially_covering_set.c",
+    "output": "/home/quang/master.c/build/src/map/find_smallest_sequentially_covering_set.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/find_smallest_subarray_covering_set.o",
+      "src/map/find_smallest_subarray_covering_set.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/find_smallest_subarray_covering_set.c",
+    "output": "/home/quang/master.c/build/src/map/find_smallest_subarray_covering_set.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/is_letter_constructible_from_magazine.o",
+      "src/map/is_letter_constructible_from_magazine.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/is_letter_constructible_from_magazine.c",
+    "output": "/home/quang/master.c/build/src/map/is_letter_constructible_from_magazine.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/longest_contained_range.o",
+      "src/map/longest_contained_range.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/longest_contained_range.c",
+    "output": "/home/quang/master.c/build/src/map/longest_contained_range.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/longest_subarray_with_distinct_entries.o",
+      "src/map/longest_subarray_with_distinct_entries.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/longest_subarray_with_distinct_entries.c",
+    "output": "/home/quang/master.c/build/src/map/longest_subarray_with_distinct_entries.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/test_collatz_conjecture.o",
+      "src/map/test_collatz_conjecture.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/test_collatz_conjecture.c",
+    "output": "/home/quang/master.c/build/src/map/test_collatz_conjecture.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/map/can_perform_palindrome.o",
+      "day*/src/map/can_perform_palindrome.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/day*/src/map/can_perform_palindrome.c",
+    "output": "/home/quang/master.c/build/day*/src/map/can_perform_palindrome.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/map/find_all_substrings.o",
+      "day*/src/map/find_all_substrings.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/day*/src/map/find_all_substrings.c",
+    "output": "/home/quang/master.c/build/day*/src/map/find_all_substrings.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/map/find_nearest_repetition.o",
+      "day*/src/map/find_nearest_repetition.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/day*/src/map/find_nearest_repetition.c",
+    "output": "/home/quang/master.c/build/day*/src/map/find_nearest_repetition.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/map/find_smallest_sequentially_covering_set.o",
+      "day*/src/map/find_smallest_sequentially_covering_set.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/day*/src/map/find_smallest_sequentially_covering_set.c",
+    "output": "/home/quang/master.c/build/day*/src/map/find_smallest_sequentially_covering_set.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/map/find_smallest_subarray_covering_set.o",
+      "day*/src/map/find_smallest_subarray_covering_set.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/day*/src/map/find_smallest_subarray_covering_set.c",
+    "output": "/home/quang/master.c/build/day*/src/map/find_smallest_subarray_covering_set.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/map/is_letter_constructible_from_magazine.o",
+      "day*/src/map/is_letter_constructible_from_magazine.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/day*/src/map/is_letter_constructible_from_magazine.c",
+    "output": "/home/quang/master.c/build/day*/src/map/is_letter_constructible_from_magazine.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/map/longest_contained_range.o",
+      "day*/src/map/longest_contained_range.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/day*/src/map/longest_contained_range.c",
+    "output": "/home/quang/master.c/build/day*/src/map/longest_contained_range.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/map/longest_subarray_with_distinct_entries.o",
+      "day*/src/map/longest_subarray_with_distinct_entries.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/day*/src/map/longest_subarray_with_distinct_entries.c",
+    "output": "/home/quang/master.c/build/day*/src/map/longest_subarray_with_distinct_entries.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/day*/src/map/test_collatz_conjecture.o",
+      "day*/src/map/test_collatz_conjecture.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/day*/src/map/test_collatz_conjecture.c",
+    "output": "/home/quang/master.c/build/day*/src/map/test_collatz_conjecture.o"
   },
   {
     "arguments": [
