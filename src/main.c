@@ -24,6 +24,9 @@
 #ifdef CONFIG_GRAPH
 #include "graph/graph.h"
 #endif
+#ifdef CONFIG_MAP
+#include "map/map.h"
+#endif
 
 int main()
 {
@@ -327,5 +330,35 @@ int main()
 #endif
 #ifdef CONFIG_SEARCH_MAZE
         test_graph_search_maze();
+#endif
+
+        // Maps
+
+#ifdef CONFIG_CAN_PERFORM_PALINDROME
+        test_map_can_perform_palindrome();
+#endif
+#ifdef CONFIG_FIND_ALL_SUBSTRINGS
+        test_map_find_all_substrings();
+#endif
+#ifdef CONFIG_FIND_NEAREST_REPETITION
+        test_map_find_nearest_repetition();
+#endif
+#ifdef CONFIG_FIND_SMALLEST_SEQUENTIALLY_COVERING_SET
+        test_map_find_smallest_sequentially_covering_set();
+#endif
+#ifdef CONFIG_FIND_SMALLEST_SUBARRAY_COVERING_SET
+        test_map_find_smallest_subarray_covering_set();
+#endif
+#ifdef CONFIG_IS_LETTER_CONSTRUCTIBLE_FROM_MAGAZINE
+        test_map_is_letter_constructible_from_magazine();
+#endif
+#ifdef CONFIG_LONGEST_CONTAINED_RANGE
+        test_map_longest_contained_range();
+#endif
+#ifdef CONFIG_LONGEST_SUBARRAY_WITH_DISTINCT_ENTRIES
+        test_map_longest_subarray_with_distinct_entries();
+#endif
+#ifdef CONFIG_test_map_COLLATZ_CONJECTURE
+        test_map_test_collatz_conjecture();
 #endif
 }
