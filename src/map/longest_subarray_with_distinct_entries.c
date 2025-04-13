@@ -15,7 +15,7 @@ void test_map_longest_subarray_with_distinct_entries()
         expected.data = 5;
         ASSERT_EQUAL(actual, expected);
 
-        actual.data = map_longest_subarray_with_distinct_entries(0, (const char *[]){"x", "x", "x"});
+        actual.data = map_longest_subarray_with_distinct_entries(3, (const char *[]){"x", "x", "x"});
         expected.data = 1;
         ASSERT_EQUAL(actual, expected);
 
@@ -30,7 +30,7 @@ void test_map_longest_subarray_with_distinct_entries()
 
         actual.data =
                 map_longest_subarray_with_distinct_entries(7, (const char *[]){"x", "y", "z", "x", "a", "b", "c"});
-        expected.data = 4;
+        expected.data = 6;
         ASSERT_EQUAL(actual, expected);
 
         actual.data = map_longest_subarray_with_distinct_entries(5, (const char *[]){"a", "b", "c", "a", "a"});

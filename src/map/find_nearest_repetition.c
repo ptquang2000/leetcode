@@ -8,7 +8,7 @@ void test_map_find_nearest_repetition()
 
         actual.data =
                 map_find_nearest_repetition(14, (const char *[]){"All", "work", "and", "no", "play", "makes", "for",
-                                                                 "nor", "work", "no", "fun", "and", "no", "results"});
+                                                                 "no", "work", "no", "fun", "and", "no", "results"});
         expected.data = 2;
         ASSERT_EQUAL(actual, expected);
 

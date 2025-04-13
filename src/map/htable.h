@@ -13,7 +13,7 @@ struct htable {
 };
 
 struct htable_node *htable_set(struct htable *ht, const char *k, int v);
-struct htable_node *htable_delete(struct htable *ht, const char *k);
+void htable_delete(struct htable *ht, const char *k);
 struct htable_node *htable_get(struct htable *ht, const char *k);
 size_t htable_size(struct htable *ht);
 

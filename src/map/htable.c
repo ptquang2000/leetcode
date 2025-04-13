@@ -8,11 +8,11 @@ static size_t __hash_str(const char *s)
         return hash;
 }
 
-static struct htable __htable_new(size_t len)
+static struct htable __htable_new(size_t nr)
 {
         struct htable *ht = &(struct htable){};
 
-        ht->nr = len;
+        ht->nr = nr;
 
         ht->len = malloc(ht->nr * sizeof *ht->len);
         memset(ht->len, 0, ht->nr * sizeof *ht->len);
@@ -26,29 +26,18 @@ static struct htable __htable_new(size_t len)
 static void __htable_rehash(struct htable *ht)
 {
         size_t nr = ht->nr ? ht->nr * 1.5 : 5;
-
         struct htable other = __htable_new(nr);
 
         for (struct htable_node **r = &ht->data[0]; r < &ht->data[ht->nr]; r++) {
-                int i = r - &ht->data[0];
-                if (!ht->len[i])
-                        continue;
-                other.size += ht->len[i];
-
-                size_t hash = __hash_str(r[0][0].key);
-                size_t idx = hash % nr;
-
-                other.len[idx] = ht->len[i];
-                other.data[idx] = malloc(ht->len[i] * sizeof *other.data[idx]);
-                memmove(other.data[idx], ht->data[i], ht->len[i] * sizeof *other.data[idx]);
+                size_t len = ht->len[r - &ht->data[0]];
+                for (struct htable_node *c = &r[0][0]; c < &r[0][len]; c++)
+                        htable_set(&other, c[0].key, c[0].value);
                 free(r[0]);
         }
+
         free(ht->len);
         free(ht->data);
-
-        ht->nr = other.nr;
-        ht->len = other.len;
-        ht->data = other.data;
+        memcpy(ht, &other, sizeof *ht);
 }
 
 static struct htable_node *__htable_node(struct htable_node *nodes, size_t len, const char *k)
@@ -80,22 +69,22 @@ struct htable_node *htable_set(struct htable *ht, const char *k, int v)
         ht->data[idx][ht->len[idx] - 1] = (struct htable_node){.key = k, .value = v};
 
         ht->size++;
-        return added;
+        return &ht->data[idx][ht->len[idx] - 1];
 }
 
-struct htable_node *htable_delete(struct htable *ht, const char *k)
+void htable_delete(struct htable *ht, const char *k)
 {
         if (!ht->size)
-                return 0;
+                return;
 
         size_t hash = __hash_str(k);
         size_t idx = hash % ht->nr;
         if (!ht->len[idx])
-                return 0;
+                return;
 
         struct htable_node *added = __htable_node(&ht->data[idx][0], ht->len[idx], k);
         if (!added)
-                return 0;
+                return;
 
         int cnt = &ht->data[idx][ht->len[idx]] - (added + 1);
         memmove(added, added + 1, cnt * sizeof *added);
@@ -103,7 +92,6 @@ struct htable_node *htable_delete(struct htable *ht, const char *k)
         ht->data[idx] = realloc(ht->data[idx], ht->len[idx] * sizeof *ht->data[idx]);
 
         ht->size--;
-        return added;
 }
 
 struct htable_node *htable_get(struct htable *ht, const char *k)
