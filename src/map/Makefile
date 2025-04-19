@@ -3,6 +3,7 @@
 #
 
 obj-y += htable.o
+obj-y += set.o
 
 obj-$(CONFIG_CAN_PERFORM_PALINDROME) += can_perform_palindrome.o
 obj-$(CONFIG_FIND_ALL_SUBSTRINGS) += find_all_substrings.o

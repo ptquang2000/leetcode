@@ -112,3 +112,12 @@ size_t htable_size(struct htable *ht)
 {
         return ht->size;
 }
+
+void htable_clear(struct htable *ht)
+{
+        for (struct htable_iter **r = &ht->data[0]; r < &ht->data[ht->nr]; r++)
+                free(r[0]);
+        free(ht->len);
+        free(ht->data);
+        ht[0] = (struct htable){};
+}

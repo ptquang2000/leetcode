@@ -16,5 +16,6 @@ struct htable_iter *htable_set(struct htable *ht, const char *k, int v);
 void htable_delete(struct htable *ht, const char *k);
 struct htable_iter *htable_get(struct htable *ht, const char *k);
 size_t htable_size(struct htable *ht);
+void htable_clear(struct htable *ht);
 
 #endif

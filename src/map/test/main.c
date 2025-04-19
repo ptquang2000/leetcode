@@ -1,4 +1,5 @@
 #include "map/htable.h"
+#include "map/set.h"
 #include "utils/asserts.h"
 
 int main()
@@ -53,8 +54,8 @@ int main()
         htable_delete(ht, "dave");
         htable_delete(ht, "eve");
         ASSERT_EQUAL((int_obj){htable_size(ht)}, (int_obj){0});
-        free_array(ht->data, ht->nr);
-        free(ht->len);
+
+        htable_clear(ht);
 
         ht = &(struct htable){};
         htable_set(ht, "apple", 10);
@@ -91,6 +92,25 @@ int main()
         htable_delete(ht, "bB");
         htable_delete(ht, "");
         ASSERT_EQUAL((int_obj){htable_size(ht)}, (int_obj){0});
-        free_array(ht->data, ht->nr);
-        free(ht->len);
+
+        htable_clear(ht);
+
+        struct set *set = &(struct set){};
+
+        set_add(set, 5);
+        ASSERT_TRUE(set_in(set, 5));
+
+        set_add(set, 1);
+        set_add(set, 2);
+        set_add(set, 3);
+        ASSERT_EQUAL((int_obj){set_size(set)}, (int_obj){4});
+
+        set_add(set, 2);
+        ASSERT_EQUAL((int_obj){set_size(set)}, (int_obj){4});
+
+        set_remove(set, 3);
+        ASSERT_FALSE(set_in(set, 3));
+
+        set_clear(set);
+        ASSERT_EQUAL((int_obj){set_size(set)}, (int_obj){0});
 }
