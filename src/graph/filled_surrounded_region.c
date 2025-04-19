@@ -1,6 +1,6 @@
 #include "utils/asserts.h"
 
-extern void graph_filled_surrounded_region(int m, int n, char **board);
+extern void graph_filled_surrounded_region(int m, int n, char **board, char w, char b);
 
 void test_graph_filled_surrounded_region()
 {
@@ -27,8 +27,8 @@ void test_graph_filled_surrounded_region()
                         .len = (int[]){4, 4, 4, 4},
                         .nr = 4,
                 };
-                // graph_filled_surrounded_region(actual.nr, actual.nr, actual.data);
-                // ASSERT_EQUAL(actual, expected);
+                graph_filled_surrounded_region(actual.nr, actual.nr, actual.data, 'W', 'B');
+                ASSERT_EQUAL(actual, expected);
         }
         {
                 char_darray actual = {
@@ -53,7 +53,7 @@ void test_graph_filled_surrounded_region()
                         .len = (int[]){4, 4, 4, 4},
                         .nr = 4,
                 };
-                graph_filled_surrounded_region(actual.nr, actual.nr, actual.data);
+                graph_filled_surrounded_region(actual.nr, actual.nr, actual.data, 'W', 'B');
                 ASSERT_EQUAL(actual, expected);
         }
         {
@@ -73,7 +73,7 @@ void test_graph_filled_surrounded_region()
                         .len = (int[]){1},
                         .nr = 1,
                 };
-                graph_filled_surrounded_region(actual.nr, actual.nr, actual.data);
+                graph_filled_surrounded_region(actual.nr, actual.nr, actual.data, 'W', 'B');
                 ASSERT_EQUAL(actual, expected);
         }
 }
