@@ -24,7 +24,7 @@ void test_array_string_matrixInSpiralOrder()
                                              (int[]){9, 10, 11, 12},
                                              (int[]){13, 14, 15, 16},
                                      },
-                                     (int[]){4, 4, 4}, 4};
+                                     (int[]){4, 4, 4, 4}, 4};
                 int_array actual;
                 actual.data = array_string_matrixInSpiralOrder(matrix.nr, matrix.data, &actual.len);
                 int_array expect = {(int[]){1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10}, 16};

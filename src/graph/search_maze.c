@@ -1,6 +1,6 @@
 #include "utils/logger.h"
 
-extern int **graph_search_maze(int len, int **maze, int s[2], int e[2], int *o_size);
+extern void graph_search_maze(int len, int **maze, int s[2], int e[2], int *o_size, int (**o_path)[2]);
 
 static int_darray __build_maze(int len, int **maze, int size, int path[size][2])
 {
@@ -63,7 +63,8 @@ void test_graph_search_maze()
                                 },
                                 (int[]){10, 10, 10, 10, 10, 10, 10, 10, 10, 10}, 10};
 
-        int_darray path = {.data = graph_search_maze(maze.nr, maze.data, (int[]){9, 0}, (int[]){0, 9}, &path.nr)};
+        int_darray path = {};
+        graph_search_maze(maze.nr, maze.data, (int[]){9, 0}, (int[]){0, 9}, &path.nr, (int(**)[2])(&path.data));
         int_darray actual = __build_maze(maze.nr, maze.data, path.nr, (int(*)[])path.data);
 
         struct ADJ {
