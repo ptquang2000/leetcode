@@ -3,6 +3,7 @@
 #include "heap/binary_heap.h"
 #include "linked_list/list_node.h"
 #include "map/htable.h"
+#include "map/set.h"
 #include "utils/helper.h"
 
 #include <assert.h>

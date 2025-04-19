@@ -12,5 +12,5 @@ void test_map_test_collatz_conjecture()
         ASSERT_TRUE(map_test_collatz_conjecture(1000000));
         ASSERT_FALSE(map_test_collatz_conjecture(0));
         ASSERT_FALSE(map_test_collatz_conjecture(-5));
-        ASSERT_TRUE(map_test_collatz_conjecture(10000000));
+        ASSERT_TRUE(map_test_collatz_conjecture(10'000'000));
 }

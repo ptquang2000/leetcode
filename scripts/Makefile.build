@@ -18,7 +18,7 @@ real-obj-y += $(addsuffix /built-in.a, $(real-subdir))
 PHONY += FORCE
 FORCE:
 
-CFLAGS += -I$(srcroot)/src  -I$(srcroot)/include -include pch.h -ggdb
+CFLAGS += -std=c23 -I$(srcroot)/src  -I$(srcroot)/include -include pch.h -ggdb
 
 # Compile C sources:
 $(out-obj)/%.o: $(obj)/%.c FORCE
