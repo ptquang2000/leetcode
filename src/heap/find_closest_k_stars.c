@@ -14,8 +14,8 @@ void test_heap_find_closest_k_stars()
                                                 (int[]){-2, 2},
                                         },
                                         (int[]){2}, 1};
-                actual = (int_darray){(int **){heap_find_closest_k_stars(ARRAY_SIZE(stars), stars, expected.nr)},
-                                      expected.len, expected.nr};
+                actual = (int_darray){heap_find_closest_k_stars(ARRAY_SIZE(stars), stars, expected.nr), expected.len,
+                                      expected.nr};
                 ASSERT_EQUAL(actual, expected);
                 free_array(actual.data, actual.nr);
         }
@@ -30,8 +30,8 @@ void test_heap_find_closest_k_stars()
                                                 (int[]){3, 3},
                                         },
                                         (int[]){2, 2}, 2};
-                actual = (int_darray){(int **){heap_find_closest_k_stars(ARRAY_SIZE(stars), stars, expected.nr)},
-                                      expected.len, expected.nr};
+                actual = (int_darray){heap_find_closest_k_stars(ARRAY_SIZE(stars), stars, expected.nr), expected.len,
+                                      expected.nr};
                 ASSERT_EQUAL(actual, expected);
                 free_array(actual.data, actual.nr);
         }
@@ -45,8 +45,8 @@ void test_heap_find_closest_k_stars()
                                                 (int[]){1, 1},
                                         },
                                         (int[]){2, 2, 2}, 3};
-                actual = (int_darray){(int **){heap_find_closest_k_stars(ARRAY_SIZE(stars), stars, expected.nr)},
-                                      expected.len, expected.nr};
+                actual = (int_darray){heap_find_closest_k_stars(ARRAY_SIZE(stars), stars, expected.nr), expected.len,
+                                      expected.nr};
                 ASSERT_EQUAL(actual, expected);
                 free_array(actual.data, actual.nr);
         }
@@ -60,8 +60,8 @@ void test_heap_find_closest_k_stars()
                                                 (int[]){0, 0},
                                         },
                                         (int[]){2}, 1};
-                actual = (int_darray){(int **){heap_find_closest_k_stars(ARRAY_SIZE(stars), stars, expected.nr)},
-                                      expected.len, expected.nr};
+                actual = (int_darray){heap_find_closest_k_stars(ARRAY_SIZE(stars), stars, expected.nr), expected.len,
+                                      expected.nr};
                 ASSERT_EQUAL(actual, expected);
                 free_array(actual.data, actual.nr);
         }
