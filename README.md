@@ -27,3 +27,7 @@ This requires `jq` and `bear` installed.
 ```sh
 sh scripts/upd_compile_commands_json.sh
 ```
+
+
+#### Demo
+
