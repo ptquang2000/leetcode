@@ -8,6 +8,11 @@ endif
 
 obj-y += pch.gch
 
+obj-y += heap/binary_heap.o
+obj-y += queue/queue.o
+obj-y += map/htable.o
+obj-y += map/set.o
+
 subdir-$(CONFIG_UTILS_TEST) += utils
 
 subdir-$(CONFIG_DSA) += dsa

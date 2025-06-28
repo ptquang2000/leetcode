@@ -28,6 +28,78 @@
       "-ggdb",
       "-c",
       "-o",
+      "build/src/heap/binary_heap.o",
+      "src/heap/binary_heap.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/heap/binary_heap.c",
+    "output": "/home/quang/master.c/build/src/heap/binary_heap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/queue/queue.o",
+      "src/queue/queue.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/queue/queue.c",
+    "output": "/home/quang/master.c/build/src/queue/queue.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/htable.o",
+      "src/map/htable.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/htable.c",
+    "output": "/home/quang/master.c/build/src/map/htable.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/set.o",
+      "src/map/set.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/set.c",
+    "output": "/home/quang/master.c/build/src/map/set.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
       "build/src/array_string/apply_permutation.o",
       "src/array_string/apply_permutation.c"
     ],
@@ -1090,6 +1162,78 @@
       "-ggdb",
       "-c",
       "-o",
+      "build/src/heap/binary_heap.o",
+      "src/heap/binary_heap.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/heap/binary_heap.c",
+    "output": "/home/quang/master.c/build/src/heap/binary_heap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/queue/queue.o",
+      "src/queue/queue.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/queue/queue.c",
+    "output": "/home/quang/master.c/build/src/queue/queue.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/htable.o",
+      "src/map/htable.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/htable.c",
+    "output": "/home/quang/master.c/build/src/map/htable.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/set.o",
+      "src/map/set.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/set.c",
+    "output": "/home/quang/master.c/build/src/map/set.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
       "build/src/binary_tree/btree_node.o",
       "src/binary_tree/btree_node.c"
     ],
@@ -1510,6 +1654,78 @@
     "directory": "/home/quang/master.c",
     "file": "/home/quang/master.c/src/main.c",
     "output": "/home/quang/master.c/build/src/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/heap/binary_heap.o",
+      "src/heap/binary_heap.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/heap/binary_heap.c",
+    "output": "/home/quang/master.c/build/src/heap/binary_heap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/queue/queue.o",
+      "src/queue/queue.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/queue/queue.c",
+    "output": "/home/quang/master.c/build/src/queue/queue.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/htable.o",
+      "src/map/htable.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/htable.c",
+    "output": "/home/quang/master.c/build/src/map/htable.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/set.o",
+      "src/map/set.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/set.c",
+    "output": "/home/quang/master.c/build/src/map/set.o"
   },
   {
     "arguments": [
@@ -2224,6 +2440,78 @@
       "-ggdb",
       "-c",
       "-o",
+      "build/src/heap/binary_heap.o",
+      "src/heap/binary_heap.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/heap/binary_heap.c",
+    "output": "/home/quang/master.c/build/src/heap/binary_heap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/queue/queue.o",
+      "src/queue/queue.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/queue/queue.c",
+    "output": "/home/quang/master.c/build/src/queue/queue.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/htable.o",
+      "src/map/htable.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/htable.c",
+    "output": "/home/quang/master.c/build/src/map/htable.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/set.o",
+      "src/map/set.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/set.c",
+    "output": "/home/quang/master.c/build/src/map/set.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
       "build/src/dsa/graph_list_dfs.o",
       "src/dsa/graph_list_dfs.c"
     ],
@@ -2422,12 +2710,12 @@
       "-ggdb",
       "-c",
       "-o",
-      "build/src/dsa/min_heap.o",
-      "src/dsa/min_heap.c"
+      "build/src/heap/binary_heap.o",
+      "src/heap/binary_heap.c"
     ],
     "directory": "/home/quang/master.c",
-    "file": "/home/quang/master.c/src/dsa/min_heap.c",
-    "output": "/home/quang/master.c/build/src/dsa/min_heap.o"
+    "file": "/home/quang/master.c/src/heap/binary_heap.c",
+    "output": "/home/quang/master.c/build/src/heap/binary_heap.o"
   },
   {
     "arguments": [
@@ -2440,12 +2728,66 @@
       "-ggdb",
       "-c",
       "-o",
-      "build/src/heap/binary_heap.o",
-      "src/heap/binary_heap.c"
+      "build/src/queue/queue.o",
+      "src/queue/queue.c"
     ],
     "directory": "/home/quang/master.c",
-    "file": "/home/quang/master.c/src/heap/binary_heap.c",
-    "output": "/home/quang/master.c/build/src/heap/binary_heap.o"
+    "file": "/home/quang/master.c/src/queue/queue.c",
+    "output": "/home/quang/master.c/build/src/queue/queue.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/htable.o",
+      "src/map/htable.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/htable.c",
+    "output": "/home/quang/master.c/build/src/map/htable.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/set.o",
+      "src/map/set.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/set.c",
+    "output": "/home/quang/master.c/build/src/map/set.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/dsa/min_heap.o",
+      "src/dsa/min_heap.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/dsa/min_heap.c",
+    "output": "/home/quang/master.c/build/src/dsa/min_heap.o"
   },
   {
     "arguments": [
@@ -2698,6 +3040,78 @@
     "directory": "/home/quang/master.c",
     "file": "/home/quang/master.c/src/main.c",
     "output": "/home/quang/master.c/build/src/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/heap/binary_heap.o",
+      "src/heap/binary_heap.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/heap/binary_heap.c",
+    "output": "/home/quang/master.c/build/src/heap/binary_heap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/queue/queue.o",
+      "src/queue/queue.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/queue/queue.c",
+    "output": "/home/quang/master.c/build/src/queue/queue.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/htable.o",
+      "src/map/htable.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/htable.c",
+    "output": "/home/quang/master.c/build/src/map/htable.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/set.o",
+      "src/map/set.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/set.c",
+    "output": "/home/quang/master.c/build/src/map/set.o"
   },
   {
     "arguments": [
@@ -3250,6 +3664,42 @@
       "-ggdb",
       "-c",
       "-o",
+      "build/src/heap/binary_heap.o",
+      "src/heap/binary_heap.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/heap/binary_heap.c",
+    "output": "/home/quang/master.c/build/src/heap/binary_heap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/queue/queue.o",
+      "src/queue/queue.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/queue/queue.c",
+    "output": "/home/quang/master.c/build/src/queue/queue.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
       "build/src/map/htable.o",
       "src/map/htable.c"
     ],
@@ -3628,6 +4078,78 @@
       "-ggdb",
       "-c",
       "-o",
+      "build/src/heap/binary_heap.o",
+      "src/heap/binary_heap.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/heap/binary_heap.c",
+    "output": "/home/quang/master.c/build/src/heap/binary_heap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/queue/queue.o",
+      "src/queue/queue.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/queue/queue.c",
+    "output": "/home/quang/master.c/build/src/queue/queue.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/htable.o",
+      "src/map/htable.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/htable.c",
+    "output": "/home/quang/master.c/build/src/map/htable.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/set.o",
+      "src/map/set.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/set.c",
+    "output": "/home/quang/master.c/build/src/map/set.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
       "build/src/recursion/combinations.o",
       "src/recursion/combinations.c"
     ],
@@ -3850,6 +4372,78 @@
     "directory": "/home/quang/master.c",
     "file": "/home/quang/master.c/src/main.c",
     "output": "/home/quang/master.c/build/src/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/heap/binary_heap.o",
+      "src/heap/binary_heap.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/heap/binary_heap.c",
+    "output": "/home/quang/master.c/build/src/heap/binary_heap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/queue/queue.o",
+      "src/queue/queue.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/queue/queue.c",
+    "output": "/home/quang/master.c/build/src/queue/queue.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/htable.o",
+      "src/map/htable.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/htable.c",
+    "output": "/home/quang/master.c/build/src/map/htable.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c23",
+      "-I./src",
+      "-I./include",
+      "-include",
+      "pch.h",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/src/map/set.o",
+      "src/map/set.c"
+    ],
+    "directory": "/home/quang/master.c",
+    "file": "/home/quang/master.c/src/map/set.c",
+    "output": "/home/quang/master.c/build/src/map/set.o"
   },
   {
     "arguments": [

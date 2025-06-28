@@ -6,6 +6,7 @@ extern void map_find_smallest_subarray_covering_set(int plen, const char *paragr
 void test_map_find_smallest_subarray_covering_set()
 {
         int_array actual = {.len = 2}, expected = {.len = 2};
+        _Container c;
 
         map_find_smallest_subarray_covering_set(7, (const char *[]){"a", "b", "c", "a", "e", "b", "c"}, 3,
                                                 (const char *[]){"b", "c", "e"}, (int(**)[2])(&actual.data));
@@ -15,8 +16,12 @@ void test_map_find_smallest_subarray_covering_set()
 
         map_find_smallest_subarray_covering_set(9, (const char *[]){"x", "b", "c", "e", "a", "b", "c", "e", "z"}, 3,
                                                 (const char *[]){"b", "c", "e"}, (int(**)[2])(&actual.data));
-        expected.data = (int[]){1, 3};
-        ASSERT_EQUAL(actual, expected);
+        c = (_Container){(void *[]){
+                                 &(int_array){(int[]){1, 3}, 2},
+                                 &(int_array){(int[]){5, 7}, 2},
+                         },
+                         2};
+        ASSERT_IN(actual, c);
         free(actual.data);
 
         map_find_smallest_subarray_covering_set(3, (const char *[]){"a", "b", "c"}, 2, (const char *[]){"x", "y"},
@@ -39,14 +44,14 @@ void test_map_find_smallest_subarray_covering_set()
 
         map_find_smallest_subarray_covering_set(10, (const char *[]){"a", "b", "a", "c", "e", "b", "c", "e", "b", "c"},
                                                 3, (const char *[]){"b", "c", "e"}, (int(**)[2])(&actual.data));
-        _Container c = {(void *[]){
-                                &(int_array){(int[]){3, 5}, 2},
-                                &(int_array){(int[]){4, 6}, 2},
-                                &(int_array){(int[]){5, 7}, 2},
-                                &(int_array){(int[]){6, 8}, 2},
-                                &(int_array){(int[]){7, 9}, 2},
-                        },
-                        5};
+        c = (_Container){(void *[]){
+                                 &(int_array){(int[]){3, 5}, 2},
+                                 &(int_array){(int[]){4, 6}, 2},
+                                 &(int_array){(int[]){5, 7}, 2},
+                                 &(int_array){(int[]){6, 8}, 2},
+                                 &(int_array){(int[]){7, 9}, 2},
+                         },
+                         5};
         ASSERT_IN(actual, c);
         free(actual.data);
 
