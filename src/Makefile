@@ -25,3 +25,4 @@ subdir-$(CONFIG_QUEUE) += queue
 subdir-$(CONFIG_HEAP) += heap
 subdir-$(CONFIG_GRAPH) += graph
 subdir-$(CONFIG_MAP) += map
+subdir-$(CONFIG_BITWISE) += bitwise

@@ -19,7 +19,7 @@ if [[ ! -e $builddir ]]; then
     mkdir -p $builddir
 fi
 
-modules="array_string binary_tree dsa graph heap linked_list map recursion stack"
+modules="array_string binary_tree dsa graph heap linked_list map recursion stack bitwise"
 for module in $modules; do
 	bear --output $builddir/$module.json -- make $module
 done

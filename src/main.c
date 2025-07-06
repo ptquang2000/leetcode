@@ -28,8 +28,13 @@
 #ifdef CONFIG_MAP
 #include "map/map.h"
 #endif
+#ifdef CONFIG_BITWISE
+#include "bitwise/bitwise.h"
+#endif
 
-#define TEST(func) test_##func(); printf(".");
+#define TEST(func)                                                                                                     \
+        test_##func();                                                                                                 \
+        printf(".");
 
 int main()
 {
@@ -363,6 +368,27 @@ int main()
 #endif
 #ifdef CONFIG_test_map_COLLATZ_CONJECTURE
         TEST(map_test_collatz_conjecture);
+#endif
+
+        // Bit manipulation
+
+#ifdef CONFIG_ADD_BINARY
+        TEST(bitwise_add_binary);
+#endif
+#ifdef CONFIG_HAMMING_WEIGHT
+        TEST(bitwise_hamming_weight);
+#endif
+#ifdef CONFIG_RANGE_BITWISE_AND
+        TEST(bitwise_range_bitwise_and);
+#endif
+#ifdef CONFIG_REVERSE_BITS
+        TEST(bitwise_reverse_bits);
+#endif
+#ifdef CONFIG_SINGLE_NUMBER
+        TEST(bitwise_single_number);
+#endif
+#ifdef CONFIG_single_number_2
+        TEST(bitwise_single_number_2);
 #endif
 
         printf("\n");
