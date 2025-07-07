@@ -14,4 +14,19 @@ void test_array_string_buyAndSellStockTwice()
                 int_obj actual = (int_obj){array_string_buyAndSellStockTwice(A.len, A.data)};
                 ASSERT_EQUAL(actual, (int_obj){100});
         }
+        {
+                int_array A = {(int[]){7, 1, 5, 3, 6, 4}, 6};
+                int_obj actual = (int_obj){array_string_buyAndSellStockTwice(A.len, A.data)};
+                ASSERT_EQUAL(actual, (int_obj){7});
+        }
+        {
+                int_array A = {(int[]){1, 2, 3, 4, 5}, 5};
+                int_obj actual = (int_obj){array_string_buyAndSellStockTwice(A.len, A.data)};
+                ASSERT_EQUAL(actual, (int_obj){4});
+        }
+        {
+                int_array A = {(int[]){7, 6, 4, 3, 1}, 5};
+                int_obj actual = (int_obj){array_string_buyAndSellStockTwice(A.len, A.data)};
+                ASSERT_EQUAL(actual, (int_obj){0});
+        }
 }
