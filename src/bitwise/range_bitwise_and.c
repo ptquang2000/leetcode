@@ -27,7 +27,7 @@ void test_bitwise_range_bitwise_and()
         ASSERT_EQUAL(actual, expected);
 
         actual.data = bitwise_range_bitwise_and(600, 1023);
-        expected.data = 0;
+        expected.data = 512;
         ASSERT_EQUAL(actual, expected);
 
         actual.data = bitwise_range_bitwise_and(1024, 2047);

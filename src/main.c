@@ -387,7 +387,7 @@ int main()
 #ifdef CONFIG_SINGLE_NUMBER
         TEST(bitwise_single_number);
 #endif
-#ifdef CONFIG_single_number_2
+#ifdef CONFIG_SINGLE_NUMBER_2
         TEST(bitwise_single_number_2);
 #endif
 

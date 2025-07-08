@@ -31,7 +31,7 @@ void test_bitwise_reverse_bits()
         ASSERT_EQUAL(actual, expected);
 
         actual.data = bitwise_reverse_bits(1431655765);
-        expected.data = 1431655765;
+        expected.data = 2863311530;
         ASSERT_EQUAL(actual, expected);
 
         actual.data = bitwise_reverse_bits(2863311530);
