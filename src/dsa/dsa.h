@@ -21,5 +21,6 @@ void test_dsa_two_crystal_balls();
 void test_dsa_graph_list_dfs();
 void test_dsa_graph_matrix_bfs();
 void test_dsa_dijkstra_list();
+void test_dsa_LRU();
 
 #endif

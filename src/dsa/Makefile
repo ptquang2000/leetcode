@@ -21,3 +21,4 @@ obj-$(CONFIG_TWO_CRYSTAL_BALLS) += two_crystal_balls.o
 obj-$(CONFIG_GRAPH_LIST_DFS) += graph_list_dfs.o
 obj-$(CONFIG_GRAPH_MATRIX_BFS) += graph_matrix_bfs.o
 obj-$(CONFIG_DIJKSTRA_LIST) += dijkstra_list.o
+obj-$(CONFIG_LRU) += lru.o

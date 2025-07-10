@@ -1,6 +1,8 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#include "map/htable.h"
+
 struct dsa_point {
         int x;
         int y;
@@ -254,6 +256,18 @@ static weighted_adj_matrix matrix2[] = {
         (int[]){0, 1, 0, 5, 0, 2, 0},  // 4
         (int[]){0, 0, 18, 0, 0, 0, 1}, // 5
         (int[]){0, 0, 0, 1, 0, 0, 1},  // 6
+};
+
+struct htable;
+struct LRU {
+        int capacity;
+        struct dsa_list_node *head;
+        struct dsa_list_node *tail;
+        struct htable map;
+
+        int length;
+        void (*update)(struct LRU *lru, const char *k, int v);
+        int (*get)(struct LRU *lru, const char *k);
 };
 
 #endif

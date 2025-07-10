@@ -327,6 +327,9 @@ int main()
 #ifdef CONFIG_DIJKSTRA_LIST
         TEST(dsa_dijkstra_list);
 #endif
+#ifdef CONFIG_LRU
+        TEST(dsa_LRU);
+#endif
 
         // Graph
 
