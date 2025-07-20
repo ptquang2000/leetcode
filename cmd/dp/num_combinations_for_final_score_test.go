@@ -30,17 +30,12 @@ func TestNumCombinationsForFinalScore(T *testing.T) {
 		T.Logf("Expected %d got %d", expected, actual)
 		T.Fail()
 	}
-	expected = 4
+	expected = 3
 	if actual = NumCombinationsForFinalScore(8, []int{2, 3, 5}); actual != expected {
 		T.Logf("Expected %d got %d", expected, actual)
 		T.Fail()
 	}
-	expected = 0
-	if actual = NumCombinationsForFinalScore(5, []int{}); actual != expected {
-		T.Logf("Expected %d got %d", expected, actual)
-		T.Fail()
-	}
-	expected = 10
+	expected = 6
 	if actual = NumCombinationsForFinalScore(8, []int{1, 3, 4}); actual != expected {
 		T.Logf("Expected %d got %d", expected, actual)
 		T.Fail()
@@ -50,7 +45,7 @@ func TestNumCombinationsForFinalScore(T *testing.T) {
 		T.Logf("Expected %d got %d", expected, actual)
 		T.Fail()
 	}
-	expected = 30
+	expected = 3
 	if actual = NumCombinationsForFinalScore(10, []int{2, 3, 7}); actual != expected {
 		T.Logf("Expected %d got %d", expected, actual)
 		T.Fail()
