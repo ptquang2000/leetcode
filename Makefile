@@ -1,9 +1,11 @@
 PHONY := all
 all:
-	go test -v ./cmd/...
+	@go clean -testcache
+	@go test -v ./cmd/...
 
 run:
-	go test -v ./cmd/... -run $(test)
+	@go clean -testcache
+	@go test -v ./cmd/... -run $(test)
 
 PHONY := FORCE
 FORCE:
