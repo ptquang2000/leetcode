@@ -3,3 +3,4 @@
 include/config
 build
 day*
+go.mod
