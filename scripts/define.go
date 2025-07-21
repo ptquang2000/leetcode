@@ -19,3 +19,7 @@ func IsPatternContainedInGrid(grid [][]int, S []int) bool {
 func OptimumSubjectToCapacity(items []struct{ Capacity, Value int }, capacity int) int {
 	return -1
 }
+
+func DecomposeIntoDictionaryWords(domain string, dictionary []string) []string {
+	return []string{}
+}

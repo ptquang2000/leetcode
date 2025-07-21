@@ -120,7 +120,7 @@ func generateDay() {
 
 		var outputsBuf bytes.Buffer
 		for _, output := range funcDecl.Type.Results.List {
-			outputType := fmt.Sprintf("%s", output.Type)
+			outputType := exprToString(fset, output.Type)
 
 			// Handle named returns (e.g., func () (a int, b string))
 			if len(output.Names) != 0 {
