@@ -23,3 +23,7 @@ func OptimumSubjectToCapacity(items []struct{ Capacity, Value int }, capacity in
 func DecomposeIntoDictionaryWords(domain string, dictionary []string) []string {
 	return []string{}
 }
+
+func MinimumPathWeight(triangle [][]int) int {
+	return -1
+}
