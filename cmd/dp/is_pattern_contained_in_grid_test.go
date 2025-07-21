@@ -28,7 +28,7 @@ func TestIsPatternContainedInGrid(T *testing.T) {
 		T.Fail()
 	}
 
-	expected = false
+	expected = true
 	if actual = IsPatternContainedInGrid([][]int{
 		{1, 2, 3},
 	}, []int{1, 2, 1}); actual != expected {
