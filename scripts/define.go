@@ -27,3 +27,7 @@ func DecomposeIntoDictionaryWords(domain string, dictionary []string) []string {
 func MinimumPathWeight(triangle [][]int) int {
 	return -1
 }
+
+func MaximumRevenue(coins []int) int {
+	return -1
+}

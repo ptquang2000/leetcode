@@ -73,4 +73,16 @@ func TestMinimumPathWeight(T *testing.T) {
 		T.Logf("Expected %v got %v", expected, actual)
 		T.Fail()
 	}
+
+	expected = 15
+	if actual = MinimumPathWeight([][]int{
+		{2},
+		{4, 4},
+		{8, 5, 6},
+		{4, 2, 6, 2},
+		{1, 5, 2, 3, 4},
+	}); actual != expected {
+		T.Logf("Expected %v got %v", expected, actual)
+		T.Fail()
+	}
 }
