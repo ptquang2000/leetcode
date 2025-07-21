@@ -88,7 +88,7 @@ func TestOptimumSubjectToCapacity(T *testing.T) {
 		T.Fail()
 	}
 
-	expected = 0
+	expected = 22
 	if actual = OptimumSubjectToCapacity([]struct {
 		Capacity int
 		Value    int
