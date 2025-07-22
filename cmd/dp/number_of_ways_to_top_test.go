@@ -6,7 +6,7 @@ import (
 	. "leetcode/day"
 )
 
-func TestNumberOfWaysToTopToTop(T *testing.T) {
+func TestNumberOfWaysToTop(T *testing.T) {
 	var actual, expected int
 
 	expected = 0
@@ -63,8 +63,14 @@ func TestNumberOfWaysToTopToTop(T *testing.T) {
 		T.Fail()
 	}
 
-	expected = 10609
+	expected = 400096
 	if actual = NumberOfWaysToTop(20, 5); actual != expected {
+		T.Logf("Expected %d got %d", expected, actual)
+		T.Fail()
+	}
+
+	expected = 5
+	if actual = NumberOfWaysToTop(4, 2); actual != expected {
 		T.Logf("Expected %d got %d", expected, actual)
 		T.Fail()
 	}
