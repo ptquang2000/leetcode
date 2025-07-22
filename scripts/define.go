@@ -35,3 +35,7 @@ func MaximumRevenue(coins []int) int {
 func NumberOfWaysToTop(top int, maximumStep int) int {
 	return -1
 }
+
+func MinimumMessiness(words []string, lineLength int) int {
+	return -1
+}
