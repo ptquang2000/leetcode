@@ -31,3 +31,7 @@ func MinimumPathWeight(triangle [][]int) int {
 func MaximumRevenue(coins []int) int {
 	return -1
 }
+
+func NumberOfWaysToTop(top int, maximumStep int) int {
+	return -1
+}
