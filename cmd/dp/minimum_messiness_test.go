@@ -38,4 +38,10 @@ func TestMinimumMessiness(T *testing.T) {
 		T.Logf("Expected %d got %d", expected, actual)
 		T.Fail()
 	}
+
+	expected = 36
+	if actual = MinimumMessiness([]string{"aaa", "bbb", "c", "d", "ee", "ff", "ggggggg"}, 11); actual != expected {
+		T.Logf("Expected %d got %d", expected, actual)
+		T.Fail()
+	}
 }

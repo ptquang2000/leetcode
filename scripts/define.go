@@ -39,3 +39,7 @@ func NumberOfWaysToTop(top int, maximumStep int) int {
 func MinimumMessiness(words []string, lineLength int) int {
 	return -1
 }
+
+func LongestNondecreasingSubsequenceLength(A []int) int {
+	return -1
+}
