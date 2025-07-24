@@ -15,7 +15,7 @@ func TestMinimumMessiness(T *testing.T) {
 		T.Fail()
 	}
 
-	expected = 9
+	expected = 13
 	if actual = MinimumMessiness([]string{"aaa", "bb", "c"}, 6); actual != expected {
 		T.Logf("Expected %d got %d", expected, actual)
 		T.Fail()
@@ -35,6 +35,30 @@ func TestMinimumMessiness(T *testing.T) {
 
 	expected = 8
 	if actual = MinimumMessiness([]string{"longword", "tiny", "fit"}, 10); actual != expected {
+		T.Logf("Expected %d got %d", expected, actual)
+		T.Fail()
+	}
+
+	expected = 4
+	if actual = MinimumMessiness([]string{"Go", "is", "fun"}, 11); actual != expected {
+		T.Logf("Expected %d got %d", expected, actual)
+		T.Fail()
+	}
+
+	expected = 4
+	if actual = MinimumMessiness([]string{"a", "b", "c", "d", "e"}, 3); actual != expected {
+		T.Logf("Expected %d got %d", expected, actual)
+		T.Fail()
+	}
+
+	expected = 26
+	if actual = MinimumMessiness([]string{"hello", "world", "a", "b"}, 10); actual != expected {
+		T.Logf("Expected %d got %d", expected, actual)
+		T.Fail()
+	}
+
+	expected = 0
+	if actual = MinimumMessiness([]string{"a", "b", "c"}, 5); actual != expected {
 		T.Logf("Expected %d got %d", expected, actual)
 		T.Fail()
 	}
