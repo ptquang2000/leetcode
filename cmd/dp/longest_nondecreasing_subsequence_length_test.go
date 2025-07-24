@@ -10,7 +10,7 @@ func TestLongestNondecreasingSubsequenceLength(T *testing.T) {
 	var actual, expected int
 
 	expected = 4
-	if actual = LongestNondecreasingSubsequenceLength([]int{8, 4, 12, 2, 10, 6, 14, 1, 9}); actual != expected {
+	if actual = LongestNondecreasingSubsequenceLength([]int{0, 8, 4, 12, 2, 10, 6, 14, 1, 9}); actual != expected {
 		T.Logf("Expected %d got %d", expected, actual)
 		T.Fail()
 	}
