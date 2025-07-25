@@ -9,7 +9,7 @@ import (
 func TestNumberOfWaysToTop(T *testing.T) {
 	var actual, expected int
 
-	expected = 0
+	expected = 1
 	if actual = NumberOfWaysToTop(0, 3); actual != expected {
 		T.Logf("Expected %d got %d", expected, actual)
 		T.Fail()
