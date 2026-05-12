@@ -4,8 +4,7 @@ pub struct Problem {
     parameters: &'static [(&'static str, &'static str)],
     values: &'static [(&'static str, &'static str)],
 }
-
-pub const PROBLEMS: &[&[Problem]] = &[ARRAY, ARRAY_2D];
+pub const PROBLEMS: &[&[Problem]] = &[ARRAY, ARRAY_2D, STRING];
 
 pub const ARRAY: &[Problem] = &[
     Problem {
@@ -80,6 +79,69 @@ pub const ARRAY_2D: &[Problem] = &[
         name: "matrix_in_spiral_order",
         parameters: &[("square_matrix", "&Vec<Vec<i32>>")],
         values: &[("Vec<i32>", "vec![]")],
+    },
+];
+
+pub const STRING: &[Problem] = &[
+    Problem {
+        name: "int_to_string",
+        parameters: &[("mut x", "i32")],
+        values: &[("String", "String::new()")],
+    },
+    Problem {
+        name: "string_to_int",
+        parameters: &[("s", "&str")],
+        values: &[("i32", "0")],
+    },
+    Problem {
+        name: "convert_base",
+        parameters: &[("num_as_str", "&str"), ("b1", "i32"), ("b2", "i32")],
+        values: &[("String", "String::new()")],
+    },
+    Problem {
+        name: "is_palindrome",
+        parameters: &[("s", "&str")],
+        values: &[("bool", "false")],
+    },
+    Problem {
+        name: "spreadsheet_decode_column_id",
+        parameters: &[("column", "&str")],
+        values: &[("i32", "0")],
+    },
+    Problem {
+        name: "reverse_words",
+        parameters: &[("s", "&mut String")],
+        values: &[],
+    },
+    Problem {
+        name: "look_and_say",
+        parameters: &[("n", "i32")],
+        values: &[("String", "String::new()")],
+    },
+    Problem {
+        name: "roman_to_integer",
+        parameters: &[("s", "&str")],
+        values: &[("i32", "-1")],
+    },
+    Problem {
+        name: "string_encoding",
+        parameters: &[("s", "&str")],
+        values: &[("String", "String::new()")],
+    },
+    Problem {
+        name: "string_decoding",
+        parameters: &[("s", "&str")],
+        values: &[("String", "String::new()")],
+    },
+    Problem {
+        name: "snake_string",
+        parameters: &[("s", "&str")],
+        values: &[("String", "String::new()")],
+    },
+    Problem {
+        name: "rabin_karp",
+        parameters: &[("t", "&str"), ("s", "&str")],
+        values: &[("i32", "-1")],
     },
 ];
 
