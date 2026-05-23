@@ -17,6 +17,10 @@ class TestMultiDimArray(unittest.TestCase):
             [1,4,6,4,1],
         ]
         self.assertEqual(generate_pascal_triangle(5), result)
+        self.assertEqual(generate_pascal_triangle(0), [])
+        self.assertEqual(generate_pascal_triangle(1), [[1]])
+        self.assertEqual(generate_pascal_triangle(2), [[1],[1,1]])
+        self.assertEqual(generate_pascal_triangle(3), [[1],[1,1],[1,2,1]])
 
     def test_is_valid_sudoku(self):
         partial_sudoku = [
@@ -70,6 +74,10 @@ class TestMultiDimArray(unittest.TestCase):
             [13,14,15,16],
         ]
         self.assertEqual(matrix_in_spiral_order(matrix), [1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10])
+        self.assertEqual(matrix_in_spiral_order([[7]]), [7])
+        self.assertEqual(matrix_in_spiral_order([[1,2,3]]), [1,2,3])
+        self.assertEqual(matrix_in_spiral_order([[1],[2],[3]]), [1,2,3])
+        self.assertEqual(matrix_in_spiral_order([[1,2],[3,4]]), [1,2,4,3])
 
     def test_rotate_matrix(self):
         matrix = [
@@ -86,3 +94,19 @@ class TestMultiDimArray(unittest.TestCase):
         ]
         rotate_matrix(matrix)
         self.assertEqual(matrix, rotated_matrix)
+
+        matrix = [[1]]
+        rotate_matrix(matrix)
+        self.assertEqual(matrix, [[1]])
+
+        matrix = [[1,2],[3,4]]
+        rotate_matrix(matrix)
+        self.assertEqual(matrix, [[3,1],[4,2]])
+
+        matrix = [
+            [1,2,3],
+            [4,5,6],
+            [7,8,9],
+        ]
+        rotate_matrix(matrix)
+        self.assertEqual(matrix, [[7,4,1],[8,5,2],[9,6,3]])

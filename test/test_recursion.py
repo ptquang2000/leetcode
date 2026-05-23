@@ -23,10 +23,16 @@ class TestRecursion(unittest.TestCase):
     def test_generate_power_set(self):
         self.assertCountEqual(generate_power_set([1,2,3]), [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]])
         self.assertCountEqual(generate_power_set([0]), [[],[0]])
+        self.assertCountEqual(generate_power_set([]), [[]])
+        self.assertCountEqual(generate_power_set([1,2]), [[],[1],[2],[1,2]])
 
     def test_n_queens(self):
         self.assertCountEqual(n_queens(1), [[0]])
+        self.assertCountEqual(n_queens(2), [])
+        self.assertCountEqual(n_queens(3), [])
         self.assertCountEqual(n_queens(4), [[1,3,0,2],[2,0,3,1]])
+        self.assertEqual(len(n_queens(5)), 10)
+        self.assertEqual(len(n_queens(6)), 4)
 
     def test_permutations(self):
         self.assertCountEqual(permutations([2,3,5,7]),

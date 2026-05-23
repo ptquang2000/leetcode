@@ -27,10 +27,18 @@ class TestArray(unittest.TestCase):
     def test_buy_and_sell_stock_once(self):
         A = [310,315,275,295,260,270,290,230,255,250]
         self.assertEqual(buy_and_sell_stock_once(A), 30)
+        self.assertEqual(buy_and_sell_stock_once([5,4,3,2,1]), 0)
+        self.assertEqual(buy_and_sell_stock_once([1,2]), 1)
+        self.assertEqual(buy_and_sell_stock_once([1,1,1,1]), 0)
+        self.assertEqual(buy_and_sell_stock_once([2,1,4]), 3)
 
     def test_buy_and_sell_stock_twice(self):
         A = [12,11,13,9,12,8,14,13,15]
         self.assertEqual(buy_and_sell_stock_twice(A), 10)
+        self.assertEqual(buy_and_sell_stock_twice([3,3,5,0,0,3,1,4]), 6)
+        self.assertEqual(buy_and_sell_stock_twice([1,2,3,4,5]), 4)
+        self.assertEqual(buy_and_sell_stock_twice([7,6,4,3,1]), 0)
+        self.assertEqual(buy_and_sell_stock_twice([1,2,4,2,5,7,2,4,9,0]), 13)
 
     def test_can_reach_end(self):
         self.assertTrue(can_reach_end([2,4,1,1,0,2,3]))
@@ -57,14 +65,28 @@ class TestArray(unittest.TestCase):
         A = [0,1,2,0,2,1,1]
         self._dutch_inner(3, A[:])
         self._dutch_inner(2, A[:])
+        self._dutch_inner(0, [2,2,2][:])
+        self._dutch_inner(0, [0,0,1,1,2,2][:])
+        self._dutch_inner(2, [0,0,1,1,2,2][:])
+        self._dutch_inner(0, [5][:])
+        self._dutch_inner(1, [3,1,4,1,5,9,2,6][:])
+        self._dutch_inner(4, [3,1,4,1,5,9,2,6][:])
 
     def test_generate_primes(self):
         self.assertEqual(generate_primes(18), [2,3,5,7,11,13,17])
+        self.assertEqual(generate_primes(1), [])
+        self.assertEqual(generate_primes(2), [2])
+        self.assertEqual(generate_primes(10), [2,3,5,7])
+        self.assertEqual(generate_primes(30), [2,3,5,7,11,13,17,19,23,29])
 
     def test_multiply(self):
         num1 = [1,9,3,7,0,7,7,2,1]
         num2 = [-7,6,1.,8,3,8,2,5,7,2,8,7]
         self.assertEqual(multiply(num1, num2), [-1,4,7,5,7,3,9,5,2,5,8,9,6,7,6,4,1,2,9,2,7])
+        self.assertEqual(multiply([1,2], [3]), [3,6])
+        self.assertEqual(multiply([-1,2], [3]), [-3,6])
+        self.assertEqual(multiply([0], [9,9,9]), [0])
+        self.assertEqual(multiply([9,9], [9,9]), [9,8,0,1])
 
     def test_next_permutation(self):
         self.assertEqual(next_permutation([1,0,3,2]), [1,2,0,3])

@@ -37,6 +37,13 @@ class TestString(unittest.TestCase):
         self.assertFalse(is_palindrome("Ray a Ray"))
 
     def test_look_and_say(self):
+        self.assertEqual(look_and_say(1), "1")
+        self.assertEqual(look_and_say(2), "11")
+        self.assertEqual(look_and_say(3), "21")
+        self.assertEqual(look_and_say(4), "1211")
+        self.assertEqual(look_and_say(5), "111221")
+        self.assertEqual(look_and_say(6), "312211")
+        self.assertEqual(look_and_say(7), "13112221")
         self.assertEqual(look_and_say(8), "1113213211")
 
     def test_rabin_karp(self):
@@ -85,6 +92,10 @@ class TestString(unittest.TestCase):
 
     def test_snake_string(self):
         self.assertEqual(snake_string("Hello World!"), "e lHloWrdlo!")
+        self.assertEqual(snake_string("a"), "a")
+        self.assertEqual(snake_string("ab"), "ba")
+        self.assertEqual(snake_string("abcd"), "bacd")
+        self.assertEqual(snake_string("abcde"), "baced")
 
     def test_ss_decode_col_id(self):
         self.assertEqual(ss_decode_col_id("D"), 4)

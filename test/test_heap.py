@@ -20,6 +20,9 @@ class TestHeap(unittest.TestCase):
             [1, 1, 2, 3, 4, 4, 5, 6],
         )
         self.assertEqual(merge_sorted_arrays([]), [])
+        self.assertEqual(merge_sorted_arrays([[1, 2, 3]]), [1, 2, 3])
+        self.assertEqual(merge_sorted_arrays([[1], [2], [3]]), [1, 2, 3])
+        self.assertEqual(merge_sorted_arrays([[5], [5]]), [5, 5])
 
     def test_sort_k_increasing_decreasing_array(self):
         A = [57, 131, 493, 294, 221, 339, 418, 452, 442, 190]
@@ -48,8 +51,20 @@ class TestHeap(unittest.TestCase):
         sort_approximately_sorted_array(seq, 2)
         self.assertEqual(seq, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
+        seq = [5]
+        sort_approximately_sorted_array(seq, 0)
+        self.assertEqual(seq, [5])
+
+        seq = [1, 2, 3, 4]
+        sort_approximately_sorted_array(seq, 1)
+        self.assertEqual(seq, [1, 2, 3, 4])
+
     def test_online_median(self):
         self.assertEqual(online_median([1, 0, 3, 5, 2, 0, 1]), [1, 0.5, 1, 2, 2, 1.5, 1])
+        self.assertEqual(online_median([5]), [5.0])
+        self.assertEqual(online_median([3, 1]), [3.0, 2.0])
+        self.assertEqual(online_median([2, 3]), [2.0, 2.5])
+        self.assertEqual(online_median([1, 2, 3, 4, 5]), [1, 1.5, 2, 2.5, 3])
 
     def test_k_largest_in_binary_heap(self):
         self.assertEqual(k_largest_in_binary_heap([50, 23, 30, 1, 9, 2, 12], 3), [50, 30, 23])

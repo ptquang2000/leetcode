@@ -124,17 +124,35 @@ class TestDSA(unittest.TestCase):
 
     def test_bt_in_order(self):
         self.assertEqual(in_order_search(tree), [5, 7, 10, 15, 20, 29, 30, 45, 50, 100])
+        self.assertEqual(in_order_search(tree2), [5, 7, 10, 15, 20, 21, 29, 30, 45, 49, 50])
+        self.assertEqual(in_order_search(BinaryNode(1, None, None)), [1])
 
     def test_bt_post_order(self):
         self.assertEqual(post_order_search(tree), [7, 5, 15, 10, 29, 45, 30, 100, 50, 20])
+        self.assertEqual(post_order_search(tree2), [7, 5, 15, 10, 21, 29, 49, 45, 30, 50, 20])
+        self.assertEqual(post_order_search(BinaryNode(1, None, None)), [1])
 
     def test_bt_pre_order(self):
         self.assertEqual(pre_order_search(tree), [20, 10, 5, 7, 15, 50, 30, 29, 45, 100])
+        self.assertEqual(pre_order_search(tree2), [20, 10, 5, 7, 15, 50, 30, 29, 21, 45, 49])
+        self.assertEqual(pre_order_search(BinaryNode(1, None, None)), [1])
 
     def test_bubble_sort(self):
         arr = [9, 3, 7, 4, 69, 420, 42]
         bubble_sort(arr)
         self.assertEqual(arr, [3, 4, 7, 9, 42, 69, 420])
+        arr = [1, 2, 3, 4, 5]
+        bubble_sort(arr)
+        self.assertEqual(arr, [1, 2, 3, 4, 5])
+        arr = [5, 4, 3, 2, 1]
+        bubble_sort(arr)
+        self.assertEqual(arr, [1, 2, 3, 4, 5])
+        arr = [5]
+        bubble_sort(arr)
+        self.assertEqual(arr, [5])
+        arr = [3, 3, 1, 2, 3]
+        bubble_sort(arr)
+        self.assertEqual(arr, [1, 2, 3, 3, 3])
 
     def test_compare_binary_trees(self):
         self.assertTrue(compare(tree, tree))
@@ -231,6 +249,18 @@ class TestDSA(unittest.TestCase):
         arr = [9, 3, 7, 4, 69, 420, 42]
         quick_sort(arr)
         self.assertEqual(arr, [3, 4, 7, 9, 42, 69, 420])
+        arr = [1, 2, 3, 4, 5]
+        quick_sort(arr)
+        self.assertEqual(arr, [1, 2, 3, 4, 5])
+        arr = [5, 4, 3, 2, 1]
+        quick_sort(arr)
+        self.assertEqual(arr, [1, 2, 3, 4, 5])
+        arr = [5]
+        quick_sort(arr)
+        self.assertEqual(arr, [5])
+        arr = [3, 3, 1, 2, 3]
+        quick_sort(arr)
+        self.assertEqual(arr, [1, 2, 3, 3, 3])
 
     def test_stack(self):
         stack = Stack()

@@ -21,6 +21,10 @@ class TestBinaryTrees(unittest.TestCase):
         self.assertEqual(to_bfs(tree), [3,9,20,None,None,15,7])
         tree = binary_tree_from_preorder_inorder([-1],[-1])
         self.assertEqual(to_bfs(tree), [-1])
+        tree = binary_tree_from_preorder_inorder([1,2,3],[2,1,3])
+        self.assertEqual(to_bfs(tree), [1,2,3])
+        tree = binary_tree_from_preorder_inorder([1,2,4,5,3,6],[4,2,5,1,6,3])
+        self.assertEqual(to_bfs(tree), [1,2,3,4,5,6])
 
     def test_create_list_of_leaves(self):
         leaves = create_list_of_leaves(form_binary_tree([1,2,3,4,5,None,None]))
@@ -34,11 +38,23 @@ class TestBinaryTrees(unittest.TestCase):
         node = find_kth_node_binary_tree(tree, 1)
         self.assertIsNotNone(node)
         self.assertEqual(node.data, 1)
+        node = find_kth_node_binary_tree(tree, 2)
+        self.assertIsNotNone(node)
+        self.assertEqual(node.data, 2)
+        node = find_kth_node_binary_tree(tree, 4)
+        self.assertIsNotNone(node)
+        self.assertEqual(node.data, 4)
         tree = form_binary_tree([5,3,6,2,4,None,None,1])
         assert tree
         node = find_kth_node_binary_tree(tree, 3)
         self.assertIsNotNone(node)
         self.assertEqual(node.data, 3)
+        node = find_kth_node_binary_tree(tree, 1)
+        self.assertIsNotNone(node)
+        self.assertEqual(node.data, 1)
+        node = find_kth_node_binary_tree(tree, 6)
+        self.assertIsNotNone(node)
+        self.assertEqual(node.data, 6)
 
     def test_has_path_sum(self):
         self.assertTrue(has_path_sum(form_binary_tree([5,4,8,11,None,13,4,7,2,None,None,None,1]),22))
@@ -82,3 +98,6 @@ class TestBinaryTrees(unittest.TestCase):
     def test_sum_root_to_leaf(self):
         self.assertEqual(sum_root_to_leaf(form_binary_tree([1,2,3])), 25)
         self.assertEqual(sum_root_to_leaf(form_binary_tree([4,9,0,5,1])), 1026)
+        self.assertEqual(sum_root_to_leaf(form_binary_tree([5])), 5)
+        self.assertEqual(sum_root_to_leaf(form_binary_tree([1,0,1])), 21)
+        self.assertEqual(sum_root_to_leaf(form_binary_tree([6,5,7,4,None,None,8])), 1332)
