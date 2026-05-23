@@ -7,9 +7,11 @@ from test import (
     delete_duplicates,
     dutch_flag_partition,
     generate_primes,
+    merge,
     multiply,
     next_permutation,
     plus_one,
+    remove_element,
 )
 
 
@@ -72,3 +74,27 @@ class TestArray(unittest.TestCase):
     def test_plus_one(self):
         self.assertEqual(plus_one([1,2,9]), [1,3,0])
         self.assertEqual(plus_one([9,9,9]), [1,0,0,0])
+
+    def test_merge(self):
+        nums1 = [1, 2, 3, 0, 0, 0]
+        merge(nums1, 3, [2, 5, 6], 3)
+        self.assertEqual(nums1, [1, 2, 2, 3, 5, 6])
+
+        nums1 = [1]
+        merge(nums1, 1, [], 0)
+        self.assertEqual(nums1, [1])
+
+        nums1 = [0]
+        merge(nums1, 0, [1], 1)
+        self.assertEqual(nums1, [1])
+
+    def test_remove_element(self):
+        nums = [3, 2, 2, 3]
+        k = remove_element(nums, 3)
+        self.assertEqual(k, 2)
+        self.assertEqual(nums[:k], [2, 2])
+
+        nums = [0, 1, 2, 2, 3, 0, 4, 2]
+        k = remove_element(nums, 2)
+        self.assertEqual(k, 5)
+        self.assertEqual(sorted(nums[:k]), [0, 0, 1, 3, 4])

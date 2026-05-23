@@ -3,12 +3,18 @@ import random
 from common import BinaryNode
 from test import (
     binary_search,
+    bst_dfs,
     bt_bfs,
     bubble_sort,
     compare,
+    dijkstra_list,
     DoublyLinkedList,
+    graph_list_dfs,
+    graph_matrix_bfs,
     in_order_search,
     linear_search,
+    LRU,
+    MinHeap,
     post_order_search,
     pre_order_search,
     Queue,
@@ -69,6 +75,36 @@ tree2 = BinaryNode(
         ),
     ),
 )
+
+list1 = [
+    [(1, 3), (2, 1)],
+    [(0, 3), (2, 4), (4, 1)],
+    [(1, 4), (3, 7), (0, 1)],
+    [(2, 7), (4, 5), (6, 1)],
+    [(1, 1), (3, 5), (5, 2)],
+    [(6, 1), (4, 2), (2, 18)],
+    [(3, 1), (5, 1)],
+]
+
+list2 = [
+    [(1, 3), (2, 1)],
+    [(4, 1)],
+    [(3, 7)],
+    [],
+    [(1, 1), (3, 5), (5, 2)],
+    [(2, 18), (6, 1)],
+    [(3, 1)],
+]
+
+matrix2 = [
+    [0, 3, 1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 0, 0],
+    [0, 0, 7, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 1, 0, 5, 0, 2, 0],
+    [0, 0, 18, 0, 0, 0, 1],
+    [0, 0, 0, 1, 0, 0, 1],
+]
 
 
 class TestDSA(unittest.TestCase):
@@ -218,3 +254,60 @@ class TestDSA(unittest.TestCase):
         data = [i >= idx for i in range(0, 10000)]
         self.assertEqual(two_crystal_balls(data), idx)
         self.assertEqual(two_crystal_balls([False for i in range(0, 821)]), -1)
+
+    def test_bst_dfs(self):
+        self.assertTrue(bst_dfs(tree, 45))
+        self.assertTrue(bst_dfs(tree, 7))
+        self.assertFalse(bst_dfs(tree, 69))
+
+    def test_min_heap(self):
+        h = MinHeap()
+        self.assertEqual(h.length, 0)
+        h.insert(5)
+        h.insert(3)
+        h.insert(69)
+        h.insert(420)
+        h.insert(4)
+        h.insert(1)
+        h.insert(8)
+        h.insert(7)
+        self.assertEqual(h.length, 8)
+        self.assertEqual(h.delete(), 1)
+        self.assertEqual(h.delete(), 3)
+        self.assertEqual(h.delete(), 4)
+        self.assertEqual(h.delete(), 5)
+        self.assertEqual(h.length, 4)
+        self.assertEqual(h.delete(), 7)
+        self.assertEqual(h.delete(), 8)
+        self.assertEqual(h.delete(), 69)
+        self.assertEqual(h.delete(), 420)
+        self.assertEqual(h.length, 0)
+
+    def test_graph_list_dfs(self):
+        self.assertEqual(graph_list_dfs(list2, 0, 6), [0, 1, 4, 5, 6])
+        self.assertIsNone(graph_list_dfs(list2, 6, 0))
+
+    def test_graph_matrix_bfs(self):
+        self.assertEqual(graph_matrix_bfs(matrix2, 0, 6), [0, 1, 4, 5, 6])
+        self.assertIsNone(graph_matrix_bfs(matrix2, 6, 0))
+
+    def test_dijkstra_list(self):
+        self.assertEqual(dijkstra_list(list1, 0, 6), [0, 1, 4, 5, 6])
+
+    def test_lru(self):
+        lru = LRU(3)
+        self.assertEqual(lru.get('foo'), -1)
+        lru.update('foo', 69)
+        self.assertEqual(lru.get('foo'), 69)
+        lru.update('bar', 420)
+        self.assertEqual(lru.get('bar'), 420)
+        lru.update('baz', 1337)
+        self.assertEqual(lru.get('baz'), 1337)
+        lru.update('ball', 69420)
+        self.assertEqual(lru.get('ball'), 69420)
+        self.assertEqual(lru.get('foo'), -1)
+        self.assertEqual(lru.get('bar'), 420)
+        lru.update('foo', 69)
+        self.assertEqual(lru.get('bar'), 420)
+        self.assertEqual(lru.get('foo'), 69)
+        self.assertEqual(lru.get('baz'), -1)
