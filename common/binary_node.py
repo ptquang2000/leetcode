@@ -1,6 +1,3 @@
-from typing import Optional
-
-
 class BinaryNode:
    def __init__(self, value:int=0, left: 'BinaryNode | None' = None, right:'BinaryNode | None' = None):
       self.value = value

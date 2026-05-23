@@ -544,7 +544,7 @@ modules = {
 
     "binary_trees_is_balanced_binary_tree": {
         TYPE: "function",
-        IMPORT: ["from typing import Optional", "from common import BinaryNode"],
+        IMPORT: ["from common import BinaryNode"],
         DEF: "is_balanced_binary_tree",
         ARGS: "tree: BinaryNode | None",
         RETURN: "bool",
@@ -552,7 +552,7 @@ modules = {
 
     "binary_trees_is_symmetric": {
         TYPE: "function",
-        IMPORT: ["from typing import Optional", "from common import BinaryNode"],
+        IMPORT: ["from common import BinaryNode"],
         DEF: "is_symmetric",
         ARGS: "tree: BinaryNode | None",
         RETURN: "bool",
@@ -568,7 +568,7 @@ modules = {
 
     "binary_trees_sum_root_to_leaf": {
         TYPE: "function",
-        IMPORT: ["from typing import Optional", "from common import BinaryNode"],
+        IMPORT: ["from common import BinaryNode"],
         DEF: "sum_root_to_leaf",
         ARGS: "tree: BinaryNode | None",
         RETURN: "int",
@@ -576,7 +576,7 @@ modules = {
 
     "binary_trees_has_path_sum": {
         TYPE: "function",
-        IMPORT: ["from typing import Optional", "from common import BinaryNode"],
+        IMPORT: ["from common import BinaryNode"],
         DEF: "has_path_sum",
         ARGS: "tree: BinaryNode | None, remaining_weight: int",
         RETURN: "bool",
@@ -584,7 +584,7 @@ modules = {
 
     "binary_trees_inorder_traversal": {
         TYPE: "function",
-        IMPORT: ["from typing import Optional", "from common import BinaryNode"],
+        IMPORT: ["from common import BinaryNode"],
         DEF: "inorder_traversal",
         ARGS: "tree: BinaryNode | None",
         RETURN: "list[int]",
@@ -592,7 +592,7 @@ modules = {
 
     "binary_trees_preorder_traversal": {
         TYPE: "function",
-        IMPORT: ["from typing import Optional", "from common import BinaryNode"],
+        IMPORT: ["from common import BinaryNode"],
         DEF: "preorder_traversal",
         ARGS: "tree: BinaryNode",
         RETURN: "list[int]",
@@ -608,7 +608,7 @@ modules = {
 
     "binary_trees_binary_tree_from_preorder_inorder": {
         TYPE: "function",
-        IMPORT: ["from typing import Optional", "from common import BinaryNode"],
+        IMPORT: ["from common import BinaryNode"],
         DEF: "binary_tree_from_preorder_inorder",
         ARGS: "preorder: list[int], inorder: list[int]",
         RETURN: "BinaryNode | None",
@@ -616,7 +616,7 @@ modules = {
 
     "binary_trees_reconstruct_preorder": {
         TYPE: "function",
-        IMPORT: ["from typing import Optional", "from common import BinaryNode"],
+        IMPORT: ["from common import BinaryNode"],
         DEF: "reconstruct_preorder",
         ARGS: "preorder: list[int]",
         RETURN: "BinaryNode | None",
@@ -624,7 +624,7 @@ modules = {
 
     "binary_trees_create_list_of_leaves": {
         TYPE: "function",
-        IMPORT: ["from typing import Optional", "from common import BinaryNode"],
+        IMPORT: ["from common import BinaryNode"],
         DEF: "create_list_of_leaves",
         ARGS: "tree: BinaryNode | None",
         RETURN: "list[BinaryNode]",
