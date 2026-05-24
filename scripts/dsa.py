@@ -1,6 +1,6 @@
 TYPE = "type"
 DEF = "def"
-ARGS = "agrs"
+ARGS = "args"
 RETURN = "return"
 IMPORT = "import"
 PROPERTIES = "properties"
@@ -43,35 +43,35 @@ LIST_INTERFACE = [{
 modules = {
     # The Last Algorithm Course You'll Need
 
-    "core_linear_search_list": {
+    "dsa_linear_search_list": {
         TYPE: "function",
         DEF: "linear_search",
         ARGS: "haystack: list[int], needle: int",
         RETURN: "bool",
     },
 
-    "core_binary_search_list": {
+    "dsa_binary_search_list": {
         TYPE: "function",
         DEF: "binary_search",
         ARGS: "haystack: list[int], needle: int",
         RETURN: "bool",
     },
 
-    "core_two_crystal_balls": {
+    "dsa_two_crystal_balls": {
         TYPE: "function",
         DEF: "two_crystal_balls",
         ARGS: "breaks: list[bool]",
         RETURN: "int",
     },
 
-    "core_bubble_sort": {
+    "dsa_bubble_sort": {
         TYPE: "function",
         DEF: "bubble_sort",
         ARGS: "arr: list[int]",
         RETURN: "None",
     },
 
-    "core_queue": {
+    "dsa_queue": {
         TYPE: "class",
         DEF: "Queue",
         PROPERTIES: [
@@ -92,7 +92,7 @@ modules = {
         }]
     },
 
-    "core_stack": {
+    "dsa_stack": {
         TYPE: "class",
         DEF: "Stack",
         PROPERTIES: [
@@ -113,7 +113,7 @@ modules = {
         }]
     },
 
-    "core_maze_solver": {
+    "dsa_maze_solver": {
         TYPE: "function",
         DEF: "solve",
         ARGS: "maze, wall, start, end",
@@ -121,14 +121,14 @@ modules = {
 
     },
 
-    "core_quick_sort": {
+    "dsa_quick_sort": {
         TYPE: "function",
         DEF: "quick_sort",
         ARGS: "arr: list[int]",
         RETURN: "None",
     },
 
-    "core_doubly_linked_list": {
+    "dsa_doubly_linked_list": {
         TYPE: "class",
         DEF: "DoublyLinkedList",
         PROPERTIES: [
@@ -137,7 +137,7 @@ modules = {
         METHODS: LIST_INTERFACE,
     },
 
-    "core_bt_pre_order": {
+    "dsa_bt_pre_order": {
         TYPE: "function",
         IMPORT: ["from common import BinaryNode"],
         DEF: "pre_order_search",
@@ -145,7 +145,7 @@ modules = {
         RETURN: "list[int]"
     },
 
-    "core_bt_in_order": {
+    "dsa_bt_in_order": {
         TYPE: "function",
         IMPORT: ["from common import BinaryNode"],
         DEF: "in_order_search",
@@ -153,7 +153,7 @@ modules = {
         RETURN: "list[int]"
     },
 
-    "core_bt_post_order": {
+    "dsa_bt_post_order": {
         TYPE: "function",
         IMPORT: ["from common import BinaryNode"],
         DEF: "post_order_search",
@@ -161,7 +161,7 @@ modules = {
         RETURN: "list[int]"
     },
 
-    "core_bt_bfs": {
+    "dsa_bt_bfs": {
         TYPE: "function",
         IMPORT: ["from common import BinaryNode"],
         DEF: "bt_bfs",
@@ -169,7 +169,7 @@ modules = {
         RETURN: "bool"
     },
 
-    "core_compare_binary_trees": {
+    "dsa_compare_binary_trees": {
         TYPE: "function",
         IMPORT: ["from common import BinaryNode"],
         DEF: "compare",
@@ -628,6 +628,259 @@ modules = {
         DEF: "create_list_of_leaves",
         ARGS: "tree: BinaryNode | None",
         RETURN: "list[BinaryNode]",
+    },
+
+    "dsa_bst_dfs": {
+        TYPE: "function",
+        IMPORT: ["from common import BinaryNode"],
+        DEF: "bst_dfs",
+        ARGS: "tree: BinaryNode | None, value: int",
+        RETURN: "bool",
+    },
+
+    "dsa_min_heap": {
+        TYPE: "class",
+        DEF: "MinHeap",
+        PROPERTIES: [
+            LENGTH_PROPERTY,
+        ],
+        METHODS: [{
+            DEF: "insert",
+            ARGS: "value: int",
+            RETURN: "None",
+        }, {
+            DEF: "delete",
+            ARGS: "",
+            RETURN: "int | None",
+        }],
+    },
+
+    "dsa_graph_list_dfs": {
+        TYPE: "function",
+        DEF: "graph_list_dfs",
+        ARGS: "graph: list[list[tuple[int, int]]], source: int, needle: int",
+        RETURN: "list[int] | None",
+    },
+
+    "dsa_graph_matrix_bfs": {
+        TYPE: "function",
+        DEF: "graph_matrix_bfs",
+        ARGS: "matrix: list[list[int]], source: int, needle: int",
+        RETURN: "list[int] | None",
+    },
+
+    "dsa_dijkstra_list": {
+        TYPE: "function",
+        DEF: "dijkstra_list",
+        ARGS: "graph: list[list[tuple[int, int]]], source: int, sink: int",
+        RETURN: "list[int] | None",
+    },
+
+    "dsa_lru": {
+        TYPE: "class",
+        DEF: "LRU",
+        PROPERTIES: [],
+        METHODS: [{
+            DEF: "get",
+            ARGS: "key: str",
+            RETURN: "int",
+        }, {
+            DEF: "update",
+            ARGS: "key: str, value: int",
+            RETURN: "None",
+        }],
+    },
+
+    # Array (additional)
+
+    "array_merge": {
+        TYPE: "function",
+        DEF: "merge",
+        ARGS: "nums1: list[int], m: int, nums2: list[int], n: int",
+        RETURN: "None",
+    },
+
+    "array_remove_element": {
+        TYPE: "function",
+        DEF: "remove_element",
+        ARGS: "nums: list[int], val: int",
+        RETURN: "int",
+    },
+
+    # Bitwise
+
+    "bitwise_add_binary": {
+        TYPE: "function",
+        DEF: "add_binary",
+        ARGS: "a: str, b: str",
+        RETURN: "str",
+    },
+
+    "bitwise_hamming_weight": {
+        TYPE: "function",
+        DEF: "hamming_weight",
+        ARGS: "n: int",
+        RETURN: "int",
+    },
+
+    "bitwise_range_bitwise_and": {
+        TYPE: "function",
+        DEF: "range_bitwise_and",
+        ARGS: "left: int, right: int",
+        RETURN: "int",
+    },
+
+    "bitwise_reverse_bits": {
+        TYPE: "function",
+        DEF: "reverse_bits",
+        ARGS: "n: int",
+        RETURN: "int",
+    },
+
+    "bitwise_single_number": {
+        TYPE: "function",
+        DEF: "single_number",
+        ARGS: "nums: list[int]",
+        RETURN: "int",
+    },
+
+    "bitwise_single_number_2": {
+        TYPE: "function",
+        DEF: "single_number_2",
+        ARGS: "nums: list[int]",
+        RETURN: "int",
+    },
+
+    # Heap
+
+    "heap_merge_sorted_arrays": {
+        TYPE: "function",
+        DEF: "merge_sorted_arrays",
+        ARGS: "arrays: list[list[int]]",
+        RETURN: "list[int]",
+    },
+
+    "heap_sort_k_increasing_decreasing_array": {
+        TYPE: "function",
+        DEF: "sort_k_increasing_decreasing_array",
+        ARGS: "A: list[int]",
+        RETURN: "None",
+    },
+
+    "heap_find_closest_k_stars": {
+        TYPE: "function",
+        DEF: "find_closest_k_stars",
+        ARGS: "stars: list[list[int]], k: int",
+        RETURN: "list[list[int]]",
+    },
+
+    "heap_sort_approximately_sorted_array": {
+        TYPE: "function",
+        DEF: "sort_approximately_sorted_array",
+        ARGS: "sequence: list[int], k: int",
+        RETURN: "None",
+    },
+
+    "heap_online_median": {
+        TYPE: "function",
+        DEF: "online_median",
+        ARGS: "sequence: list[int]",
+        RETURN: "list[float]",
+    },
+
+    "heap_k_largest_in_binary_heap": {
+        TYPE: "function",
+        DEF: "k_largest_in_binary_heap",
+        ARGS: "A: list[int], k: int",
+        RETURN: "list[int]",
+    },
+
+    # Graph
+
+    "graph_filled_surrounded_region": {
+        TYPE: "function",
+        DEF: "filled_surrounded_region",
+        ARGS: "board: list[list[str]], w: str, b: str",
+        RETURN: "None",
+    },
+
+    "graph_flip_color": {
+        TYPE: "function",
+        DEF: "flip_color",
+        ARGS: "A: list[list[int]], row: int, col: int",
+        RETURN: "None",
+    },
+
+    "graph_search_maze": {
+        TYPE: "function",
+        DEF: "search_maze",
+        ARGS: "maze: list[list[int]], start: tuple[int, int], end: tuple[int, int]",
+        RETURN: "list[tuple[int, int]]",
+    },
+
+    # Map
+
+    "map_can_perform_palindrome": {
+        TYPE: "function",
+        DEF: "can_perform_palindrome",
+        ARGS: "s: str",
+        RETURN: "bool",
+    },
+
+    "map_find_all_substrings": {
+        TYPE: "function",
+        DEF: "find_all_substrings",
+        ARGS: "s: str, words: list[str]",
+        RETURN: "list[int]",
+    },
+
+    "map_find_nearest_repetition": {
+        TYPE: "function",
+        DEF: "find_nearest_repetition",
+        ARGS: "paragraph: list[str]",
+        RETURN: "int",
+    },
+
+    "map_find_smallest_sequentially_covering_set": {
+        TYPE: "function",
+        DEF: "find_smallest_sequentially_covering_set",
+        ARGS: "paragraph: list[str], keywords: list[str]",
+        RETURN: "list[int]",
+    },
+
+    "map_find_smallest_subarray_covering_set": {
+        TYPE: "function",
+        DEF: "find_smallest_subarray_covering_set",
+        ARGS: "paragraph: list[str], keywords: list[str]",
+        RETURN: "list[int]",
+    },
+
+    "map_is_letter_constructible_from_magazine": {
+        TYPE: "function",
+        DEF: "is_letter_constructible_from_magazine",
+        ARGS: "letter: str, magazine: str",
+        RETURN: "bool",
+    },
+
+    "map_longest_contained_range": {
+        TYPE: "function",
+        DEF: "longest_contained_range",
+        ARGS: "A: list[int]",
+        RETURN: "int",
+    },
+
+    "map_longest_subarray_with_distinct_entries": {
+        TYPE: "function",
+        DEF: "longest_subarray_with_distinct_entries",
+        ARGS: "A: list[str]",
+        RETURN: "int",
+    },
+
+    "map_test_collatz_conjecture": {
+        TYPE: "function",
+        DEF: "test_collatz_conjecture",
+        ARGS: "n: int",
+        RETURN: "bool",
     },
 }
 
