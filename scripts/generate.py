@@ -49,14 +49,20 @@ def {props[dsa.DEF]}({props[dsa.ARGS]}) -> {return_type}:
     '''
 
 def generate_class(props):
+    params = ""
+    if props[dsa.PROPERTIES]:
+        params = ", " + ", ".join(
+            f"{m[dsa.NAME]}={m[dsa.VALUE]}" for m in props[dsa.PROPERTIES]
+        )
+
     content = f'''
 class {props[dsa.DEF]}():
-    def __init__(self) -> None:
+    def __init__(self{params}) -> None:
     '''
 
     for member in props[dsa.PROPERTIES]:
         content += f'''
-        self.{member[dsa.NAME]} = {member[dsa.VALUE]}
+        self.{member[dsa.NAME]} = {member[dsa.NAME]}
         '''
 
     content += f'''

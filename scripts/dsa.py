@@ -679,7 +679,7 @@ modules = {
     "dsa_lru": {
         TYPE: "class",
         DEF: "LRU",
-        PROPERTIES: [],
+        PROPERTIES: [{NAME: "capacity", VALUE: '0'}],
         METHODS: [{
             DEF: "get",
             ARGS: "key: str",
