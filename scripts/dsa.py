@@ -19,7 +19,7 @@ LIST_INTERFACE = [{
     ARGS: "item",
     RETURN: "None",
 }, {
-    DEF: "insertAt",
+    DEF: "insert_at",
     ARGS: "item, idx",
     RETURN: "None",
 }, {
@@ -35,7 +35,7 @@ LIST_INTERFACE = [{
     ARGS: "idx",
     RETURN: "None",
 }, {
-    DEF: "removeAt",
+    DEF: "remove_at",
     ARGS: "idx",
     RETURN: "None",
 }]
