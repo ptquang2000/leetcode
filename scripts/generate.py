@@ -40,13 +40,13 @@ def generate_method(props):
     request_pkgs = ''
     if dsa.IMPORT in props:
         for pkg in props[dsa.IMPORT]:
-            request_pkgs += f"{pkg}\n"
+            request_pkgs += f"{pkg}{'\n' if pkg else ''}"
 
     return f'''{request_pkgs}
-
 def {props[dsa.DEF]}({props[dsa.ARGS]}) -> {return_type}:
     {return_val}
-    '''
+
+'''
 
 def generate_class(props):
     params = ""
@@ -58,31 +58,28 @@ def generate_class(props):
     content = f'''
 class {props[dsa.DEF]}():
     def __init__(self{params}) -> None:
-    '''
+'''
 
     for member in props[dsa.PROPERTIES]:
-        content += f'''
-        self.{member[dsa.NAME]} = {member[dsa.NAME]}
-        '''
+        content += f'''        self.{member[dsa.NAME]} = {member[dsa.NAME]}
+'''
+    content += f'''        return
 
-    content += f'''
-        return
-    '''
+'''
 
     if dsa.METHODS in props:
         for method in props[dsa.METHODS]:
             args = f", {method[dsa.ARGS]}" if len(method[dsa.ARGS]) else ''
-            content += f'''
-    def {method[dsa.DEF]}(self{args}):
+            content += f'''    def {method[dsa.DEF]}(self{args}):
         return
-            '''
+
+'''
     return content
 
 
 def add_import_pkg(pkg, att):
-    return f'''
-from {today_dir}.{pkg} import {att}
-    '''
+    return f'''from {today_dir}.{pkg} import {att}
+'''
 
 # NOTE: generate day{nth}/*.py
 os.chdir(today_path)
