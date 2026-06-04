@@ -106,7 +106,6 @@ matrix2 = [
     [0, 0, 0, 1, 0, 0, 1],
 ]
 
-
 class TestDSA(unittest.TestCase):
     def test_binary_search(self):
         foo = [1, 3, 4, 69, 71, 81, 90, 99, 420, 1337, 69420]
@@ -460,6 +459,33 @@ class TestDSA(unittest.TestCase):
     def test_graph_matrix_bfs(self):
         self.assertEqual(graph_matrix_bfs(matrix2, 0, 6), [0, 1, 4, 5, 6])
         self.assertIsNone(graph_matrix_bfs(matrix2, 6, 0))
+        self.assertEqual(graph_matrix_bfs(matrix2, 0, 0), [0])
+        self.assertEqual(graph_matrix_bfs(matrix2, 3, 3), [3])
+        self.assertIsNone(graph_matrix_bfs(matrix2, 3, 0))
+        self.assertIsNone(graph_matrix_bfs(matrix2, 1, 0))
+
+        matrix_direct = [[0, 1], [0, 0]]
+        self.assertEqual(graph_matrix_bfs(matrix_direct, 0, 1), [0, 1])
+
+        matrix_sparse = [[0, 1, 0, 0], [0, 0, 0, 0], [0, 0, 0, 1], [0, 0, 0, 0]]
+        self.assertIsNone(graph_matrix_bfs(matrix_sparse, 0, 3))
+        self.assertIsNone(graph_matrix_bfs(matrix_sparse, 1, 2))
+
+        matrix_fork = [[0, 1, 1, 0], [0, 0, 0, 1], [0, 0, 0, 1], [0, 0, 0, 0]]
+        path = graph_matrix_bfs(matrix_fork, 0, 3)
+        self.assertEqual(len(path), 3)
+        self.assertEqual(path[0], 0)
+        self.assertEqual(path[-1], 3)
+
+        self.assertEqual(graph_matrix_bfs([[0]], 0, 0), [0])
+
+        matrix_zero = [[0, 0, 1], [0, 0, 1], [0, 0, 0]]
+        self.assertIsNone(graph_matrix_bfs(matrix_zero, 0, 1))
+        self.assertEqual(graph_matrix_bfs(matrix_zero, 0, 2), [0, 2])
+
+        matrix_cyclic = [[0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1], [1, 0, 0, 0]]
+        self.assertEqual(len(graph_matrix_bfs(matrix_cyclic, 0, 3)), 4)
+        self.assertEqual(graph_matrix_bfs(matrix_cyclic, 0, 3), [0, 1, 2, 3])
 
     def test_dijkstra_list(self):
         self.assertEqual(dijkstra_list(list1, 0, 6), [0, 1, 4, 5, 6])
