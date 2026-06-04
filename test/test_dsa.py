@@ -115,11 +115,19 @@ class TestDSA(unittest.TestCase):
         self.assertFalse(binary_search(foo, 69421))
         self.assertTrue(binary_search(foo, 1))
         self.assertFalse(binary_search(foo, 0))
+        self.assertFalse(binary_search([], 0))
+        self.assertTrue(binary_search([5], 5))
+        self.assertFalse(binary_search([5], 3))
+        self.assertTrue(binary_search([1, 2], 1))
+        self.assertTrue(binary_search([1, 2], 2))
 
     def test_bt_bfs(self):
         self.assertTrue(bt_bfs(tree, 45))
         self.assertTrue(bt_bfs(tree, 7))
         self.assertFalse(bt_bfs(tree, 69))
+        self.assertTrue(bt_bfs(tree, 20))
+        self.assertTrue(bt_bfs(tree, 100))
+        self.assertFalse(bt_bfs(tree, 9999))
 
     def test_bt_in_order(self):
         self.assertEqual(in_order_search(tree), [5, 7, 10, 15, 20, 29, 30, 45, 50, 100])
@@ -156,6 +164,9 @@ class TestDSA(unittest.TestCase):
     def test_compare_binary_trees(self):
         self.assertTrue(compare(tree, tree))
         self.assertFalse(compare(tree, tree2))
+        self.assertTrue(compare(None, None))
+        self.assertFalse(compare(tree, None))
+        self.assertFalse(compare(None, tree))
 
     def test_doubly_linked_list(self):
         lst = DoublyLinkedList()
@@ -328,6 +339,9 @@ class TestDSA(unittest.TestCase):
         self.assertFalse(linear_search(foo, 69421))
         self.assertTrue(linear_search(foo, 1))
         self.assertFalse(linear_search(foo, 0))
+        self.assertFalse(linear_search([], 0))
+        self.assertTrue(linear_search([5], 5))
+        self.assertFalse(linear_search([5], 3))
 
     @staticmethod
     def _draw_path(data, path):
@@ -366,6 +380,18 @@ class TestDSA(unittest.TestCase):
         result = solve(maze, 'x', {'x': 0, 'y': 10}, {'x': 5, 'y': 1})
         self.assertEqual(self._draw_path(maze, result), self._draw_path(maze, maze_result))
 
+        # start equals end
+        self.assertEqual(solve(['x'], 'x', {'x': 0, 'y': 0}, {'x': 0, 'y': 0}), [{'x': 0, 'y': 0}])
+
+        # no wall, open field
+        open_maze = ["...", "...", "..."]
+        result = solve(open_maze, '#', {'x': 0, 'y': 0}, {'x': 2, 'y': 2})
+        self.assertEqual(result[0], {'x': 0, 'y': 0})
+        self.assertEqual(result[-1], {'x': 2, 'y': 2})
+
+        # single cell maze
+        self.assertEqual(solve(['.'], '#', {'x': 0, 'y': 0}, {'x': 0, 'y': 0}), [{'x': 0, 'y': 0}])
+
     def test_queue(self):
         queue = Queue()
         queue.enqueue(5)
@@ -383,6 +409,9 @@ class TestDSA(unittest.TestCase):
         queue.enqueue(69)
         self.assertEqual(queue.peek(), 69)
         self.assertEqual(queue.length, 1)
+        self.assertEqual(queue.deque(), 69)
+        self.assertEqual(queue.deque(), None)
+        self.assertIsNone(queue.peek())
 
     def test_quick_sort(self):
         arr = [9, 3, 7, 4, 69, 420, 42]
@@ -417,17 +446,27 @@ class TestDSA(unittest.TestCase):
         stack.push(69)
         self.assertEqual(stack.peek(), 69)
         self.assertEqual(stack.length, 1)
+        self.assertEqual(stack.pop(), 69)
+        self.assertIsNone(stack.peek())
 
     def test_two_crystal_balls(self):
         idx = random.randrange(0, 10000)
         data = [i >= idx for i in range(0, 10000)]
         self.assertEqual(two_crystal_balls(data), idx)
         self.assertEqual(two_crystal_balls([False for i in range(0, 821)]), -1)
+        self.assertEqual(two_crystal_balls([True]), 0)
+        self.assertEqual(two_crystal_balls([False]), -1)
+        self.assertEqual(two_crystal_balls([False, True]), 1)
+        self.assertEqual(two_crystal_balls([True, True]), 0)
 
     def test_bst_dfs(self):
         self.assertTrue(bst_dfs(tree, 45))
         self.assertTrue(bst_dfs(tree, 7))
         self.assertFalse(bst_dfs(tree, 69))
+        self.assertTrue(bst_dfs(tree, 20))
+        self.assertTrue(bst_dfs(tree, 5))
+        self.assertTrue(bst_dfs(tree, 100))
+        self.assertFalse(bst_dfs(tree, 21))
 
     def test_min_heap(self):
         h = MinHeap()
@@ -455,6 +494,14 @@ class TestDSA(unittest.TestCase):
     def test_graph_list_dfs(self):
         self.assertEqual(graph_list_dfs(list2, 0, 6), [0, 1, 4, 5, 6])
         self.assertIsNone(graph_list_dfs(list2, 6, 0))
+        self.assertEqual(graph_list_dfs(list2, 0, 0), [0])
+        self.assertEqual(graph_list_dfs(list2, 6, 6), [6])
+        self.assertEqual(graph_list_dfs(list2, 0, 1), [0, 1])
+        self.assertEqual(graph_list_dfs(list1, 0, 1), [0, 1])
+        self.assertEqual(graph_list_dfs(list1, 0, 2), [0, 2])
+        self.assertEqual(graph_list_dfs(list1, 1, 5), [1, 4, 5])
+        self.assertEqual(graph_list_dfs([[]], 0, 0), [0])
+        self.assertEqual(graph_list_dfs([[]], 0, 1), [])
 
     def test_graph_matrix_bfs(self):
         self.assertEqual(graph_matrix_bfs(matrix2, 0, 6), [0, 1, 4, 5, 6])
@@ -488,7 +535,80 @@ class TestDSA(unittest.TestCase):
         self.assertEqual(graph_matrix_bfs(matrix_cyclic, 0, 3), [0, 1, 2, 3])
 
     def test_dijkstra_list(self):
+        # defines
+        chain = [[(1,2)],[(0,2),(2,3)],[(1,3),(3,1)],[(2,1),(4,5)],[(3,5)]]
+        star = [[(1,1),(2,1),(3,1),(4,1)],[(0,1)],[(0,1)],[(0,1)],[(0,1)]]
+        two_node = [[(1,10)],[(0,10)]]
+        disconnected = [[(1,1)],[(0,1)],[(3,1)],[(2,1)]]
+        zero_graph = [[(1,0),(2,5)],[(2,0)],[]]
+        dense = [[(1,2),(2,8),(3,3)],[(0,2),(2,1),(3,6)],[(0,8),(1,1),(3,4)],[(0,3),(1,6),(2,4)]]
+        equal_costs = [[(1,5),(2,5)],[(3,5)],[(3,5)],[]]
+        isolated = [[],[(2,1)],[]]
+        self_loop = [[(0,1)]]
+        single_none = [[]]
+
+        # base case from problem statement
         self.assertEqual(dijkstra_list(list1, 0, 6), [0, 1, 4, 5, 6])
+
+        # source equals sink
+        self.assertEqual(dijkstra_list(list1, 0, 0), [0])
+        self.assertEqual(dijkstra_list(list1, 5, 5), [5])
+        self.assertEqual(dijkstra_list(chain, 0, 0), [0])
+        self.assertEqual(dijkstra_list(star, 0, 0), [0])
+        self.assertEqual(dijkstra_list(two_node, 1, 1), [1])
+
+        # direct neighbor
+        self.assertEqual(dijkstra_list(list1, 0, 1), [0, 1])
+        self.assertEqual(dijkstra_list(list1, 4, 5), [4, 5])
+        self.assertEqual(dijkstra_list(two_node, 0, 1), [0, 1])
+        self.assertEqual(dijkstra_list(chain, 0, 1), [0, 1])
+
+        # multi-hop paths
+        self.assertEqual(dijkstra_list(list1, 1, 5), [1, 4, 5])
+        self.assertEqual(dijkstra_list(list1, 3, 1), [3, 6, 5, 4, 1])
+
+        # different graph structure (list2)
+        self.assertEqual(dijkstra_list(list2, 0, 3), [0, 2, 3])
+        self.assertEqual(dijkstra_list(list2, 0, 6), [0, 1, 4, 5, 6])
+
+        # alternative source in list1
+        self.assertEqual(dijkstra_list(list1, 4, 2), [4, 1, 2])
+        self.assertEqual(dijkstra_list(list1, 6, 0), [6, 5, 4, 1, 0])
+
+        # chain graph
+        self.assertEqual(dijkstra_list(chain, 0, 4), [0, 1, 2, 3, 4])
+        self.assertEqual(dijkstra_list(chain, 2, 4), [2, 3, 4])
+
+        # star graph
+        self.assertEqual(dijkstra_list(star, 1, 3), [1, 0, 3])
+        self.assertEqual(dijkstra_list(star, 2, 4), [2, 0, 4])
+        self.assertEqual(dijkstra_list(star, 0, 4), [0, 4])
+
+        # dense graph
+        self.assertEqual(dijkstra_list(dense, 0, 2), [0, 1, 2])
+        self.assertEqual(dijkstra_list(dense, 0, 3), [0, 3])
+        self.assertIn(dijkstra_list(dense, 1, 3), [[1, 0, 3], [1, 2, 3]])
+
+        # equal-cost paths
+        self.assertIn(dijkstra_list(equal_costs, 0, 3), [[0, 1, 3], [0, 2, 3]])
+
+        # zero-weight edges
+        self.assertEqual(dijkstra_list(zero_graph, 0, 2), [0, 1, 2])
+
+        # self-loop single node
+        self.assertEqual(dijkstra_list(self_loop, 0, 0), [0])
+
+        # single node with no edges
+        self.assertEqual(dijkstra_list(single_none, 0, 0), [0])
+
+        # --- cases that fail with current implementation ---
+
+        self.assertEqual(dijkstra_list(disconnected, 0, 3), [])
+        self.assertEqual(dijkstra_list(list2, 1, 0), [])
+        self.assertEqual(dijkstra_list(isolated, 0, 1), [])
+        self.assertEqual(dijkstra_list([], 0, 0), [])
+        self.assertEqual(dijkstra_list(two_node, 5, 0), [])
+        self.assertEqual(dijkstra_list(two_node, 0, 5), [])
 
     def test_lru(self):
         lru = LRU(3)

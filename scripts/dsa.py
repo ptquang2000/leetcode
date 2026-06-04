@@ -659,21 +659,21 @@ modules = {
         TYPE: "function",
         DEF: "graph_list_dfs",
         ARGS: "graph: list[list[tuple[int, int]]], source: int, needle: int",
-        RETURN: "list[int] | None",
+        RETURN: "list[int]",
     },
 
     "dsa_graph_matrix_bfs": {
         TYPE: "function",
         DEF: "graph_matrix_bfs",
         ARGS: "matrix: list[list[int]], source: int, needle: int",
-        RETURN: "list[int] | None",
+        RETURN: "list[int]",
     },
 
     "dsa_dijkstra_list": {
         TYPE: "function",
         DEF: "dijkstra_list",
         ARGS: "graph: list[list[tuple[int, int]]], source: int, sink: int",
-        RETURN: "list[int] | None",
+        RETURN: "list[int]",
     },
 
     "dsa_lru": {
